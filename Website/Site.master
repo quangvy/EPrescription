@@ -1,0 +1,254 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Esteem Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+		function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/component.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/export.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/flipclock.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/circles.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+
+    <!-- font-awesome-icons -->
+    <link href="css/font-awesome.css" rel="stylesheet">
+    <!-- //font-awesome-icons -->
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <!-- banner -->
+            <div class="wthree_agile_admin_info">
+                <!-- /w3_agileits_top_nav-->
+                <!-- /nav-->
+                <div class="w3_agileits_top_nav">
+                    <ul id="gn-menu" class="gn-menu-main">
+                        <!-- /nav_agile_w3l -->
+                        <li class="gn-trigger">
+                            <a class="gn-icon gn-icon-menu"><i class="fa fa-bars" aria-hidden="true"></i><span>Menu</span></a>
+                            <nav class="gn-menu-wrapper">
+                                <div class="gn-scroller scrollbar1" tabindex="5000" style="overflow: hidden; outline: none;">
+                                    <ul class="gn-menu agile_menu_drop">
+                                        <li><a href="main-page.html"><i class="fa fa-tachometer"></i>Dashboard</a></li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-cogs" aria-hidden="true"></i>UI Components <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <ul class="gn-submenu">
+                                                <li class="mini_list_agile"><a href="buttons.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Buttons</a></li>
+                                                <li class="mini_list_w3"><a href="grids.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Grids</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-file-text-o" aria-hidden="true"></i>Forms <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <ul class="gn-submenu">
+                                                <li class="mini_list_agile"><a href="input.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Inputs</a></li>
+                                                <li class="mini_list_w3"><a href="validation.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Validation</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="table.html"><i class="fa fa-table" aria-hidden="true"></i>Tables</a></li>
+                                        <li><a href="#"><i class="fa fa-list" aria-hidden="true"></i>Short Codes <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <ul class="gn-submenu">
+                                                <li class="mini_list_agile"><a href="typo.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Typography</a></li>
+                                                <li class="mini_list_w3"><a href="icons.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Icons</a></li>
+
+                                            </ul>
+                                        </li>
+
+                                        <li><a href="charts.html"><i class="fa fa-line-chart" aria-hidden="true"></i>Charts</a></li>
+                                        <li><a href="maps.html"><i class="fa fa-map-o" aria-hidden="true"></i>Maps</a></li>
+                                        <li class="page">
+                                            <a href="#"><i class="fa fa-files-o" aria-hidden="true"></i>Pages <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <ul class="gn-submenu">
+
+                                                <li class="mini_list_agile"><a href="signin.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Sign In</a></li>
+                                                <li class="mini_list_w3"><a href="signup.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Sign Up</a></li>
+                                                <li class="mini_list_agile error"><a href="404.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Error 404 </a></li>
+
+                                                <li class="mini_list_w3_line"><a href="calendar.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Calendar</a></li>
+                                            </ul>
+                                        </li>
+                                        <li>
+                                            <a href="#"><i class="fa fa-suitcase" aria-hidden="true"></i>More <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                            <ul class="gn-submenu">
+                                                <li class="mini_list_agile"><a href="faq.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Faq</a></li>
+                                                <li class="mini_list_w3"><a href="blank.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Blank Page</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <!-- /gn-scroller -->
+                                <div id="ascrail2001" class="nicescroll-rails" style="width: 6px; z-index: 999; background: rgb(255, 255, 255); cursor: default; position: absolute; top: 0px; left: 277px; height: 306px; display: block;">
+                                    <div style="position: relative; top: 0px; float: right; width: 6px; height: 217px; background-color: rgb(74, 156, 253); border: 0px; background-clip: padding-box; border-radius: 0px;"></div>
+                                </div>
+                                <div id="ascrail2001-hr" class="nicescroll-rails" style="height: 6px; z-index: 999; background: rgb(255, 255, 255); top: 300px; left: 0px; position: absolute; cursor: default; display: none; width: 277px;">
+                                    <div style="position: relative; top: 0px; height: 6px; width: 283px; background-color: rgb(74, 156, 253); border: 0px; background-clip: padding-box; border-radius: 0px; left: 0px;"></div>
+                                </div>
+                            </nav>
+                        </li>
+                        <!-- //nav_agile_w3l -->
+                        <li class="header logo" style="border: 0;padding: 0 20px;margin-top: -5px;">
+                            <img alt="logo" src="images/logo.png" style="height: 70px; border: 0;"/>
+                        </li>
+                        <li class="second logo">
+                            <h1><a href="main-page.html"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Electronic Prescription </a></h1>
+                        </li>
+                        <li class="second admin-pic">
+                            <ul class="top_dp_agile">
+                                <li class="dropdown profile_details_drop">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                                        <div class="profile_img">
+                                            <span class="prfil-img">
+                                                <img src="images/admin.jpg" alt="">
+                                            </span>
+                                        </div>
+                                    </a>
+                                    <ul class="dropdown-menu drp-mnu">
+                                        <li><a href="#"><i class="fa fa-cog"></i>Settings</a> </li>
+                                        <li><a href="#"><i class="fa fa-user"></i>Profile</a> </li>
+                                        <li><a href="#"><i class="fa fa-sign-out"></i>Logout</a> </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                    </ul>
+                    <!-- //nav -->
+
+                </div>
+                <div class="borderDiv" style="height: 20px; width: 100%; background-color: #008066; position: fixed; top: 60px;">
+                </div>
+                <div class="clearfix"></div>
+                <!-- //w3_agileits_top_nav-->
+                <!-- /inner_content-->
+                <div class="inner_content">
+                    <!-- /inner_content_w3_agile_info-->
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                    </asp:ContentPlaceHolder>
+                    <!-- //inner_content_w3_agile_info-->
+                </div>
+                <!-- //inner_content-->
+            </div>
+            <!-- banner -->
+            <!--copy rights start here-->
+            <div class="copyrights">
+                <p>© 2017 Esteem. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+            </div>
+            <!--copy rights end here-->
+            <!-- js -->
+
+            <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+
+            <script src="js/classie.js"></script>
+            <script src="js/gnmenu.js"></script>
+            <script>
+                new gnMenu(document.getElementById('gn-menu'));
+            </script>
+            <!-- script-for-menu -->
+
+            <!-- /circle-->
+            <script type="text/javascript" src="js/circles.js"></script>
+            <script>
+                var colors = [
+                        ['#ffffff', '#fd9426'], ['#ffffff', '#fc3158'], ['#ffffff', '#53d769'], ['#ffffff', '#147efb']
+                ];
+                for (var i = 1; i <= 7; i++) {
+                    var child = document.getElementById('circles-' + i),
+                        percentage = 30 + (i * 10);
+
+                    Circles.create({
+                        id: child.id,
+                        percentage: percentage,
+                        radius: 80,
+                        width: 10,
+                        number: percentage / 1,
+                        text: '%',
+                        colors: colors[i - 1]
+                    });
+                }
+
+            </script>
+            <!-- //circle -->
+            <!--skycons-icons-->
+            <script src="js/skycons.js"></script>
+            <script>
+                var icons = new Skycons({ "color": "#fcb216" }),
+                     list = [
+                       "partly-cloudy-day"
+                     ],
+                     i;
+
+                for (i = list.length; i--;)
+                    icons.set(list[i], list[i]);
+                icons.play();
+            </script>
+            <script>
+                var icons = new Skycons({ "color": "#fff" }),
+                     list = [
+                       "clear-night", "partly-cloudy-night", "cloudy", "clear-day", "sleet", "snow", "wind", "fog"
+                     ],
+                     i;
+
+                for (i = list.length; i--;)
+                    icons.set(list[i], list[i]);
+                icons.play();
+            </script>
+            <!--//skycons-icons-->
+            <!-- //js -->
+            <script src="js/screenfull.js"></script>
+            <script>
+                $(function () {
+                    $('#supported').text('Supported/allowed: ' + !!screenfull.enabled);
+
+                    if (!screenfull.enabled) {
+                        return false;
+                    }
+
+
+
+                    $('#toggle').click(function () {
+                        screenfull.toggle($('#container')[0]);
+                    });
+                });
+            </script>
+            <script src="js/flipclock.js"></script>
+
+            <script type="text/javascript">
+                var clock;
+
+                $(document).ready(function () {
+
+                    clock = $('.clock').FlipClock({
+                        clockFace: 'HourlyCounter'
+                    });
+                });
+            </script>
+            <script src="js/bars.js"></script>
+            <script src="js/jquery.nicescroll.js"></script>
+            <script src="js/scripts.js"></script>
+            <div id="ascrail2000" class="nicescroll-rails" style="width: 6px; z-index: 1000; background: rgb(255, 255, 255); cursor: default; position: fixed; top: 0px; height: 100%; right: 0px; opacity: 0; display: none;">
+                <div style="position: relative; top: 0px; float: right; width: 6px; height: 0px; background-color: rgb(74, 156, 253); border: 0px; background-clip: padding-box; border-radius: 10px;"></div>
+            </div>
+            <div id="ascrail2000-hr" class="nicescroll-rails" style="height: 6px; z-index: 1000; background: rgb(255, 255, 255); position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0;">
+                <div style="position: relative; top: 0px; height: 6px; width: 0px; background-color: rgb(74, 156, 253); border: 0px; background-clip: padding-box; border-radius: 10px; left: 0px;"></div>
+            </div>
+
+            <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+        </div>
+    </form>
+</body>
+</html>
