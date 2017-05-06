@@ -44,12 +44,16 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Telerik.Web.UI">
+      <HintPath>..\..\..\Pernal\Self pace learning\Prescription\Prescription\bin\Telerik.Web.UI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helper\DataUtils.cs" />
     <Compile Include="Helper\GenericHelper.cs" />
     <Compile Include="Helper\Security.cs" />
     <Compile Include="Helper\SqlHelper.cs" />
+    <Compile Include="PatientActivation.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -5,3 +5,12 @@ D:\ElectronicPrescription\Data\bin\Debug\Dapper.dll
 D:\ElectronicPrescription\Data\bin\Debug\Dapper.xml
 D:\ElectronicPrescription\Data\obj\Debug\Data.dll
 D:\ElectronicPrescription\Data\obj\Debug\Data.pdb
+D:\Work\EPrescription\Data\obj\Debug\Data.csprojResolveAssemblyReference.cache
+D:\Work\EPrescription\Data\obj\Debug\Data.dll
+D:\Work\EPrescription\Data\obj\Debug\Data.pdb
+D:\Work\EPrescription\Data\bin\Debug\Data.dll
+D:\Work\EPrescription\Data\bin\Debug\Data.pdb
+D:\Work\EPrescription\Data\bin\Debug\Dapper.dll
+D:\Work\EPrescription\Data\bin\Debug\Dapper.xml
+D:\Work\EPrescription\Data\bin\Debug\Telerik.Web.UI.dll
+D:\Work\EPrescription\Data\bin\Debug\Telerik.Web.UI.xml

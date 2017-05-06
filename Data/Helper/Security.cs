@@ -29,6 +29,5 @@ namespace Data.Helper
             return HttpContext.Current.User.IsInRole(role);
         }
 
-        public static string CurrentLoggedInUserName => System.Web.HttpContext.Current.User.Identity.Name;
     }
 }
