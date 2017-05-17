@@ -49,13 +49,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Diag_Telerik.cs" />
     <Compile Include="Helper\DataUtils.cs" />
     <Compile Include="Helper\GenericHelper.cs" />
     <Compile Include="Helper\Security.cs" />
     <Compile Include="Helper\SqlHelper.cs" />
+    <Compile Include="Drug.cs" />
     <Compile Include="PatientActivation.cs" />
+    <Compile Include="ScriptServiceAttribute.cs" />
+    <Compile Include="Diag.cs" />
     <Compile Include="UserInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebMethodAttribute.cs" />
+    <Compile Include="WebService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
