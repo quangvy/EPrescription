@@ -1,0 +1,122 @@
+﻿#PageE {
+    margin: 0 0 10px 0;
+    padding: 0;
+    height: 170px;
+    clear: both;
+    overflow: hidden;
+    background: transparent;
+}
+
+  div.inputE {
+        float: left;
+        height: 160px;
+        padding: 10px 20px 20px 10px;
+        box-shadow: 5px 5px 5px #888;
+        max-width: 30%;
+        border: 1px solid #aaa;
+    }
+
+            .colLabel {
+                font-size: small;
+                width: 70px;
+                float: left;
+                padding: 3px 0 0 0;
+                margin: 3px 0 3px 0;
+            }
+            .colValue {
+                font-weight: bold;
+                float: left;
+                padding: 0 0 1px 5px;
+                margin: 3px 3px 3px 0;
+                width: 160px;
+            }
+
+    #PageE div.PatInfo {
+        float: left;
+        height: 160px;
+        margin-left: 10px;
+        padding: 10px 20px 20px 10px;
+        box-shadow: 5px 5px 5px #888;
+        width: 47%;
+        border: 1px solid #aaa;
+    }
+            div.PatInfo div.title-info {
+                font-size: small;
+                width: 70px;
+                float: left;
+                padding: 3px 0 0 0;
+                margin: 3px 0 3px 0;
+            }
+            div.PatInfo div.content-info {
+                font-weight: bold;
+                float: left;
+                padding: 0 0 1px 5px;
+                border-bottom: 1px solid #000;
+                margin: 3px 3px 3px 0;
+                width: 180px;
+                text-transform: uppercase;
+            }
+            div.PatInfo div.content-infoAdd {
+                float: left;
+                padding: 0 0 1px 10px;
+                border-bottom: 1px solid #000;
+                margin: 1px 1px 1px 0;
+                width: 83%
+            }
+            div.PatInfo div.content-infoDiag {
+                float: left;
+                padding: 0 0 1px 10px;
+                width: 480px
+            }
+            div.clear {
+                clear: both;
+            }
+
+    #PageE div.Favourite {
+        float: right;
+        height: 160px;
+        padding: 10px 20px 20px 10px;
+        box-shadow: 5px 5px 5px #888;
+        width: 30%;
+        border: 1px solid #aaa;
+    }
+
+#Med {
+    
+    clear: both;
+    overflow: hidden;
+    background: transparent;
+    height: 500px;
+    font-size: smaller;
+
+  }
+    #Med div.AddMed {
+        float: left;
+        width: 69%;
+        box-shadow: 5px 5px 5px #888;        
+        border: 1px solid #aaa;
+        min-height: 100%;
+        
+    }
+        .Add {
+           padding: 10px 10px 10px 10px;
+           background-color: ivory;
+           margin: 2px;
+        }
+        .GridMed {
+            padding: 10px 10px 10px 10px;
+            margin: 2px;
+        }
+        div.SavePres {
+            padding: 10px 10px 10px 10px;
+            margin: 2px;
+        }
+
+    #Med div.LoadPres {
+        float: right;
+        min-width: 30%;
+        box-shadow: 5px 5px 5px #888;        
+        border: 1px solid #aaa;
+        min-height: 100%;
+    }
+    
