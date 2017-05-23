@@ -44,15 +44,15 @@
                 <asp:TextBox ID="tbxWeight" runat="server" Width="160px"></asp:TextBox>
             </div>
             <div class="clear"></div>
-            <div class="colLabel">Diag</div>
-           
-            <div class="colValue">
-                  
+            <div class="colLabel">TID</div>
+            <div class="colLabel">
+                <asp:Label ID="lblTID" runat="server" Width="160px">
+                </asp:Label>
             </div>
             <div class="clear"></div>
         </div>
-    
-    <div class="PatInfo">
+
+        <div class="PatInfo">
         <div class="title-info">
             First Name
         </div>
@@ -264,7 +264,7 @@
                     OnRowDeleting="OnRowDeleting" OnRowDataBound="OnRowDataBound">
                     <RowStyle BackColor="#F7F7DE" />
                     <Columns>
-                        <asp:TemplateField>
+                        <asp:TemplateField HeaderText="Edit">
                             <ItemTemplate>
                                 <asp:LinkButton runat="server" Text="Edit" CommandName="Edit"></asp:LinkButton>
                             </ItemTemplate>
@@ -273,7 +273,7 @@
                                 <asp:LinkButton ID="LinkButton2" Text="Can." runat="server" OnClick="OnCancel" />
                             </EditItemTemplate>
                         </asp:TemplateField>
-                        <asp:CommandField ShowDeleteButton="True" ButtonType="Link" />
+                        <asp:CommandField HeaderText="Del" ShowDeleteButton="True" ButtonType="Link" />
                         <asp:BoundField HeaderText="Sq" DataField="ID" ItemStyle-Width="15px" ControlStyle-Width="15" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
                         <asp:BoundField HeaderText="Drug Name" DataField="Drugname" ItemStyle-Width="300px" ControlStyle-Width="300" ReadOnly="true"></asp:BoundField>
                         <asp:BoundField HeaderText="Drug ID" DataField="DrugID" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center" ReadOnly="true"></asp:BoundField>

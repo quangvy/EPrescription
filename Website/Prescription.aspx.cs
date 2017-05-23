@@ -13,6 +13,8 @@ using System.Web.Services;
 
 public partial class Prescription : System.Web.UI.Page
 {
+    SqlConnection ePresCon = new SqlConnection(ConfigurationManager.ConnectionStrings["EPrescription"].ConnectionString);
+         
         protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -76,7 +78,8 @@ public partial class Prescription : System.Web.UI.Page
             lblAge.Text = dataTable.Rows[0]["Age"].ToString();
             lblCode.Text = dataTable.Rows[0]["patientcode"].ToString();
             lblGender.Text = dataTable.Rows[0]["Sex"].ToString();
-            lblAddress.Text = dataTable.Rows[0]["address"].ToString();            
+            lblAddress.Text = dataTable.Rows[0]["address"].ToString();  
+            lblTID.Text = dataTable.Rows[0]["TransactionId"].ToString();
         }
         else
         {
@@ -87,6 +90,7 @@ public partial class Prescription : System.Web.UI.Page
             lblCode.Text = null;
             lblGender.Text = null;
             lblAddress.Text = null;
+            lblTID.Text = null;
         }
         
     }
@@ -250,18 +254,22 @@ public partial class Prescription : System.Web.UI.Page
     }
     protected void BindGrid()
     {
-        GridView1.DataSource = (DataTable)ViewState["Medications"];
+        var dt = (DataTable)ViewState["Medications"];
+
+        foreach (DataRow dr in dt.Rows)
+        {
+            dr["ID"] = dt.Rows.IndexOf(dr) + 1;
+        }
+        GridView1.DataSource = dt;
         GridView1.DataBind();
     }
     protected void Add(object sender, EventArgs e)
     {
-        var autogen = Convert.ToInt32(ViewState["autogen"]);
-        ViewState["autogen"] = autogen + 1;
         DataTable dt = (DataTable)ViewState["Medications"];
-        dt.Rows.Add(autogen.ToString(), rcbSearchMed.Text.Trim(), lblDrugID.Text.Trim(),
+        dt.Rows.Add(1, rcbSearchMed.Text.Trim(), lblDrugID.Text.Trim(),
         lblUnit.Text.Trim(), tbxDosage.Text.Trim(), rcbFreq.Text.Trim(), tbxDuration.Text.Trim(), tbxTotalUnit.Text.ToString(),
             tbxRemark.Text.Trim());
-        ViewState["Customers"] = dt;
+        //ViewState["Customers"] = dt;
         this.BindGrid();
         Clear();
     }
@@ -333,26 +341,137 @@ public partial class Prescription : System.Web.UI.Page
     //Save Prescription to DB//
     protected void btnSave_OnClick(object sender, EventArgs e)
     {
+        //Create datatable to get data from Gridview
+        DataTable dtMed = new DataTable("ePrescriptionDetail");
+        foreach (TableCell cell in GridView1.HeaderRow.Cells)
+        {
+            dtMed.Columns.Add(cell.Text);
+        }
+        //Loop through the GridView and copy rows.
+        foreach (GridViewRow row in GridView1.Rows)
+        {
+            dtMed.Rows.Add();
+            for (int i = 0; i < row.Cells.Count; i++)
+            {
+                dtMed.Rows[row.RowIndex][i] = row.Cells[i].Text;
+            }
+        }
         //Get PrescriptionID from DB
         string sqlSelectCommand = "SELECT top 1 SUBSTRING(PrescriptionID,0,8) as DateID, SUBSTRING(PrescriptionID,11,4) as RunID from dbo.ePrescription WHERE " +
             "SUBSTRING(PrescriptionID,0,8)=SUBSTRING(REPLACE((CONVERT(NVARCHAR(9),getdate(),6)),' ','' ),0,8) order by SUBSTRING(PrescriptionID,11,4) DESC ";
         SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
             ConfigurationManager.ConnectionStrings["EPrescription"].ConnectionString);
         DataTable dataTable = new DataTable();
-        adapter.Fill(dataTable);
+        adapter.Fill(dataTable);        
         if (dataTable.Rows.Count > 0)
         {
             string CharID = dataTable.Rows[0]["DateID"].ToString();
-            int RunID = Convert.ToInt32 (dataTable.Rows[0]["RunID"].ToString()) +1;
-            string newPresID = CharID + "HCM"+ RunID.ToString().PadLeft(4, '0');
-            lblPresID.Text = newPresID.ToString();
+            int RunID = Convert.ToInt32(dataTable.Rows[0]["RunID"].ToString()) + 1;
+            string newPresID = CharID + "HCM" + RunID.ToString().PadLeft(4, '0');
+
+            string firstname = lblFirstName.Text;
+            string lastname = lblLastName.Text;
+            DateTime dob = DateTime.Parse(lblDOB.Text);
+            string age = lblAge.Text;
+            string patientcode = lblCode.Text;
+            string weight = tbxWeight.Text;
+            string gender = lblGender.Text;
+            string address = lblAddress.Text;
+            string tid = lblTID.Text;
+            string diag = cbo_DrugID.Text;
+            string doctor = "PresDoctor";
+            string remarkgen = "";
+            DateTime deliverydate = DateTime.Now;
+            DateTime createdate = DateTime.Now;
+
+            string sqlInsertMaster = "INSERT INTO dbo.ePrescription (PrescriptionID,TransactionID,PatientCode,FirstName,LastName,DeliveryDate," +
+          "CreateDate,Address,DateOfBirth,Age,Weight,Diagnosis, PrescribingDoctor,Sex,Remark,IsComplete) VALUES ('" + newPresID + "','" + tid + "','" +
+          patientcode + "','" + firstname + "','" + lastname + "','" + deliverydate + "','" + createdate + "','" + address + "','" + dob + "','" + age + "','" + weight + "','"
+          + diag + "','" + doctor + "','" + gender + "','" + remarkgen + "',1)";
+            using (SqlCommand command = new SqlCommand(sqlInsertMaster, ePresCon))
+            {
+                ePresCon.Open();
+                command.ExecuteNonQuery();
+                ePresCon.Close();
+            }
+
+            string sqlInsertDetail = "";
+            for (int i = 0; i < dtMed.Rows.Count; i++)
+            {
+                sqlInsertDetail = sqlInsertDetail + "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
+                        "Remark,Dosage,Frequency,Duration,TotalUnit)VALUES('"
+                        + newPresID + "','"
+                        + dtMed.Rows[i]["Sq"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Drug ID"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Drug Name"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Form"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Remark"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Dosage"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Frequency"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Dur."].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Total"].ToString().Trim() + "')";
+                using (SqlCommand cmd = new SqlCommand(sqlInsertDetail, ePresCon))
+                {
+                    ePresCon.Open();
+                    cmd.ExecuteNonQuery();
+                    ePresCon.Close();
+                }
+            }
         }
         if (dataTable.Rows.Count == 0)
         {
-            string CharID = DateTime.Now.ToString("ddMMMyy"); 
+            string CharID = DateTime.Now.ToString("ddMMMyy");
             int RunID = 1;
             string newPresID = CharID + "HCM" + RunID.ToString().PadLeft(4, '0');
-            lblPresID.Text = newPresID.ToString();
+            string firstname = lblFirstName.Text;
+            string lastname = lblLastName.Text;
+            DateTime dob = DateTime.Parse(lblDOB.Text);
+            string age = lblAge.Text;
+            string patientcode = lblCode.Text;
+            string weight = tbxWeight.Text;
+            string gender = lblGender.Text;
+            string address = lblAddress.Text;
+            string tid = lblTID.Text;
+            string diag = cbo_DrugID.Text;
+            string doctor = "PresDoctor";
+            string remarkgen = "";
+            DateTime deliverydate = DateTime.Now;
+            DateTime createdate = DateTime.Now;
+
+            string sqlInsertMaster = "INSERT INTO dbo.ePrescription (PrescriptionID,TransactionID,PatientCode,FirstName,LastName,DeliveryDate," +
+          "CreateDate,Address,DateOfBirth,Age,Weight,Diagnosis, PrescribingDoctor,Sex,Remark,IsComplete) VALUES ('" + newPresID + "','" + tid + "','" +
+          patientcode + "','" + firstname + "','" + lastname + "','" + deliverydate + "','" + createdate + "','" + address + "','" + dob + "','" + age + "','" + weight + "','"
+          + diag + "','" + doctor + "','" + gender + "','" + remarkgen + "',1)";
+            using (SqlCommand command = new SqlCommand(sqlInsertMaster, ePresCon))
+            {
+                ePresCon.Open();
+                command.ExecuteNonQuery();
+                ePresCon.Close();
+            }
+
+            string sqlInsertDetail = "";
+            for (int i = 0; i < dtMed.Rows.Count; i++)
+            {
+                sqlInsertDetail = sqlInsertDetail + "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
+                        "Remark,Dosage,Frequency,Duration,TotalUnit)VALUES('"
+                        + newPresID + "','"
+                        + dtMed.Rows[i]["Sq"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Drug ID"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Drug Name"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Form"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Remark"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Dosage"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Frequency"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Dur."].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Total"].ToString().Trim() + "')";
+                using (SqlCommand cmd = new SqlCommand(sqlInsertDetail, ePresCon))
+                {
+                    ePresCon.Open();
+                    cmd.ExecuteNonQuery();
+                    ePresCon.Close();
+                }
+            }
+
         }
     }
 
