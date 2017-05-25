@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Prescription.aspx.cs" Inherits="Prescription" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <link href="css/ePress.css" rel="stylesheet" />
 </asp:Content>
@@ -50,7 +51,7 @@
                 </asp:Label>
             </div>
             <div class="clear"></div>
-        </div>
+          </div>
 
         <div class="PatInfo">
         <div class="title-info">
@@ -114,13 +115,11 @@
             Diagnosis
         </div>
         <div class="content-infoDiag" id="divDiag">
-            &nbsp;
-          <%--  <telerik:RadComboBox RenderMode="Lightweight" ID="RadComboBox3" runat="server" Width="470px" Height="120"
-                    EmptyMessage="Select a Diag" DataSourceID="SqlDataSource1" DataTextField="Diag_name"
-                    DataValueField="Diag_name" EnableAutomaticLoadOnDemand="True" ItemsPerRequest="10"
-                    ShowMoreResultsBox="true" EnableVirtualScrolling="true">
-                </telerik:RadComboBox>--%>
-          <telerik:RadComboBox ID="cbo_DrugID" runat="server" Width="450px" 
+            &nbsp; 
+            <telerik:RadComboBox RenderMode="Lightweight" ID="rcbDiag" AllowCustomText="true" runat="server" Width="450" Height="400px"
+                DataSourceID="SqlDataSource1" DataTextField="diag_name" EmptyMessage="Search for diagnosis...">
+            </telerik:RadComboBox>        
+          <%--<telerik:RadComboBox ID="cbo_DrugID" runat="server" Width="450px" 
                         DropDownWidth="610px" EmptyMessage="Choose a Diag" HighlightTemplatedItems="True"
                         EnableLoadOnDemand="True" OnItemsRequested="cbo_DrugID_ItemsRequested" AutoPostBack="True"
                         TabIndex="10" >
@@ -148,12 +147,13 @@
                                 </tr>
                             </table>
                         </ItemTemplate>
-                    </telerik:RadComboBox>  
+                    </telerik:RadComboBox>  --%>
         </div>
         <div class="clear">
         </div>
     </div>
-
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CMS %>"
+            SelectCommand="SELECT top 100 Diag_code, Diag_code+' - ' + diag_name as diag_name FROM [diag_list] ORDER BY [diag_name]"></asp:SqlDataSource>
     <div class="Favourite">
         Favourite
     </div>

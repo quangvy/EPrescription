@@ -27,6 +27,7 @@ public partial class Prescription : System.Web.UI.Page
                 , new DataColumn("Duration"), new DataColumn("TotalUnit"),new DataColumn("Remark")});
             ViewState["Medications"] = dt;
             this.BindGrid();
+            rcbDiag.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
         }
     }
     
@@ -139,31 +140,31 @@ public partial class Prescription : System.Web.UI.Page
 
     //    return data;
     //}
-    protected void cbo_DrugID_ItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
-    {
-        string sqlSelectCommand = "SELECT top diag_code, diag_name from diag_listShort where diag_code like '%' + @text +'%' or diag_name like '%' + @text +'%'";
+    //protected void cbo_DrugID_ItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
+    //{
+    //    string sqlSelectCommand = "SELECT top diag_code, diag_name from diag_listShort where diag_code like '%' + @text +'%' or diag_name like '%' + @text +'%'";
 
-        SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
-            ConfigurationManager.ConnectionStrings["CMS"].ConnectionString);
-        adapter.SelectCommand.Parameters.AddWithValue("@text", e.Text);
-        DataTable dataTable = new DataTable();
-        adapter.Fill(dataTable);
-        foreach (DataRow dataRow in dataTable.Rows)
-        {
-            RadComboBoxItem item = new RadComboBoxItem();
-            item.Text = (string)dataRow["Diag_name"];
-            item.Value = (string)dataRow["Diag_name"];
+    //    SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
+    //        ConfigurationManager.ConnectionStrings["CMS"].ConnectionString);
+    //    adapter.SelectCommand.Parameters.AddWithValue("@text", e.Text);
+    //    DataTable dataTable = new DataTable();
+    //    adapter.Fill(dataTable);
+    //    foreach (DataRow dataRow in dataTable.Rows)
+    //    {
+    //        RadComboBoxItem item = new RadComboBoxItem();
+    //        item.Text = (string)dataRow["Diag_name"];
+    //        item.Value = (string)dataRow["Diag_name"];
 
-            string diag = (string)dataRow["diag_code"] +"-"+ (string)dataRow["diag_name"];
-            string diag_code = (string)dataRow["diag_code"];
+    //        string diag = (string)dataRow["diag_code"] +"-"+ (string)dataRow["diag_name"];
+    //        string diag_code = (string)dataRow["diag_code"];
 
-            item.Attributes.Add("diag_name", diag.ToString());
-            item.Attributes.Add("diag_code", diag_code.ToString());
+    //        item.Attributes.Add("diag_name", diag.ToString());
+    //        item.Attributes.Add("diag_code", diag_code.ToString());
 
-            RadComboBox1.Items.Add(item);
-            item.DataBind();
-        }
-    }
+    //        RadComboBox1.Items.Add(item);
+    //        item.DataBind();
+    //    }
+    //}
     protected void OnClientSelectedIndexChanged(object o, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
         string sqlSelectCommand = "SELECT top diag_code, diag_name from diag_listShort where diag_code like '%' + @text +'%' or diag_name like '%' + @text +'%'";
@@ -378,7 +379,7 @@ public partial class Prescription : System.Web.UI.Page
             string gender = lblGender.Text;
             string address = lblAddress.Text;
             string tid = lblTID.Text;
-            string diag = cbo_DrugID.Text;
+            string diag = rcbDiag.Text;
             string doctor = "PresDoctor";
             string remarkgen = "";
             DateTime deliverydate = DateTime.Now;
@@ -432,7 +433,7 @@ public partial class Prescription : System.Web.UI.Page
             string gender = lblGender.Text;
             string address = lblAddress.Text;
             string tid = lblTID.Text;
-            string diag = cbo_DrugID.Text;
+            string diag = rcbDiag.Text;
             string doctor = "PresDoctor";
             string remarkgen = "";
             DateTime deliverydate = DateTime.Now;
