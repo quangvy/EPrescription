@@ -119,41 +119,17 @@
             <telerik:RadComboBox RenderMode="Lightweight" ID="rcbDiag" AllowCustomText="true" runat="server" Width="450" Height="400px"
                 DataSourceID="SqlDataSource1" DataTextField="diag_name" EmptyMessage="Search for diagnosis...">
             </telerik:RadComboBox>        
-          <%--<telerik:RadComboBox ID="cbo_DrugID" runat="server" Width="450px" 
-                        DropDownWidth="610px" EmptyMessage="Choose a Diag" HighlightTemplatedItems="True"
-                        EnableLoadOnDemand="True" OnItemsRequested="cbo_DrugID_ItemsRequested" AutoPostBack="True"
-                        TabIndex="10" >
-                        <HeaderTemplate>
-                            <table style="width: 400px" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td style="width: 350px;">
-                                        Diag Name
-                                    </td>
-                                    <td style="width: 50px;">
-                                        Diag Code
-                                    </td>
-                                </tr>
-                            </table>
-                        </HeaderTemplate>
-                        <ItemTemplate>
-                            <table style="width: 400px" cellspacing="0" cellpadding="0">
-                                <tr>
-                                    <td style="width: 350px;">
-                                        <%# DataBinder.Eval(Container, "Text")%>
-                                    </td>
-                                    <td style="width: 50px;">
-                                        <%# DataBinder.Eval(Container, "Attributes['Diag_code']")%>
-                                    </td>
-                                </tr>
-                            </table>
-                        </ItemTemplate>
-                    </telerik:RadComboBox>  --%>
+  
         </div>
         <div class="clear">
         </div>
     </div>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CMS %>"
-            SelectCommand="SELECT top 100 Diag_code, Diag_code+' - ' + diag_name as diag_name FROM [diag_list] ORDER BY [diag_name]"></asp:SqlDataSource>
+            SelectCommand="SELECT top 100 Diag_code, Diag_code+' - ' + diag_name as diag_name FROM [diag_list] ORDER BY [diag_name]">
+        </asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
+            SelectCommand="SELECT abbre+' - ' + meaning as frequency,vn_meaning FROM [Pres_Abbre] ORDER BY [meaning]">
+        </asp:SqlDataSource>
     <div class="Favourite">
         Favourite
     </div>
@@ -215,27 +191,8 @@
                             <asp:TextBox ID="tbxDosage" runat="server" Width="50px"></asp:TextBox></td>
                         <td>
                             <telerik:RadComboBox ID="rcbFreq" Width="150px" runat="server" DropDownWidth="300"
-                                EmptyMessage="Please choose frequency" HighlightTemplatedItems="true"
-                                EnableLoadOnDemand="true"
-                                OnItemsRequested="rcbFreq_ItemsRequested"
-                                AutoPostBack="True"
-                                OnSelectedIndexChanged="rcbFreq_SelectedIndexChanged">
-                                <HeaderTemplate>
-                                    <table style="width: 300px" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td style="width: 70px;">Abbreviation</td>
-                                            <td style="width: 230px;">Meaning</td>
-                                        </tr>
-                                    </table>
-                                </HeaderTemplate>
-                                <ItemTemplate>
-                                    <table style="width: 300px" cellspacing="0" cellpadding="0">
-                                        <tr>
-                                            <td style="width: 70px;"><%# DataBinder.Eval(Container, "Attributes['Abbre']")%></td>
-                                            <td style="width: 230px;"><%# DataBinder.Eval(Container,"Attributes['Meaning']")%></td>
-                                        </tr>
-                                    </table>
-                                </ItemTemplate>
+                                RenderMode="Lightweight" AllowCustomText="true" DataSourceID="SqlDataSource2" DataTextField="frequency"
+                                EmptyMessage="Search for frequency...">
                             </telerik:RadComboBox>
                         </td>
                         <td>

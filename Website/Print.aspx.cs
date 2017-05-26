@@ -11,4 +11,9 @@ public partial class Print : System.Web.UI.Page
     {
 
     }
+
+    protected void btnView_Click(object sender, EventArgs e)
+    {
+        
+    }
 }

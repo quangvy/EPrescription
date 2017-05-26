@@ -51,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!--copy rights start here-->
             <div class="copyrights_agile">
-                <p>© 2017 Raffles Medical | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>
+                <%--<p>© 2017 Raffles Medical | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>--%>
             </div>
             <!--copy rights end here-->
         </div>

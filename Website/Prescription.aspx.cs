@@ -28,6 +28,7 @@ public partial class Prescription : System.Web.UI.Page
             ViewState["Medications"] = dt;
             this.BindGrid();
             rcbDiag.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
+            rcbFreq.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
         }
     }
     
@@ -213,28 +214,6 @@ public partial class Prescription : System.Web.UI.Page
         {
             lblDrugID.Text = dataTable.Rows[0]["DrugID"].ToString();
             lblUnit.Text = dataTable.Rows[0]["Unit"].ToString();
-        }
-    }
-    protected void rcbFreq_ItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
-    {
-        string sqlSelectCommand = "SELECT [abbre],[meaning] FROM [Pres_Abbre] WHERE abbre Like'%' + @text +'%' or meaning Like'%' + @text +'%' ORDER BY meaning";
-
-        SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
-            ConfigurationManager.ConnectionStrings["CMS"].ConnectionString);
-        adapter.SelectCommand.Parameters.AddWithValue("@text", e.Text);
-        DataTable dataTable = new DataTable();
-        adapter.Fill(dataTable);
-        foreach (DataRow dataRow in dataTable.Rows)
-        {
-            RadComboBoxItem item = new RadComboBoxItem();
-            item.Text = (string)dataRow["meaning"];
-            item.Value = (string)dataRow["meaning"];
-            string abbre = (string)dataRow["abbre"];
-            string meaning = (string)dataRow["meaning"];
-            item.Attributes.Add("Abbre", abbre.ToString());
-            item.Attributes.Add("Meaning", meaning.ToString());
-            rcbFreq.Items.Add(item);
-            item.DataBind();
         }
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
