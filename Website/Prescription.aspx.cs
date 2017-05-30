@@ -166,16 +166,16 @@ public partial class Prescription : System.Web.UI.Page
     //        item.DataBind();
     //    }
     //}
-    protected void OnClientSelectedIndexChanged(object o, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
-    {
-        string sqlSelectCommand = "SELECT top diag_code, diag_name from diag_listShort where diag_code like '%' + @text +'%' or diag_name like '%' + @text +'%'";
+    //protected void OnClientSelectedIndexChanged(object o, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
+    //{
+    //    string sqlSelectCommand = "SELECT top diag_code, diag_name from diag_listShort where diag_code like '%' + @text +'%' or diag_name like '%' + @text +'%'";
 
-        SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
-            ConfigurationManager.ConnectionStrings["CMS"].ConnectionString);
-        adapter.SelectCommand.Parameters.AddWithValue("@text", e.Text);
-        DataTable dataTable = new DataTable();
-        adapter.Fill(dataTable);
-    }
+    //    SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
+    //        ConfigurationManager.ConnectionStrings["CMS"].ConnectionString);
+    //    adapter.SelectCommand.Parameters.AddWithValue("@text", e.Text);
+    //    DataTable dataTable = new DataTable();
+    //    adapter.Fill(dataTable);
+    //}
     // Add medication to Gridview//
     protected void rcbSearchMed_ItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
     {
@@ -226,7 +226,7 @@ public partial class Prescription : System.Web.UI.Page
         string sqlSelectCommand = "SELECT [abbre],[meaning] FROM [Pres_Abbre] WHERE abbre Like'%' + @text +'%' or meaning Like'%' + @text +'%' ORDER BY meaning";
        
         SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
-            ConfigurationManager.ConnectionStrings["CMS"].ConnectionString);
+            ConfigurationManager.ConnectionStrings["ePrecription"].ConnectionString);
         adapter.SelectCommand.Parameters.AddWithValue("@text", rcbFreq.Text.ToString());
         DataTable dataTable = new DataTable();
         adapter.Fill(dataTable);
