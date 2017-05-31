@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
-    <div id="FavouriteMaster">
+    <div id="FavouriteNew">
         <table>
             <tr>
                 <td>Favourite Name:</td>
@@ -28,6 +28,9 @@
                 </td>
             </tr>
         </table>
+
+    </div>
+    <div id="FavouriteList">
 
     </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CMS %>"
