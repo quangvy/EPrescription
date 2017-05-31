@@ -378,7 +378,7 @@ public partial class Prescription : System.Web.UI.Page
             string sqlInsertDetail = "";
             for (int i = 0; i < dtMed.Rows.Count; i++)
             {
-                sqlInsertDetail = sqlInsertDetail + "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
+                sqlInsertDetail = "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
                         "Remark,Dosage,Frequency,Duration,TotalUnit)VALUES('"
                         + newPresID + "','"
                         + dtMed.Rows[i]["Sq"].ToString().Trim() + "','"
