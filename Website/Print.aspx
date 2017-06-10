@@ -18,59 +18,14 @@
                 <LocalReport ReportPath="ePres.rdlc">
                     <DataSources>
                         <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DataSet1" />
-                        <rsweb:ReportDataSource DataSourceId="ObjectDataSource2" Name="DataSet2" />
                     </DataSources>
                 </LocalReport>
             </rsweb:ReportViewer>
             <asp:ObjectDataSource ID="ObjectDataSource1" runat="server"
                 SelectMethod="GetData"
-                TypeName="EPrescriptionDataSetTableAdapters.ePrescriptionTableAdapter" OldValuesParameterFormatString="original_{0}" DeleteMethod="Delete" InsertMethod="Insert" UpdateMethod="Update">
-                <DeleteParameters>
-                    <asp:Parameter Name="Original_PrescriptionID" Type="String" />
-                </DeleteParameters>
-                <InsertParameters>
-                    <asp:Parameter Name="PrescriptionID" Type="String" />
-                    <asp:Parameter Name="TransactionID" Type="String" />
-                    <asp:Parameter Name="PatientCode" Type="String" />
-                    <asp:Parameter Name="FirstName" Type="String" />
-                    <asp:Parameter Name="LastName" Type="String" />
-                    <asp:Parameter Name="DeliveryDate" Type="DateTime" />
-                    <asp:Parameter Name="CreateDate" Type="DateTime" />
-                    <asp:Parameter Name="Address" Type="String" />
-                    <asp:Parameter Name="DateOfBirth" Type="DateTime" />
-                    <asp:Parameter Name="Age" Type="String" />
-                    <asp:Parameter Name="Weight" Type="String" />
-                    <asp:Parameter Name="Diagnosis" Type="String" />
-                    <asp:Parameter Name="PrescribingDoctor" Type="String" />
-                    <asp:Parameter Name="Sex" Type="String" />
-                    <asp:Parameter Name="Remark" Type="String" />
-                    <asp:Parameter Name="IsComplete" Type="Boolean" />
-                </InsertParameters>
+                TypeName="EPrescriptionDataSetTableAdapters.EPrescription_PrintTableAdapter" OldValuesParameterFormatString="original_{0}">
                 <SelectParameters>
-                    <asp:ControlParameter ControlID="tbxPresID" Name="PrescriptionID" PropertyName="Text" Type="String" />
-                </SelectParameters>
-                <UpdateParameters>
-                    <asp:Parameter Name="TransactionID" Type="String" />
-                    <asp:Parameter Name="PatientCode" Type="String" />
-                    <asp:Parameter Name="FirstName" Type="String" />
-                    <asp:Parameter Name="LastName" Type="String" />
-                    <asp:Parameter Name="DeliveryDate" Type="DateTime" />
-                    <asp:Parameter Name="CreateDate" Type="DateTime" />
-                    <asp:Parameter Name="Address" Type="String" />
-                    <asp:Parameter Name="DateOfBirth" Type="DateTime" />
-                    <asp:Parameter Name="Age" Type="String" />
-                    <asp:Parameter Name="Weight" Type="String" />
-                    <asp:Parameter Name="Diagnosis" Type="String" />
-                    <asp:Parameter Name="PrescribingDoctor" Type="String" />
-                    <asp:Parameter Name="Sex" Type="String" />
-                    <asp:Parameter Name="Remark" Type="String" />
-                    <asp:Parameter Name="IsComplete" Type="Boolean" />
-                    <asp:Parameter Name="Original_PrescriptionID" Type="String" />
-                </UpdateParameters>
-            </asp:ObjectDataSource>
-            <asp:ObjectDataSource ID="ObjectDataSource2" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetData" TypeName="EPrescriptionDataSetTableAdapters.VR_ePresDetailTableAdapter">
-                <SelectParameters>
-                    <asp:ControlParameter ControlID="tbxPresID" Name="PrescriptionID" PropertyName="Text" Type="String" />
+                    <asp:QueryStringParameter Name="EPrescriptionId" QueryStringField="PrescriptionId" Type="String" />
                 </SelectParameters>
             </asp:ObjectDataSource>
 

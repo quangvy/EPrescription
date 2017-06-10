@@ -234,7 +234,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!FirstName.Value +" "+Fields!FirstName.Value</Value>
+                              <Value>=Fields!FirstName.Value +" "+Fields!LastName.Value</Value>
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -1552,7 +1552,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Unit.Value+"/"+Fields!UnitVN.Value</Value>
+                              <Value>=Fields!Unit.Value</Value>
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
                                 <FontSize>7pt</FontSize>
@@ -1622,7 +1622,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Frequency.Value+"/"+Fields!VN_meaning.Value</Value>
+                              <Value>=Fields!Frequency.Value+"/"</Value>
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -1707,7 +1707,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet2</DataSetName>
+        <DataSetName>DataSet1</DataSetName>
         <Top>6.7324cm</Top>
         <Left>0.23654cm</Left>
         <Height>1.68297cm</Height>
@@ -2067,7 +2067,7 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DataSet2</DataSetName>
+        <DataSetName>DataSet1</DataSetName>
         <Top>15.2419cm</Top>
         <Left>1.58495cm</Left>
         <Height>0.50379cm</Height>
@@ -2328,29 +2328,9 @@
           <DataField>IsComplete</DataField>
           <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
-      </Fields>
-      <rd:DataSetInfo>
-        <rd:DataSetName>EPrescriptionDataSet</rd:DataSetName>
-        <rd:SchemaPath>D:\Work\EPrescription\Website\App_Code\EPrescriptionDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>ePrescription</rd:TableName>
-        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
-        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>ePrescriptionTableAdapter</rd:TableAdapterName>
-      </rd:DataSetInfo>
-    </DataSet>
-    <DataSet Name="DataSet2">
-      <Query>
-        <DataSourceName>EPrescriptionDataSet</DataSourceName>
-        <CommandText>/* Local Query */</CommandText>
-      </Query>
-      <Fields>
         <Field Name="PrescriptionDetailId">
           <DataField>PrescriptionDetailId</DataField>
           <rd:TypeName>System.Int64</rd:TypeName>
-        </Field>
-        <Field Name="PrescriptionID">
-          <DataField>PrescriptionID</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Sq">
           <DataField>Sq</DataField>
@@ -2368,12 +2348,8 @@
           <DataField>Unit</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="UnitVN">
-          <DataField>UnitVN</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Remark">
-          <DataField>Remark</DataField>
+        <Field Name="Remark1">
+          <DataField>Remark1</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Dosage">
@@ -2382,10 +2358,6 @@
         </Field>
         <Field Name="Frequency">
           <DataField>Frequency</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="VN_meaning">
-          <DataField>VN_meaning</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Duration">
@@ -2400,10 +2372,10 @@
       <rd:DataSetInfo>
         <rd:DataSetName>EPrescriptionDataSet</rd:DataSetName>
         <rd:SchemaPath>D:\Work\EPrescription\Website\App_Code\EPrescriptionDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>VR_ePresDetail</rd:TableName>
+        <rd:TableName>EPrescription_Print</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>VR_ePresDetailTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>EPrescription_PrintTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

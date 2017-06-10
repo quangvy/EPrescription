@@ -128,12 +128,20 @@ div.SavePres {
 }
 
 #FavouriteNew {
+    clear: both;
+    overflow: hidden;
+    background: transparent;
+    font-size: smaller;
     padding: 10px 10px 10px 10px;
     float: right;
     min-width: 50%;
 }
 
 #FavouriteList {
+    clear: both;
+    overflow: hidden;
+    background: transparent;
+    font-size: smaller;
     padding: 10px 10px 10px 10px;
     float: left;
     min-width: 50%;

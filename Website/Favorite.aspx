@@ -31,7 +31,16 @@
 
     </div>
     <div id="FavouriteList">
+        <table>
+            <tr>
+                <td>Favourite Name</td>
+                <td>Detail Item
+                    <tr>
 
+                    </tr>
+                </td>
+            </tr>
+        </table>
     </div>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CMS %>"
         SelectCommand="SELECT top 100 Diag_code, Diag_code+' - ' + diag_name as diag_name FROM [diag_list] ORDER BY [diag_name]">

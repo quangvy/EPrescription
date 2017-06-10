@@ -342,12 +342,13 @@ public partial class Prescription : System.Web.UI.Page
         SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
             ConfigurationManager.ConnectionStrings["EPrescription"].ConnectionString);
         DataTable dataTable = new DataTable();
-        adapter.Fill(dataTable);        
+        adapter.Fill(dataTable);
+        string newPresID="";
         if (dataTable.Rows.Count > 0)
         {
             string CharID = dataTable.Rows[0]["DateID"].ToString();
             int RunID = Convert.ToInt32(dataTable.Rows[0]["RunID"].ToString()) + 1;
-            string newPresID = CharID + "HCM" + RunID.ToString().PadLeft(4, '0');
+            newPresID = CharID + "HCM" + RunID.ToString().PadLeft(4, '0');
 
             string firstname = lblFirstName.Text;
             string lastname = lblLastName.Text;
@@ -402,7 +403,7 @@ public partial class Prescription : System.Web.UI.Page
         {
             string CharID = DateTime.Now.ToString("ddMMMyy");
             int RunID = 1;
-            string newPresID = CharID + "HCM" + RunID.ToString().PadLeft(4, '0');
+            newPresID = CharID + "HCM" + RunID.ToString().PadLeft(4, '0');
             string firstname = lblFirstName.Text;
             string lastname = lblLastName.Text;
             DateTime dob = DateTime.Parse(lblDOB.Text);
@@ -432,7 +433,7 @@ public partial class Prescription : System.Web.UI.Page
             string sqlInsertDetail = "";
             for (int i = 0; i < dtMed.Rows.Count; i++)
             {
-                sqlInsertDetail = sqlInsertDetail + "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
+                sqlInsertDetail = "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
                         "Remark,Dosage,Frequency,Duration,TotalUnit)VALUES('"
                         + newPresID + "','"
                         + dtMed.Rows[i]["Sq"].ToString().Trim() + "','"
@@ -451,8 +452,13 @@ public partial class Prescription : System.Web.UI.Page
                     ePresCon.Close();
                 }
             }
-
         }
+        //Response.Write("<script language='javascript'> window.open('" + ne + "', 'window','HEIGHT=600,WIDTH=820,top=50,left=50,toolbar=yes,scrollbars=yes,resizable=yes');</script>");
+        //Response.Redirect("Print.aspx?PrescriptionId=" + newPresID);
+
+        string url = "Print.aspx?PrescriptionId=" + newPresID;
+        string script = String.Format("window.open('{0}','YourWindowName','HEIGHT=600,WIDTH=820,fullscreen=yes,resizable=no,scrollbars=yes,toolbar=yes,menubar=no,status=yes');", url);
+        ClientScript.RegisterStartupScript(this.GetType(), "OPEN_WINDOW", script, true);
     }
 
 
