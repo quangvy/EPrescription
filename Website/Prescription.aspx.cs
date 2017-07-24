@@ -8,7 +8,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using Telerik.Web.UI;
-using Data;
 using System.Web.Services;
 
 public partial class Prescription : System.Web.UI.Page

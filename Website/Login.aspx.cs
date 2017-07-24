@@ -4,7 +4,7 @@ using System.Web;
 using System.Web.Security;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Data;
+using ePrescription.Data;
 
 public partial class LoginPage : System.Web.UI.Page
 {
@@ -18,8 +18,15 @@ public partial class LoginPage : System.Web.UI.Page
         // Check for invalid userName.
         // userName must not be null and must be between 1 and 15 characters.
 
-        return new UserInfo().Login(userName, passWord);
+        return Login(userName, passWord);
 
+    }
+
+    private bool Login(string userName,string password)
+    {
+        int count = 0;
+        DataRepository.UsersProvider.GetPaged("UserName = '"+ userName +"' AND Password = '"+ password + "'", "", 0, 1, out count);
+        return count == 1;
     }
 
     protected void btnSignIn_OnClick(object sender, EventArgs e)
