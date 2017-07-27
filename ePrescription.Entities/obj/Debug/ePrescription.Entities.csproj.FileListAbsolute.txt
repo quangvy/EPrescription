@@ -1,0 +1,12 @@
+D:\Work\ePrescription-gen\ePrescription.Entities\bin\Debug\ePrescription.Entities.dll
+D:\Work\ePrescription-gen\ePrescription.Entities\bin\Debug\ePrescription.Entities.pdb
+D:\Work\ePrescription-gen\ePrescription.Entities\bin\Debug\ePrescription.Entities.xml
+D:\Work\ePrescription-gen\ePrescription.Entities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.Cryptography.dll
+D:\Work\ePrescription-gen\ePrescription.Entities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Caching.dll
+D:\Work\ePrescription-gen\ePrescription.Entities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\Work\ePrescription-gen\ePrescription.Entities\bin\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\Work\ePrescription-gen\ePrescription.Entities\bin\Debug\Microsoft.Practices.Unity.dll
+D:\Work\ePrescription-gen\ePrescription.Entities\bin\Debug\Microsoft.Practices.Unity.Interception.dll
+D:\Work\ePrescription-gen\ePrescription.Entities\bin\Debug\Microsoft.Practices.EnterpriseLibrary.Security.Cryptography.dll
+D:\Work\ePrescription-gen\ePrescription.Entities\obj\Debug\ePrescription.Entities.dll
+D:\Work\ePrescription-gen\ePrescription.Entities\obj\Debug\ePrescription.Entities.pdb
