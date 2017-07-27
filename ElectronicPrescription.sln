@@ -6,7 +6,7 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{04372E7F-7E55-4594-B104-CBB31623DF25}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		ProjectReferences = ""
+		ProjectReferences = "{262291f0-e0c0-4db0-b337-d4b0970ada5f}|ePrescription.Data.dll;{35144ED2-3501-4331-A720-DD33BFE1C2CF}|ePrescription.Entities.dll;{263ead91-4ab8-4dab-a43f-80437ab536aa}|ePrescription.Data.SqlClient.dll;{727845f6-932d-47cc-9957-e7be626a461e}|ePrescription.Settings.dll;{435146b0-0726-4800-ac3c-863f052c701b}|ePrescription.Web.dll;"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_10888"
 		Debug.AspNetCompiler.PhysicalPath = "Website\"
 		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_10888\"
@@ -27,15 +27,15 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Website", "Website\", "{043
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{02F7BA00-B808-49F9-83E1-1576995DCDFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrescription.Data", "..\ePrescription-gen\ePrescription.Data\ePrescription.Data.csproj", "{262291F0-E0C0-4DB0-B337-D4B0970ADA5F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrescription.Data", "ePrescription.Data\ePrescription.Data.csproj", "{262291F0-E0C0-4DB0-B337-D4B0970ADA5F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrescription.Data.SqlClient", "..\ePrescription-gen\ePrescription.Data.SqlClient\ePrescription.Data.SqlClient.csproj", "{263EAD91-4AB8-4DAB-A43F-80437AB536AA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrescription.Data.SqlClient", "ePrescription.Data.SqlClient\ePrescription.Data.SqlClient.csproj", "{263EAD91-4AB8-4DAB-A43F-80437AB536AA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrescription.Entities", "..\ePrescription-gen\ePrescription.Entities\ePrescription.Entities.csproj", "{35144ED2-3501-4331-A720-DD33BFE1C2CF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrescription.Entities", "ePrescription.Entities\ePrescription.Entities.csproj", "{35144ED2-3501-4331-A720-DD33BFE1C2CF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrescription.Settings", "..\ePrescription-gen\ePrescription.Settings\ePrescription.Settings.csproj", "{727845F6-932D-47CC-9957-E7BE626A461E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrescription.Web", "ePrescription.Web\ePrescription.Web.csproj", "{435146B0-0726-4800-AC3C-863F052C701B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrescription.Web", "..\ePrescription-gen\ePrescription.Web\ePrescription.Web.csproj", "{435146B0-0726-4800-AC3C-863F052C701B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ePrescription.Settings", "ePrescription.Settings\ePrescription.Settings.csproj", "{727845F6-932D-47CC-9957-E7BE626A461E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -74,18 +74,18 @@ Global
 		{35144ED2-3501-4331-A720-DD33BFE1C2CF}.GenerateDebug|Any CPU.Build.0 = GenerateDebug|Any CPU
 		{35144ED2-3501-4331-A720-DD33BFE1C2CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35144ED2-3501-4331-A720-DD33BFE1C2CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{727845F6-932D-47CC-9957-E7BE626A461E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{727845F6-932D-47CC-9957-E7BE626A461E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{727845F6-932D-47CC-9957-E7BE626A461E}.GenerateDebug|Any CPU.ActiveCfg = Debug|Any CPU
-		{727845F6-932D-47CC-9957-E7BE626A461E}.GenerateDebug|Any CPU.Build.0 = Debug|Any CPU
-		{727845F6-932D-47CC-9957-E7BE626A461E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{727845F6-932D-47CC-9957-E7BE626A461E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{435146B0-0726-4800-AC3C-863F052C701B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{435146B0-0726-4800-AC3C-863F052C701B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{435146B0-0726-4800-AC3C-863F052C701B}.GenerateDebug|Any CPU.ActiveCfg = GenerateDebug|Any CPU
 		{435146B0-0726-4800-AC3C-863F052C701B}.GenerateDebug|Any CPU.Build.0 = GenerateDebug|Any CPU
 		{435146B0-0726-4800-AC3C-863F052C701B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{435146B0-0726-4800-AC3C-863F052C701B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{727845F6-932D-47CC-9957-E7BE626A461E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{727845F6-932D-47CC-9957-E7BE626A461E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{727845F6-932D-47CC-9957-E7BE626A461E}.GenerateDebug|Any CPU.ActiveCfg = Debug|Any CPU
+		{727845F6-932D-47CC-9957-E7BE626A461E}.GenerateDebug|Any CPU.Build.0 = Debug|Any CPU
+		{727845F6-932D-47CC-9957-E7BE626A461E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{727845F6-932D-47CC-9957-E7BE626A461E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

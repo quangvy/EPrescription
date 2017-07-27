@@ -163,6 +163,8 @@ public abstract partial class SqlVrEPresDetailProviderBase : VrEPresDetailProvid
 
 		database.AddInParameter(commandWrapper, "@WhereClause", DbType.String, whereClause);
 		database.AddInParameter(commandWrapper, "@OrderBy", DbType.String, orderBy);
+		database.AddInParameter(commandWrapper, "@PageIndex", DbType.Int32, start);
+		database.AddInParameter(commandWrapper, "@PageSize", DbType.Int32, pageLength);
 	
 		IDataReader reader = null;
 		//Create Collection
@@ -179,7 +181,7 @@ public abstract partial class SqlVrEPresDetailProviderBase : VrEPresDetailProvid
 				reader = Utility.ExecuteReader(database, commandWrapper);
 			}
 
-			Fill(reader, rows, start, pageLength);
+			Fill(reader, rows, 0, int.MaxValue);
 			count = rows.Count;
 
 			if(reader.NextResult())
@@ -248,7 +250,7 @@ public abstract partial class SqlVrEPresDetailProviderBase : VrEPresDetailProvid
 				reader = Utility.ExecuteReader(database, commandWrapper);
 			}
 			
-			Fill(reader, rows, start, pageLength);
+			Fill(reader, rows, 0, int.MaxValue);
 			count = rows.Count;
 			
 			if ( reader.NextResult() )

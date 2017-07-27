@@ -1,29 +1,31 @@
-﻿
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5DC445C9-A707-46E1-9347-43B9DFE55AB3}</ProjectGuid>
+    <ProjectGuid>{262291F0-E0C0-4DB0-B337-D4B0970ADA5F}</ProjectGuid>
     <ProjectType>Local</ProjectType>
-	<TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <OutputType>Library</OutputType>
     <ApplicationIcon>
-	</ApplicationIcon>
+    </ApplicationIcon>
     <AssemblyKeyContainerName>
-	</AssemblyKeyContainerName>
+    </AssemblyKeyContainerName>
     <AssemblyName>ePrescription.Data</AssemblyName>
     <AssemblyOriginatorKeyFile>..\ePrescription.snk</AssemblyOriginatorKeyFile>
-	<SignAssembly>false</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <RootNamespace>ePrescription.Data</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject></StartupObject>
-    <FileUpgradeFlags></FileUpgradeFlags>
+    <StartupObject>
+    </StartupObject>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <OutputPath>bin\Debug\</OutputPath>
@@ -54,7 +56,7 @@
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE</DefineConstants>
     <DocumentationFile>ePrescription.Data.xml</DocumentationFile>
-	 <DebugType>pdbonly</DebugType>
+    <DebugType>pdbonly</DebugType>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -87,15 +89,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System"/>
-	<Reference Include="System.Core">
-		<RequiredTargetFramework>4.0</RequiredTargetFramework>
-	</Reference>
-    <Reference Include="System.ComponentModel.DataAnnotations"/>
-    <Reference Include="System.Web"/>
-    <Reference Include="System.Data"/>
-    <Reference Include="System.Design"/>
-    <Reference Include="System.Xml"/>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Xml" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Drawing" />
     <Reference Include="EnvDTE, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
@@ -103,7 +105,7 @@
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
-    </Reference>    
+    </Reference>
     <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=5.0.414.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
@@ -115,190 +117,149 @@
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\References\Microsoft.Practices.ServiceLocation.dll</HintPath>
-    </Reference>      
-    
-     
-	<ProjectReference Include="..\ePrescription.Entities\ePrescription.Entities.csproj">
+    </Reference>
+    <ProjectReference Include="..\ePrescription.Entities\ePrescription.Entities.csproj">
       <Name>ePrescription.Entities</Name>
-      <Project>{DDE9EBA1-1840-4188-94FC-09B231941F81}</Project>
+      <Project>{4B44B908-C8B7-4E6D-898C-3B5B8644BEBA}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
-	
-	
-	
-	
-    
-    	
-	
-	
-	
-	</ItemGroup>
-	
-		
-	<!-- Custom code folder: D:\Work\ePrescription-gen\ePrescription.Data\App_Code -->
-	<ItemGroup>	
-		<Folder Include="App_Code\" />
-        <Compile Include="App_Code\**\*.cs">
-          <SubType>Code</SubType>
-        </Compile>		
-	</ItemGroup>
-
-	<!-- Include any user files -->
-	<ItemGroup>	
-		<Compile Include="**\*.user.*" Exclude="**\*.csproj.user;**\.svn\**" >
-          <SubType>Code</SubType>
-        </Compile>		
-	</ItemGroup>
-	
-	<ItemGroup>
-			<Compile Include="Bases\Views\VrEPresDetailProviderBase.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Bases\Views\VrEPresDetailProviderBase.generatedCore.cs">
-				<DependentUpon>VrEPresDetailProviderBase.cs</DependentUpon>
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Bases\EPrescriptionProviderBase.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			
-			<Compile Include="Bases\EPrescriptionProviderBase.generatedCore.cs">
-			  <DependentUpon>EPrescriptionProviderBase.cs</DependentUpon>
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Bases\EPrescriptionDetailProviderBase.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			
-			<Compile Include="Bases\EPrescriptionDetailProviderBase.generatedCore.cs">
-			  <DependentUpon>EPrescriptionDetailProviderBase.cs</DependentUpon>
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Bases\FavoritMasterProviderBase.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			
-			<Compile Include="Bases\FavoritMasterProviderBase.generatedCore.cs">
-			  <DependentUpon>FavoritMasterProviderBase.cs</DependentUpon>
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Bases\UserRolesProviderBase.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			
-			<Compile Include="Bases\UserRolesProviderBase.generatedCore.cs">
-			  <DependentUpon>UserRolesProviderBase.cs</DependentUpon>
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Bases\UsersProviderBase.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			
-			<Compile Include="Bases\UsersProviderBase.generatedCore.cs">
-			  <DependentUpon>UsersProviderBase.cs</DependentUpon>
-			  <SubType>Code</SubType>
-			</Compile>
-		<Compile Include="..\AssemblyInfo.cs">
-		  <SubType>Code</SubType>
-		</Compile>
-			
-
-			<Compile Include="DataRepository.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-
-			<Compile Include="Bases\INetTiersProvider.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			
-			<Compile Include="Bases\NetTiersProvider.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			
-			<Compile Include="Bases\NetTiersProviderBase.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			
-			<Compile Include="Bases\NetTiersProviderCollection.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			
-			<Compile Include="Bases\NetTiersServiceSection.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			
-			<Compile Include="Bases\EntityProviderBase.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Bases\EntityProviderBaseCore.generated.cs">
-			  <SubType>Code</SubType>
-			  <DependentUpon>EntityProviderBase.cs</DependentUpon>
-			</Compile>
-			
-			<Compile Include="Bases\EntityViewProviderBase.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Bases\EntityViewProviderBaseCore.generated.cs">
-			  <SubType>Code</SubType>
-			  <DependentUpon>EntityViewProviderBase.cs</DependentUpon>
-			</Compile>
-			
-			<Compile Include="Query\ExpressionParserBase.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Query\SqlExpressionParser.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Query\SqlStringBuilder.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Query\SqlUtil.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Query\StringTokenizer.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="Utility.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="ITransactionManager.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="TransactionManager.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="FileConfigurationSouce.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-            <Compile Include="FileConfigurationSouceElement.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="IEntityProvider.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			<Compile Include="IEntityViewProvider.cs">
-			  <SubType>Code</SubType>
-			</Compile>
-			
-		
-		
-
-		
-		
-		
-		
-		 <AppDesigner Include="Properties\" />
-	</ItemGroup>
-    
-	
-	
-	
+  </ItemGroup>
+  <!-- Custom code folder: D:\Work\ePrescription-gen\ePrescription.Data\App_Code -->
+  <ItemGroup>
+    <Compile Include="App_Code\**\*.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <!-- Include any user files -->
+  <ItemGroup>
+    <Compile Include="**\*.user.*" Exclude="**\*.csproj.user;**\.svn\**">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bases\Views\VrEPresDetailProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrEPresDetailProviderBase.generatedCore.cs">
+      <DependentUpon>VrEPresDetailProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\EPrescriptionProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\EPrescriptionProviderBase.generatedCore.cs">
+      <DependentUpon>EPrescriptionProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\EPrescriptionDetailProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\EPrescriptionDetailProviderBase.generatedCore.cs">
+      <DependentUpon>EPrescriptionDetailProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\FavoritMasterProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\FavoritMasterProviderBase.generatedCore.cs">
+      <DependentUpon>FavoritMasterProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\UserRolesProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\UserRolesProviderBase.generatedCore.cs">
+      <DependentUpon>UserRolesProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\UsersProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\UsersProviderBase.generatedCore.cs">
+      <DependentUpon>UsersProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="..\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataRepository.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\INetTiersProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\NetTiersProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\NetTiersProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\NetTiersProviderCollection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\NetTiersServiceSection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\EntityProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\EntityProviderBaseCore.generated.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>EntityProviderBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Bases\EntityViewProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\EntityViewProviderBaseCore.generated.cs">
+      <SubType>Code</SubType>
+      <DependentUpon>EntityViewProviderBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Query\ExpressionParserBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\SqlExpressionParser.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\SqlStringBuilder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\SqlUtil.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Query\StringTokenizer.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Utility.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="ITransactionManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TransactionManager.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileConfigurationSouce.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FileConfigurationSouceElement.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEntityProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IEntityViewProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSHARP.Targets" />
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-	<PostBuildEvent>
-	</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
-
 </Project>

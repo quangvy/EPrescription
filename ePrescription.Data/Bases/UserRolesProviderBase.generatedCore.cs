@@ -76,7 +76,7 @@ namespace ePrescription.Data.Bases
 		}
 		
 		/// <summary>
-		/// 	Gets rows from the datasource based on the primary key PK_USER_ROLES index.
+		/// 	Gets rows from the datasource based on the primary key PK_UserRoles index.
 		/// </summary>
 		/// <param name="_roleId"></param>
 		/// <returns>Returns an instance of the <see cref="ePrescription.Entities.UserRoles"/> class.</returns>
@@ -87,7 +87,7 @@ namespace ePrescription.Data.Bases
 		}
 		
 		/// <summary>
-		/// 	Gets rows from the datasource based on the PK_USER_ROLES index.
+		/// 	Gets rows from the datasource based on the PK_UserRoles index.
 		/// </summary>
 		/// <param name="_roleId"></param>
 		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
@@ -101,7 +101,7 @@ namespace ePrescription.Data.Bases
 		}
 		
 		/// <summary>
-		/// 	Gets rows from the datasource based on the PK_USER_ROLES index.
+		/// 	Gets rows from the datasource based on the PK_UserRoles index.
 		/// </summary>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
 		/// <param name="_roleId"></param>
@@ -114,7 +114,7 @@ namespace ePrescription.Data.Bases
 		}
 		
 		/// <summary>
-		/// 	Gets rows from the datasource based on the PK_USER_ROLES index.
+		/// 	Gets rows from the datasource based on the PK_UserRoles index.
 		/// </summary>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
 		/// <param name="_roleId"></param>
@@ -129,7 +129,7 @@ namespace ePrescription.Data.Bases
 		}
 		
 		/// <summary>
-		/// 	Gets rows from the datasource based on the PK_USER_ROLES index.
+		/// 	Gets rows from the datasource based on the PK_UserRoles index.
 		/// </summary>
 		/// <param name="_roleId"></param>
 		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
@@ -144,7 +144,7 @@ namespace ePrescription.Data.Bases
 		
 				
 		/// <summary>
-		/// 	Gets rows from the datasource based on the PK_USER_ROLES index.
+		/// 	Gets rows from the datasource based on the PK_UserRoles index.
 		/// </summary>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
 		/// <param name="_roleId"></param>

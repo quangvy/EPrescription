@@ -53,48 +53,42 @@
 				SET @PageLowerBound = @PageSize * @PageIndex
 				SET @PageUpperBound = @PageLowerBound + @PageSize
 
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [RoleID] nvarchar(50)  
-				)
-				
-				-- Insert into the temp table
-				DECLARE @SQL AS nvarchar(4000)
-				SET @SQL = 'INSERT INTO #PageIndex ([RoleID])'
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[RoleID]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
 				SET @SQL = @SQL + ' SELECT'
-				SET @SQL = @SQL + ' [RoleID]'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [RoleID]'
+				SET @SQL = @SQL + ', [RoleName]'
+				SET @SQL = @SQL + ', [Remark]'
 				SET @SQL = @SQL + ' FROM [dbo].[UserRoles]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
 					SET @SQL = @SQL + ' WHERE ' + @WhereClause
 				END
-				IF LEN(@OrderBy) > 0
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [RoleID],'
+				SET @SQL = @SQL + ' [RoleName],'
+				SET @SQL = @SQL + ' [Remark]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
 				BEGIN
-					SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
 				END
-				
-				-- Only get the number of rows needed here.
-				SET ROWCOUNT @PageUpperBound
-				
-				-- Populate the temp table
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
 				EXEC sp_executesql @SQL
-
-				-- Reset Rowcount back to all
-				SET ROWCOUNT 0
 				
-				-- Return paged results
-				SELECT O.[RoleID], O.[RoleName], O.[Remark]
-				FROM
-				    [dbo].[UserRoles] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > @PageLowerBound
-					AND O.[RoleID] = PageIndex.[RoleID]
-				ORDER BY
-				    PageIndex.IndexId
-                
 				-- get row count
 				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
 				SET @SQL = @SQL + ' FROM [dbo].[UserRoles]'
@@ -279,35 +273,26 @@
 				
 				BEGIN
 				
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [RoleID] nvarchar(50)  
+				WITH PageIndex AS (
+					SELECT TOP {3} row_number() over (order by {1}) AS RowIndex
+					, [RoleID]
+					, [RoleName]
+					, [Remark]
+					FROM [dbo].[UserRoles] {0}
 				)
-				
-				-- Insert into the temp table
-				INSERT INTO #PageIndex ( [RoleID] )
-				SELECT TOP {3} [RoleID]
-				FROM [dbo].[UserRoles] {0}
-				ORDER BY {1}
-				
-				-- Return paged results
-				SELECT O.[RoleID], O.[RoleName], O.[Remark]
-				FROM
-				    [dbo].[UserRoles] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > {2}
-				    AND O.[RoleID] = PageIndex.[RoleID]
-				ORDER BY
-				    PageIndex.IndexId
+				SELECT
+				       [RoleID],
+				       [RoleName],
+				       [Remark]
+				  FROM PageIndex
+				 WHERE RowIndex > {2}
+				   AND RowIndex <= {3}
+				ORDER BY {1};
 				
 
 				-- get total count
 				SELECT COUNT(*) AS TotalRowCount FROM [dbo].[UserRoles] {0};
 				
-				DROP TABLE #PageIndex
 				END
 			]]></body>
 		</procedure>
@@ -376,48 +361,70 @@
 				SET @PageLowerBound = @PageSize * @PageIndex
 				SET @PageUpperBound = @PageLowerBound + @PageSize
 
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [PrescriptionID] nvarchar(20)  
-				)
-				
-				-- Insert into the temp table
-				DECLARE @SQL AS nvarchar(4000)
-				SET @SQL = 'INSERT INTO #PageIndex ([PrescriptionID])'
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[PrescriptionID]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
 				SET @SQL = @SQL + ' SELECT'
-				SET @SQL = @SQL + ' [PrescriptionID]'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [PrescriptionID]'
+				SET @SQL = @SQL + ', [TransactionID]'
+				SET @SQL = @SQL + ', [PatientCode]'
+				SET @SQL = @SQL + ', [FirstName]'
+				SET @SQL = @SQL + ', [LastName]'
+				SET @SQL = @SQL + ', [DeliveryDate]'
+				SET @SQL = @SQL + ', [CreateDate]'
+				SET @SQL = @SQL + ', [Address]'
+				SET @SQL = @SQL + ', [DateOfBirth]'
+				SET @SQL = @SQL + ', [Age]'
+				SET @SQL = @SQL + ', [Weight]'
+				SET @SQL = @SQL + ', [Diagnosis]'
+				SET @SQL = @SQL + ', [DiagnosisVN]'
+				SET @SQL = @SQL + ', [PrescribingDoctor]'
+				SET @SQL = @SQL + ', [Sex]'
+				SET @SQL = @SQL + ', [Remark]'
+				SET @SQL = @SQL + ', [IsComplete]'
 				SET @SQL = @SQL + ' FROM [dbo].[ePrescription]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
 					SET @SQL = @SQL + ' WHERE ' + @WhereClause
 				END
-				IF LEN(@OrderBy) > 0
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [PrescriptionID],'
+				SET @SQL = @SQL + ' [TransactionID],'
+				SET @SQL = @SQL + ' [PatientCode],'
+				SET @SQL = @SQL + ' [FirstName],'
+				SET @SQL = @SQL + ' [LastName],'
+				SET @SQL = @SQL + ' [DeliveryDate],'
+				SET @SQL = @SQL + ' [CreateDate],'
+				SET @SQL = @SQL + ' [Address],'
+				SET @SQL = @SQL + ' [DateOfBirth],'
+				SET @SQL = @SQL + ' [Age],'
+				SET @SQL = @SQL + ' [Weight],'
+				SET @SQL = @SQL + ' [Diagnosis],'
+				SET @SQL = @SQL + ' [DiagnosisVN],'
+				SET @SQL = @SQL + ' [PrescribingDoctor],'
+				SET @SQL = @SQL + ' [Sex],'
+				SET @SQL = @SQL + ' [Remark],'
+				SET @SQL = @SQL + ' [IsComplete]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
 				BEGIN
-					SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
 				END
-				
-				-- Only get the number of rows needed here.
-				SET ROWCOUNT @PageUpperBound
-				
-				-- Populate the temp table
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
 				EXEC sp_executesql @SQL
-
-				-- Reset Rowcount back to all
-				SET ROWCOUNT 0
 				
-				-- Return paged results
-				SELECT O.[PrescriptionID], O.[TransactionID], O.[PatientCode], O.[FirstName], O.[LastName], O.[DeliveryDate], O.[CreateDate], O.[Address], O.[DateOfBirth], O.[Age], O.[Weight], O.[Diagnosis], O.[DiagnosisVN], O.[PrescribingDoctor], O.[Sex], O.[Remark], O.[IsComplete]
-				FROM
-				    [dbo].[ePrescription] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > @PageLowerBound
-					AND O.[PrescriptionID] = PageIndex.[PrescriptionID]
-				ORDER BY
-				    PageIndex.IndexId
-                
 				-- get row count
 				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
 				SET @SQL = @SQL + ' FROM [dbo].[ePrescription]'
@@ -756,35 +763,54 @@
 				
 				BEGIN
 				
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [PrescriptionID] nvarchar(20)  
+				WITH PageIndex AS (
+					SELECT TOP {3} row_number() over (order by {1}) AS RowIndex
+					, [PrescriptionID]
+					, [TransactionID]
+					, [PatientCode]
+					, [FirstName]
+					, [LastName]
+					, [DeliveryDate]
+					, [CreateDate]
+					, [Address]
+					, [DateOfBirth]
+					, [Age]
+					, [Weight]
+					, [Diagnosis]
+					, [DiagnosisVN]
+					, [PrescribingDoctor]
+					, [Sex]
+					, [Remark]
+					, [IsComplete]
+					FROM [dbo].[ePrescription] {0}
 				)
-				
-				-- Insert into the temp table
-				INSERT INTO #PageIndex ( [PrescriptionID] )
-				SELECT TOP {3} [PrescriptionID]
-				FROM [dbo].[ePrescription] {0}
-				ORDER BY {1}
-				
-				-- Return paged results
-				SELECT O.[PrescriptionID], O.[TransactionID], O.[PatientCode], O.[FirstName], O.[LastName], O.[DeliveryDate], O.[CreateDate], O.[Address], O.[DateOfBirth], O.[Age], O.[Weight], O.[Diagnosis], O.[DiagnosisVN], O.[PrescribingDoctor], O.[Sex], O.[Remark], O.[IsComplete]
-				FROM
-				    [dbo].[ePrescription] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > {2}
-				    AND O.[PrescriptionID] = PageIndex.[PrescriptionID]
-				ORDER BY
-				    PageIndex.IndexId
+				SELECT
+				       [PrescriptionID],
+				       [TransactionID],
+				       [PatientCode],
+				       [FirstName],
+				       [LastName],
+				       [DeliveryDate],
+				       [CreateDate],
+				       [Address],
+				       [DateOfBirth],
+				       [Age],
+				       [Weight],
+				       [Diagnosis],
+				       [DiagnosisVN],
+				       [PrescribingDoctor],
+				       [Sex],
+				       [Remark],
+				       [IsComplete]
+				  FROM PageIndex
+				 WHERE RowIndex > {2}
+				   AND RowIndex <= {3}
+				ORDER BY {1};
 				
 
 				-- get total count
 				SELECT COUNT(*) AS TotalRowCount FROM [dbo].[ePrescription] {0};
 				
-				DROP TABLE #PageIndex
 				END
 			]]></body>
 		</procedure>
@@ -842,48 +868,48 @@
 				SET @PageLowerBound = @PageSize * @PageIndex
 				SET @PageUpperBound = @PageLowerBound + @PageSize
 
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [ID] int 
-				)
-				
-				-- Insert into the temp table
-				DECLARE @SQL AS nvarchar(4000)
-				SET @SQL = 'INSERT INTO #PageIndex ([ID])'
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[ID]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
 				SET @SQL = @SQL + ' SELECT'
-				SET @SQL = @SQL + ' [ID]'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [ID]'
+				SET @SQL = @SQL + ', [DiceaseName]'
+				SET @SQL = @SQL + ', [CreateBy]'
+				SET @SQL = @SQL + ', [Diagnosis]'
+				SET @SQL = @SQL + ', [DiagnosisVN]'
+				SET @SQL = @SQL + ', [IsPrivate]'
 				SET @SQL = @SQL + ' FROM [dbo].[FavoritMaster]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
 					SET @SQL = @SQL + ' WHERE ' + @WhereClause
 				END
-				IF LEN(@OrderBy) > 0
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [ID],'
+				SET @SQL = @SQL + ' [DiceaseName],'
+				SET @SQL = @SQL + ' [CreateBy],'
+				SET @SQL = @SQL + ' [Diagnosis],'
+				SET @SQL = @SQL + ' [DiagnosisVN],'
+				SET @SQL = @SQL + ' [IsPrivate]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
 				BEGIN
-					SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
 				END
-				
-				-- Only get the number of rows needed here.
-				SET ROWCOUNT @PageUpperBound
-				
-				-- Populate the temp table
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
 				EXEC sp_executesql @SQL
-
-				-- Reset Rowcount back to all
-				SET ROWCOUNT 0
 				
-				-- Return paged results
-				SELECT O.[ID], O.[DiceaseName], O.[CreateBy], O.[Diagnosis], O.[DiagnosisVN], O.[IsPrivate]
-				FROM
-				    [dbo].[FavoritMaster] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > @PageLowerBound
-					AND O.[ID] = PageIndex.[ID]
-				ORDER BY
-				    PageIndex.IndexId
-                
 				-- get row count
 				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
 				SET @SQL = @SQL + ' FROM [dbo].[FavoritMaster]'
@@ -1101,35 +1127,32 @@
 				
 				BEGIN
 				
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [ID] int 
+				WITH PageIndex AS (
+					SELECT TOP {3} row_number() over (order by {1}) AS RowIndex
+					, [ID]
+					, [DiceaseName]
+					, [CreateBy]
+					, [Diagnosis]
+					, [DiagnosisVN]
+					, [IsPrivate]
+					FROM [dbo].[FavoritMaster] {0}
 				)
-				
-				-- Insert into the temp table
-				INSERT INTO #PageIndex ( [ID] )
-				SELECT TOP {3} [ID]
-				FROM [dbo].[FavoritMaster] {0}
-				ORDER BY {1}
-				
-				-- Return paged results
-				SELECT O.[ID], O.[DiceaseName], O.[CreateBy], O.[Diagnosis], O.[DiagnosisVN], O.[IsPrivate]
-				FROM
-				    [dbo].[FavoritMaster] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > {2}
-				    AND O.[ID] = PageIndex.[ID]
-				ORDER BY
-				    PageIndex.IndexId
+				SELECT
+				       [ID],
+				       [DiceaseName],
+				       [CreateBy],
+				       [Diagnosis],
+				       [DiagnosisVN],
+				       [IsPrivate]
+				  FROM PageIndex
+				 WHERE RowIndex > {2}
+				   AND RowIndex <= {3}
+				ORDER BY {1};
 				
 
 				-- get total count
 				SELECT COUNT(*) AS TotalRowCount FROM [dbo].[FavoritMaster] {0};
 				
-				DROP TABLE #PageIndex
 				END
 			]]></body>
 		</procedure>
@@ -1192,48 +1215,58 @@
 				SET @PageLowerBound = @PageSize * @PageIndex
 				SET @PageUpperBound = @PageLowerBound + @PageSize
 
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [UserName] nvarchar(50)  
-				)
-				
-				-- Insert into the temp table
-				DECLARE @SQL AS nvarchar(4000)
-				SET @SQL = 'INSERT INTO #PageIndex ([UserName])'
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[UserName]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
 				SET @SQL = @SQL + ' SELECT'
-				SET @SQL = @SQL + ' [UserName]'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [UserName]'
+				SET @SQL = @SQL + ', [Password]'
+				SET @SQL = @SQL + ', [UserRole]'
+				SET @SQL = @SQL + ', [FullName]'
+				SET @SQL = @SQL + ', [Email]'
+				SET @SQL = @SQL + ', [DisplayName]'
+				SET @SQL = @SQL + ', [Signature]'
+				SET @SQL = @SQL + ', [Location]'
+				SET @SQL = @SQL + ', [IsDisabled]'
+				SET @SQL = @SQL + ', [Avatar]'
+				SET @SQL = @SQL + ', [MobilePhone]'
 				SET @SQL = @SQL + ' FROM [dbo].[Users]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
 					SET @SQL = @SQL + ' WHERE ' + @WhereClause
 				END
-				IF LEN(@OrderBy) > 0
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [UserName],'
+				SET @SQL = @SQL + ' [Password],'
+				SET @SQL = @SQL + ' [UserRole],'
+				SET @SQL = @SQL + ' [FullName],'
+				SET @SQL = @SQL + ' [Email],'
+				SET @SQL = @SQL + ' [DisplayName],'
+				SET @SQL = @SQL + ' [Signature],'
+				SET @SQL = @SQL + ' [Location],'
+				SET @SQL = @SQL + ' [IsDisabled],'
+				SET @SQL = @SQL + ' [Avatar],'
+				SET @SQL = @SQL + ' [MobilePhone]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
 				BEGIN
-					SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
 				END
-				
-				-- Only get the number of rows needed here.
-				SET ROWCOUNT @PageUpperBound
-				
-				-- Populate the temp table
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
 				EXEC sp_executesql @SQL
-
-				-- Reset Rowcount back to all
-				SET ROWCOUNT 0
 				
-				-- Return paged results
-				SELECT O.[UserName], O.[Password], O.[UserRole], O.[FullName], O.[Email], O.[DisplayName], O.[Signature], O.[Location], O.[IsDisabled], O.[Avatar], O.[MobilePhone]
-				FROM
-				    [dbo].[Users] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > @PageLowerBound
-					AND O.[UserName] = PageIndex.[UserName]
-				ORDER BY
-				    PageIndex.IndexId
-                
 				-- get row count
 				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
 				SET @SQL = @SQL + ' FROM [dbo].[Users]'
@@ -1502,35 +1535,42 @@
 				
 				BEGIN
 				
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [UserName] nvarchar(50)  
+				WITH PageIndex AS (
+					SELECT TOP {3} row_number() over (order by {1}) AS RowIndex
+					, [UserName]
+					, [Password]
+					, [UserRole]
+					, [FullName]
+					, [Email]
+					, [DisplayName]
+					, [Signature]
+					, [Location]
+					, [IsDisabled]
+					, [Avatar]
+					, [MobilePhone]
+					FROM [dbo].[Users] {0}
 				)
-				
-				-- Insert into the temp table
-				INSERT INTO #PageIndex ( [UserName] )
-				SELECT TOP {3} [UserName]
-				FROM [dbo].[Users] {0}
-				ORDER BY {1}
-				
-				-- Return paged results
-				SELECT O.[UserName], O.[Password], O.[UserRole], O.[FullName], O.[Email], O.[DisplayName], O.[Signature], O.[Location], O.[IsDisabled], O.[Avatar], O.[MobilePhone]
-				FROM
-				    [dbo].[Users] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > {2}
-				    AND O.[UserName] = PageIndex.[UserName]
-				ORDER BY
-				    PageIndex.IndexId
+				SELECT
+				       [UserName],
+				       [Password],
+				       [UserRole],
+				       [FullName],
+				       [Email],
+				       [DisplayName],
+				       [Signature],
+				       [Location],
+				       [IsDisabled],
+				       [Avatar],
+				       [MobilePhone]
+				  FROM PageIndex
+				 WHERE RowIndex > {2}
+				   AND RowIndex <= {3}
+				ORDER BY {1};
 				
 
 				-- get total count
 				SELECT COUNT(*) AS TotalRowCount FROM [dbo].[Users] {0};
 				
-				DROP TABLE #PageIndex
 				END
 			]]></body>
 		</procedure>
@@ -1601,48 +1641,74 @@
 				SET @PageLowerBound = @PageSize * @PageIndex
 				SET @PageUpperBound = @PageLowerBound + @PageSize
 
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [PrescriptionDetailId] bigint 
-				)
-				
-				-- Insert into the temp table
-				DECLARE @SQL AS nvarchar(4000)
-				SET @SQL = 'INSERT INTO #PageIndex ([PrescriptionDetailId])'
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[PrescriptionDetailId]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
 				SET @SQL = @SQL + ' SELECT'
-				SET @SQL = @SQL + ' [PrescriptionDetailId]'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [PrescriptionDetailId]'
+				SET @SQL = @SQL + ', [PrescriptionID]'
+				SET @SQL = @SQL + ', [Sq]'
+				SET @SQL = @SQL + ', [DrugId]'
+				SET @SQL = @SQL + ', [DrugName]'
+				SET @SQL = @SQL + ', [Unit]'
+				SET @SQL = @SQL + ', [UnitVN]'
+				SET @SQL = @SQL + ', [Remark]'
+				SET @SQL = @SQL + ', [RouteType]'
+				SET @SQL = @SQL + ', [RouteTypeVN]'
+				SET @SQL = @SQL + ', [Dosage]'
+				SET @SQL = @SQL + ', [DosageUnit]'
+				SET @SQL = @SQL + ', [DosageUnitVN]'
+				SET @SQL = @SQL + ', [Frequency]'
+				SET @SQL = @SQL + ', [FrequencyVN]'
+				SET @SQL = @SQL + ', [Duration]'
+				SET @SQL = @SQL + ', [DurationUnit]'
+				SET @SQL = @SQL + ', [DurationUnitVN]'
+				SET @SQL = @SQL + ', [TotalUnit]'
 				SET @SQL = @SQL + ' FROM [dbo].[ePrescriptionDetail]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
 					SET @SQL = @SQL + ' WHERE ' + @WhereClause
 				END
-				IF LEN(@OrderBy) > 0
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [PrescriptionDetailId],'
+				SET @SQL = @SQL + ' [PrescriptionID],'
+				SET @SQL = @SQL + ' [Sq],'
+				SET @SQL = @SQL + ' [DrugId],'
+				SET @SQL = @SQL + ' [DrugName],'
+				SET @SQL = @SQL + ' [Unit],'
+				SET @SQL = @SQL + ' [UnitVN],'
+				SET @SQL = @SQL + ' [Remark],'
+				SET @SQL = @SQL + ' [RouteType],'
+				SET @SQL = @SQL + ' [RouteTypeVN],'
+				SET @SQL = @SQL + ' [Dosage],'
+				SET @SQL = @SQL + ' [DosageUnit],'
+				SET @SQL = @SQL + ' [DosageUnitVN],'
+				SET @SQL = @SQL + ' [Frequency],'
+				SET @SQL = @SQL + ' [FrequencyVN],'
+				SET @SQL = @SQL + ' [Duration],'
+				SET @SQL = @SQL + ' [DurationUnit],'
+				SET @SQL = @SQL + ' [DurationUnitVN],'
+				SET @SQL = @SQL + ' [TotalUnit]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
 				BEGIN
-					SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
 				END
-				
-				-- Only get the number of rows needed here.
-				SET ROWCOUNT @PageUpperBound
-				
-				-- Populate the temp table
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
 				EXEC sp_executesql @SQL
-
-				-- Reset Rowcount back to all
-				SET ROWCOUNT 0
 				
-				-- Return paged results
-				SELECT O.[PrescriptionDetailId], O.[PrescriptionID], O.[Sq], O.[DrugId], O.[DrugName], O.[Unit], O.[UnitVN], O.[Remark], O.[RouteType], O.[RouteTypeVN], O.[Dosage], O.[DosageUnit], O.[DosageUnitVN], O.[Frequency], O.[FrequencyVN], O.[Duration], O.[DurationUnit], O.[DurationUnitVN], O.[TotalUnit]
-				FROM
-				    [dbo].[ePrescriptionDetail] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > @PageLowerBound
-					AND O.[PrescriptionDetailId] = PageIndex.[PrescriptionDetailId]
-				ORDER BY
-				    PageIndex.IndexId
-                
 				-- get row count
 				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
 				SET @SQL = @SQL + ' FROM [dbo].[ePrescriptionDetail]'
@@ -2045,35 +2111,58 @@
 				
 				BEGIN
 				
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [PrescriptionDetailId] bigint 
+				WITH PageIndex AS (
+					SELECT TOP {3} row_number() over (order by {1}) AS RowIndex
+					, [PrescriptionDetailId]
+					, [PrescriptionID]
+					, [Sq]
+					, [DrugId]
+					, [DrugName]
+					, [Unit]
+					, [UnitVN]
+					, [Remark]
+					, [RouteType]
+					, [RouteTypeVN]
+					, [Dosage]
+					, [DosageUnit]
+					, [DosageUnitVN]
+					, [Frequency]
+					, [FrequencyVN]
+					, [Duration]
+					, [DurationUnit]
+					, [DurationUnitVN]
+					, [TotalUnit]
+					FROM [dbo].[ePrescriptionDetail] {0}
 				)
-				
-				-- Insert into the temp table
-				INSERT INTO #PageIndex ( [PrescriptionDetailId] )
-				SELECT TOP {3} [PrescriptionDetailId]
-				FROM [dbo].[ePrescriptionDetail] {0}
-				ORDER BY {1}
-				
-				-- Return paged results
-				SELECT O.[PrescriptionDetailId], O.[PrescriptionID], O.[Sq], O.[DrugId], O.[DrugName], O.[Unit], O.[UnitVN], O.[Remark], O.[RouteType], O.[RouteTypeVN], O.[Dosage], O.[DosageUnit], O.[DosageUnitVN], O.[Frequency], O.[FrequencyVN], O.[Duration], O.[DurationUnit], O.[DurationUnitVN], O.[TotalUnit]
-				FROM
-				    [dbo].[ePrescriptionDetail] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > {2}
-				    AND O.[PrescriptionDetailId] = PageIndex.[PrescriptionDetailId]
-				ORDER BY
-				    PageIndex.IndexId
+				SELECT
+				       [PrescriptionDetailId],
+				       [PrescriptionID],
+				       [Sq],
+				       [DrugId],
+				       [DrugName],
+				       [Unit],
+				       [UnitVN],
+				       [Remark],
+				       [RouteType],
+				       [RouteTypeVN],
+				       [Dosage],
+				       [DosageUnit],
+				       [DosageUnitVN],
+				       [Frequency],
+				       [FrequencyVN],
+				       [Duration],
+				       [DurationUnit],
+				       [DurationUnitVN],
+				       [TotalUnit]
+				  FROM PageIndex
+				 WHERE RowIndex > {2}
+				   AND RowIndex <= {3}
+				ORDER BY {1};
 				
 
 				-- get total count
 				SELECT COUNT(*) AS TotalRowCount FROM [dbo].[ePrescriptionDetail] {0};
 				
-				DROP TABLE #PageIndex
 				END
 			]]></body>
 		</procedure>
@@ -2126,28 +2215,93 @@
                 <parameters>
                     <parameter name="@WhereClause" type="varchar" direction="Input" size="2000" precision="0" scale="0" param="(2000)" />
                     <parameter name="@OrderBy" type="varchar" direction="Input" size="2000" precision="0" scale="0" param="(2000)"/>			
+                    <parameter name="@PageIndex" type="int" direction="Input" size="0" precision="10" scale="0" />
+                    <parameter name="@PageSize" type="int" direction="Input" size="0" precision="10" scale="0" /> 
                 </parameters>
                 <body><![CDATA[
                     
                     BEGIN
     
-                    -- Build the sql query
-                    DECLARE @SQL AS nvarchar(4000)
-                    SET @SQL = ' SELECT * FROM [dbo].[VR_ePresDetail]'
+                    DECLARE @PageLowerBound int
+                    DECLARE @PageUpperBound int
+                    
+                    -- Set the page bounds
+                    SET @PageLowerBound = @PageSize * @PageIndex
+                    SET @PageUpperBound = @PageLowerBound + @PageSize
+    
+                    IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+                    BEGIN
+                        -- default order by to first column
+                        SET @OrderBy = '[PrescriptionDetailId]'
+                    END
+    
+                    -- SQL Server 2005 Paging
+                    DECLARE @SQL AS nvarchar(MAX)
+                    SET @SQL = 'WITH PageIndex AS ('
+                    SET @SQL = @SQL + ' SELECT'
+                    IF @PageSize > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+                    END
+                    SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+                    SET @SQL = @SQL + ', [PrescriptionDetailId]'
+                    SET @SQL = @SQL + ', [PrescriptionID]'
+                    SET @SQL = @SQL + ', [Sq]'
+                    SET @SQL = @SQL + ', [DrugId]'
+                    SET @SQL = @SQL + ', [DrugName]'
+                    SET @SQL = @SQL + ', [Unit]'
+                    SET @SQL = @SQL + ', [UnitVN]'
+                    SET @SQL = @SQL + ', [Remark]'
+                    SET @SQL = @SQL + ', [Dosage]'
+                    SET @SQL = @SQL + ', [Frequency]'
+                    SET @SQL = @SQL + ', [VN_meaning]'
+                    SET @SQL = @SQL + ', [Duration]'
+                    SET @SQL = @SQL + ', [TotalUnit]'
+                    SET @SQL = @SQL + ', [Expr1]'
+                    SET @SQL = @SQL + ', [meaning]'
+                    SET @SQL = @SQL + ', [abbre]'
+                    SET @SQL = @SQL + ' FROM [dbo].[VR_ePresDetail]'
                     IF LEN(@WhereClause) > 0
                     BEGIN
                         SET @SQL = @SQL + ' WHERE ' + @WhereClause
+                    END
+                    SET @SQL = @SQL + ' ) SELECT'
+                    SET @SQL = @SQL + ' [PrescriptionDetailId],'
+                    SET @SQL = @SQL + ' [PrescriptionID],'
+                    SET @SQL = @SQL + ' [Sq],'
+                    SET @SQL = @SQL + ' [DrugId],'
+                    SET @SQL = @SQL + ' [DrugName],'
+                    SET @SQL = @SQL + ' [Unit],'
+                    SET @SQL = @SQL + ' [UnitVN],'
+                    SET @SQL = @SQL + ' [Remark],'
+                    SET @SQL = @SQL + ' [Dosage],'
+                    SET @SQL = @SQL + ' [Frequency],'
+                    SET @SQL = @SQL + ' [VN_meaning],'
+                    SET @SQL = @SQL + ' [Duration],'
+                    SET @SQL = @SQL + ' [TotalUnit],'
+                    SET @SQL = @SQL + ' [Expr1],'
+                    SET @SQL = @SQL + ' [meaning],'
+                    SET @SQL = @SQL + ' [abbre]'
+                    SET @SQL = @SQL + ' FROM PageIndex'
+                    SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+                    IF @PageSize > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
                     END
                     IF LEN(@OrderBy) > 0
                     BEGIN
                         SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
                     END
-                    
-                    -- Execution the query
                     EXEC sp_executesql @SQL
-                    
-                    -- Return total count
-                    SELECT @@ROWCOUNT AS TotalRowCount
+    
+                    -- get row count
+                    SET @SQL = 'SELECT COUNT(*) AS TotalRowCount'
+                    SET @SQL = @SQL + ' FROM [dbo].[VR_ePresDetail]'
+                    IF LEN(@WhereClause) > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' WHERE ' + @WhereClause
+                    END
+                    EXEC sp_executesql @SQL
                     
                     END
                 ]]></body>
@@ -2168,11 +2322,50 @@
                     
                     BEGIN
                     
-                    SELECT * FROM [dbo].[VR_ePresDetail] {0}
-                    ORDER BY {1}
-    
+                    WITH PageIndex AS (
+                        SELECT TOP {3} row_number() OVER (ORDER BY {1}) AS RowIndex
+                        , [PrescriptionDetailId]
+                        , [PrescriptionID]
+                        , [Sq]
+                        , [DrugId]
+                        , [DrugName]
+                        , [Unit]
+                        , [UnitVN]
+                        , [Remark]
+                        , [Dosage]
+                        , [Frequency]
+                        , [VN_meaning]
+                        , [Duration]
+                        , [TotalUnit]
+                        , [Expr1]
+                        , [meaning]
+                        , [abbre]
+                        FROM [dbo].[VR_ePresDetail] {0}
+                    )
+                    SELECT
+                        [PrescriptionDetailId],
+                        [PrescriptionID],
+                        [Sq],
+                        [DrugId],
+                        [DrugName],
+                        [Unit],
+                        [UnitVN],
+                        [Remark],
+                        [Dosage],
+                        [Frequency],
+                        [VN_meaning],
+                        [Duration],
+                        [TotalUnit],
+                        [Expr1],
+                        [meaning],
+                        [abbre]
+                    FROM PageIndex
+                    WHERE RowIndex > {2}
+                    AND RowIndex <= {3}
+                    ORDER BY {1};
+                    
                     -- get total count
-                    SELECT @@ROWCOUNT AS TotalRowCount;
+                    SELECT COUNT(*) AS TotalRowCount FROM [dbo].[VR_ePresDetail] {0};
                     
                     END
                 ]]></body>

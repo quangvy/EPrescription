@@ -209,10 +209,10 @@ namespace ePrescription.Web.Data
 			switch ( SelectMethod )
 			{
 				case ReadOnlyDataSourceSelectMethod.Get:
-					entityList = Provider.Get(GetTransactionManager(), WhereClause, OrderBy, StartIndex, PageSize, out count);
+					entityList = Provider.Get(GetTransactionManager(), WhereClause, OrderBy, PageIndex, PageSize, out count);
 					break;
 				case ReadOnlyDataSourceSelectMethod.GetPaged:
-					entityList = Provider.GetPaged(GetTransactionManager(), WhereClause, OrderBy, StartIndex, PageSize, out count);
+					entityList = Provider.GetPaged(GetTransactionManager(), WhereClause, OrderBy, PageIndex, PageSize, out count);
 					break;
 				case ReadOnlyDataSourceSelectMethod.GetAll:
 					entityList = Provider.GetAll(GetTransactionManager(), StartIndex, PageSize, out count);

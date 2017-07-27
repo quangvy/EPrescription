@@ -734,7 +734,7 @@
         </member>
         <member name="M:ePrescription.Data.SqlClient.SqlUserRolesProviderBase.GetByRoleId(ePrescription.Data.TransactionManager,System.String,System.Int32,System.Int32,System.Int32@)">
             <summary>
-            	Gets rows from the datasource based on the PK_USER_ROLES index.
+            	Gets rows from the datasource based on the PK_UserRoles index.
             </summary>
             <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
             <param name="_roleId"></param>

@@ -885,14 +885,14 @@
         </member>
         <member name="M:ePrescription.Data.Bases.UserRolesProviderBaseCore.GetByRoleId(System.String)">
             <summary>
-            	Gets rows from the datasource based on the primary key PK_USER_ROLES index.
+            	Gets rows from the datasource based on the primary key PK_UserRoles index.
             </summary>
             <param name="_roleId"></param>
             <returns>Returns an instance of the <see cref="T:ePrescription.Entities.UserRoles"/> class.</returns>
         </member>
         <member name="M:ePrescription.Data.Bases.UserRolesProviderBaseCore.GetByRoleId(System.String,System.Int32,System.Int32)">
             <summary>
-            	Gets rows from the datasource based on the PK_USER_ROLES index.
+            	Gets rows from the datasource based on the PK_UserRoles index.
             </summary>
             <param name="_roleId"></param>
             <param name="start">Row number at which to start reading, the first row is 0.</param>
@@ -902,7 +902,7 @@
         </member>
         <member name="M:ePrescription.Data.Bases.UserRolesProviderBaseCore.GetByRoleId(ePrescription.Data.TransactionManager,System.String)">
             <summary>
-            	Gets rows from the datasource based on the PK_USER_ROLES index.
+            	Gets rows from the datasource based on the PK_UserRoles index.
             </summary>
             <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
             <param name="_roleId"></param>
@@ -911,7 +911,7 @@
         </member>
         <member name="M:ePrescription.Data.Bases.UserRolesProviderBaseCore.GetByRoleId(ePrescription.Data.TransactionManager,System.String,System.Int32,System.Int32)">
             <summary>
-            	Gets rows from the datasource based on the PK_USER_ROLES index.
+            	Gets rows from the datasource based on the PK_UserRoles index.
             </summary>
             <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
             <param name="_roleId"></param>
@@ -922,7 +922,7 @@
         </member>
         <member name="M:ePrescription.Data.Bases.UserRolesProviderBaseCore.GetByRoleId(System.String,System.Int32,System.Int32,System.Int32@)">
             <summary>
-            	Gets rows from the datasource based on the PK_USER_ROLES index.
+            	Gets rows from the datasource based on the PK_UserRoles index.
             </summary>
             <param name="_roleId"></param>
             <param name="start">Row number at which to start reading, the first row is 0.</param>
@@ -933,7 +933,7 @@
         </member>
         <member name="M:ePrescription.Data.Bases.UserRolesProviderBaseCore.GetByRoleId(ePrescription.Data.TransactionManager,System.String,System.Int32,System.Int32,System.Int32@)">
             <summary>
-            	Gets rows from the datasource based on the PK_USER_ROLES index.
+            	Gets rows from the datasource based on the PK_UserRoles index.
             </summary>
             <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
             <param name="_roleId"></param>
