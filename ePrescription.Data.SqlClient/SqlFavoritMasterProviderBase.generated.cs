@@ -103,18 +103,18 @@ namespace ePrescription.Data.SqlClient
 		/// <summary>
 		/// 	Deletes a row from the DataSource.
 		/// </summary>
-		/// <param name="_id">. Primary Key.</param>	
+		/// <param name="_favouriteId">. Primary Key.</param>	
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
 		/// <remarks>Deletes based on primary key(s).</remarks>
 		/// <returns>Returns true if operation suceeded.</returns>
         /// <exception cref="System.Exception">The command could not be executed.</exception>
         /// <exception cref="System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
         /// <exception cref="System.Data.Common.DbException">The command could not be executed.</exception>
-		public override bool Delete(TransactionManager transactionManager, System.Int32 _id)
+		public override bool Delete(TransactionManager transactionManager, System.String _favouriteId)
 		{
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.FavoritMaster_Delete", _useStoredProcedure);
-			database.AddInParameter(commandWrapper, "@Id", DbType.Int32, _id);
+			database.AddInParameter(commandWrapper, "@FavouriteId", DbType.String, _favouriteId);
 			
 			//Provider Data Requesting Command Event
 			OnDataRequesting(new CommandEventArgs(commandWrapper, "Delete")); 
@@ -134,7 +134,7 @@ namespace ePrescription.Data.SqlClient
 			if (DataRepository.Provider.EnableEntityTracking)
 			{
 				string entityKey = EntityLocator.ConstructKeyFromPkItems(typeof(FavoritMaster)
-					,_id);
+					,_favouriteId);
                 EntityManager.StopTracking(entityKey);
                 
 			}
@@ -176,7 +176,7 @@ namespace ePrescription.Data.SqlClient
 		
 		database.AddInParameter(commandWrapper, "@SearchUsingOR", DbType.Boolean, searchUsingOR);
 		
-		database.AddInParameter(commandWrapper, "@Id", DbType.Int32, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@FavouriteId", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@DiceaseName", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@CreateBy", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Diagnosis", DbType.String, DBNull.Value);
@@ -196,10 +196,10 @@ namespace ePrescription.Data.SqlClient
 			char[] singleQuote = {'\''};
 	   		foreach (string clause in clauses)
 			{
-				if (clause.Trim().StartsWith("id ") || clause.Trim().StartsWith("id="))
+				if (clause.Trim().StartsWith("favouriteid ") || clause.Trim().StartsWith("favouriteid="))
 				{
-					database.SetParameterValue(commandWrapper, "@Id", 
-						clause.Trim().Remove(0,2).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					database.SetParameterValue(commandWrapper, "@FavouriteId", 
+						clause.Trim().Remove(0,11).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
 					continue;
 				}
 				if (clause.Trim().StartsWith("diceasename ") || clause.Trim().StartsWith("diceasename="))
@@ -506,13 +506,13 @@ namespace ePrescription.Data.SqlClient
 	
 		#region Get By Index Functions
 
-		#region GetById
+		#region GetByFavouriteId
 					
 		/// <summary>
 		/// 	Gets rows from the datasource based on the PK_FavoritMaster index.
 		/// </summary>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
-		/// <param name="_id"></param>
+		/// <param name="_favouriteId"></param>
 		/// <param name="start">Row number at which to start reading.</param>
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <param name="count">out parameter to get total records for query.</param>
@@ -521,19 +521,19 @@ namespace ePrescription.Data.SqlClient
         /// <exception cref="System.Exception">The command could not be executed.</exception>
         /// <exception cref="System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
         /// <exception cref="System.Data.Common.DbException">The command could not be executed.</exception>
-		public override ePrescription.Entities.FavoritMaster GetById(TransactionManager transactionManager, System.Int32 _id, int start, int pageLength, out int count)
+		public override ePrescription.Entities.FavoritMaster GetByFavouriteId(TransactionManager transactionManager, System.String _favouriteId, int start, int pageLength, out int count)
 		{
 			SqlDatabase database = new SqlDatabase(this._connectionString);
-			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.FavoritMaster_GetById", _useStoredProcedure);
+			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.FavoritMaster_GetByFavouriteId", _useStoredProcedure);
 			
-				database.AddInParameter(commandWrapper, "@Id", DbType.Int32, _id);
+				database.AddInParameter(commandWrapper, "@FavouriteId", DbType.String, _favouriteId);
 			
 			IDataReader reader = null;
 			TList<FavoritMaster> tmp = new TList<FavoritMaster>();
 			try
 			{
 				//Provider Data Requesting Command Event
-				OnDataRequesting(new CommandEventArgs(commandWrapper, "GetById", tmp)); 
+				OnDataRequesting(new CommandEventArgs(commandWrapper, "GetByFavouriteId", tmp)); 
 
 				if (transactionManager != null)
 				{
@@ -556,7 +556,7 @@ namespace ePrescription.Data.SqlClient
 				}
 				
 				//Provider Data Requested Command Event
-				OnDataRequested(new CommandEventArgs(commandWrapper, "GetById", tmp));
+				OnDataRequested(new CommandEventArgs(commandWrapper, "GetByFavouriteId", tmp));
 			}
 			finally 
 			{
@@ -617,7 +617,7 @@ namespace ePrescription.Data.SqlClient
 			bulkCopy.DestinationTableName = "FavoritMaster";
 			
 			DataTable dataTable = new DataTable();
-			DataColumn col0 = dataTable.Columns.Add("ID", typeof(System.Int32));
+			DataColumn col0 = dataTable.Columns.Add("FavouriteID", typeof(System.String));
 			col0.AllowDBNull = false;		
 			DataColumn col1 = dataTable.Columns.Add("DiceaseName", typeof(System.String));
 			col1.AllowDBNull = false;		
@@ -630,7 +630,7 @@ namespace ePrescription.Data.SqlClient
 			DataColumn col5 = dataTable.Columns.Add("IsPrivate", typeof(System.Boolean));
 			col5.AllowDBNull = true;		
 			
-			bulkCopy.ColumnMappings.Add("ID", "ID");
+			bulkCopy.ColumnMappings.Add("FavouriteID", "FavouriteID");
 			bulkCopy.ColumnMappings.Add("DiceaseName", "DiceaseName");
 			bulkCopy.ColumnMappings.Add("CreateBy", "CreateBy");
 			bulkCopy.ColumnMappings.Add("Diagnosis", "Diagnosis");
@@ -644,7 +644,7 @@ namespace ePrescription.Data.SqlClient
 					
 				DataRow row = dataTable.NewRow();
 				
-					row["ID"] = entity.Id;
+					row["FavouriteID"] = entity.FavouriteId;
 							
 				
 					row["DiceaseName"] = entity.DiceaseName;
@@ -696,7 +696,7 @@ namespace ePrescription.Data.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.FavoritMaster_Insert", _useStoredProcedure);
 			
-            database.AddInParameter(commandWrapper, "@Id", DbType.Int32, entity.Id );
+            database.AddInParameter(commandWrapper, "@FavouriteId", DbType.String, entity.FavouriteId );
             database.AddInParameter(commandWrapper, "@DiceaseName", DbType.String, entity.DiceaseName );
             database.AddInParameter(commandWrapper, "@CreateBy", DbType.String, entity.CreateBy );
             database.AddInParameter(commandWrapper, "@Diagnosis", DbType.String, entity.Diagnosis );
@@ -718,7 +718,7 @@ namespace ePrescription.Data.SqlClient
 			}
 					
 			
-			entity.OriginalId = entity.Id;
+			entity.OriginalFavouriteId = entity.FavouriteId;
 			
 			entity.AcceptChanges();
 	
@@ -749,8 +749,8 @@ namespace ePrescription.Data.SqlClient
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo.FavoritMaster_Update", _useStoredProcedure);
 			
-            database.AddInParameter(commandWrapper, "@Id", DbType.Int32, entity.Id );
-			database.AddInParameter(commandWrapper, "@OriginalId", DbType.Int32, entity.OriginalId);
+            database.AddInParameter(commandWrapper, "@FavouriteId", DbType.String, entity.FavouriteId );
+			database.AddInParameter(commandWrapper, "@OriginalFavouriteId", DbType.String, entity.OriginalFavouriteId);
             database.AddInParameter(commandWrapper, "@DiceaseName", DbType.String, entity.DiceaseName );
             database.AddInParameter(commandWrapper, "@CreateBy", DbType.String, entity.CreateBy );
             database.AddInParameter(commandWrapper, "@Diagnosis", DbType.String, entity.Diagnosis );
@@ -777,7 +777,7 @@ namespace ePrescription.Data.SqlClient
                 EntityManager.StopTracking(entity.EntityTrackingKey);				
             }
 			
-			entity.OriginalId = entity.Id;
+			entity.OriginalFavouriteId = entity.FavouriteId;
 			
 			entity.AcceptChanges();
 			

@@ -87,11 +87,6 @@
             TotalUnit : 
             </summary>
         </member>
-        <member name="F:ePrescription.Entities.VrEPresDetailBase._expr1">
-            <summary>
-            Expr1 : 
-            </summary>
-        </member>
         <member name="F:ePrescription.Entities.VrEPresDetailBase._meaning">
             <summary>
             meaning : 
@@ -118,7 +113,7 @@
              Creates a new <see cref="T:ePrescription.Entities.VrEPresDetailBase"/> instance.
             </summary>
         </member>
-        <member name="M:ePrescription.Entities.VrEPresDetailBase.#ctor(System.Int64,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:ePrescription.Entities.VrEPresDetailBase.#ctor(System.Int64,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
              Creates a new <see cref="T:ePrescription.Entities.VrEPresDetailBase"/> instance.
             </summary>
@@ -135,11 +130,10 @@
             <param name="_vnMeaning"></param>
             <param name="_duration"></param>
             <param name="_totalUnit"></param>
-            <param name="_expr1"></param>
             <param name="_meaning"></param>
             <param name="_abbre"></param>
         </member>
-        <member name="M:ePrescription.Entities.VrEPresDetailBase.CreateVrEPresDetail(System.Int64,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:ePrescription.Entities.VrEPresDetailBase.CreateVrEPresDetail(System.Int64,System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
              A simple factory method to create a new <see cref="T:ePrescription.Entities.VrEPresDetail"/> instance.
             </summary>
@@ -156,7 +150,6 @@
             <param name="_vnMeaning"></param>
             <param name="_duration"></param>
             <param name="_totalUnit"></param>
-            <param name="_expr1"></param>
             <param name="_meaning"></param>
             <param name="_abbre"></param>
         </member>
@@ -285,16 +278,6 @@
         <member name="P:ePrescription.Entities.VrEPresDetailBase.TotalUnit">
             <summary>
             	Gets or Sets the TotalUnit property. 
-            	
-            </summary>
-            <value>This type is nvarchar</value>
-            <remarks>
-            This property can be set to null. 
-            </remarks>
-        </member>
-        <member name="P:ePrescription.Entities.VrEPresDetailBase.Expr1">
-            <summary>
-            	Gets or Sets the Expr1 property. 
             	
             </summary>
             <value>This type is nvarchar</value>
@@ -516,11 +499,6 @@
             TotalUnit : 
             </summary>
         </member>
-        <member name="F:ePrescription.Entities.VrEPresDetailColumn.Expr1">
-            <summary>
-            Expr1 : 
-            </summary>
-        </member>
         <member name="F:ePrescription.Entities.VrEPresDetailColumn.Meaning">
             <summary>
             meaning : 
@@ -530,6 +508,914 @@
             <summary>
             abbre : 
             </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrUnitTable">
+            <summary>
+             An object representation of the 'VR_UnitTable' view. [No description found in the database]	
+            </summary>
+             <remarks>
+             This file is generated once and will never be overwritten.
+             </remarks>	
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTable.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrUnitTable"/> instance.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrUnitTableBase">
+            <summary>
+             An object representation of the 'VR_UnitTable' view. [No description found in the database]	
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrUnitTableBase._unit">
+            <summary>
+            Unit : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrUnitTableBase._unitVn">
+            <summary>
+            UnitVN : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrUnitTableBase._dosageUnit">
+            <summary>
+            DosageUnit : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrUnitTableBase._dosageUnitVn">
+            <summary>
+            DosageUnitVN : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrUnitTableBase._tag">
+            <summary>
+            Object that contains data to associate with this object
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrUnitTableBase.suppressEntityEvents">
+            <summary>
+            Suppresses Entity Events from Firing, 
+            useful when loading the entities from the database.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrUnitTableBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.#ctor(System.String,System.String,System.String,System.String)">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrUnitTableBase"/> instance.
+            </summary>
+            <param name="_unit"></param>
+            <param name="_unitVn"></param>
+            <param name="_dosageUnit"></param>
+            <param name="_dosageUnitVn"></param>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.CreateVrUnitTable(System.String,System.String,System.String,System.String)">
+            <summary>
+             A simple factory method to create a new <see cref="T:ePrescription.Entities.VrUnitTable"/> instance.
+            </summary>
+            <param name="_unit"></param>
+            <param name="_unitVn"></param>
+            <param name="_dosageUnit"></param>
+            <param name="_dosageUnitVn"></param>
+        </member>
+        <member name="P:ePrescription.Entities.VrUnitTableBase.Unit">
+            <summary>
+            	Gets or Sets the Unit property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrUnitTableBase.UnitVn">
+            <summary>
+            	Gets or Sets the UnitVN property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrUnitTableBase.DosageUnit">
+            <summary>
+            	Gets or Sets the DosageUnit property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrUnitTableBase.DosageUnitVn">
+            <summary>
+            	Gets or Sets the DosageUnitVN property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrUnitTableBase.Tag">
+            <summary>
+                Gets or sets the object that contains supplemental data about this object.
+            </summary>
+            <value>Object</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrUnitTableBase.SuppressEntityEvents">
+            <summary>
+            Determines whether this entity is to suppress events while set to true.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrUnitTableBase.IsDeleted">
+            <summary>
+            Gets a value indicating if object has been <see cref="M:ePrescription.Entities.VrUnitTableBase.MarkToDelete"/>. ReadOnly.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrUnitTableBase.IsDirty">
+             <summary>
+            	Gets a value indicating  if the object has been modified from its original state.
+             </summary>
+            <value>True if object has been modified from its original state; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrUnitTableBase.IsNew">
+             <summary>
+            	Gets a value indicating if the object is new.
+             </summary>
+            <value>True if objectis new; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrUnitTableBase.ViewName">
+            <summary>
+            	The name of the underlying database table.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.AcceptChanges">
+            <summary>
+            Accepts the changes made to this object by setting each flags to false.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.CancelChanges">
+            <summary>
+              Revert all changes and restore original values.
+              Currently not supported.
+            </summary>
+             <exception cref="T:System.NotSupportedException">This method is not currently supported and always throws this exception.</exception>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.MarkToDelete">
+            <summary>
+               Marks entity to be deleted.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.Copy">
+            <summary>
+              Returns a Typed VrUnitTableBase Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.Clone">
+            <summary>
+             ICloneable.Clone() Member, returns the Deep Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.MakeCopyOf(System.Object)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.Equals(ePrescription.Entities.VrUnitTableBase)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="toObject">An object to compare to this instance.</param>
+            <returns>true if toObject is a <see cref="T:ePrescription.Entities.VrUnitTableBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.Equals(ePrescription.Entities.VrUnitTableBase,ePrescription.Entities.VrUnitTableBase)">
+            <summary>
+             Determines whether the specified <see cref="T:ePrescription.Entities.VrUnitTableBase"/> instances are considered equal.
+            </summary>
+            <param name="Object1">The first <see cref="T:ePrescription.Entities.VrUnitTableBase"/> to compare.</param>
+            <param name="Object2">The second <see cref="T:ePrescription.Entities.VrUnitTableBase"/> to compare. </param>
+            <returns>true if Object1 is the same instance as Object2 or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.CompareTo(System.Object)">
+            <summary>
+             Compares this instance to a specified object and returns an indication of their relative values.
+            <param name="obj">An object to compare to this instance, or a null reference (Nothing in Visual Basic).</param>
+            </summary>
+            <returns>A signed integer that indicates the relative order of this instance and obj.</returns>
+        </member>
+        <member name="E:ePrescription.Entities.VrUnitTableBase.PropertyChanged">
+            <summary>
+            Event to indicate that a property has changed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.OnPropertyChanged(System.String)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="propertyName">The name of the property that has changed.</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="e">PropertyChangedEventArgs</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.GetPropertyValueByName(ePrescription.Entities.VrUnitTable,System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.GetPropertyValueByName(System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrUnitTableBase.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrUnitTableColumn">
+            <summary>
+            Enumerate the VrUnitTable columns.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrUnitTableColumn.Unit">
+            <summary>
+            Unit : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrUnitTableColumn.UnitVn">
+            <summary>
+            UnitVN : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrUnitTableColumn.DosageUnit">
+            <summary>
+            DosageUnit : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrUnitTableColumn.DosageUnitVn">
+            <summary>
+            DosageUnitVN : 
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.Diaglist">
+            <summary>
+             An object representation of the 'Diaglist' table. [No description found the database]	
+            </summary>
+             <remarks>
+             This file is generated once and will never be overwritten.
+             </remarks>	
+        </member>
+        <member name="M:ePrescription.Entities.Diaglist.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.Diaglist"/> instance.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.DiaglistBase">
+            <summary>
+             An object representation of the 'Diaglist' table. [No description found the database]	
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistBase.entityData">
+            <summary>
+             Hold the inner data of the entity.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistBase._originalData">
+            <summary>
+            	Hold the original data of the entity, as loaded from the repository.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistBase.backupData">
+            <summary>
+            	Hold a backup of the inner data of the entity.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistBase.entityTrackingKey">
+            <summary>
+            	Key used if Tracking is Enabled for the <see cref="T:ePrescription.Entities.EntityLocator" />.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistBase.parentCollection">
+            <summary>
+            	Hold the parent TList&lt;entity&gt; in which this entity maybe contained.
+            </summary>
+            <remark>Mostly used for databinding</remark>
+        </member>
+        <member name="E:ePrescription.Entities.DiaglistBase.ColumnChanging">
+            <summary>
+            Occurs when a value is being changed for the specified column.
+            </summary>
+        </member>
+        <member name="E:ePrescription.Entities.DiaglistBase.ColumnChanged">
+            <summary>
+            Occurs after a value has been changed for the specified column.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.DiaglistBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.#ctor(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.DiaglistBase"/> instance.
+            </summary>
+            <param name="_category"></param>
+            <param name="_diagCode"></param>
+            <param name="_diagName"></param>
+            <param name="_diagNameVn"></param>
+            <param name="_isDisabled"></param>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.CreateDiaglist(System.String,System.String,System.String,System.String,System.Boolean)">
+            <summary>
+             A simple factory method to create a new <see cref="T:ePrescription.Entities.Diaglist"/> instance.
+            </summary>
+            <param name="_category"></param>
+            <param name="_diagCode"></param>
+            <param name="_diagName"></param>
+            <param name="_diagNameVn"></param>
+            <param name="_isDisabled"></param>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.Category">
+            <summary>
+            	Gets or sets the Category property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.DiagCode">
+            <summary>
+            	Gets or sets the DiagCode property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.OriginalDiagCode">
+            <summary>
+            	Get the original value of the DIAG_CODE property.
+            	
+            </summary>
+            <remarks>This is the original value of the DIAG_CODE property.</remarks>
+            <value>This type is nvarchar</value>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.DiagName">
+            <summary>
+            	Gets or sets the DiagName property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.DiagNameVn">
+            <summary>
+            	Gets or sets the DiagNameVn property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.IsDisabled">
+            <summary>
+            	Gets or sets the IsDisabled property. 
+            	
+            </summary>
+            <value>This type is bit.</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.AddValidationRules">
+            <summary>
+            Assigns validation rules to this object based on model definition.
+            </summary>
+            <remarks>This method overrides the base class to add schema related validation.</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.TableName">
+            <summary>
+            	The name of the underlying database table.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.TableColumns">
+            <summary>
+            	The name of the underlying database table's columns.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.DiaglistBase.CancelAddNewEventHandler">
+            <summary>
+            The delegate for the CancelAddNew event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:ePrescription.Entities.DiaglistBase.CancelAddNew">
+            <summary>
+            The CancelAddNew event.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.OnCancelAddNew">
+            <summary>
+            Called when [cancel add new].
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.System#ComponentModel#IEditableObject#BeginEdit">
+            <summary>
+            Begins an edit on an object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.System#ComponentModel#IEditableObject#CancelEdit">
+            <summary>
+            Discards changes since the last <c>BeginEdit</c> call.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.System#ComponentModel#IEditableObject#EndEdit">
+            <summary>
+            Pushes changes since the last <c>BeginEdit</c> or <c>IBindingList.AddNew</c> call into the underlying object.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.ParentCollection">
+            <summary>
+            Gets or sets the parent collection of this current entity, if available.
+            </summary>
+            <value>The parent collection.</value>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.OnEntityChanged">
+            <summary>
+            Called when the entity is changed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.Copy(System.Collections.IDictionary)">
+            <summary>
+              Returns a Typed Diaglist Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.Copy">
+            <summary>
+              Returns a Typed Diaglist Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.Clone">
+            <summary>
+             ICloneable.Clone() Member, returns the Shallow Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.Clone(System.Collections.IDictionary)">
+            <summary>
+             ICloneableEx.Clone() Member, returns the Shallow Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.MakeCopyOf(System.Object)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.MakeCopyOf(System.Object,System.Collections.IDictionary)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.DeepCopy">
+            <summary>
+              Returns a Typed Diaglist Entity which is a deep copy of the current entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.CancelChanges">
+            <summary>
+             Revert all changes and restore original values.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.AcceptChanges">
+            <summary>
+            Accepts the changes made to this object.
+            </summary>
+            <remarks>
+            After calling this method, properties: IsDirty, IsNew are false. IsDeleted flag remains unchanged as it is handled by the parent List.
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.IsPropertyChanged(ePrescription.Entities.DiaglistColumn)">
+            <summary>
+            Determines whether the property value has changed from the original data.
+            </summary>
+            <param name="column">The column.</param>
+            <returns>
+            	<c>true</c> if the property value has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.IsPropertyChanged(System.String)">
+            <summary>
+            Determines whether the property value has changed from the original data.
+            </summary>
+            <param name="columnName">The column name.</param>
+            <returns>
+            	<c>true</c> if the property value has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.HasDataChanged">
+            <summary>
+            Determines whether the data has changed from original.
+            </summary>
+            <returns>
+            	<c>true</c> if data has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.GetOriginalEntity">
+            <summary>
+              Returns a Diaglist Entity with the original data.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.Equals(System.Object)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object using value semantics.
+            </summary>
+            <param name="Object1">An object to compare to this instance.</param>
+            <returns>true if Object1 is a <see cref="T:ePrescription.Entities.DiaglistBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type, suitable for use in hashing algorithms and data structures like a hash table.
+            Provides a hash function that is appropriate for <see cref="T:ePrescription.Entities.DiaglistBase"/> class 
+            and that ensures a better distribution in the hash table
+            </summary>
+            <returns>number (hash code) that corresponds to the value of an object</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.Equals(ePrescription.Entities.DiaglistBase)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object using value semantics.
+            </summary>
+            <param name="toObject">An object to compare to this instance.</param>
+            <returns>true if toObject is a <see cref="T:ePrescription.Entities.DiaglistBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.ValueEquals(ePrescription.Entities.DiaglistBase,ePrescription.Entities.DiaglistBase)">
+            <summary>
+             Determines whether the specified <see cref="T:ePrescription.Entities.DiaglistBase"/> instances are considered equal using value semantics.
+            </summary>
+            <param name="Object1">The first <see cref="T:ePrescription.Entities.DiaglistBase"/> to compare.</param>
+            <param name="Object2">The second <see cref="T:ePrescription.Entities.DiaglistBase"/> to compare. </param>
+            <returns>true if Object1 is the same instance as Object2 or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.CompareTo(System.Object)">
+            <summary>
+             Compares this instance to a specified object and returns an indication of their relative values.
+            <param name="obj">An object to compare to this instance, or a null reference (Nothing in Visual Basic).</param>
+            </summary>
+            <returns>A signed integer that indicates the relative order of this instance and obj.</returns>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.Site">
+            <summary>
+            Gets or Sets the site where this data is located.
+            </summary>
+        </member>
+        <member name="E:ePrescription.Entities.DiaglistBase.Disposed">
+            <summary>
+            Notify those that care when we dispose.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.Dispose">
+            <summary>
+            Clean up. Nothing here though.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.Dispose(System.Boolean)">
+            <summary>
+            Clean up.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.EntityId">
+            <summary>
+            Gets or sets the EntityId property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.EntityState">
+            <summary>
+            	Indicates state of object
+            </summary>
+            <remarks>0=Unchanged, 1=Added, 2=Changed</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.EntityTrackingKey">
+            <summary>
+             Provides the tracking key for the <see cref="T:ePrescription.Entities.EntityLocator"/>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.DiaglistBase.DiaglistEntityData">
+            <summary>
+            	The data structure representation of the 'Diaglist' table.
+            </summary>
+            <remarks>
+            	This struct is generated by a tool and should never be modified.
+            </remarks>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistBase.DiaglistEntityData.DiagCode">
+            <summary>			
+            DIAG_CODE : 
+            </summary>
+            <remarks>Member of the primary key of the underlying table "Diaglist"</remarks>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistBase.DiaglistEntityData.OriginalDiagCode">
+            <summary>
+            keep a copy of the original so it can be used for editable primary keys.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistBase.DiaglistEntityData.Category">
+            <summary>
+            CATEGORY : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistBase.DiaglistEntityData.DiagName">
+            <summary>
+            DIAG_NAME : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistBase.DiaglistEntityData.DiagNameVn">
+            <summary>
+            DIAG_NAME_VN : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistBase.DiaglistEntityData.IsDisabled">
+            <summary>
+            IsDisabled : 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.DiaglistEntityData.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.DiaglistEntityData.Clone(System.Collections.IDictionary)">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistBase.DiaglistEntityData.EntityState">
+            <summary>
+            	Indicates state of object
+            </summary>
+            <remarks>0=Unchanged, 1=Added, 2=Changed</remarks>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.OnColumnChanging(ePrescription.Entities.DiaglistColumn)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.DiaglistBase.ColumnChanging" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.DiaglistColumn"/> which has raised the event.</param>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.OnColumnChanged(ePrescription.Entities.DiaglistColumn)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.DiaglistBase.ColumnChanged" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.DiaglistColumn"/> which has raised the event.</param>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.OnColumnChanging(ePrescription.Entities.DiaglistColumn,System.Object)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.DiaglistBase.ColumnChanging" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.DiaglistColumn"/> which has raised the event.</param>
+            <param name="value">The changed value.</param>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistBase.OnColumnChanged(ePrescription.Entities.DiaglistColumn,System.Object)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.DiaglistBase.ColumnChanged" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.DiaglistColumn"/> which has raised the event.</param>
+            <param name="value">The changed value.</param>
+        </member>
+        <member name="T:ePrescription.Entities.DiaglistEventArgs">
+            <summary>
+            Provides data for the ColumnChanging and ColumnChanged events.
+            </summary>
+            <remarks>
+            The ColumnChanging and ColumnChanged events occur when a change is made to the value 
+            of a property of a <see cref="T:ePrescription.Entities.Diaglist"/> object.
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistEventArgs.#ctor(ePrescription.Entities.DiaglistColumn)">
+            <summary>
+             Initalizes a new Instance of the DiaglistEventArgs class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistEventArgs.#ctor(ePrescription.Entities.DiaglistColumn,System.Object)">
+            <summary>
+             Initalizes a new Instance of the DiaglistEventArgs class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistEventArgs.Column">
+            <summary>
+             The DiaglistColumn that was modified, which has raised the event.
+            </summary>
+            <value cref="T:ePrescription.Entities.DiaglistColumn" />
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistEventArgs.Value">
+            <summary>
+            Gets the current value of the column.
+            </summary>
+            <value>The current value of the column.</value>
+        </member>
+        <member name="T:ePrescription.Entities.DiaglistEventHandler">
+            <summary>
+             Define a delegate for all Diaglist related events.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.DiaglistComparer">
+            <summary>
+            Strongly Typed IComparer
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistComparer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DiaglistComparer"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistComparer.#ctor(ePrescription.Entities.DiaglistColumn)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DiaglistComparer"/> class.
+            </summary>
+            <param name="column">The column to sort on.</param>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistComparer.Equals(ePrescription.Entities.Diaglist,ePrescription.Entities.Diaglist)">
+            <summary>
+            Determines whether the specified <see cref="T:ePrescription.Entities.Diaglist"/> instances are considered equal.
+            </summary>
+            <param name="a">The first <see cref="T:ePrescription.Entities.Diaglist"/> to compare.</param>
+            <param name="b">The second <c>Diaglist</c> to compare.</param>
+            <returns>true if objA is the same instance as objB or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistComparer.GetHashCode(ePrescription.Entities.Diaglist)">
+            <summary>
+            Gets the hash code of the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistComparer.Compare(ePrescription.Entities.Diaglist,ePrescription.Entities.Diaglist)">
+            <summary>
+            Performs a case-insensitive comparison of two objects of the same type and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistComparer.WhichComparison">
+            <summary>
+            Gets or sets the column that will be used for comparison.
+            </summary>
+            <value>The comparison column.</value>
+        </member>
+        <member name="T:ePrescription.Entities.DiaglistKey">
+            <summary>
+            Wraps the unique identifier values for the <see cref="T:ePrescription.Entities.Diaglist"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistKey.#ctor">
+            <summary>
+            Initializes a new instance of the DiaglistKey class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistKey.#ctor(ePrescription.Entities.DiaglistBase)">
+            <summary>
+            Initializes a new instance of the DiaglistKey class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistKey.#ctor(System.String)">
+            <summary>
+            Initializes a new instance of the DiaglistKey class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistKey.Entity">
+            <summary>
+            Gets or sets the Entity property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DiaglistKey.DiagCode">
+            <summary>
+            Gets or sets the DiagCode property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistKey.Load(System.Collections.IDictionary)">
+            <summary>
+            Reads values from the supplied <see cref="T:System.Collections.IDictionary"/> object into
+            properties of the current object.
+            </summary>
+            <param name="values">An <see cref="T:System.Collections.IDictionary"/> instance that contains
+            the key/value pairs to be used as property values.</param>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistKey.ToDictionary">
+            <summary>
+            Creates a new <see cref="T:System.Collections.IDictionary"/> object and populates it
+            with the property values of the current object.
+            </summary>
+            <returns>A collection of name/value pairs.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DiaglistKey.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.DiaglistColumn">
+            <summary>
+            Enumerate the Diaglist columns.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistColumn.Category">
+            <summary>
+            Category : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistColumn.DiagCode">
+            <summary>
+            DiagCode : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistColumn.DiagName">
+            <summary>
+            DiagName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistColumn.DiagNameVn">
+            <summary>
+            DiagNameVn : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DiaglistColumn.IsDisabled">
+            <summary>
+            IsDisabled : 
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.IDiaglist">
+            <summary>
+            	The data structure representation of the 'Diaglist' table via interface.
+            </summary>
+            <remarks>
+            	This struct is generated by a tool and should never be modified.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.IDiaglist.DiagCode">
+            <summary>			
+            DIAG_CODE : 
+            </summary>
+            <remarks>Member of the primary key of the underlying table "Diaglist"</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.IDiaglist.OriginalDiagCode">
+            <summary>
+            keep a copy of the original so it can be used for editable primary keys.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDiaglist.Category">
+            <summary>
+            CATEGORY : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDiaglist.DiagName">
+            <summary>
+            DIAG_NAME : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDiaglist.DiagNameVn">
+            <summary>
+            DIAG_NAME_VN : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDiaglist.IsDisabled">
+            <summary>
+            IsDisabled : 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.IDiaglist.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
         </member>
         <member name="T:ePrescription.Entities.EPrescription">
             <summary>
@@ -2535,6 +3421,911 @@
             </summary>
             <returns>A new object that is a copy of this instance.</returns>
         </member>
+        <member name="T:ePrescription.Entities.FavoritDetail">
+            <summary>
+             An object representation of the 'FavoritDetail' table. [No description found the database]	
+            </summary>
+             <remarks>
+             This file is generated once and will never be overwritten.
+             </remarks>	
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetail.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.FavoritDetail"/> instance.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.FavoritDetailBase">
+            <summary>
+             An object representation of the 'FavoritDetail' table. [No description found the database]	
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.entityData">
+            <summary>
+             Hold the inner data of the entity.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase._originalData">
+            <summary>
+            	Hold the original data of the entity, as loaded from the repository.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.backupData">
+            <summary>
+            	Hold a backup of the inner data of the entity.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.entityTrackingKey">
+            <summary>
+            	Key used if Tracking is Enabled for the <see cref="T:ePrescription.Entities.EntityLocator" />.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.parentCollection">
+            <summary>
+            	Hold the parent TList&lt;entity&gt; in which this entity maybe contained.
+            </summary>
+            <remark>Mostly used for databinding</remark>
+        </member>
+        <member name="E:ePrescription.Entities.FavoritDetailBase.ColumnChanging">
+            <summary>
+            Occurs when a value is being changed for the specified column.
+            </summary>
+        </member>
+        <member name="E:ePrescription.Entities.FavoritDetailBase.ColumnChanged">
+            <summary>
+            Occurs after a value has been changed for the specified column.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.FavoritDetailBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.FavoritDetailBase"/> instance.
+            </summary>
+            <param name="_favouriteId"></param>
+            <param name="_drugId"></param>
+            <param name="_drugName"></param>
+            <param name="_routeType"></param>
+            <param name="_routeTypeVn"></param>
+            <param name="_dosage"></param>
+            <param name="_dosageUnit"></param>
+            <param name="_dosageUnitVn"></param>
+            <param name="_frequency"></param>
+            <param name="_frequencyVn"></param>
+            <param name="_duration"></param>
+            <param name="_durationUnit"></param>
+            <param name="_durationUnitVn"></param>
+            <param name="_totalUnit"></param>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.CreateFavoritDetail(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+             A simple factory method to create a new <see cref="T:ePrescription.Entities.FavoritDetail"/> instance.
+            </summary>
+            <param name="_favouriteId"></param>
+            <param name="_drugId"></param>
+            <param name="_drugName"></param>
+            <param name="_routeType"></param>
+            <param name="_routeTypeVn"></param>
+            <param name="_dosage"></param>
+            <param name="_dosageUnit"></param>
+            <param name="_dosageUnitVn"></param>
+            <param name="_frequency"></param>
+            <param name="_frequencyVn"></param>
+            <param name="_duration"></param>
+            <param name="_durationUnit"></param>
+            <param name="_durationUnitVn"></param>
+            <param name="_totalUnit"></param>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.Id">
+            <summary>
+            	Gets or sets the Id property. 
+            	
+            </summary>
+            <value>This type is bigint.</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.FavouriteId">
+            <summary>
+            	Gets or sets the FavouriteId property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.DrugId">
+            <summary>
+            	Gets or sets the DrugId property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.DrugName">
+            <summary>
+            	Gets or sets the DrugName property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.RouteType">
+            <summary>
+            	Gets or sets the RouteType property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.RouteTypeVn">
+            <summary>
+            	Gets or sets the RouteTypeVn property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.Dosage">
+            <summary>
+            	Gets or sets the Dosage property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.DosageUnit">
+            <summary>
+            	Gets or sets the DosageUnit property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.DosageUnitVn">
+            <summary>
+            	Gets or sets the DosageUnitVn property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.Frequency">
+            <summary>
+            	Gets or sets the Frequency property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.FrequencyVn">
+            <summary>
+            	Gets or sets the FrequencyVn property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.Duration">
+            <summary>
+            	Gets or sets the Duration property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.DurationUnit">
+            <summary>
+            	Gets or sets the DurationUnit property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.DurationUnitVn">
+            <summary>
+            	Gets or sets the DurationUnitVn property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.TotalUnit">
+            <summary>
+            	Gets or sets the TotalUnit property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.FavouriteIdSource">
+            <summary>
+            Gets or sets the source <see cref="T:ePrescription.Entities.FavoritMaster"/>.
+            </summary>
+            <value>The source FavoritMaster for FavouriteId.</value>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.AddValidationRules">
+            <summary>
+            Assigns validation rules to this object based on model definition.
+            </summary>
+            <remarks>This method overrides the base class to add schema related validation.</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.TableName">
+            <summary>
+            	The name of the underlying database table.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.TableColumns">
+            <summary>
+            	The name of the underlying database table's columns.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.FavoritDetailBase.CancelAddNewEventHandler">
+            <summary>
+            The delegate for the CancelAddNew event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:ePrescription.Entities.FavoritDetailBase.CancelAddNew">
+            <summary>
+            The CancelAddNew event.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.OnCancelAddNew">
+            <summary>
+            Called when [cancel add new].
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.System#ComponentModel#IEditableObject#BeginEdit">
+            <summary>
+            Begins an edit on an object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.System#ComponentModel#IEditableObject#CancelEdit">
+            <summary>
+            Discards changes since the last <c>BeginEdit</c> call.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.System#ComponentModel#IEditableObject#EndEdit">
+            <summary>
+            Pushes changes since the last <c>BeginEdit</c> or <c>IBindingList.AddNew</c> call into the underlying object.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.ParentCollection">
+            <summary>
+            Gets or sets the parent collection of this current entity, if available.
+            </summary>
+            <value>The parent collection.</value>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.OnEntityChanged">
+            <summary>
+            Called when the entity is changed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.Copy(System.Collections.IDictionary)">
+            <summary>
+              Returns a Typed FavoritDetail Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.Copy">
+            <summary>
+              Returns a Typed FavoritDetail Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.Clone">
+            <summary>
+             ICloneable.Clone() Member, returns the Shallow Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.Clone(System.Collections.IDictionary)">
+            <summary>
+             ICloneableEx.Clone() Member, returns the Shallow Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.MakeCopyOf(System.Object)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.MakeCopyOf(System.Object,System.Collections.IDictionary)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.DeepCopy">
+            <summary>
+              Returns a Typed FavoritDetail Entity which is a deep copy of the current entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.CancelChanges">
+            <summary>
+             Revert all changes and restore original values.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.AcceptChanges">
+            <summary>
+            Accepts the changes made to this object.
+            </summary>
+            <remarks>
+            After calling this method, properties: IsDirty, IsNew are false. IsDeleted flag remains unchanged as it is handled by the parent List.
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.IsPropertyChanged(ePrescription.Entities.FavoritDetailColumn)">
+            <summary>
+            Determines whether the property value has changed from the original data.
+            </summary>
+            <param name="column">The column.</param>
+            <returns>
+            	<c>true</c> if the property value has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.IsPropertyChanged(System.String)">
+            <summary>
+            Determines whether the property value has changed from the original data.
+            </summary>
+            <param name="columnName">The column name.</param>
+            <returns>
+            	<c>true</c> if the property value has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.HasDataChanged">
+            <summary>
+            Determines whether the data has changed from original.
+            </summary>
+            <returns>
+            	<c>true</c> if data has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.GetOriginalEntity">
+            <summary>
+              Returns a FavoritDetail Entity with the original data.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.Equals(System.Object)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object using value semantics.
+            </summary>
+            <param name="Object1">An object to compare to this instance.</param>
+            <returns>true if Object1 is a <see cref="T:ePrescription.Entities.FavoritDetailBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type, suitable for use in hashing algorithms and data structures like a hash table.
+            Provides a hash function that is appropriate for <see cref="T:ePrescription.Entities.FavoritDetailBase"/> class 
+            and that ensures a better distribution in the hash table
+            </summary>
+            <returns>number (hash code) that corresponds to the value of an object</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.Equals(ePrescription.Entities.FavoritDetailBase)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object using value semantics.
+            </summary>
+            <param name="toObject">An object to compare to this instance.</param>
+            <returns>true if toObject is a <see cref="T:ePrescription.Entities.FavoritDetailBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.ValueEquals(ePrescription.Entities.FavoritDetailBase,ePrescription.Entities.FavoritDetailBase)">
+            <summary>
+             Determines whether the specified <see cref="T:ePrescription.Entities.FavoritDetailBase"/> instances are considered equal using value semantics.
+            </summary>
+            <param name="Object1">The first <see cref="T:ePrescription.Entities.FavoritDetailBase"/> to compare.</param>
+            <param name="Object2">The second <see cref="T:ePrescription.Entities.FavoritDetailBase"/> to compare. </param>
+            <returns>true if Object1 is the same instance as Object2 or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.CompareTo(System.Object)">
+            <summary>
+             Compares this instance to a specified object and returns an indication of their relative values.
+            <param name="obj">An object to compare to this instance, or a null reference (Nothing in Visual Basic).</param>
+            </summary>
+            <returns>A signed integer that indicates the relative order of this instance and obj.</returns>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.Site">
+            <summary>
+            Gets or Sets the site where this data is located.
+            </summary>
+        </member>
+        <member name="E:ePrescription.Entities.FavoritDetailBase.Disposed">
+            <summary>
+            Notify those that care when we dispose.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.Dispose">
+            <summary>
+            Clean up. Nothing here though.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.Dispose(System.Boolean)">
+            <summary>
+            Clean up.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.EntityId">
+            <summary>
+            Gets or sets the EntityId property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.EntityState">
+            <summary>
+            	Indicates state of object
+            </summary>
+            <remarks>0=Unchanged, 1=Added, 2=Changed</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.EntityTrackingKey">
+            <summary>
+             Provides the tracking key for the <see cref="T:ePrescription.Entities.EntityLocator"/>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData">
+            <summary>
+            	The data structure representation of the 'FavoritDetail' table.
+            </summary>
+            <remarks>
+            	This struct is generated by a tool and should never be modified.
+            </remarks>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.Id">
+            <summary>			
+            ID : 
+            </summary>
+            <remarks>Member of the primary key of the underlying table "FavoritDetail"</remarks>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.FavouriteId">
+            <summary>
+            FavouriteID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.DrugId">
+            <summary>
+            DrugID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.DrugName">
+            <summary>
+            DrugName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.RouteType">
+            <summary>
+            RouteType : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.RouteTypeVn">
+            <summary>
+            RouteTypeVN : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.Dosage">
+            <summary>
+            Dosage : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.DosageUnit">
+            <summary>
+            DosageUnit : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.DosageUnitVn">
+            <summary>
+            DosageUnitVN : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.Frequency">
+            <summary>
+            Frequency : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.FrequencyVn">
+            <summary>
+            FrequencyVN : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.Duration">
+            <summary>
+            Duration : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.DurationUnit">
+            <summary>
+            DurationUnit : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.DurationUnitVn">
+            <summary>
+            DurationUnitVN : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.TotalUnit">
+            <summary>
+            TotalUnit : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.FavouriteIdSource">
+            <summary>
+            Gets or sets the source <see cref="T:ePrescription.Entities.FavoritMaster"/>.
+            </summary>
+            <value>The source FavoritMaster for FavouriteId.</value>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.Clone(System.Collections.IDictionary)">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailBase.FavoritDetailEntityData.EntityState">
+            <summary>
+            	Indicates state of object
+            </summary>
+            <remarks>0=Unchanged, 1=Added, 2=Changed</remarks>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.OnColumnChanging(ePrescription.Entities.FavoritDetailColumn)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.FavoritDetailBase.ColumnChanging" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.FavoritDetailColumn"/> which has raised the event.</param>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.OnColumnChanged(ePrescription.Entities.FavoritDetailColumn)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.FavoritDetailBase.ColumnChanged" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.FavoritDetailColumn"/> which has raised the event.</param>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.OnColumnChanging(ePrescription.Entities.FavoritDetailColumn,System.Object)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.FavoritDetailBase.ColumnChanging" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.FavoritDetailColumn"/> which has raised the event.</param>
+            <param name="value">The changed value.</param>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailBase.OnColumnChanged(ePrescription.Entities.FavoritDetailColumn,System.Object)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.FavoritDetailBase.ColumnChanged" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.FavoritDetailColumn"/> which has raised the event.</param>
+            <param name="value">The changed value.</param>
+        </member>
+        <member name="T:ePrescription.Entities.FavoritDetailEventArgs">
+            <summary>
+            Provides data for the ColumnChanging and ColumnChanged events.
+            </summary>
+            <remarks>
+            The ColumnChanging and ColumnChanged events occur when a change is made to the value 
+            of a property of a <see cref="T:ePrescription.Entities.FavoritDetail"/> object.
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailEventArgs.#ctor(ePrescription.Entities.FavoritDetailColumn)">
+            <summary>
+             Initalizes a new Instance of the FavoritDetailEventArgs class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailEventArgs.#ctor(ePrescription.Entities.FavoritDetailColumn,System.Object)">
+            <summary>
+             Initalizes a new Instance of the FavoritDetailEventArgs class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailEventArgs.Column">
+            <summary>
+             The FavoritDetailColumn that was modified, which has raised the event.
+            </summary>
+            <value cref="T:ePrescription.Entities.FavoritDetailColumn" />
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailEventArgs.Value">
+            <summary>
+            Gets the current value of the column.
+            </summary>
+            <value>The current value of the column.</value>
+        </member>
+        <member name="T:ePrescription.Entities.FavoritDetailEventHandler">
+            <summary>
+             Define a delegate for all FavoritDetail related events.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.FavoritDetailComparer">
+            <summary>
+            Strongly Typed IComparer
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailComparer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FavoritDetailComparer"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailComparer.#ctor(ePrescription.Entities.FavoritDetailColumn)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FavoritDetailComparer"/> class.
+            </summary>
+            <param name="column">The column to sort on.</param>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailComparer.Equals(ePrescription.Entities.FavoritDetail,ePrescription.Entities.FavoritDetail)">
+            <summary>
+            Determines whether the specified <see cref="T:ePrescription.Entities.FavoritDetail"/> instances are considered equal.
+            </summary>
+            <param name="a">The first <see cref="T:ePrescription.Entities.FavoritDetail"/> to compare.</param>
+            <param name="b">The second <c>FavoritDetail</c> to compare.</param>
+            <returns>true if objA is the same instance as objB or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailComparer.GetHashCode(ePrescription.Entities.FavoritDetail)">
+            <summary>
+            Gets the hash code of the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailComparer.Compare(ePrescription.Entities.FavoritDetail,ePrescription.Entities.FavoritDetail)">
+            <summary>
+            Performs a case-insensitive comparison of two objects of the same type and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailComparer.WhichComparison">
+            <summary>
+            Gets or sets the column that will be used for comparison.
+            </summary>
+            <value>The comparison column.</value>
+        </member>
+        <member name="T:ePrescription.Entities.FavoritDetailKey">
+            <summary>
+            Wraps the unique identifier values for the <see cref="T:ePrescription.Entities.FavoritDetail"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailKey.#ctor">
+            <summary>
+            Initializes a new instance of the FavoritDetailKey class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailKey.#ctor(ePrescription.Entities.FavoritDetailBase)">
+            <summary>
+            Initializes a new instance of the FavoritDetailKey class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailKey.#ctor(System.Int64)">
+            <summary>
+            Initializes a new instance of the FavoritDetailKey class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailKey.Entity">
+            <summary>
+            Gets or sets the Entity property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritDetailKey.Id">
+            <summary>
+            Gets or sets the Id property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailKey.Load(System.Collections.IDictionary)">
+            <summary>
+            Reads values from the supplied <see cref="T:System.Collections.IDictionary"/> object into
+            properties of the current object.
+            </summary>
+            <param name="values">An <see cref="T:System.Collections.IDictionary"/> instance that contains
+            the key/value pairs to be used as property values.</param>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailKey.ToDictionary">
+            <summary>
+            Creates a new <see cref="T:System.Collections.IDictionary"/> object and populates it
+            with the property values of the current object.
+            </summary>
+            <returns>A collection of name/value pairs.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FavoritDetailKey.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.FavoritDetailColumn">
+            <summary>
+            Enumerate the FavoritDetail columns.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.Id">
+            <summary>
+            Id : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.FavouriteId">
+            <summary>
+            FavouriteId : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.DrugId">
+            <summary>
+            DrugId : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.DrugName">
+            <summary>
+            DrugName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.RouteType">
+            <summary>
+            RouteType : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.RouteTypeVn">
+            <summary>
+            RouteTypeVn : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.Dosage">
+            <summary>
+            Dosage : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.DosageUnit">
+            <summary>
+            DosageUnit : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.DosageUnitVn">
+            <summary>
+            DosageUnitVn : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.Frequency">
+            <summary>
+            Frequency : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.FrequencyVn">
+            <summary>
+            FrequencyVn : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.Duration">
+            <summary>
+            Duration : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.DurationUnit">
+            <summary>
+            DurationUnit : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.DurationUnitVn">
+            <summary>
+            DurationUnitVn : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FavoritDetailColumn.TotalUnit">
+            <summary>
+            TotalUnit : 
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.IFavoritDetail">
+            <summary>
+            	The data structure representation of the 'FavoritDetail' table via interface.
+            </summary>
+            <remarks>
+            	This struct is generated by a tool and should never be modified.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.Id">
+            <summary>			
+            ID : 
+            </summary>
+            <remarks>Member of the primary key of the underlying table "FavoritDetail"</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.FavouriteId">
+            <summary>
+            FavouriteID : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.DrugId">
+            <summary>
+            DrugID : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.DrugName">
+            <summary>
+            DrugName : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.RouteType">
+            <summary>
+            RouteType : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.RouteTypeVn">
+            <summary>
+            RouteTypeVN : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.Dosage">
+            <summary>
+            Dosage : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.DosageUnit">
+            <summary>
+            DosageUnit : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.DosageUnitVn">
+            <summary>
+            DosageUnitVN : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.Frequency">
+            <summary>
+            Frequency : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.FrequencyVn">
+            <summary>
+            FrequencyVN : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.Duration">
+            <summary>
+            Duration : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.DurationUnit">
+            <summary>
+            DurationUnit : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.DurationUnitVn">
+            <summary>
+            DurationUnitVN : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritDetail.TotalUnit">
+            <summary>
+            TotalUnit : 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.IFavoritDetail.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
         <member name="T:ePrescription.Entities.FavoritMaster">
             <summary>
              An object representation of the 'FavoritMaster' table. [No description found the database]	
@@ -2594,45 +4385,46 @@
              Creates a new <see cref="T:ePrescription.Entities.FavoritMasterBase"/> instance.
             </summary>
         </member>
-        <member name="M:ePrescription.Entities.FavoritMasterBase.#ctor(System.Int32,System.String,System.String,System.String,System.String,System.Nullable{System.Boolean})">
+        <member name="M:ePrescription.Entities.FavoritMasterBase.#ctor(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Boolean})">
             <summary>
              Creates a new <see cref="T:ePrescription.Entities.FavoritMasterBase"/> instance.
             </summary>
-            <param name="_id"></param>
+            <param name="_favouriteId"></param>
             <param name="_diceaseName"></param>
             <param name="_createBy"></param>
             <param name="_diagnosis"></param>
             <param name="_diagnosisVn"></param>
             <param name="_isPrivate"></param>
         </member>
-        <member name="M:ePrescription.Entities.FavoritMasterBase.CreateFavoritMaster(System.Int32,System.String,System.String,System.String,System.String,System.Nullable{System.Boolean})">
+        <member name="M:ePrescription.Entities.FavoritMasterBase.CreateFavoritMaster(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Boolean})">
             <summary>
              A simple factory method to create a new <see cref="T:ePrescription.Entities.FavoritMaster"/> instance.
             </summary>
-            <param name="_id"></param>
+            <param name="_favouriteId"></param>
             <param name="_diceaseName"></param>
             <param name="_createBy"></param>
             <param name="_diagnosis"></param>
             <param name="_diagnosisVn"></param>
             <param name="_isPrivate"></param>
         </member>
-        <member name="P:ePrescription.Entities.FavoritMasterBase.Id">
+        <member name="P:ePrescription.Entities.FavoritMasterBase.FavouriteId">
             <summary>
-            	Gets or sets the Id property. 
+            	Gets or sets the FavouriteId property. 
             	
             </summary>
-            <value>This type is int.</value>
+            <value>This type is nvarchar.</value>
             <remarks>
             This property can not be set to null. 
             </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
         </member>
-        <member name="P:ePrescription.Entities.FavoritMasterBase.OriginalId">
+        <member name="P:ePrescription.Entities.FavoritMasterBase.OriginalFavouriteId">
             <summary>
-            	Get the original value of the ID property.
+            	Get the original value of the FavouriteID property.
             	
             </summary>
-            <remarks>This is the original value of the ID property.</remarks>
-            <value>This type is int</value>
+            <remarks>This is the original value of the FavouriteID property.</remarks>
+            <value>This type is nvarchar</value>
         </member>
         <member name="P:ePrescription.Entities.FavoritMasterBase.DiceaseName">
             <summary>
@@ -2686,6 +4478,12 @@
             If this column is null it is up to the developer to check using the HasValue property
             and perform business logic appropriately.
             </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritMasterBase.FavoritDetailCollection">
+            <summary>
+            Holds a collection of FavoritDetail objects
+            which are related to this object through the relation FK_FavoritDetail_ID
+            </summary>	
         </member>
         <member name="M:ePrescription.Entities.FavoritMasterBase.AddValidationRules">
             <summary>
@@ -2911,13 +4709,13 @@
             	This struct is generated by a tool and should never be modified.
             </remarks>
         </member>
-        <member name="F:ePrescription.Entities.FavoritMasterBase.FavoritMasterEntityData.Id">
+        <member name="F:ePrescription.Entities.FavoritMasterBase.FavoritMasterEntityData.FavouriteId">
             <summary>			
-            ID : 
+            FavouriteID : 
             </summary>
             <remarks>Member of the primary key of the underlying table "FavoritMaster"</remarks>
         </member>
-        <member name="F:ePrescription.Entities.FavoritMasterBase.FavoritMasterEntityData.OriginalId">
+        <member name="F:ePrescription.Entities.FavoritMasterBase.FavoritMasterEntityData.OriginalFavouriteId">
             <summary>
             keep a copy of the original so it can be used for editable primary keys.
             </summary>
@@ -2945,6 +4743,12 @@
         <member name="F:ePrescription.Entities.FavoritMasterBase.FavoritMasterEntityData.IsPrivate">
             <summary>
             IsPrivate : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FavoritMasterBase.FavoritMasterEntityData.FavoritDetailCollection">
+            <summary>
+            Holds a collection of entity objects
+            which are related to this object through the relation _favoritDetailFavouriteId
             </summary>
         </member>
         <member name="M:ePrescription.Entities.FavoritMasterBase.FavoritMasterEntityData.Clone">
@@ -3087,7 +4891,7 @@
             Initializes a new instance of the FavoritMasterKey class.
             </summary>
         </member>
-        <member name="M:ePrescription.Entities.FavoritMasterKey.#ctor(System.Int32)">
+        <member name="M:ePrescription.Entities.FavoritMasterKey.#ctor(System.String)">
             <summary>
             Initializes a new instance of the FavoritMasterKey class.
             </summary>
@@ -3097,9 +4901,9 @@
             Gets or sets the Entity property.
             </summary>
         </member>
-        <member name="P:ePrescription.Entities.FavoritMasterKey.Id">
+        <member name="P:ePrescription.Entities.FavoritMasterKey.FavouriteId">
             <summary>
-            Gets or sets the Id property.
+            Gets or sets the FavouriteId property.
             </summary>
         </member>
         <member name="M:ePrescription.Entities.FavoritMasterKey.Load(System.Collections.IDictionary)">
@@ -3127,9 +4931,9 @@
             Enumerate the FavoritMaster columns.
             </summary>
         </member>
-        <member name="F:ePrescription.Entities.FavoritMasterColumn.Id">
+        <member name="F:ePrescription.Entities.FavoritMasterColumn.FavouriteId">
             <summary>
-            Id : 
+            FavouriteId : 
             </summary>
         </member>
         <member name="F:ePrescription.Entities.FavoritMasterColumn.DiceaseName">
@@ -3165,13 +4969,13 @@
             	This struct is generated by a tool and should never be modified.
             </remarks>
         </member>
-        <member name="P:ePrescription.Entities.IFavoritMaster.Id">
+        <member name="P:ePrescription.Entities.IFavoritMaster.FavouriteId">
             <summary>			
-            ID : 
+            FavouriteID : 
             </summary>
             <remarks>Member of the primary key of the underlying table "FavoritMaster"</remarks>
         </member>
-        <member name="P:ePrescription.Entities.IFavoritMaster.OriginalId">
+        <member name="P:ePrescription.Entities.IFavoritMaster.OriginalFavouriteId">
             <summary>
             keep a copy of the original so it can be used for editable primary keys.
             </summary>
@@ -3202,6 +5006,1175 @@
             </summary>
         </member>
         <member name="M:ePrescription.Entities.IFavoritMaster.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="P:ePrescription.Entities.IFavoritMaster.FavoritDetailCollection">
+            <summary>
+            Holds a collection of entity objects
+            which are related to this object through the relation _favoritDetailFavouriteId
+            </summary>	
+        </member>
+        <member name="T:ePrescription.Entities.Frequency">
+            <summary>
+             An object representation of the 'Frequency' table. [No description found the database]	
+            </summary>
+             <remarks>
+             This file is generated once and will never be overwritten.
+             </remarks>	
+        </member>
+        <member name="M:ePrescription.Entities.Frequency.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.Frequency"/> instance.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.FrequencyBase">
+            <summary>
+             An object representation of the 'Frequency' table. [No description found the database]	
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyBase.entityData">
+            <summary>
+             Hold the inner data of the entity.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyBase._originalData">
+            <summary>
+            	Hold the original data of the entity, as loaded from the repository.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyBase.backupData">
+            <summary>
+            	Hold a backup of the inner data of the entity.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyBase.entityTrackingKey">
+            <summary>
+            	Key used if Tracking is Enabled for the <see cref="T:ePrescription.Entities.EntityLocator" />.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyBase.parentCollection">
+            <summary>
+            	Hold the parent TList&lt;entity&gt; in which this entity maybe contained.
+            </summary>
+            <remark>Mostly used for databinding</remark>
+        </member>
+        <member name="E:ePrescription.Entities.FrequencyBase.ColumnChanging">
+            <summary>
+            Occurs when a value is being changed for the specified column.
+            </summary>
+        </member>
+        <member name="E:ePrescription.Entities.FrequencyBase.ColumnChanged">
+            <summary>
+            Occurs after a value has been changed for the specified column.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.FrequencyBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.#ctor(System.String,System.String,System.String)">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.FrequencyBase"/> instance.
+            </summary>
+            <param name="_abbre"></param>
+            <param name="_meaning"></param>
+            <param name="_vnMeaning"></param>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.CreateFrequency(System.String,System.String,System.String)">
+            <summary>
+             A simple factory method to create a new <see cref="T:ePrescription.Entities.Frequency"/> instance.
+            </summary>
+            <param name="_abbre"></param>
+            <param name="_meaning"></param>
+            <param name="_vnMeaning"></param>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.FrequencyId">
+            <summary>
+            	Gets or sets the FrequencyId property. 
+            	
+            </summary>
+            <value>This type is bigint.</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.Abbre">
+            <summary>
+            	Gets or sets the Abbre property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.Meaning">
+            <summary>
+            	Gets or sets the Meaning property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.VnMeaning">
+            <summary>
+            	Gets or sets the VnMeaning property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.AddValidationRules">
+            <summary>
+            Assigns validation rules to this object based on model definition.
+            </summary>
+            <remarks>This method overrides the base class to add schema related validation.</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.TableName">
+            <summary>
+            	The name of the underlying database table.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.TableColumns">
+            <summary>
+            	The name of the underlying database table's columns.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.FrequencyBase.CancelAddNewEventHandler">
+            <summary>
+            The delegate for the CancelAddNew event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:ePrescription.Entities.FrequencyBase.CancelAddNew">
+            <summary>
+            The CancelAddNew event.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.OnCancelAddNew">
+            <summary>
+            Called when [cancel add new].
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.System#ComponentModel#IEditableObject#BeginEdit">
+            <summary>
+            Begins an edit on an object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.System#ComponentModel#IEditableObject#CancelEdit">
+            <summary>
+            Discards changes since the last <c>BeginEdit</c> call.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.System#ComponentModel#IEditableObject#EndEdit">
+            <summary>
+            Pushes changes since the last <c>BeginEdit</c> or <c>IBindingList.AddNew</c> call into the underlying object.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.ParentCollection">
+            <summary>
+            Gets or sets the parent collection of this current entity, if available.
+            </summary>
+            <value>The parent collection.</value>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.OnEntityChanged">
+            <summary>
+            Called when the entity is changed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.Copy(System.Collections.IDictionary)">
+            <summary>
+              Returns a Typed Frequency Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.Copy">
+            <summary>
+              Returns a Typed Frequency Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.Clone">
+            <summary>
+             ICloneable.Clone() Member, returns the Shallow Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.Clone(System.Collections.IDictionary)">
+            <summary>
+             ICloneableEx.Clone() Member, returns the Shallow Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.MakeCopyOf(System.Object)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.MakeCopyOf(System.Object,System.Collections.IDictionary)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.DeepCopy">
+            <summary>
+              Returns a Typed Frequency Entity which is a deep copy of the current entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.CancelChanges">
+            <summary>
+             Revert all changes and restore original values.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.AcceptChanges">
+            <summary>
+            Accepts the changes made to this object.
+            </summary>
+            <remarks>
+            After calling this method, properties: IsDirty, IsNew are false. IsDeleted flag remains unchanged as it is handled by the parent List.
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.IsPropertyChanged(ePrescription.Entities.FrequencyColumn)">
+            <summary>
+            Determines whether the property value has changed from the original data.
+            </summary>
+            <param name="column">The column.</param>
+            <returns>
+            	<c>true</c> if the property value has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.IsPropertyChanged(System.String)">
+            <summary>
+            Determines whether the property value has changed from the original data.
+            </summary>
+            <param name="columnName">The column name.</param>
+            <returns>
+            	<c>true</c> if the property value has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.HasDataChanged">
+            <summary>
+            Determines whether the data has changed from original.
+            </summary>
+            <returns>
+            	<c>true</c> if data has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.GetOriginalEntity">
+            <summary>
+              Returns a Frequency Entity with the original data.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.Equals(System.Object)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object using value semantics.
+            </summary>
+            <param name="Object1">An object to compare to this instance.</param>
+            <returns>true if Object1 is a <see cref="T:ePrescription.Entities.FrequencyBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type, suitable for use in hashing algorithms and data structures like a hash table.
+            Provides a hash function that is appropriate for <see cref="T:ePrescription.Entities.FrequencyBase"/> class 
+            and that ensures a better distribution in the hash table
+            </summary>
+            <returns>number (hash code) that corresponds to the value of an object</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.Equals(ePrescription.Entities.FrequencyBase)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object using value semantics.
+            </summary>
+            <param name="toObject">An object to compare to this instance.</param>
+            <returns>true if toObject is a <see cref="T:ePrescription.Entities.FrequencyBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.ValueEquals(ePrescription.Entities.FrequencyBase,ePrescription.Entities.FrequencyBase)">
+            <summary>
+             Determines whether the specified <see cref="T:ePrescription.Entities.FrequencyBase"/> instances are considered equal using value semantics.
+            </summary>
+            <param name="Object1">The first <see cref="T:ePrescription.Entities.FrequencyBase"/> to compare.</param>
+            <param name="Object2">The second <see cref="T:ePrescription.Entities.FrequencyBase"/> to compare. </param>
+            <returns>true if Object1 is the same instance as Object2 or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.CompareTo(System.Object)">
+            <summary>
+             Compares this instance to a specified object and returns an indication of their relative values.
+            <param name="obj">An object to compare to this instance, or a null reference (Nothing in Visual Basic).</param>
+            </summary>
+            <returns>A signed integer that indicates the relative order of this instance and obj.</returns>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.Site">
+            <summary>
+            Gets or Sets the site where this data is located.
+            </summary>
+        </member>
+        <member name="E:ePrescription.Entities.FrequencyBase.Disposed">
+            <summary>
+            Notify those that care when we dispose.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.Dispose">
+            <summary>
+            Clean up. Nothing here though.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.Dispose(System.Boolean)">
+            <summary>
+            Clean up.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.EntityId">
+            <summary>
+            Gets or sets the EntityId property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.EntityState">
+            <summary>
+            	Indicates state of object
+            </summary>
+            <remarks>0=Unchanged, 1=Added, 2=Changed</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.EntityTrackingKey">
+            <summary>
+             Provides the tracking key for the <see cref="T:ePrescription.Entities.EntityLocator"/>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.FrequencyBase.FrequencyEntityData">
+            <summary>
+            	The data structure representation of the 'Frequency' table.
+            </summary>
+            <remarks>
+            	This struct is generated by a tool and should never be modified.
+            </remarks>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyBase.FrequencyEntityData.FrequencyId">
+            <summary>			
+            FrequencyId : 
+            </summary>
+            <remarks>Member of the primary key of the underlying table "Frequency"</remarks>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyBase.FrequencyEntityData.Abbre">
+            <summary>
+            abbre : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyBase.FrequencyEntityData.Meaning">
+            <summary>
+            meaning : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyBase.FrequencyEntityData.VnMeaning">
+            <summary>
+            VN_meaning : 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.FrequencyEntityData.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.FrequencyEntityData.Clone(System.Collections.IDictionary)">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyBase.FrequencyEntityData.EntityState">
+            <summary>
+            	Indicates state of object
+            </summary>
+            <remarks>0=Unchanged, 1=Added, 2=Changed</remarks>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.OnColumnChanging(ePrescription.Entities.FrequencyColumn)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.FrequencyBase.ColumnChanging" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.FrequencyColumn"/> which has raised the event.</param>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.OnColumnChanged(ePrescription.Entities.FrequencyColumn)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.FrequencyBase.ColumnChanged" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.FrequencyColumn"/> which has raised the event.</param>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.OnColumnChanging(ePrescription.Entities.FrequencyColumn,System.Object)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.FrequencyBase.ColumnChanging" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.FrequencyColumn"/> which has raised the event.</param>
+            <param name="value">The changed value.</param>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyBase.OnColumnChanged(ePrescription.Entities.FrequencyColumn,System.Object)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.FrequencyBase.ColumnChanged" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.FrequencyColumn"/> which has raised the event.</param>
+            <param name="value">The changed value.</param>
+        </member>
+        <member name="T:ePrescription.Entities.FrequencyEventArgs">
+            <summary>
+            Provides data for the ColumnChanging and ColumnChanged events.
+            </summary>
+            <remarks>
+            The ColumnChanging and ColumnChanged events occur when a change is made to the value 
+            of a property of a <see cref="T:ePrescription.Entities.Frequency"/> object.
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyEventArgs.#ctor(ePrescription.Entities.FrequencyColumn)">
+            <summary>
+             Initalizes a new Instance of the FrequencyEventArgs class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyEventArgs.#ctor(ePrescription.Entities.FrequencyColumn,System.Object)">
+            <summary>
+             Initalizes a new Instance of the FrequencyEventArgs class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyEventArgs.Column">
+            <summary>
+             The FrequencyColumn that was modified, which has raised the event.
+            </summary>
+            <value cref="T:ePrescription.Entities.FrequencyColumn" />
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyEventArgs.Value">
+            <summary>
+            Gets the current value of the column.
+            </summary>
+            <value>The current value of the column.</value>
+        </member>
+        <member name="T:ePrescription.Entities.FrequencyEventHandler">
+            <summary>
+             Define a delegate for all Frequency related events.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.FrequencyComparer">
+            <summary>
+            Strongly Typed IComparer
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyComparer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FrequencyComparer"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyComparer.#ctor(ePrescription.Entities.FrequencyColumn)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FrequencyComparer"/> class.
+            </summary>
+            <param name="column">The column to sort on.</param>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyComparer.Equals(ePrescription.Entities.Frequency,ePrescription.Entities.Frequency)">
+            <summary>
+            Determines whether the specified <see cref="T:ePrescription.Entities.Frequency"/> instances are considered equal.
+            </summary>
+            <param name="a">The first <see cref="T:ePrescription.Entities.Frequency"/> to compare.</param>
+            <param name="b">The second <c>Frequency</c> to compare.</param>
+            <returns>true if objA is the same instance as objB or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyComparer.GetHashCode(ePrescription.Entities.Frequency)">
+            <summary>
+            Gets the hash code of the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyComparer.Compare(ePrescription.Entities.Frequency,ePrescription.Entities.Frequency)">
+            <summary>
+            Performs a case-insensitive comparison of two objects of the same type and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyComparer.WhichComparison">
+            <summary>
+            Gets or sets the column that will be used for comparison.
+            </summary>
+            <value>The comparison column.</value>
+        </member>
+        <member name="T:ePrescription.Entities.FrequencyKey">
+            <summary>
+            Wraps the unique identifier values for the <see cref="T:ePrescription.Entities.Frequency"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyKey.#ctor">
+            <summary>
+            Initializes a new instance of the FrequencyKey class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyKey.#ctor(ePrescription.Entities.FrequencyBase)">
+            <summary>
+            Initializes a new instance of the FrequencyKey class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyKey.#ctor(System.Int64)">
+            <summary>
+            Initializes a new instance of the FrequencyKey class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyKey.Entity">
+            <summary>
+            Gets or sets the Entity property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.FrequencyKey.FrequencyId">
+            <summary>
+            Gets or sets the FrequencyId property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyKey.Load(System.Collections.IDictionary)">
+            <summary>
+            Reads values from the supplied <see cref="T:System.Collections.IDictionary"/> object into
+            properties of the current object.
+            </summary>
+            <param name="values">An <see cref="T:System.Collections.IDictionary"/> instance that contains
+            the key/value pairs to be used as property values.</param>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyKey.ToDictionary">
+            <summary>
+            Creates a new <see cref="T:System.Collections.IDictionary"/> object and populates it
+            with the property values of the current object.
+            </summary>
+            <returns>A collection of name/value pairs.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.FrequencyKey.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.FrequencyColumn">
+            <summary>
+            Enumerate the Frequency columns.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyColumn.FrequencyId">
+            <summary>
+            FrequencyId : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyColumn.Abbre">
+            <summary>
+            Abbre : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyColumn.Meaning">
+            <summary>
+            Meaning : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.FrequencyColumn.VnMeaning">
+            <summary>
+            VnMeaning : 
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.IFrequency">
+            <summary>
+            	The data structure representation of the 'Frequency' table via interface.
+            </summary>
+            <remarks>
+            	This struct is generated by a tool and should never be modified.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.IFrequency.FrequencyId">
+            <summary>			
+            FrequencyId : 
+            </summary>
+            <remarks>Member of the primary key of the underlying table "Frequency"</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.IFrequency.Abbre">
+            <summary>
+            abbre : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFrequency.Meaning">
+            <summary>
+            meaning : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IFrequency.VnMeaning">
+            <summary>
+            VN_meaning : 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.IFrequency.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="T:ePrescription.Entities.Route">
+            <summary>
+             An object representation of the 'Route' table. [No description found the database]	
+            </summary>
+             <remarks>
+             This file is generated once and will never be overwritten.
+             </remarks>	
+        </member>
+        <member name="M:ePrescription.Entities.Route.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.Route"/> instance.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.RouteBase">
+            <summary>
+             An object representation of the 'Route' table. [No description found the database]	
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.RouteBase.entityData">
+            <summary>
+             Hold the inner data of the entity.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.RouteBase._originalData">
+            <summary>
+            	Hold the original data of the entity, as loaded from the repository.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.RouteBase.backupData">
+            <summary>
+            	Hold a backup of the inner data of the entity.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.RouteBase.entityTrackingKey">
+            <summary>
+            	Key used if Tracking is Enabled for the <see cref="T:ePrescription.Entities.EntityLocator" />.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.RouteBase.parentCollection">
+            <summary>
+            	Hold the parent TList&lt;entity&gt; in which this entity maybe contained.
+            </summary>
+            <remark>Mostly used for databinding</remark>
+        </member>
+        <member name="E:ePrescription.Entities.RouteBase.ColumnChanging">
+            <summary>
+            Occurs when a value is being changed for the specified column.
+            </summary>
+        </member>
+        <member name="E:ePrescription.Entities.RouteBase.ColumnChanged">
+            <summary>
+            Occurs after a value has been changed for the specified column.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.RouteBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.#ctor(System.String,System.String)">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.RouteBase"/> instance.
+            </summary>
+            <param name="_route"></param>
+            <param name="_routeVn"></param>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.CreateRoute(System.String,System.String)">
+            <summary>
+             A simple factory method to create a new <see cref="P:ePrescription.Entities.RouteBase.Route"/> instance.
+            </summary>
+            <param name="_route"></param>
+            <param name="_routeVn"></param>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.RouteId">
+            <summary>
+            	Gets or sets the RouteId property. 
+            	
+            </summary>
+            <value>This type is bigint.</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.Route">
+            <summary>
+            	Gets or sets the Route property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.RouteVn">
+            <summary>
+            	Gets or sets the RouteVn property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.AddValidationRules">
+            <summary>
+            Assigns validation rules to this object based on model definition.
+            </summary>
+            <remarks>This method overrides the base class to add schema related validation.</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.TableName">
+            <summary>
+            	The name of the underlying database table.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.TableColumns">
+            <summary>
+            	The name of the underlying database table's columns.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.RouteBase.CancelAddNewEventHandler">
+            <summary>
+            The delegate for the CancelAddNew event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:ePrescription.Entities.RouteBase.CancelAddNew">
+            <summary>
+            The CancelAddNew event.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.OnCancelAddNew">
+            <summary>
+            Called when [cancel add new].
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.System#ComponentModel#IEditableObject#BeginEdit">
+            <summary>
+            Begins an edit on an object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.System#ComponentModel#IEditableObject#CancelEdit">
+            <summary>
+            Discards changes since the last <c>BeginEdit</c> call.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.System#ComponentModel#IEditableObject#EndEdit">
+            <summary>
+            Pushes changes since the last <c>BeginEdit</c> or <c>IBindingList.AddNew</c> call into the underlying object.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.ParentCollection">
+            <summary>
+            Gets or sets the parent collection of this current entity, if available.
+            </summary>
+            <value>The parent collection.</value>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.OnEntityChanged">
+            <summary>
+            Called when the entity is changed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.Copy(System.Collections.IDictionary)">
+            <summary>
+              Returns a Typed Route Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.Copy">
+            <summary>
+              Returns a Typed Route Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.Clone">
+            <summary>
+             ICloneable.Clone() Member, returns the Shallow Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.Clone(System.Collections.IDictionary)">
+            <summary>
+             ICloneableEx.Clone() Member, returns the Shallow Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.MakeCopyOf(System.Object)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.MakeCopyOf(System.Object,System.Collections.IDictionary)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.DeepCopy">
+            <summary>
+              Returns a Typed Route Entity which is a deep copy of the current entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.CancelChanges">
+            <summary>
+             Revert all changes and restore original values.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.AcceptChanges">
+            <summary>
+            Accepts the changes made to this object.
+            </summary>
+            <remarks>
+            After calling this method, properties: IsDirty, IsNew are false. IsDeleted flag remains unchanged as it is handled by the parent List.
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.IsPropertyChanged(ePrescription.Entities.RouteColumn)">
+            <summary>
+            Determines whether the property value has changed from the original data.
+            </summary>
+            <param name="column">The column.</param>
+            <returns>
+            	<c>true</c> if the property value has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.IsPropertyChanged(System.String)">
+            <summary>
+            Determines whether the property value has changed from the original data.
+            </summary>
+            <param name="columnName">The column name.</param>
+            <returns>
+            	<c>true</c> if the property value has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.HasDataChanged">
+            <summary>
+            Determines whether the data has changed from original.
+            </summary>
+            <returns>
+            	<c>true</c> if data has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.GetOriginalEntity">
+            <summary>
+              Returns a Route Entity with the original data.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.Equals(System.Object)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object using value semantics.
+            </summary>
+            <param name="Object1">An object to compare to this instance.</param>
+            <returns>true if Object1 is a <see cref="T:ePrescription.Entities.RouteBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type, suitable for use in hashing algorithms and data structures like a hash table.
+            Provides a hash function that is appropriate for <see cref="T:ePrescription.Entities.RouteBase"/> class 
+            and that ensures a better distribution in the hash table
+            </summary>
+            <returns>number (hash code) that corresponds to the value of an object</returns>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.Equals(ePrescription.Entities.RouteBase)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object using value semantics.
+            </summary>
+            <param name="toObject">An object to compare to this instance.</param>
+            <returns>true if toObject is a <see cref="T:ePrescription.Entities.RouteBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.ValueEquals(ePrescription.Entities.RouteBase,ePrescription.Entities.RouteBase)">
+            <summary>
+             Determines whether the specified <see cref="T:ePrescription.Entities.RouteBase"/> instances are considered equal using value semantics.
+            </summary>
+            <param name="Object1">The first <see cref="T:ePrescription.Entities.RouteBase"/> to compare.</param>
+            <param name="Object2">The second <see cref="T:ePrescription.Entities.RouteBase"/> to compare. </param>
+            <returns>true if Object1 is the same instance as Object2 or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.CompareTo(System.Object)">
+            <summary>
+             Compares this instance to a specified object and returns an indication of their relative values.
+            <param name="obj">An object to compare to this instance, or a null reference (Nothing in Visual Basic).</param>
+            </summary>
+            <returns>A signed integer that indicates the relative order of this instance and obj.</returns>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.Site">
+            <summary>
+            Gets or Sets the site where this data is located.
+            </summary>
+        </member>
+        <member name="E:ePrescription.Entities.RouteBase.Disposed">
+            <summary>
+            Notify those that care when we dispose.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.Dispose">
+            <summary>
+            Clean up. Nothing here though.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.Dispose(System.Boolean)">
+            <summary>
+            Clean up.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.EntityId">
+            <summary>
+            Gets or sets the EntityId property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.EntityState">
+            <summary>
+            	Indicates state of object
+            </summary>
+            <remarks>0=Unchanged, 1=Added, 2=Changed</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.EntityTrackingKey">
+            <summary>
+             Provides the tracking key for the <see cref="T:ePrescription.Entities.EntityLocator"/>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.RouteBase.RouteEntityData">
+            <summary>
+            	The data structure representation of the 'Route' table.
+            </summary>
+            <remarks>
+            	This struct is generated by a tool and should never be modified.
+            </remarks>
+        </member>
+        <member name="F:ePrescription.Entities.RouteBase.RouteEntityData.RouteId">
+            <summary>			
+            RouteId : 
+            </summary>
+            <remarks>Member of the primary key of the underlying table "Route"</remarks>
+        </member>
+        <member name="F:ePrescription.Entities.RouteBase.RouteEntityData.Route">
+            <summary>
+            Route : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.RouteBase.RouteEntityData.RouteVn">
+            <summary>
+            RouteVN : 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.RouteEntityData.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.RouteEntityData.Clone(System.Collections.IDictionary)">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.RouteEntityData.EntityState">
+            <summary>
+            	Indicates state of object
+            </summary>
+            <remarks>0=Unchanged, 1=Added, 2=Changed</remarks>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.OnColumnChanging(ePrescription.Entities.RouteColumn)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.RouteBase.ColumnChanging" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.RouteColumn"/> which has raised the event.</param>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.OnColumnChanged(ePrescription.Entities.RouteColumn)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.RouteBase.ColumnChanged" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.RouteColumn"/> which has raised the event.</param>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.OnColumnChanging(ePrescription.Entities.RouteColumn,System.Object)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.RouteBase.ColumnChanging" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.RouteColumn"/> which has raised the event.</param>
+            <param name="value">The changed value.</param>
+        </member>
+        <member name="M:ePrescription.Entities.RouteBase.OnColumnChanged(ePrescription.Entities.RouteColumn,System.Object)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.RouteBase.ColumnChanged" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.RouteColumn"/> which has raised the event.</param>
+            <param name="value">The changed value.</param>
+        </member>
+        <member name="T:ePrescription.Entities.RouteEventArgs">
+            <summary>
+            Provides data for the ColumnChanging and ColumnChanged events.
+            </summary>
+            <remarks>
+            The ColumnChanging and ColumnChanged events occur when a change is made to the value 
+            of a property of a <see cref="T:ePrescription.Entities.Route"/> object.
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.RouteEventArgs.#ctor(ePrescription.Entities.RouteColumn)">
+            <summary>
+             Initalizes a new Instance of the RouteEventArgs class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteEventArgs.#ctor(ePrescription.Entities.RouteColumn,System.Object)">
+            <summary>
+             Initalizes a new Instance of the RouteEventArgs class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.RouteEventArgs.Column">
+            <summary>
+             The RouteColumn that was modified, which has raised the event.
+            </summary>
+            <value cref="T:ePrescription.Entities.RouteColumn" />
+        </member>
+        <member name="P:ePrescription.Entities.RouteEventArgs.Value">
+            <summary>
+            Gets the current value of the column.
+            </summary>
+            <value>The current value of the column.</value>
+        </member>
+        <member name="T:ePrescription.Entities.RouteEventHandler">
+            <summary>
+             Define a delegate for all Route related events.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.RouteComparer">
+            <summary>
+            Strongly Typed IComparer
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteComparer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RouteComparer"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteComparer.#ctor(ePrescription.Entities.RouteColumn)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RouteComparer"/> class.
+            </summary>
+            <param name="column">The column to sort on.</param>
+        </member>
+        <member name="M:ePrescription.Entities.RouteComparer.Equals(ePrescription.Entities.Route,ePrescription.Entities.Route)">
+            <summary>
+            Determines whether the specified <see cref="T:ePrescription.Entities.Route"/> instances are considered equal.
+            </summary>
+            <param name="a">The first <see cref="T:ePrescription.Entities.Route"/> to compare.</param>
+            <param name="b">The second <c>Route</c> to compare.</param>
+            <returns>true if objA is the same instance as objB or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.RouteComparer.GetHashCode(ePrescription.Entities.Route)">
+            <summary>
+            Gets the hash code of the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.RouteComparer.Compare(ePrescription.Entities.Route,ePrescription.Entities.Route)">
+            <summary>
+            Performs a case-insensitive comparison of two objects of the same type and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="P:ePrescription.Entities.RouteComparer.WhichComparison">
+            <summary>
+            Gets or sets the column that will be used for comparison.
+            </summary>
+            <value>The comparison column.</value>
+        </member>
+        <member name="T:ePrescription.Entities.RouteKey">
+            <summary>
+            Wraps the unique identifier values for the <see cref="T:ePrescription.Entities.Route"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteKey.#ctor">
+            <summary>
+            Initializes a new instance of the RouteKey class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteKey.#ctor(ePrescription.Entities.RouteBase)">
+            <summary>
+            Initializes a new instance of the RouteKey class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteKey.#ctor(System.Int64)">
+            <summary>
+            Initializes a new instance of the RouteKey class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.RouteKey.Entity">
+            <summary>
+            Gets or sets the Entity property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.RouteKey.RouteId">
+            <summary>
+            Gets or sets the RouteId property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.RouteKey.Load(System.Collections.IDictionary)">
+            <summary>
+            Reads values from the supplied <see cref="T:System.Collections.IDictionary"/> object into
+            properties of the current object.
+            </summary>
+            <param name="values">An <see cref="T:System.Collections.IDictionary"/> instance that contains
+            the key/value pairs to be used as property values.</param>
+        </member>
+        <member name="M:ePrescription.Entities.RouteKey.ToDictionary">
+            <summary>
+            Creates a new <see cref="T:System.Collections.IDictionary"/> object and populates it
+            with the property values of the current object.
+            </summary>
+            <returns>A collection of name/value pairs.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.RouteKey.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.RouteColumn">
+            <summary>
+            Enumerate the Route columns.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.RouteColumn.RouteId">
+            <summary>
+            RouteId : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.RouteColumn.Route">
+            <summary>
+            Route : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.RouteColumn.RouteVn">
+            <summary>
+            RouteVn : 
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.IRoute">
+            <summary>
+            	The data structure representation of the 'Route' table via interface.
+            </summary>
+            <remarks>
+            	This struct is generated by a tool and should never be modified.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.IRoute.RouteId">
+            <summary>			
+            RouteId : 
+            </summary>
+            <remarks>Member of the primary key of the underlying table "Route"</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.IRoute.Route">
+            <summary>
+            Route : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IRoute.RouteVn">
+            <summary>
+            RouteVN : 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.IRoute.Clone">
             <summary>
             Creates a new object that is a copy of the current instance.
             </summary>

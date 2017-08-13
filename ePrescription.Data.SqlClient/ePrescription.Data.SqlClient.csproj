@@ -118,12 +118,12 @@
     </Reference>
     <ProjectReference Include="..\ePrescription.Entities\ePrescription.Entities.csproj">
       <Name>ePrescription.Entities</Name>
-      <Project>{4B44B908-C8B7-4E6D-898C-3B5B8644BEBA}</Project>
+      <Project>{A8B390E2-9BAE-4B69-9B8E-7C9E09A323B6}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\ePrescription.Data\ePrescription.Data.csproj">
       <Name>ePrescription.Data</Name>
-      <Project>{E455D514-317F-42D6-A2DF-795F08A1F43D}</Project>
+      <Project>{8CD7D00B-BCB5-48D0-9FA7-8E89B9E8F11F}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
@@ -147,6 +147,20 @@
       <DependentUpon>SqlVrEPresDetailProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\SqlVrUnitTableProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrUnitTableProviderBase.generated.cs">
+      <DependentUpon>SqlVrUnitTableProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlDiaglistProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlDiaglistProviderBase.generated.cs">
+      <DependentUpon>SqlDiaglistProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SqlEPrescriptionProvider.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -161,11 +175,32 @@
       <DependentUpon>SqlEPrescriptionDetailProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SqlFavoritDetailProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlFavoritDetailProviderBase.generated.cs">
+      <DependentUpon>SqlFavoritDetailProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SqlFavoritMasterProvider.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SqlFavoritMasterProviderBase.generated.cs">
       <DependentUpon>SqlFavoritMasterProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlFrequencyProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlFrequencyProviderBase.generated.cs">
+      <DependentUpon>SqlFrequencyProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlRouteProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlRouteProviderBase.generated.cs">
+      <DependentUpon>SqlRouteProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SqlUserRolesProvider.cs">

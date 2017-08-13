@@ -332,13 +332,13 @@ namespace ePrescription.Web.UI
 		}
 		
         /// <summary>
-        /// Gets the Id
+        /// Gets the FavouriteId
         /// </summary>
-        /// <value>The Id.</value>
+        /// <value>The FavouriteId.</value>
 		[System.ComponentModel.Bindable(true)]
-		public System.Int32 Id
+		public System.String FavouriteId
 		{
-			get { return _entity.Id; }
+			get { return _entity.FavouriteId; }
 		}
         /// <summary>
         /// Gets the DiceaseName

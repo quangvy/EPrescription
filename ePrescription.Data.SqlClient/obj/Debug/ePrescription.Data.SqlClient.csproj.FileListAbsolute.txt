@@ -1,3 +1,4 @@
+D:\Work\ePrescription-gen\ePrescription.Data.SqlClient\obj\Debug\ePrescription.Data.SqlClient.csprojResolveAssemblyReference.cache
 D:\Work\EPrescription\ePrescription.Data.SqlClient\bin\Debug\ePrescription.Data.SqlClient.dll
 D:\Work\EPrescription\ePrescription.Data.SqlClient\bin\Debug\ePrescription.Data.SqlClient.pdb
 D:\Work\EPrescription\ePrescription.Data.SqlClient\bin\Debug\ePrescription.Data.SqlClient.xml

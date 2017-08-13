@@ -12,15 +12,15 @@ namespace ePrescription.Entities
 	public interface IFavoritMaster 
 	{
 		/// <summary>			
-		/// ID : 
+		/// FavouriteID : 
 		/// </summary>
 		/// <remarks>Member of the primary key of the underlying table "FavoritMaster"</remarks>
-		System.Int32 Id { get; set; }
+		System.String FavouriteId { get; set; }
 				
 		/// <summary>
 		/// keep a copy of the original so it can be used for editable primary keys.
 		/// </summary>
-		System.Int32 OriginalId { get; set; }
+		System.String OriginalFavouriteId { get; set; }
 			
 		
 		
@@ -56,6 +56,13 @@ namespace ePrescription.Entities
 		System.Object Clone();
 		
 		#region Data Properties
+
+
+		/// <summary>
+		///	Holds a collection of entity objects
+		///	which are related to this object through the relation _favoritDetailFavouriteId
+		/// </summary>	
+		TList<FavoritDetail> FavoritDetailCollection {  get;  set;}	
 
 		#endregion Data Properties
 

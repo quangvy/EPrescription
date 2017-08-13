@@ -102,12 +102,12 @@
     <Reference Include="System.Drawing" />
     <ProjectReference Include="..\ePrescription.Entities\ePrescription.Entities.csproj">
       <Name>ePrescription.Entities</Name>
-      <Project>{4B44B908-C8B7-4E6D-898C-3B5B8644BEBA}</Project>
+      <Project>{A8B390E2-9BAE-4B69-9B8E-7C9E09A323B6}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
     <ProjectReference Include="..\ePrescription.Data\ePrescription.Data.csproj">
       <Name>ePrescription.Data</Name>
-      <Project>{E455D514-317F-42D6-A2DF-795F08A1F43D}</Project>
+      <Project>{8CD7D00B-BCB5-48D0-9FA7-8E89B9E8F11F}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
@@ -190,6 +190,12 @@
     <Compile Include="Data\SqlParameter.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataSourceControls\DiaglistDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\DiaglistRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataSourceControls\EPrescriptionDataSource.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -202,10 +208,28 @@
     <Compile Include="UI\RepeaterControls\EPrescriptionDetailRepeater.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataSourceControls\FavoritDetailDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\FavoritDetailRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataSourceControls\FavoritMasterDataSource.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UI\RepeaterControls\FavoritMasterRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSourceControls\FrequencyDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\FrequencyRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSourceControls\RouteDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\RouteRepeater.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataSourceControls\UserRolesDataSource.cs">
@@ -224,6 +248,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UI\RepeaterControls\Views\VrEPresDetailRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSourceControls\Views\VrUnitTableDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\Views\VrUnitTableRepeater.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UI\FormUtil.cs">

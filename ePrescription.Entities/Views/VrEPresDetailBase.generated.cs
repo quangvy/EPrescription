@@ -89,11 +89,6 @@ namespace ePrescription.Entities
 		private System.String		  _totalUnit = null;
 		
 		/// <summary>
-		/// Expr1 : 
-		/// </summary>
-		private System.String		  _expr1 = null;
-		
-		/// <summary>
 		/// meaning : 
 		/// </summary>
 		private System.String		  _meaning = null;
@@ -141,10 +136,9 @@ namespace ePrescription.Entities
 		///<param name="_vnMeaning"></param>
 		///<param name="_duration"></param>
 		///<param name="_totalUnit"></param>
-		///<param name="_expr1"></param>
 		///<param name="_meaning"></param>
 		///<param name="_abbre"></param>
-		public VrEPresDetailBase(System.Int64 _prescriptionDetailId, System.String _prescriptionId, System.Int32 _sq, System.String _drugId, System.String _drugName, System.String _unit, System.String _unitVn, System.String _remark, System.String _dosage, System.String _frequency, System.String _vnMeaning, System.String _duration, System.String _totalUnit, System.String _expr1, System.String _meaning, System.String _abbre)
+		public VrEPresDetailBase(System.Int64 _prescriptionDetailId, System.String _prescriptionId, System.Int32 _sq, System.String _drugId, System.String _drugName, System.String _unit, System.String _unitVn, System.String _remark, System.String _dosage, System.String _frequency, System.String _vnMeaning, System.String _duration, System.String _totalUnit, System.String _meaning, System.String _abbre)
 		{
 			this._prescriptionDetailId = _prescriptionDetailId;
 			this._prescriptionId = _prescriptionId;
@@ -159,7 +153,6 @@ namespace ePrescription.Entities
 			this._vnMeaning = _vnMeaning;
 			this._duration = _duration;
 			this._totalUnit = _totalUnit;
-			this._expr1 = _expr1;
 			this._meaning = _meaning;
 			this._abbre = _abbre;
 		}
@@ -180,10 +173,9 @@ namespace ePrescription.Entities
 		///<param name="_vnMeaning"></param>
 		///<param name="_duration"></param>
 		///<param name="_totalUnit"></param>
-		///<param name="_expr1"></param>
 		///<param name="_meaning"></param>
 		///<param name="_abbre"></param>
-		public static VrEPresDetail CreateVrEPresDetail(System.Int64 _prescriptionDetailId, System.String _prescriptionId, System.Int32 _sq, System.String _drugId, System.String _drugName, System.String _unit, System.String _unitVn, System.String _remark, System.String _dosage, System.String _frequency, System.String _vnMeaning, System.String _duration, System.String _totalUnit, System.String _expr1, System.String _meaning, System.String _abbre)
+		public static VrEPresDetail CreateVrEPresDetail(System.Int64 _prescriptionDetailId, System.String _prescriptionId, System.Int32 _sq, System.String _drugId, System.String _drugName, System.String _unit, System.String _unitVn, System.String _remark, System.String _dosage, System.String _frequency, System.String _vnMeaning, System.String _duration, System.String _totalUnit, System.String _meaning, System.String _abbre)
 		{
 			VrEPresDetail newVrEPresDetail = new VrEPresDetail();
 			newVrEPresDetail.PrescriptionDetailId = _prescriptionDetailId;
@@ -199,7 +191,6 @@ namespace ePrescription.Entities
 			newVrEPresDetail.VnMeaning = _vnMeaning;
 			newVrEPresDetail.Duration = _duration;
 			newVrEPresDetail.TotalUnit = _totalUnit;
-			newVrEPresDetail.Expr1 = _expr1;
 			newVrEPresDetail.Meaning = _meaning;
 			newVrEPresDetail.Abbre = _abbre;
 			return newVrEPresDetail;
@@ -566,33 +557,6 @@ namespace ePrescription.Entities
 		}
 		
 		/// <summary>
-		/// 	Gets or Sets the Expr1 property. 
-		///		
-		/// </summary>
-		/// <value>This type is nvarchar</value>
-		/// <remarks>
-		/// This property can be set to null. 
-		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		public virtual System.String Expr1
-		{
-			get
-			{
-				return this._expr1; 
-			}
-			set
-			{
-				if (_expr1 == value)
-					return;
-					
-				this._expr1 = value;
-				this._isDirty = true;
-				
-				OnPropertyChanged("Expr1");
-			}
-		}
-		
-		/// <summary>
 		/// 	Gets or Sets the meaning property. 
 		///		
 		/// </summary>
@@ -786,7 +750,6 @@ namespace ePrescription.Entities
 				copy.VnMeaning = this.VnMeaning;
 				copy.Duration = this.Duration;
 				copy.TotalUnit = this.TotalUnit;
-				copy.Expr1 = this.Expr1;
 				copy.Meaning = this.Meaning;
 				copy.Abbre = this.Abbre;
 			copy.AcceptChanges();
@@ -935,15 +898,6 @@ namespace ePrescription.Entities
 			{
 				equal = false;
 			}
-			if (Object1.Expr1 != null && Object2.Expr1 != null )
-			{
-				if (Object1.Expr1 != Object2.Expr1)
-					equal = false;
-			}
-			else if (Object1.Expr1 == null ^ Object1.Expr1 == null )
-			{
-				equal = false;
-			}
 			if (Object1.Meaning != null && Object2.Meaning != null )
 			{
 				if (Object1.Meaning != Object2.Meaning)
@@ -1050,8 +1004,6 @@ namespace ePrescription.Entities
 					return entity.Duration;
 				case "TotalUnit":
 					return entity.TotalUnit;
-				case "Expr1":
-					return entity.Expr1;
 				case "Meaning":
 					return entity.Meaning;
 				case "Abbre":
@@ -1076,7 +1028,7 @@ namespace ePrescription.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{17}{16}- PrescriptionDetailId: {0}{16}- PrescriptionId: {1}{16}- Sq: {2}{16}- DrugId: {3}{16}- DrugName: {4}{16}- Unit: {5}{16}- UnitVn: {6}{16}- Remark: {7}{16}- Dosage: {8}{16}- Frequency: {9}{16}- VnMeaning: {10}{16}- Duration: {11}{16}- TotalUnit: {12}{16}- Expr1: {13}{16}- Meaning: {14}{16}- Abbre: {15}{16}", 
+				"{16}{15}- PrescriptionDetailId: {0}{15}- PrescriptionId: {1}{15}- Sq: {2}{15}- DrugId: {3}{15}- DrugName: {4}{15}- Unit: {5}{15}- UnitVn: {6}{15}- Remark: {7}{15}- Dosage: {8}{15}- Frequency: {9}{15}- VnMeaning: {10}{15}- Duration: {11}{15}- TotalUnit: {12}{15}- Meaning: {13}{15}- Abbre: {14}{15}", 
 				this.PrescriptionDetailId,
 				this.PrescriptionId,
 				this.Sq,
@@ -1098,8 +1050,6 @@ namespace ePrescription.Entities
 				(this.Duration == null) ? string.Empty : this.Duration.ToString(),
 			     
 				(this.TotalUnit == null) ? string.Empty : this.TotalUnit.ToString(),
-			     
-				(this.Expr1 == null) ? string.Empty : this.Expr1.ToString(),
 			     
 				(this.Meaning == null) ? string.Empty : this.Meaning.ToString(),
 			     
@@ -1196,12 +1146,6 @@ namespace ePrescription.Entities
 		[EnumTextValue("TotalUnit")]
 		[ColumnEnum("TotalUnit", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
 		TotalUnit,
-		/// <summary>
-		/// Expr1 : 
-		/// </summary>
-		[EnumTextValue("Expr1")]
-		[ColumnEnum("Expr1", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
-		Expr1,
 		/// <summary>
 		/// meaning : 
 		/// </summary>

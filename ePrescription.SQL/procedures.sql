@@ -8,6 +8,1227 @@ GO
 
 	
 
+-- Drop the dbo.Route_Get_List procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Route_Get_List') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Route_Get_List
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets all records from the Route table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Route_Get_List
+
+AS
+
+
+				
+				SELECT
+					[RouteId],
+					[Route],
+					[RouteVN]
+				FROM
+					[dbo].[Route]
+					
+				SELECT @@ROWCOUNT
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Route_GetPaged procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Route_GetPaged') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Route_GetPaged
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the Route table passing page index and page count parameters
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Route_GetPaged
+(
+
+	@WhereClause varchar (8000)  ,
+
+	@OrderBy varchar (2000)  ,
+
+	@PageIndex int   ,
+
+	@PageSize int   
+)
+AS
+
+
+				
+				BEGIN
+				DECLARE @PageLowerBound int
+				DECLARE @PageUpperBound int
+				
+				-- Set the page bounds
+				SET @PageLowerBound = @PageSize * @PageIndex
+				SET @PageUpperBound = @PageLowerBound + @PageSize
+
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[RouteId]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
+				SET @SQL = @SQL + ' SELECT'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [RouteId]'
+				SET @SQL = @SQL + ', [Route]'
+				SET @SQL = @SQL + ', [RouteVN]'
+				SET @SQL = @SQL + ' FROM [dbo].[Route]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [RouteId],'
+				SET @SQL = @SQL + ' [Route],'
+				SET @SQL = @SQL + ' [RouteVN]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+				EXEC sp_executesql @SQL
+				
+				-- get row count
+				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
+				SET @SQL = @SQL + ' FROM [dbo].[Route]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				EXEC sp_executesql @SQL
+			
+				END
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Route_Insert procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Route_Insert') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Route_Insert
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Inserts a record into the Route table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Route_Insert
+(
+
+	@RouteId bigint    OUTPUT,
+
+	@Route nvarchar (50)  ,
+
+	@RouteVn nvarchar (50)  
+)
+AS
+
+
+				
+				INSERT INTO [dbo].[Route]
+					(
+					[Route]
+					,[RouteVN]
+					)
+				VALUES
+					(
+					@Route
+					,@RouteVn
+					)
+				-- Get the identity value
+				SET @RouteId = SCOPE_IDENTITY()
+									
+							
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Route_Update procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Route_Update') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Route_Update
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Updates a record in the Route table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Route_Update
+(
+
+	@RouteId bigint   ,
+
+	@Route nvarchar (50)  ,
+
+	@RouteVn nvarchar (50)  
+)
+AS
+
+
+				
+				
+				-- Modify the updatable columns
+				UPDATE
+					[dbo].[Route]
+				SET
+					[Route] = @Route
+					,[RouteVN] = @RouteVn
+				WHERE
+[RouteId] = @RouteId 
+				
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Route_Delete procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Route_Delete') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Route_Delete
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Deletes a record in the Route table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Route_Delete
+(
+
+	@RouteId bigint   
+)
+AS
+
+
+				DELETE FROM [dbo].[Route] WITH (ROWLOCK) 
+				WHERE
+					[RouteId] = @RouteId
+					
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Route_GetByRouteId procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Route_GetByRouteId') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Route_GetByRouteId
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Select records from the Route table through an index
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Route_GetByRouteId
+(
+
+	@RouteId bigint   
+)
+AS
+
+
+				SELECT
+					[RouteId],
+					[Route],
+					[RouteVN]
+				FROM
+					[dbo].[Route]
+				WHERE
+                        
+                            ISNULL([RouteId],0) = ISNULL(@RouteId,0)
+				SELECT @@ROWCOUNT
+					
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Route_Find procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Route_Find') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Route_Find
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Finds records in the Route table passing nullable parameters
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Route_Find
+(
+
+	@SearchUsingOR bit   = null ,
+
+	@RouteId bigint   = null ,
+
+	@Route nvarchar (50)  = null ,
+
+	@RouteVn nvarchar (50)  = null 
+)
+AS
+
+
+				
+  IF ISNULL(@SearchUsingOR, 0) <> 1
+  BEGIN
+    SELECT
+	  [RouteId]
+	, [Route]
+	, [RouteVN]
+    FROM
+	[dbo].[Route]
+    WHERE 
+	 ([RouteId] = @RouteId OR @RouteId IS NULL)
+	AND ([Route] = @Route OR @Route IS NULL)
+	AND ([RouteVN] = @RouteVn OR @RouteVn IS NULL)
+						
+  END
+  ELSE
+  BEGIN
+    SELECT
+	  [RouteId]
+	, [Route]
+	, [RouteVN]
+    FROM
+	[dbo].[Route]
+    WHERE 
+	 ([RouteId] = @RouteId AND @RouteId is not null)
+	OR ([Route] = @Route AND @Route is not null)
+	OR ([RouteVN] = @RouteVn AND @RouteVn is not null)
+	SELECT @@ROWCOUNT			
+  END
+				
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Diaglist_Get_List procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Diaglist_Get_List') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Diaglist_Get_List
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets all records from the Diaglist table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Diaglist_Get_List
+
+AS
+
+
+				
+				SELECT
+					[CATEGORY],
+					[DIAG_CODE],
+					[DIAG_NAME],
+					[DIAG_NAME_VN],
+					[IsDisabled]
+				FROM
+					[dbo].[Diaglist]
+					
+				SELECT @@ROWCOUNT
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Diaglist_GetPaged procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Diaglist_GetPaged') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Diaglist_GetPaged
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the Diaglist table passing page index and page count parameters
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Diaglist_GetPaged
+(
+
+	@WhereClause varchar (8000)  ,
+
+	@OrderBy varchar (2000)  ,
+
+	@PageIndex int   ,
+
+	@PageSize int   
+)
+AS
+
+
+				
+				BEGIN
+				DECLARE @PageLowerBound int
+				DECLARE @PageUpperBound int
+				
+				-- Set the page bounds
+				SET @PageLowerBound = @PageSize * @PageIndex
+				SET @PageUpperBound = @PageLowerBound + @PageSize
+
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[CATEGORY]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
+				SET @SQL = @SQL + ' SELECT'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [CATEGORY]'
+				SET @SQL = @SQL + ', [DIAG_CODE]'
+				SET @SQL = @SQL + ', [DIAG_NAME]'
+				SET @SQL = @SQL + ', [DIAG_NAME_VN]'
+				SET @SQL = @SQL + ', [IsDisabled]'
+				SET @SQL = @SQL + ' FROM [dbo].[Diaglist]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [CATEGORY],'
+				SET @SQL = @SQL + ' [DIAG_CODE],'
+				SET @SQL = @SQL + ' [DIAG_NAME],'
+				SET @SQL = @SQL + ' [DIAG_NAME_VN],'
+				SET @SQL = @SQL + ' [IsDisabled]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+				EXEC sp_executesql @SQL
+				
+				-- get row count
+				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
+				SET @SQL = @SQL + ' FROM [dbo].[Diaglist]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				EXEC sp_executesql @SQL
+			
+				END
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Diaglist_Insert procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Diaglist_Insert') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Diaglist_Insert
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Inserts a record into the Diaglist table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Diaglist_Insert
+(
+
+	@Category nvarchar (50)  ,
+
+	@DiagCode nvarchar (15)  ,
+
+	@DiagName nvarchar (500)  ,
+
+	@DiagNameVn nvarchar (500)  ,
+
+	@IsDisabled bit   
+)
+AS
+
+
+				
+				INSERT INTO [dbo].[Diaglist]
+					(
+					[CATEGORY]
+					,[DIAG_CODE]
+					,[DIAG_NAME]
+					,[DIAG_NAME_VN]
+					,[IsDisabled]
+					)
+				VALUES
+					(
+					@Category
+					,@DiagCode
+					,@DiagName
+					,@DiagNameVn
+					,@IsDisabled
+					)
+									
+							
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Diaglist_Update procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Diaglist_Update') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Diaglist_Update
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Updates a record in the Diaglist table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Diaglist_Update
+(
+
+	@Category nvarchar (50)  ,
+
+	@DiagCode nvarchar (15)  ,
+
+	@OriginalDiagCode nvarchar (15)  ,
+
+	@DiagName nvarchar (500)  ,
+
+	@DiagNameVn nvarchar (500)  ,
+
+	@IsDisabled bit   
+)
+AS
+
+
+				
+				
+				-- Modify the updatable columns
+				UPDATE
+					[dbo].[Diaglist]
+				SET
+					[CATEGORY] = @Category
+					,[DIAG_CODE] = @DiagCode
+					,[DIAG_NAME] = @DiagName
+					,[DIAG_NAME_VN] = @DiagNameVn
+					,[IsDisabled] = @IsDisabled
+				WHERE
+[DIAG_CODE] = @OriginalDiagCode 
+				
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Diaglist_Delete procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Diaglist_Delete') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Diaglist_Delete
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Deletes a record in the Diaglist table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Diaglist_Delete
+(
+
+	@DiagCode nvarchar (15)  
+)
+AS
+
+
+				DELETE FROM [dbo].[Diaglist] WITH (ROWLOCK) 
+				WHERE
+					[DIAG_CODE] = @DiagCode
+					
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Diaglist_GetByDiagCode procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Diaglist_GetByDiagCode') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Diaglist_GetByDiagCode
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Select records from the Diaglist table through an index
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Diaglist_GetByDiagCode
+(
+
+	@DiagCode nvarchar (15)  
+)
+AS
+
+
+				SELECT
+					[CATEGORY],
+					[DIAG_CODE],
+					[DIAG_NAME],
+					[DIAG_NAME_VN],
+					[IsDisabled]
+				FROM
+					[dbo].[Diaglist]
+				WHERE
+                        
+                            ISNULL([DIAG_CODE],0) = ISNULL(@DiagCode,0)
+				SELECT @@ROWCOUNT
+					
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Diaglist_Find procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Diaglist_Find') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Diaglist_Find
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Finds records in the Diaglist table passing nullable parameters
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Diaglist_Find
+(
+
+	@SearchUsingOR bit   = null ,
+
+	@Category nvarchar (50)  = null ,
+
+	@DiagCode nvarchar (15)  = null ,
+
+	@DiagName nvarchar (500)  = null ,
+
+	@DiagNameVn nvarchar (500)  = null ,
+
+	@IsDisabled bit   = null 
+)
+AS
+
+
+				
+  IF ISNULL(@SearchUsingOR, 0) <> 1
+  BEGIN
+    SELECT
+	  [CATEGORY]
+	, [DIAG_CODE]
+	, [DIAG_NAME]
+	, [DIAG_NAME_VN]
+	, [IsDisabled]
+    FROM
+	[dbo].[Diaglist]
+    WHERE 
+	 ([CATEGORY] = @Category OR @Category IS NULL)
+	AND ([DIAG_CODE] = @DiagCode OR @DiagCode IS NULL)
+	AND ([DIAG_NAME] = @DiagName OR @DiagName IS NULL)
+	AND ([DIAG_NAME_VN] = @DiagNameVn OR @DiagNameVn IS NULL)
+	AND ([IsDisabled] = @IsDisabled OR @IsDisabled IS NULL)
+						
+  END
+  ELSE
+  BEGIN
+    SELECT
+	  [CATEGORY]
+	, [DIAG_CODE]
+	, [DIAG_NAME]
+	, [DIAG_NAME_VN]
+	, [IsDisabled]
+    FROM
+	[dbo].[Diaglist]
+    WHERE 
+	 ([CATEGORY] = @Category AND @Category is not null)
+	OR ([DIAG_CODE] = @DiagCode AND @DiagCode is not null)
+	OR ([DIAG_NAME] = @DiagName AND @DiagName is not null)
+	OR ([DIAG_NAME_VN] = @DiagNameVn AND @DiagNameVn is not null)
+	OR ([IsDisabled] = @IsDisabled AND @IsDisabled is not null)
+	SELECT @@ROWCOUNT			
+  END
+				
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Frequency_Get_List procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Frequency_Get_List') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Frequency_Get_List
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets all records from the Frequency table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Frequency_Get_List
+
+AS
+
+
+				
+				SELECT
+					[FrequencyId],
+					[abbre],
+					[meaning],
+					[VN_meaning]
+				FROM
+					[dbo].[Frequency]
+					
+				SELECT @@ROWCOUNT
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Frequency_GetPaged procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Frequency_GetPaged') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Frequency_GetPaged
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the Frequency table passing page index and page count parameters
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Frequency_GetPaged
+(
+
+	@WhereClause varchar (8000)  ,
+
+	@OrderBy varchar (2000)  ,
+
+	@PageIndex int   ,
+
+	@PageSize int   
+)
+AS
+
+
+				
+				BEGIN
+				DECLARE @PageLowerBound int
+				DECLARE @PageUpperBound int
+				
+				-- Set the page bounds
+				SET @PageLowerBound = @PageSize * @PageIndex
+				SET @PageUpperBound = @PageLowerBound + @PageSize
+
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[FrequencyId]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
+				SET @SQL = @SQL + ' SELECT'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [FrequencyId]'
+				SET @SQL = @SQL + ', [abbre]'
+				SET @SQL = @SQL + ', [meaning]'
+				SET @SQL = @SQL + ', [VN_meaning]'
+				SET @SQL = @SQL + ' FROM [dbo].[Frequency]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [FrequencyId],'
+				SET @SQL = @SQL + ' [abbre],'
+				SET @SQL = @SQL + ' [meaning],'
+				SET @SQL = @SQL + ' [VN_meaning]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+				EXEC sp_executesql @SQL
+				
+				-- get row count
+				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
+				SET @SQL = @SQL + ' FROM [dbo].[Frequency]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				EXEC sp_executesql @SQL
+			
+				END
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Frequency_Insert procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Frequency_Insert') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Frequency_Insert
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Inserts a record into the Frequency table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Frequency_Insert
+(
+
+	@FrequencyId bigint    OUTPUT,
+
+	@Abbre nvarchar (50)  ,
+
+	@Meaning nvarchar (250)  ,
+
+	@VnMeaning nvarchar (250)  
+)
+AS
+
+
+				
+				INSERT INTO [dbo].[Frequency]
+					(
+					[abbre]
+					,[meaning]
+					,[VN_meaning]
+					)
+				VALUES
+					(
+					@Abbre
+					,@Meaning
+					,@VnMeaning
+					)
+				-- Get the identity value
+				SET @FrequencyId = SCOPE_IDENTITY()
+									
+							
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Frequency_Update procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Frequency_Update') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Frequency_Update
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Updates a record in the Frequency table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Frequency_Update
+(
+
+	@FrequencyId bigint   ,
+
+	@Abbre nvarchar (50)  ,
+
+	@Meaning nvarchar (250)  ,
+
+	@VnMeaning nvarchar (250)  
+)
+AS
+
+
+				
+				
+				-- Modify the updatable columns
+				UPDATE
+					[dbo].[Frequency]
+				SET
+					[abbre] = @Abbre
+					,[meaning] = @Meaning
+					,[VN_meaning] = @VnMeaning
+				WHERE
+[FrequencyId] = @FrequencyId 
+				
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Frequency_Delete procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Frequency_Delete') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Frequency_Delete
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Deletes a record in the Frequency table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Frequency_Delete
+(
+
+	@FrequencyId bigint   
+)
+AS
+
+
+				DELETE FROM [dbo].[Frequency] WITH (ROWLOCK) 
+				WHERE
+					[FrequencyId] = @FrequencyId
+					
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Frequency_GetByFrequencyId procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Frequency_GetByFrequencyId') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Frequency_GetByFrequencyId
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Select records from the Frequency table through an index
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Frequency_GetByFrequencyId
+(
+
+	@FrequencyId bigint   
+)
+AS
+
+
+				SELECT
+					[FrequencyId],
+					[abbre],
+					[meaning],
+					[VN_meaning]
+				FROM
+					[dbo].[Frequency]
+				WHERE
+                        
+                            ISNULL([FrequencyId],0) = ISNULL(@FrequencyId,0)
+				SELECT @@ROWCOUNT
+					
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.Frequency_Find procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.Frequency_Find') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.Frequency_Find
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Finds records in the Frequency table passing nullable parameters
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.Frequency_Find
+(
+
+	@SearchUsingOR bit   = null ,
+
+	@FrequencyId bigint   = null ,
+
+	@Abbre nvarchar (50)  = null ,
+
+	@Meaning nvarchar (250)  = null ,
+
+	@VnMeaning nvarchar (250)  = null 
+)
+AS
+
+
+				
+  IF ISNULL(@SearchUsingOR, 0) <> 1
+  BEGIN
+    SELECT
+	  [FrequencyId]
+	, [abbre]
+	, [meaning]
+	, [VN_meaning]
+    FROM
+	[dbo].[Frequency]
+    WHERE 
+	 ([FrequencyId] = @FrequencyId OR @FrequencyId IS NULL)
+	AND ([abbre] = @Abbre OR @Abbre IS NULL)
+	AND ([meaning] = @Meaning OR @Meaning IS NULL)
+	AND ([VN_meaning] = @VnMeaning OR @VnMeaning IS NULL)
+						
+  END
+  ELSE
+  BEGIN
+    SELECT
+	  [FrequencyId]
+	, [abbre]
+	, [meaning]
+	, [VN_meaning]
+    FROM
+	[dbo].[Frequency]
+    WHERE 
+	 ([FrequencyId] = @FrequencyId AND @FrequencyId is not null)
+	OR ([abbre] = @Abbre AND @Abbre is not null)
+	OR ([meaning] = @Meaning AND @Meaning is not null)
+	OR ([VN_meaning] = @VnMeaning AND @VnMeaning is not null)
+	SELECT @@ROWCOUNT			
+  END
+				
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
 -- Drop the dbo.UserRoles_Get_List procedure
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.UserRoles_Get_List') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE dbo.UserRoles_Get_List
@@ -85,48 +1306,42 @@ AS
 				SET @PageLowerBound = @PageSize * @PageIndex
 				SET @PageUpperBound = @PageLowerBound + @PageSize
 
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [RoleID] nvarchar(50)  
-				)
-				
-				-- Insert into the temp table
-				DECLARE @SQL AS nvarchar(4000)
-				SET @SQL = 'INSERT INTO #PageIndex ([RoleID])'
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[RoleID]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
 				SET @SQL = @SQL + ' SELECT'
-				SET @SQL = @SQL + ' [RoleID]'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [RoleID]'
+				SET @SQL = @SQL + ', [RoleName]'
+				SET @SQL = @SQL + ', [Remark]'
 				SET @SQL = @SQL + ' FROM [dbo].[UserRoles]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
 					SET @SQL = @SQL + ' WHERE ' + @WhereClause
 				END
-				IF LEN(@OrderBy) > 0
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [RoleID],'
+				SET @SQL = @SQL + ' [RoleName],'
+				SET @SQL = @SQL + ' [Remark]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
 				BEGIN
-					SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
 				END
-				
-				-- Only get the number of rows needed here.
-				SET ROWCOUNT @PageUpperBound
-				
-				-- Populate the temp table
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
 				EXEC sp_executesql @SQL
-
-				-- Reset Rowcount back to all
-				SET ROWCOUNT 0
 				
-				-- Return paged results
-				SELECT O.[RoleID], O.[RoleName], O.[Remark]
-				FROM
-				    [dbo].[UserRoles] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > @PageLowerBound
-					AND O.[RoleID] = PageIndex.[RoleID]
-				ORDER BY
-				    PageIndex.IndexId
-                
 				-- get row count
 				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
 				SET @SQL = @SQL + ' FROM [dbo].[UserRoles]'
@@ -406,6 +1621,449 @@ GO
 
 	
 
+-- Drop the dbo.FavoritMaster_Get_List procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_Get_List') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritMaster_Get_List
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets all records from the FavoritMaster table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.FavoritMaster_Get_List
+
+AS
+
+
+				
+				SELECT
+					[FavouriteID],
+					[DiceaseName],
+					[CreateBy],
+					[Diagnosis],
+					[DiagnosisVN],
+					[IsPrivate]
+				FROM
+					[dbo].[FavoritMaster]
+					
+				SELECT @@ROWCOUNT
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.FavoritMaster_GetPaged procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_GetPaged') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritMaster_GetPaged
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the FavoritMaster table passing page index and page count parameters
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.FavoritMaster_GetPaged
+(
+
+	@WhereClause varchar (8000)  ,
+
+	@OrderBy varchar (2000)  ,
+
+	@PageIndex int   ,
+
+	@PageSize int   
+)
+AS
+
+
+				
+				BEGIN
+				DECLARE @PageLowerBound int
+				DECLARE @PageUpperBound int
+				
+				-- Set the page bounds
+				SET @PageLowerBound = @PageSize * @PageIndex
+				SET @PageUpperBound = @PageLowerBound + @PageSize
+
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[FavouriteID]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
+				SET @SQL = @SQL + ' SELECT'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [FavouriteID]'
+				SET @SQL = @SQL + ', [DiceaseName]'
+				SET @SQL = @SQL + ', [CreateBy]'
+				SET @SQL = @SQL + ', [Diagnosis]'
+				SET @SQL = @SQL + ', [DiagnosisVN]'
+				SET @SQL = @SQL + ', [IsPrivate]'
+				SET @SQL = @SQL + ' FROM [dbo].[FavoritMaster]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [FavouriteID],'
+				SET @SQL = @SQL + ' [DiceaseName],'
+				SET @SQL = @SQL + ' [CreateBy],'
+				SET @SQL = @SQL + ' [Diagnosis],'
+				SET @SQL = @SQL + ' [DiagnosisVN],'
+				SET @SQL = @SQL + ' [IsPrivate]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+				EXEC sp_executesql @SQL
+				
+				-- get row count
+				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
+				SET @SQL = @SQL + ' FROM [dbo].[FavoritMaster]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				EXEC sp_executesql @SQL
+			
+				END
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.FavoritMaster_Insert procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_Insert') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritMaster_Insert
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Inserts a record into the FavoritMaster table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.FavoritMaster_Insert
+(
+
+	@FavouriteId nvarchar (10)  ,
+
+	@DiceaseName nvarchar (50)  ,
+
+	@CreateBy nvarchar (50)  ,
+
+	@Diagnosis nvarchar (500)  ,
+
+	@DiagnosisVn nvarchar (500)  ,
+
+	@IsPrivate bit   
+)
+AS
+
+
+				
+				INSERT INTO [dbo].[FavoritMaster]
+					(
+					[FavouriteID]
+					,[DiceaseName]
+					,[CreateBy]
+					,[Diagnosis]
+					,[DiagnosisVN]
+					,[IsPrivate]
+					)
+				VALUES
+					(
+					@FavouriteId
+					,@DiceaseName
+					,@CreateBy
+					,@Diagnosis
+					,@DiagnosisVn
+					,@IsPrivate
+					)
+									
+							
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.FavoritMaster_Update procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_Update') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritMaster_Update
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Updates a record in the FavoritMaster table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.FavoritMaster_Update
+(
+
+	@FavouriteId nvarchar (10)  ,
+
+	@OriginalFavouriteId nvarchar (10)  ,
+
+	@DiceaseName nvarchar (50)  ,
+
+	@CreateBy nvarchar (50)  ,
+
+	@Diagnosis nvarchar (500)  ,
+
+	@DiagnosisVn nvarchar (500)  ,
+
+	@IsPrivate bit   
+)
+AS
+
+
+				
+				
+				-- Modify the updatable columns
+				UPDATE
+					[dbo].[FavoritMaster]
+				SET
+					[FavouriteID] = @FavouriteId
+					,[DiceaseName] = @DiceaseName
+					,[CreateBy] = @CreateBy
+					,[Diagnosis] = @Diagnosis
+					,[DiagnosisVN] = @DiagnosisVn
+					,[IsPrivate] = @IsPrivate
+				WHERE
+[FavouriteID] = @OriginalFavouriteId 
+				
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.FavoritMaster_Delete procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_Delete') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritMaster_Delete
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Deletes a record in the FavoritMaster table
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.FavoritMaster_Delete
+(
+
+	@FavouriteId nvarchar (10)  
+)
+AS
+
+
+				DELETE FROM [dbo].[FavoritMaster] WITH (ROWLOCK) 
+				WHERE
+					[FavouriteID] = @FavouriteId
+					
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.FavoritMaster_GetByFavouriteId procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_GetByFavouriteId') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritMaster_GetByFavouriteId
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Select records from the FavoritMaster table through an index
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.FavoritMaster_GetByFavouriteId
+(
+
+	@FavouriteId nvarchar (10)  
+)
+AS
+
+
+				SELECT
+					[FavouriteID],
+					[DiceaseName],
+					[CreateBy],
+					[Diagnosis],
+					[DiagnosisVN],
+					[IsPrivate]
+				FROM
+					[dbo].[FavoritMaster]
+				WHERE
+                        
+                            ISNULL([FavouriteID],0) = ISNULL(@FavouriteId,0)
+				SELECT @@ROWCOUNT
+					
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.FavoritMaster_Find procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_Find') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritMaster_Find
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Finds records in the FavoritMaster table passing nullable parameters
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.FavoritMaster_Find
+(
+
+	@SearchUsingOR bit   = null ,
+
+	@FavouriteId nvarchar (10)  = null ,
+
+	@DiceaseName nvarchar (50)  = null ,
+
+	@CreateBy nvarchar (50)  = null ,
+
+	@Diagnosis nvarchar (500)  = null ,
+
+	@DiagnosisVn nvarchar (500)  = null ,
+
+	@IsPrivate bit   = null 
+)
+AS
+
+
+				
+  IF ISNULL(@SearchUsingOR, 0) <> 1
+  BEGIN
+    SELECT
+	  [FavouriteID]
+	, [DiceaseName]
+	, [CreateBy]
+	, [Diagnosis]
+	, [DiagnosisVN]
+	, [IsPrivate]
+    FROM
+	[dbo].[FavoritMaster]
+    WHERE 
+	 ([FavouriteID] = @FavouriteId OR @FavouriteId IS NULL)
+	AND ([DiceaseName] = @DiceaseName OR @DiceaseName IS NULL)
+	AND ([CreateBy] = @CreateBy OR @CreateBy IS NULL)
+	AND ([Diagnosis] = @Diagnosis OR @Diagnosis IS NULL)
+	AND ([DiagnosisVN] = @DiagnosisVn OR @DiagnosisVn IS NULL)
+	AND ([IsPrivate] = @IsPrivate OR @IsPrivate IS NULL)
+						
+  END
+  ELSE
+  BEGIN
+    SELECT
+	  [FavouriteID]
+	, [DiceaseName]
+	, [CreateBy]
+	, [Diagnosis]
+	, [DiagnosisVN]
+	, [IsPrivate]
+    FROM
+	[dbo].[FavoritMaster]
+    WHERE 
+	 ([FavouriteID] = @FavouriteId AND @FavouriteId is not null)
+	OR ([DiceaseName] = @DiceaseName AND @DiceaseName is not null)
+	OR ([CreateBy] = @CreateBy AND @CreateBy is not null)
+	OR ([Diagnosis] = @Diagnosis AND @Diagnosis is not null)
+	OR ([DiagnosisVN] = @DiagnosisVn AND @DiagnosisVn is not null)
+	OR ([IsPrivate] = @IsPrivate AND @IsPrivate is not null)
+	SELECT @@ROWCOUNT			
+  END
+				
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
 -- Drop the dbo.ePrescription_Get_List procedure
 IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.ePrescription_Get_List') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
 DROP PROCEDURE dbo.ePrescription_Get_List
@@ -497,48 +2155,70 @@ AS
 				SET @PageLowerBound = @PageSize * @PageIndex
 				SET @PageUpperBound = @PageLowerBound + @PageSize
 
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [PrescriptionID] nvarchar(20)  
-				)
-				
-				-- Insert into the temp table
-				DECLARE @SQL AS nvarchar(4000)
-				SET @SQL = 'INSERT INTO #PageIndex ([PrescriptionID])'
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[PrescriptionID]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
 				SET @SQL = @SQL + ' SELECT'
-				SET @SQL = @SQL + ' [PrescriptionID]'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [PrescriptionID]'
+				SET @SQL = @SQL + ', [TransactionID]'
+				SET @SQL = @SQL + ', [PatientCode]'
+				SET @SQL = @SQL + ', [FirstName]'
+				SET @SQL = @SQL + ', [LastName]'
+				SET @SQL = @SQL + ', [DeliveryDate]'
+				SET @SQL = @SQL + ', [CreateDate]'
+				SET @SQL = @SQL + ', [Address]'
+				SET @SQL = @SQL + ', [DateOfBirth]'
+				SET @SQL = @SQL + ', [Age]'
+				SET @SQL = @SQL + ', [Weight]'
+				SET @SQL = @SQL + ', [Diagnosis]'
+				SET @SQL = @SQL + ', [DiagnosisVN]'
+				SET @SQL = @SQL + ', [PrescribingDoctor]'
+				SET @SQL = @SQL + ', [Sex]'
+				SET @SQL = @SQL + ', [Remark]'
+				SET @SQL = @SQL + ', [IsComplete]'
 				SET @SQL = @SQL + ' FROM [dbo].[ePrescription]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
 					SET @SQL = @SQL + ' WHERE ' + @WhereClause
 				END
-				IF LEN(@OrderBy) > 0
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [PrescriptionID],'
+				SET @SQL = @SQL + ' [TransactionID],'
+				SET @SQL = @SQL + ' [PatientCode],'
+				SET @SQL = @SQL + ' [FirstName],'
+				SET @SQL = @SQL + ' [LastName],'
+				SET @SQL = @SQL + ' [DeliveryDate],'
+				SET @SQL = @SQL + ' [CreateDate],'
+				SET @SQL = @SQL + ' [Address],'
+				SET @SQL = @SQL + ' [DateOfBirth],'
+				SET @SQL = @SQL + ' [Age],'
+				SET @SQL = @SQL + ' [Weight],'
+				SET @SQL = @SQL + ' [Diagnosis],'
+				SET @SQL = @SQL + ' [DiagnosisVN],'
+				SET @SQL = @SQL + ' [PrescribingDoctor],'
+				SET @SQL = @SQL + ' [Sex],'
+				SET @SQL = @SQL + ' [Remark],'
+				SET @SQL = @SQL + ' [IsComplete]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
 				BEGIN
-					SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
 				END
-				
-				-- Only get the number of rows needed here.
-				SET ROWCOUNT @PageUpperBound
-				
-				-- Populate the temp table
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
 				EXEC sp_executesql @SQL
-
-				-- Reset Rowcount back to all
-				SET ROWCOUNT 0
 				
-				-- Return paged results
-				SELECT O.[PrescriptionID], O.[TransactionID], O.[PatientCode], O.[FirstName], O.[LastName], O.[DeliveryDate], O.[CreateDate], O.[Address], O.[DateOfBirth], O.[Age], O.[Weight], O.[Diagnosis], O.[DiagnosisVN], O.[PrescribingDoctor], O.[Sex], O.[Remark], O.[IsComplete]
-				FROM
-				    [dbo].[ePrescription] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > @PageLowerBound
-					AND O.[PrescriptionID] = PageIndex.[PrescriptionID]
-				ORDER BY
-				    PageIndex.IndexId
-                
 				-- get row count
 				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
 				SET @SQL = @SQL + ' FROM [dbo].[ePrescription]'
@@ -1014,21 +2694,21 @@ GO
 
 	
 
--- Drop the dbo.FavoritMaster_Get_List procedure
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_Get_List') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE dbo.FavoritMaster_Get_List
+-- Drop the dbo.FavoritDetail_Get_List procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritDetail_Get_List') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritDetail_Get_List
 GO
 
 /*
 ----------------------------------------------------------------------------------------------------
 
 -- Created By: RafflesMedical ()
--- Purpose: Gets all records from the FavoritMaster table
+-- Purpose: Gets all records from the FavoritDetail table
 ----------------------------------------------------------------------------------------------------
 */
 
 
-CREATE PROCEDURE dbo.FavoritMaster_Get_List
+CREATE PROCEDURE dbo.FavoritDetail_Get_List
 
 AS
 
@@ -1036,13 +2716,22 @@ AS
 				
 				SELECT
 					[ID],
-					[DiceaseName],
-					[CreateBy],
-					[Diagnosis],
-					[DiagnosisVN],
-					[IsPrivate]
+					[FavouriteID],
+					[DrugID],
+					[DrugName],
+					[RouteType],
+					[RouteTypeVN],
+					[Dosage],
+					[DosageUnit],
+					[DosageUnitVN],
+					[Frequency],
+					[FrequencyVN],
+					[Duration],
+					[DurationUnit],
+					[DurationUnitVN],
+					[TotalUnit]
 				FROM
-					[dbo].[FavoritMaster]
+					[dbo].[FavoritDetail]
 					
 				SELECT @@ROWCOUNT
 			
@@ -1057,21 +2746,21 @@ GO
 
 	
 
--- Drop the dbo.FavoritMaster_GetPaged procedure
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_GetPaged') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE dbo.FavoritMaster_GetPaged
+-- Drop the dbo.FavoritDetail_GetPaged procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritDetail_GetPaged') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritDetail_GetPaged
 GO
 
 /*
 ----------------------------------------------------------------------------------------------------
 
 -- Created By: RafflesMedical ()
--- Purpose: Gets records from the FavoritMaster table passing page index and page count parameters
+-- Purpose: Gets records from the FavoritDetail table passing page index and page count parameters
 ----------------------------------------------------------------------------------------------------
 */
 
 
-CREATE PROCEDURE dbo.FavoritMaster_GetPaged
+CREATE PROCEDURE dbo.FavoritDetail_GetPaged
 (
 
 	@WhereClause varchar (8000)  ,
@@ -1094,51 +2783,69 @@ AS
 				SET @PageLowerBound = @PageSize * @PageIndex
 				SET @PageUpperBound = @PageLowerBound + @PageSize
 
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [ID] int 
-				)
-				
-				-- Insert into the temp table
-				DECLARE @SQL AS nvarchar(4000)
-				SET @SQL = 'INSERT INTO #PageIndex ([ID])'
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[ID]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
 				SET @SQL = @SQL + ' SELECT'
-				SET @SQL = @SQL + ' [ID]'
-				SET @SQL = @SQL + ' FROM [dbo].[FavoritMaster]'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [ID]'
+				SET @SQL = @SQL + ', [FavouriteID]'
+				SET @SQL = @SQL + ', [DrugID]'
+				SET @SQL = @SQL + ', [DrugName]'
+				SET @SQL = @SQL + ', [RouteType]'
+				SET @SQL = @SQL + ', [RouteTypeVN]'
+				SET @SQL = @SQL + ', [Dosage]'
+				SET @SQL = @SQL + ', [DosageUnit]'
+				SET @SQL = @SQL + ', [DosageUnitVN]'
+				SET @SQL = @SQL + ', [Frequency]'
+				SET @SQL = @SQL + ', [FrequencyVN]'
+				SET @SQL = @SQL + ', [Duration]'
+				SET @SQL = @SQL + ', [DurationUnit]'
+				SET @SQL = @SQL + ', [DurationUnitVN]'
+				SET @SQL = @SQL + ', [TotalUnit]'
+				SET @SQL = @SQL + ' FROM [dbo].[FavoritDetail]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
 					SET @SQL = @SQL + ' WHERE ' + @WhereClause
 				END
-				IF LEN(@OrderBy) > 0
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [ID],'
+				SET @SQL = @SQL + ' [FavouriteID],'
+				SET @SQL = @SQL + ' [DrugID],'
+				SET @SQL = @SQL + ' [DrugName],'
+				SET @SQL = @SQL + ' [RouteType],'
+				SET @SQL = @SQL + ' [RouteTypeVN],'
+				SET @SQL = @SQL + ' [Dosage],'
+				SET @SQL = @SQL + ' [DosageUnit],'
+				SET @SQL = @SQL + ' [DosageUnitVN],'
+				SET @SQL = @SQL + ' [Frequency],'
+				SET @SQL = @SQL + ' [FrequencyVN],'
+				SET @SQL = @SQL + ' [Duration],'
+				SET @SQL = @SQL + ' [DurationUnit],'
+				SET @SQL = @SQL + ' [DurationUnitVN],'
+				SET @SQL = @SQL + ' [TotalUnit]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
 				BEGIN
-					SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
 				END
-				
-				-- Only get the number of rows needed here.
-				SET ROWCOUNT @PageUpperBound
-				
-				-- Populate the temp table
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
 				EXEC sp_executesql @SQL
-
-				-- Reset Rowcount back to all
-				SET ROWCOUNT 0
 				
-				-- Return paged results
-				SELECT O.[ID], O.[DiceaseName], O.[CreateBy], O.[Diagnosis], O.[DiagnosisVN], O.[IsPrivate]
-				FROM
-				    [dbo].[FavoritMaster] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > @PageLowerBound
-					AND O.[ID] = PageIndex.[ID]
-				ORDER BY
-				    PageIndex.IndexId
-                
 				-- get row count
 				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
-				SET @SQL = @SQL + ' FROM [dbo].[FavoritMaster]'
+				SET @SQL = @SQL + ' FROM [dbo].[FavoritDetail]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
 					SET @SQL = @SQL + ' WHERE ' + @WhereClause
@@ -1158,57 +2865,93 @@ GO
 
 	
 
--- Drop the dbo.FavoritMaster_Insert procedure
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_Insert') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE dbo.FavoritMaster_Insert
+-- Drop the dbo.FavoritDetail_Insert procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritDetail_Insert') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritDetail_Insert
 GO
 
 /*
 ----------------------------------------------------------------------------------------------------
 
 -- Created By: RafflesMedical ()
--- Purpose: Inserts a record into the FavoritMaster table
+-- Purpose: Inserts a record into the FavoritDetail table
 ----------------------------------------------------------------------------------------------------
 */
 
 
-CREATE PROCEDURE dbo.FavoritMaster_Insert
+CREATE PROCEDURE dbo.FavoritDetail_Insert
 (
 
-	@Id int   ,
+	@Id bigint    OUTPUT,
 
-	@DiceaseName nvarchar (50)  ,
+	@FavouriteId nvarchar (10)  ,
 
-	@CreateBy nvarchar (50)  ,
+	@DrugId nvarchar (20)  ,
 
-	@Diagnosis nvarchar (500)  ,
+	@DrugName nvarchar (250)  ,
 
-	@DiagnosisVn nvarchar (500)  ,
+	@RouteType nvarchar (50)  ,
 
-	@IsPrivate bit   
+	@RouteTypeVn nvarchar (50)  ,
+
+	@Dosage nvarchar (20)  ,
+
+	@DosageUnit nvarchar (50)  ,
+
+	@DosageUnitVn nvarchar (50)  ,
+
+	@Frequency nvarchar (150)  ,
+
+	@FrequencyVn nvarchar (150)  ,
+
+	@Duration nvarchar (50)  ,
+
+	@DurationUnit nvarchar (50)  ,
+
+	@DurationUnitVn nvarchar (50)  ,
+
+	@TotalUnit nvarchar (50)  
 )
 AS
 
 
 				
-				INSERT INTO [dbo].[FavoritMaster]
+				INSERT INTO [dbo].[FavoritDetail]
 					(
-					[ID]
-					,[DiceaseName]
-					,[CreateBy]
-					,[Diagnosis]
-					,[DiagnosisVN]
-					,[IsPrivate]
+					[FavouriteID]
+					,[DrugID]
+					,[DrugName]
+					,[RouteType]
+					,[RouteTypeVN]
+					,[Dosage]
+					,[DosageUnit]
+					,[DosageUnitVN]
+					,[Frequency]
+					,[FrequencyVN]
+					,[Duration]
+					,[DurationUnit]
+					,[DurationUnitVN]
+					,[TotalUnit]
 					)
 				VALUES
 					(
-					@Id
-					,@DiceaseName
-					,@CreateBy
-					,@Diagnosis
-					,@DiagnosisVn
-					,@IsPrivate
+					@FavouriteId
+					,@DrugId
+					,@DrugName
+					,@RouteType
+					,@RouteTypeVn
+					,@Dosage
+					,@DosageUnit
+					,@DosageUnitVn
+					,@Frequency
+					,@FrequencyVn
+					,@Duration
+					,@DurationUnit
+					,@DurationUnitVn
+					,@TotalUnit
 					)
+				-- Get the identity value
+				SET @Id = SCOPE_IDENTITY()
 									
 							
 			
@@ -1223,36 +2966,52 @@ GO
 
 	
 
--- Drop the dbo.FavoritMaster_Update procedure
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_Update') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE dbo.FavoritMaster_Update
+-- Drop the dbo.FavoritDetail_Update procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritDetail_Update') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritDetail_Update
 GO
 
 /*
 ----------------------------------------------------------------------------------------------------
 
 -- Created By: RafflesMedical ()
--- Purpose: Updates a record in the FavoritMaster table
+-- Purpose: Updates a record in the FavoritDetail table
 ----------------------------------------------------------------------------------------------------
 */
 
 
-CREATE PROCEDURE dbo.FavoritMaster_Update
+CREATE PROCEDURE dbo.FavoritDetail_Update
 (
 
-	@Id int   ,
+	@Id bigint   ,
 
-	@OriginalId int   ,
+	@FavouriteId nvarchar (10)  ,
 
-	@DiceaseName nvarchar (50)  ,
+	@DrugId nvarchar (20)  ,
 
-	@CreateBy nvarchar (50)  ,
+	@DrugName nvarchar (250)  ,
 
-	@Diagnosis nvarchar (500)  ,
+	@RouteType nvarchar (50)  ,
 
-	@DiagnosisVn nvarchar (500)  ,
+	@RouteTypeVn nvarchar (50)  ,
 
-	@IsPrivate bit   
+	@Dosage nvarchar (20)  ,
+
+	@DosageUnit nvarchar (50)  ,
+
+	@DosageUnitVn nvarchar (50)  ,
+
+	@Frequency nvarchar (150)  ,
+
+	@FrequencyVn nvarchar (150)  ,
+
+	@Duration nvarchar (50)  ,
+
+	@DurationUnit nvarchar (50)  ,
+
+	@DurationUnitVn nvarchar (50)  ,
+
+	@TotalUnit nvarchar (50)  
 )
 AS
 
@@ -1261,16 +3020,24 @@ AS
 				
 				-- Modify the updatable columns
 				UPDATE
-					[dbo].[FavoritMaster]
+					[dbo].[FavoritDetail]
 				SET
-					[ID] = @Id
-					,[DiceaseName] = @DiceaseName
-					,[CreateBy] = @CreateBy
-					,[Diagnosis] = @Diagnosis
-					,[DiagnosisVN] = @DiagnosisVn
-					,[IsPrivate] = @IsPrivate
+					[FavouriteID] = @FavouriteId
+					,[DrugID] = @DrugId
+					,[DrugName] = @DrugName
+					,[RouteType] = @RouteType
+					,[RouteTypeVN] = @RouteTypeVn
+					,[Dosage] = @Dosage
+					,[DosageUnit] = @DosageUnit
+					,[DosageUnitVN] = @DosageUnitVn
+					,[Frequency] = @Frequency
+					,[FrequencyVN] = @FrequencyVn
+					,[Duration] = @Duration
+					,[DurationUnit] = @DurationUnit
+					,[DurationUnitVN] = @DurationUnitVn
+					,[TotalUnit] = @TotalUnit
 				WHERE
-[ID] = @OriginalId 
+[ID] = @Id 
 				
 			
 
@@ -1284,29 +3051,29 @@ GO
 
 	
 
--- Drop the dbo.FavoritMaster_Delete procedure
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_Delete') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE dbo.FavoritMaster_Delete
+-- Drop the dbo.FavoritDetail_Delete procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritDetail_Delete') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritDetail_Delete
 GO
 
 /*
 ----------------------------------------------------------------------------------------------------
 
 -- Created By: RafflesMedical ()
--- Purpose: Deletes a record in the FavoritMaster table
+-- Purpose: Deletes a record in the FavoritDetail table
 ----------------------------------------------------------------------------------------------------
 */
 
 
-CREATE PROCEDURE dbo.FavoritMaster_Delete
+CREATE PROCEDURE dbo.FavoritDetail_Delete
 (
 
-	@Id int   
+	@Id bigint   
 )
 AS
 
 
-				DELETE FROM [dbo].[FavoritMaster] WITH (ROWLOCK) 
+				DELETE FROM [dbo].[FavoritDetail] WITH (ROWLOCK) 
 				WHERE
 					[ID] = @Id
 					
@@ -1322,37 +3089,105 @@ GO
 
 	
 
--- Drop the dbo.FavoritMaster_GetById procedure
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_GetById') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE dbo.FavoritMaster_GetById
+-- Drop the dbo.FavoritDetail_GetByFavouriteId procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritDetail_GetByFavouriteId') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritDetail_GetByFavouriteId
 GO
 
 /*
 ----------------------------------------------------------------------------------------------------
 
 -- Created By: RafflesMedical ()
--- Purpose: Select records from the FavoritMaster table through an index
+-- Purpose: Select records from the FavoritDetail table through a foreign key
 ----------------------------------------------------------------------------------------------------
 */
 
 
-CREATE PROCEDURE dbo.FavoritMaster_GetById
+CREATE PROCEDURE dbo.FavoritDetail_GetByFavouriteId
 (
 
-	@Id int   
+	@FavouriteId nvarchar (10)  
+)
+AS
+
+
+				SET ANSI_NULLS OFF
+				
+				SELECT
+					[ID],
+					[FavouriteID],
+					[DrugID],
+					[DrugName],
+					[RouteType],
+					[RouteTypeVN],
+					[Dosage],
+					[DosageUnit],
+					[DosageUnitVN],
+					[Frequency],
+					[FrequencyVN],
+					[Duration],
+					[DurationUnit],
+					[DurationUnitVN],
+					[TotalUnit]
+				FROM
+					[dbo].[FavoritDetail]
+				WHERE
+					[FavouriteID] = @FavouriteId
+				
+				SELECT @@ROWCOUNT
+				SET ANSI_NULLS ON
+			
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.FavoritDetail_GetById procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritDetail_GetById') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritDetail_GetById
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Select records from the FavoritDetail table through an index
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.FavoritDetail_GetById
+(
+
+	@Id bigint   
 )
 AS
 
 
 				SELECT
 					[ID],
-					[DiceaseName],
-					[CreateBy],
-					[Diagnosis],
-					[DiagnosisVN],
-					[IsPrivate]
+					[FavouriteID],
+					[DrugID],
+					[DrugName],
+					[RouteType],
+					[RouteTypeVN],
+					[Dosage],
+					[DosageUnit],
+					[DosageUnitVN],
+					[Frequency],
+					[FrequencyVN],
+					[Duration],
+					[DurationUnit],
+					[DurationUnitVN],
+					[TotalUnit]
 				FROM
-					[dbo].[FavoritMaster]
+					[dbo].[FavoritDetail]
 				WHERE
                         
                             ISNULL([ID],0) = ISNULL(@Id,0)
@@ -1370,36 +3205,54 @@ GO
 
 	
 
--- Drop the dbo.FavoritMaster_Find procedure
-IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritMaster_Find') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
-DROP PROCEDURE dbo.FavoritMaster_Find
+-- Drop the dbo.FavoritDetail_Find procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.FavoritDetail_Find') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.FavoritDetail_Find
 GO
 
 /*
 ----------------------------------------------------------------------------------------------------
 
 -- Created By: RafflesMedical ()
--- Purpose: Finds records in the FavoritMaster table passing nullable parameters
+-- Purpose: Finds records in the FavoritDetail table passing nullable parameters
 ----------------------------------------------------------------------------------------------------
 */
 
 
-CREATE PROCEDURE dbo.FavoritMaster_Find
+CREATE PROCEDURE dbo.FavoritDetail_Find
 (
 
 	@SearchUsingOR bit   = null ,
 
-	@Id int   = null ,
+	@Id bigint   = null ,
 
-	@DiceaseName nvarchar (50)  = null ,
+	@FavouriteId nvarchar (10)  = null ,
 
-	@CreateBy nvarchar (50)  = null ,
+	@DrugId nvarchar (20)  = null ,
 
-	@Diagnosis nvarchar (500)  = null ,
+	@DrugName nvarchar (250)  = null ,
 
-	@DiagnosisVn nvarchar (500)  = null ,
+	@RouteType nvarchar (50)  = null ,
 
-	@IsPrivate bit   = null 
+	@RouteTypeVn nvarchar (50)  = null ,
+
+	@Dosage nvarchar (20)  = null ,
+
+	@DosageUnit nvarchar (50)  = null ,
+
+	@DosageUnitVn nvarchar (50)  = null ,
+
+	@Frequency nvarchar (150)  = null ,
+
+	@FrequencyVn nvarchar (150)  = null ,
+
+	@Duration nvarchar (50)  = null ,
+
+	@DurationUnit nvarchar (50)  = null ,
+
+	@DurationUnitVn nvarchar (50)  = null ,
+
+	@TotalUnit nvarchar (50)  = null 
 )
 AS
 
@@ -1409,40 +3262,76 @@ AS
   BEGIN
     SELECT
 	  [ID]
-	, [DiceaseName]
-	, [CreateBy]
-	, [Diagnosis]
-	, [DiagnosisVN]
-	, [IsPrivate]
+	, [FavouriteID]
+	, [DrugID]
+	, [DrugName]
+	, [RouteType]
+	, [RouteTypeVN]
+	, [Dosage]
+	, [DosageUnit]
+	, [DosageUnitVN]
+	, [Frequency]
+	, [FrequencyVN]
+	, [Duration]
+	, [DurationUnit]
+	, [DurationUnitVN]
+	, [TotalUnit]
     FROM
-	[dbo].[FavoritMaster]
+	[dbo].[FavoritDetail]
     WHERE 
 	 ([ID] = @Id OR @Id IS NULL)
-	AND ([DiceaseName] = @DiceaseName OR @DiceaseName IS NULL)
-	AND ([CreateBy] = @CreateBy OR @CreateBy IS NULL)
-	AND ([Diagnosis] = @Diagnosis OR @Diagnosis IS NULL)
-	AND ([DiagnosisVN] = @DiagnosisVn OR @DiagnosisVn IS NULL)
-	AND ([IsPrivate] = @IsPrivate OR @IsPrivate IS NULL)
+	AND ([FavouriteID] = @FavouriteId OR @FavouriteId IS NULL)
+	AND ([DrugID] = @DrugId OR @DrugId IS NULL)
+	AND ([DrugName] = @DrugName OR @DrugName IS NULL)
+	AND ([RouteType] = @RouteType OR @RouteType IS NULL)
+	AND ([RouteTypeVN] = @RouteTypeVn OR @RouteTypeVn IS NULL)
+	AND ([Dosage] = @Dosage OR @Dosage IS NULL)
+	AND ([DosageUnit] = @DosageUnit OR @DosageUnit IS NULL)
+	AND ([DosageUnitVN] = @DosageUnitVn OR @DosageUnitVn IS NULL)
+	AND ([Frequency] = @Frequency OR @Frequency IS NULL)
+	AND ([FrequencyVN] = @FrequencyVn OR @FrequencyVn IS NULL)
+	AND ([Duration] = @Duration OR @Duration IS NULL)
+	AND ([DurationUnit] = @DurationUnit OR @DurationUnit IS NULL)
+	AND ([DurationUnitVN] = @DurationUnitVn OR @DurationUnitVn IS NULL)
+	AND ([TotalUnit] = @TotalUnit OR @TotalUnit IS NULL)
 						
   END
   ELSE
   BEGIN
     SELECT
 	  [ID]
-	, [DiceaseName]
-	, [CreateBy]
-	, [Diagnosis]
-	, [DiagnosisVN]
-	, [IsPrivate]
+	, [FavouriteID]
+	, [DrugID]
+	, [DrugName]
+	, [RouteType]
+	, [RouteTypeVN]
+	, [Dosage]
+	, [DosageUnit]
+	, [DosageUnitVN]
+	, [Frequency]
+	, [FrequencyVN]
+	, [Duration]
+	, [DurationUnit]
+	, [DurationUnitVN]
+	, [TotalUnit]
     FROM
-	[dbo].[FavoritMaster]
+	[dbo].[FavoritDetail]
     WHERE 
 	 ([ID] = @Id AND @Id is not null)
-	OR ([DiceaseName] = @DiceaseName AND @DiceaseName is not null)
-	OR ([CreateBy] = @CreateBy AND @CreateBy is not null)
-	OR ([Diagnosis] = @Diagnosis AND @Diagnosis is not null)
-	OR ([DiagnosisVN] = @DiagnosisVn AND @DiagnosisVn is not null)
-	OR ([IsPrivate] = @IsPrivate AND @IsPrivate is not null)
+	OR ([FavouriteID] = @FavouriteId AND @FavouriteId is not null)
+	OR ([DrugID] = @DrugId AND @DrugId is not null)
+	OR ([DrugName] = @DrugName AND @DrugName is not null)
+	OR ([RouteType] = @RouteType AND @RouteType is not null)
+	OR ([RouteTypeVN] = @RouteTypeVn AND @RouteTypeVn is not null)
+	OR ([Dosage] = @Dosage AND @Dosage is not null)
+	OR ([DosageUnit] = @DosageUnit AND @DosageUnit is not null)
+	OR ([DosageUnitVN] = @DosageUnitVn AND @DosageUnitVn is not null)
+	OR ([Frequency] = @Frequency AND @Frequency is not null)
+	OR ([FrequencyVN] = @FrequencyVn AND @FrequencyVn is not null)
+	OR ([Duration] = @Duration AND @Duration is not null)
+	OR ([DurationUnit] = @DurationUnit AND @DurationUnit is not null)
+	OR ([DurationUnitVN] = @DurationUnitVn AND @DurationUnitVn is not null)
+	OR ([TotalUnit] = @TotalUnit AND @TotalUnit is not null)
 	SELECT @@ROWCOUNT			
   END
 				
@@ -1542,48 +3431,58 @@ AS
 				SET @PageLowerBound = @PageSize * @PageIndex
 				SET @PageUpperBound = @PageLowerBound + @PageSize
 
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [UserName] nvarchar(50)  
-				)
-				
-				-- Insert into the temp table
-				DECLARE @SQL AS nvarchar(4000)
-				SET @SQL = 'INSERT INTO #PageIndex ([UserName])'
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[UserName]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
 				SET @SQL = @SQL + ' SELECT'
-				SET @SQL = @SQL + ' [UserName]'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [UserName]'
+				SET @SQL = @SQL + ', [Password]'
+				SET @SQL = @SQL + ', [UserRole]'
+				SET @SQL = @SQL + ', [FullName]'
+				SET @SQL = @SQL + ', [Email]'
+				SET @SQL = @SQL + ', [DisplayName]'
+				SET @SQL = @SQL + ', [Signature]'
+				SET @SQL = @SQL + ', [Location]'
+				SET @SQL = @SQL + ', [IsDisabled]'
+				SET @SQL = @SQL + ', [Avatar]'
+				SET @SQL = @SQL + ', [MobilePhone]'
 				SET @SQL = @SQL + ' FROM [dbo].[Users]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
 					SET @SQL = @SQL + ' WHERE ' + @WhereClause
 				END
-				IF LEN(@OrderBy) > 0
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [UserName],'
+				SET @SQL = @SQL + ' [Password],'
+				SET @SQL = @SQL + ' [UserRole],'
+				SET @SQL = @SQL + ' [FullName],'
+				SET @SQL = @SQL + ' [Email],'
+				SET @SQL = @SQL + ' [DisplayName],'
+				SET @SQL = @SQL + ' [Signature],'
+				SET @SQL = @SQL + ' [Location],'
+				SET @SQL = @SQL + ' [IsDisabled],'
+				SET @SQL = @SQL + ' [Avatar],'
+				SET @SQL = @SQL + ' [MobilePhone]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
 				BEGIN
-					SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
 				END
-				
-				-- Only get the number of rows needed here.
-				SET ROWCOUNT @PageUpperBound
-				
-				-- Populate the temp table
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
 				EXEC sp_executesql @SQL
-
-				-- Reset Rowcount back to all
-				SET ROWCOUNT 0
 				
-				-- Return paged results
-				SELECT O.[UserName], O.[Password], O.[UserRole], O.[FullName], O.[Email], O.[DisplayName], O.[Signature], O.[Location], O.[IsDisabled], O.[Avatar], O.[MobilePhone]
-				FROM
-				    [dbo].[Users] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > @PageLowerBound
-					AND O.[UserName] = PageIndex.[UserName]
-				ORDER BY
-				    PageIndex.IndexId
-                
 				-- get row count
 				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
 				SET @SQL = @SQL + ' FROM [dbo].[Users]'
@@ -2064,48 +3963,74 @@ AS
 				SET @PageLowerBound = @PageSize * @PageIndex
 				SET @PageUpperBound = @PageLowerBound + @PageSize
 
-				-- Create a temp table to store the select results
-				CREATE TABLE #PageIndex
-				(
-				    [IndexId] int IDENTITY (1, 1) NOT NULL,
-				    [PrescriptionDetailId] bigint 
-				)
-				
-				-- Insert into the temp table
-				DECLARE @SQL AS nvarchar(4000)
-				SET @SQL = 'INSERT INTO #PageIndex ([PrescriptionDetailId])'
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[PrescriptionDetailId]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
 				SET @SQL = @SQL + ' SELECT'
-				SET @SQL = @SQL + ' [PrescriptionDetailId]'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [PrescriptionDetailId]'
+				SET @SQL = @SQL + ', [PrescriptionID]'
+				SET @SQL = @SQL + ', [Sq]'
+				SET @SQL = @SQL + ', [DrugId]'
+				SET @SQL = @SQL + ', [DrugName]'
+				SET @SQL = @SQL + ', [Unit]'
+				SET @SQL = @SQL + ', [UnitVN]'
+				SET @SQL = @SQL + ', [Remark]'
+				SET @SQL = @SQL + ', [RouteType]'
+				SET @SQL = @SQL + ', [RouteTypeVN]'
+				SET @SQL = @SQL + ', [Dosage]'
+				SET @SQL = @SQL + ', [DosageUnit]'
+				SET @SQL = @SQL + ', [DosageUnitVN]'
+				SET @SQL = @SQL + ', [Frequency]'
+				SET @SQL = @SQL + ', [FrequencyVN]'
+				SET @SQL = @SQL + ', [Duration]'
+				SET @SQL = @SQL + ', [DurationUnit]'
+				SET @SQL = @SQL + ', [DurationUnitVN]'
+				SET @SQL = @SQL + ', [TotalUnit]'
 				SET @SQL = @SQL + ' FROM [dbo].[ePrescriptionDetail]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
 					SET @SQL = @SQL + ' WHERE ' + @WhereClause
 				END
-				IF LEN(@OrderBy) > 0
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [PrescriptionDetailId],'
+				SET @SQL = @SQL + ' [PrescriptionID],'
+				SET @SQL = @SQL + ' [Sq],'
+				SET @SQL = @SQL + ' [DrugId],'
+				SET @SQL = @SQL + ' [DrugName],'
+				SET @SQL = @SQL + ' [Unit],'
+				SET @SQL = @SQL + ' [UnitVN],'
+				SET @SQL = @SQL + ' [Remark],'
+				SET @SQL = @SQL + ' [RouteType],'
+				SET @SQL = @SQL + ' [RouteTypeVN],'
+				SET @SQL = @SQL + ' [Dosage],'
+				SET @SQL = @SQL + ' [DosageUnit],'
+				SET @SQL = @SQL + ' [DosageUnitVN],'
+				SET @SQL = @SQL + ' [Frequency],'
+				SET @SQL = @SQL + ' [FrequencyVN],'
+				SET @SQL = @SQL + ' [Duration],'
+				SET @SQL = @SQL + ' [DurationUnit],'
+				SET @SQL = @SQL + ' [DurationUnitVN],'
+				SET @SQL = @SQL + ' [TotalUnit]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
 				BEGIN
-					SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
 				END
-				
-				-- Only get the number of rows needed here.
-				SET ROWCOUNT @PageUpperBound
-				
-				-- Populate the temp table
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
 				EXEC sp_executesql @SQL
-
-				-- Reset Rowcount back to all
-				SET ROWCOUNT 0
 				
-				-- Return paged results
-				SELECT O.[PrescriptionDetailId], O.[PrescriptionID], O.[Sq], O.[DrugId], O.[DrugName], O.[Unit], O.[UnitVN], O.[Remark], O.[RouteType], O.[RouteTypeVN], O.[Dosage], O.[DosageUnit], O.[DosageUnitVN], O.[Frequency], O.[FrequencyVN], O.[Duration], O.[DurationUnit], O.[DurationUnitVN], O.[TotalUnit]
-				FROM
-				    [dbo].[ePrescriptionDetail] O,
-				    #PageIndex PageIndex
-				WHERE
-				    PageIndex.IndexId > @PageLowerBound
-					AND O.[PrescriptionDetailId] = PageIndex.[PrescriptionDetailId]
-				ORDER BY
-				    PageIndex.IndexId
-                
 				-- get row count
 				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
 				SET @SQL = @SQL + ' FROM [dbo].[ePrescriptionDetail]'
@@ -2703,7 +4628,6 @@ AS
                         [VN_meaning],
                         [Duration],
                         [TotalUnit],
-                        [Expr1],
                         [meaning],
                         [abbre]
                     FROM
@@ -2741,7 +4665,11 @@ CREATE PROCEDURE dbo.VR_ePresDetail_Get
 
 	@WhereClause varchar (2000)  ,
 
-	@OrderBy varchar (2000)  
+	@OrderBy varchar (2000)  ,
+
+	@PageIndex int   ,
+
+	@PageSize int   
 )
 AS
 
@@ -2749,23 +4677,226 @@ AS
                     
                     BEGIN
     
-                    -- Build the sql query
-                    DECLARE @SQL AS nvarchar(4000)
-                    SET @SQL = ' SELECT * FROM [dbo].[VR_ePresDetail]'
+                    DECLARE @PageLowerBound int
+                    DECLARE @PageUpperBound int
+                    
+                    -- Set the page bounds
+                    SET @PageLowerBound = @PageSize * @PageIndex
+                    SET @PageUpperBound = @PageLowerBound + @PageSize
+    
+                    IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+                    BEGIN
+                        -- default order by to first column
+                        SET @OrderBy = '[PrescriptionDetailId]'
+                    END
+    
+                    -- SQL Server 2005 Paging
+                    DECLARE @SQL AS nvarchar(MAX)
+                    SET @SQL = 'WITH PageIndex AS ('
+                    SET @SQL = @SQL + ' SELECT'
+                    IF @PageSize > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+                    END
+                    SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+                    SET @SQL = @SQL + ', [PrescriptionDetailId]'
+                    SET @SQL = @SQL + ', [PrescriptionID]'
+                    SET @SQL = @SQL + ', [Sq]'
+                    SET @SQL = @SQL + ', [DrugId]'
+                    SET @SQL = @SQL + ', [DrugName]'
+                    SET @SQL = @SQL + ', [Unit]'
+                    SET @SQL = @SQL + ', [UnitVN]'
+                    SET @SQL = @SQL + ', [Remark]'
+                    SET @SQL = @SQL + ', [Dosage]'
+                    SET @SQL = @SQL + ', [Frequency]'
+                    SET @SQL = @SQL + ', [VN_meaning]'
+                    SET @SQL = @SQL + ', [Duration]'
+                    SET @SQL = @SQL + ', [TotalUnit]'
+                    SET @SQL = @SQL + ', [meaning]'
+                    SET @SQL = @SQL + ', [abbre]'
+                    SET @SQL = @SQL + ' FROM [dbo].[VR_ePresDetail]'
                     IF LEN(@WhereClause) > 0
                     BEGIN
                         SET @SQL = @SQL + ' WHERE ' + @WhereClause
+                    END
+                    SET @SQL = @SQL + ' ) SELECT'
+                    SET @SQL = @SQL + ' [PrescriptionDetailId],'
+                    SET @SQL = @SQL + ' [PrescriptionID],'
+                    SET @SQL = @SQL + ' [Sq],'
+                    SET @SQL = @SQL + ' [DrugId],'
+                    SET @SQL = @SQL + ' [DrugName],'
+                    SET @SQL = @SQL + ' [Unit],'
+                    SET @SQL = @SQL + ' [UnitVN],'
+                    SET @SQL = @SQL + ' [Remark],'
+                    SET @SQL = @SQL + ' [Dosage],'
+                    SET @SQL = @SQL + ' [Frequency],'
+                    SET @SQL = @SQL + ' [VN_meaning],'
+                    SET @SQL = @SQL + ' [Duration],'
+                    SET @SQL = @SQL + ' [TotalUnit],'
+                    SET @SQL = @SQL + ' [meaning],'
+                    SET @SQL = @SQL + ' [abbre]'
+                    SET @SQL = @SQL + ' FROM PageIndex'
+                    SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+                    IF @PageSize > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
                     END
                     IF LEN(@OrderBy) > 0
                     BEGIN
                         SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
                     END
-                    
-                    -- Execution the query
+                    EXEC sp_executesql @SQL
+    
+                    -- get row count
+                    SET @SQL = 'SELECT COUNT(*) AS TotalRowCount'
+                    SET @SQL = @SQL + ' FROM [dbo].[VR_ePresDetail]'
+                    IF LEN(@WhereClause) > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' WHERE ' + @WhereClause
+                    END
                     EXEC sp_executesql @SQL
                     
-                    -- Return total count
-                    SELECT @@ROWCOUNT AS TotalRowCount
+                    END
+                
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.VR_UnitTable_Get_List procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.VR_UnitTable_Get_List') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.VR_UnitTable_Get_List
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets all records from the VR_UnitTable view
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.VR_UnitTable_Get_List
+
+AS
+
+
+                    
+                    SELECT
+                        [Unit],
+                        [UnitVN],
+                        [DosageUnit],
+                        [DosageUnitVN]
+                    FROM
+                        [dbo].[VR_UnitTable]
+                        
+                    SELECT @@ROWCOUNT			
+                
+
+GO
+SET QUOTED_IDENTIFIER ON 
+GO
+SET NOCOUNT ON
+GO
+SET ANSI_NULLS OFF 
+GO
+
+	
+
+-- Drop the dbo.VR_UnitTable_Get procedure
+IF EXISTS (SELECT * FROM dbo.sysobjects WHERE id = object_id(N'dbo.VR_UnitTable_Get') AND OBJECTPROPERTY(id, N'IsProcedure') = 1)
+DROP PROCEDURE dbo.VR_UnitTable_Get
+GO
+
+/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the VR_UnitTable view passing page index and page count parameters
+----------------------------------------------------------------------------------------------------
+*/
+
+
+CREATE PROCEDURE dbo.VR_UnitTable_Get
+(
+
+	@WhereClause varchar (2000)  ,
+
+	@OrderBy varchar (2000)  ,
+
+	@PageIndex int   ,
+
+	@PageSize int   
+)
+AS
+
+
+                    
+                    BEGIN
+    
+                    DECLARE @PageLowerBound int
+                    DECLARE @PageUpperBound int
+                    
+                    -- Set the page bounds
+                    SET @PageLowerBound = @PageSize * @PageIndex
+                    SET @PageUpperBound = @PageLowerBound + @PageSize
+    
+                    IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+                    BEGIN
+                        -- default order by to first column
+                        SET @OrderBy = '[Unit]'
+                    END
+    
+                    -- SQL Server 2005 Paging
+                    DECLARE @SQL AS nvarchar(MAX)
+                    SET @SQL = 'WITH PageIndex AS ('
+                    SET @SQL = @SQL + ' SELECT'
+                    IF @PageSize > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+                    END
+                    SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+                    SET @SQL = @SQL + ', [Unit]'
+                    SET @SQL = @SQL + ', [UnitVN]'
+                    SET @SQL = @SQL + ', [DosageUnit]'
+                    SET @SQL = @SQL + ', [DosageUnitVN]'
+                    SET @SQL = @SQL + ' FROM [dbo].[VR_UnitTable]'
+                    IF LEN(@WhereClause) > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' WHERE ' + @WhereClause
+                    END
+                    SET @SQL = @SQL + ' ) SELECT'
+                    SET @SQL = @SQL + ' [Unit],'
+                    SET @SQL = @SQL + ' [UnitVN],'
+                    SET @SQL = @SQL + ' [DosageUnit],'
+                    SET @SQL = @SQL + ' [DosageUnitVN]'
+                    SET @SQL = @SQL + ' FROM PageIndex'
+                    SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+                    IF @PageSize > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
+                    END
+                    IF LEN(@OrderBy) > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+                    END
+                    EXEC sp_executesql @SQL
+    
+                    -- get row count
+                    SET @SQL = 'SELECT COUNT(*) AS TotalRowCount'
+                    SET @SQL = @SQL + ' FROM [dbo].[VR_UnitTable]'
+                    IF LEN(@WhereClause) > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' WHERE ' + @WhereClause
+                    END
+                    EXEC sp_executesql @SQL
                     
                     END
                 

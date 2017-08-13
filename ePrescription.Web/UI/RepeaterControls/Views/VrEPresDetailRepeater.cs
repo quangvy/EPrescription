@@ -437,15 +437,6 @@ namespace ePrescription.Web.UI
 			get { return _entity.TotalUnit; }
 		}
         /// <summary>
-        /// Gets the Expr1
-        /// </summary>
-        /// <value>The Expr1.</value>
-		[System.ComponentModel.Bindable(true)]
-		public System.String Expr1
-		{
-			get { return _entity.Expr1; }
-		}
-        /// <summary>
         /// Gets the Meaning
         /// </summary>
         /// <value>The Meaning.</value>

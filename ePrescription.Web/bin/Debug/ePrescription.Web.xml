@@ -4510,6 +4510,191 @@
             <param name="isCallback">Indicates whether this is a callback request.</param>
             <returns>A collection SQL filter parameters.</returns>
         </member>
+        <member name="T:ePrescription.Web.Data.DiaglistDataSource">
+            <summary>
+            Represents the DataRepository.DiaglistProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.DiaglistDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the DiaglistDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.DiaglistDataSource.DiaglistView">
+            <summary>
+            Gets a reference to the DiaglistDataSourceView used by the DiaglistDataSource.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.DiaglistDataSource.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the DiaglistDataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.DiaglistDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the DiaglistDataSourceView class that is to be
+            used by the DiaglistDataSource.
+            </summary>
+            <returns>An instance of the DiaglistDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.DiaglistDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.DiaglistDataSourceView">
+            <summary>
+            Supports the DiaglistDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.DiaglistDataSourceView.#ctor(ePrescription.Web.Data.DiaglistDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the DiaglistDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the DiaglistDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.DiaglistDataSourceView.DiaglistOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.DiaglistDataSourceView.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the DataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.DiaglistDataSourceView.DiaglistProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.DiaglistDataSourceView.GetSelectData(System.Collections.IDictionary,System.Int32@)">
+            <summary>
+            Gets a collection of Entity objects based on the value of the SelectMethod property.
+            </summary>
+            <param name="count">The total number of rows in the DataSource.</param>
+            <param name="values"></param>
+            <returns>A collection of Entity objects.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.DiaglistDataSourceView.GetSelectParameters(System.Collections.IDictionary)">
+            <summary>
+            Gets the values of any supplied parameters for internal caching.
+            </summary>
+            <param name="values">An IDictionary object of name/value pairs.</param>
+        </member>
+        <member name="M:ePrescription.Web.Data.DiaglistDataSourceView.DeepLoad">
+            <summary>
+            Performs a DeepLoad operation for the current entity if it has
+            not already been performed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.DiaglistDataSourceView.DeepLoad(ePrescription.Entities.TList{ePrescription.Entities.Diaglist},ePrescription.Web.Data.ProviderDataSourceDeepLoadList)">
+            <summary>
+            Performs a DeepLoad operation on the specified entity collection.
+            </summary>
+            <param name="entityList"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="T:ePrescription.Web.Data.DiaglistDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the DiaglistDataSource class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.DiaglistDataSourceDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the DiaglistDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.DiaglistDataSourceDesigner.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.DiaglistDataSourceDesigner.ActionLists">
+            <summary>Gets the designer action list collection for this designer.</summary>
+            <returns>The <see cref="T:System.ComponentModel.Design.DesignerActionListCollection"/>
+            associated with this designer.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.DiaglistDataSourceActionList">
+            <summary>
+            Supports the DiaglistDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.DiaglistDataSourceActionList.#ctor(ePrescription.Web.Data.DiaglistDataSourceDesigner)">
+            <summary>
+            Initializes a new instance of the DiaglistDataSourceActionList class.
+            </summary>
+            <param name="designer"></param>
+        </member>
+        <member name="P:ePrescription.Web.Data.DiaglistDataSourceActionList.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.DiaglistDataSourceActionList.GetSortedActionItems">
+            <summary>
+            Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            objects contained in the list.
+            </summary>
+            <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            array that contains the items in this list.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.DiaglistSelectMethod">
+            <summary>
+            Enumeration of method names available for the DiaglistDataSource.SelectMethod property.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.DiaglistSelectMethod.Get">
+            <summary>
+            Represents the Get method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.DiaglistSelectMethod.GetAll">
+            <summary>
+            Represents the GetAll method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.DiaglistSelectMethod.GetPaged">
+            <summary>
+            Represents the GetPaged method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.DiaglistSelectMethod.Find">
+            <summary>
+            Represents the Find method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.DiaglistSelectMethod.GetByDiagCode">
+            <summary>
+            Represents the GetByDiagCode method.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.DiaglistFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Diaglist"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.DiaglistExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Diaglist"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.DiaglistProperty">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.ChildEntityProperty`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Diaglist"/> object.
+            </summary>
+        </member>
         <member name="T:ePrescription.Web.Data.EPrescriptionDataSource">
             <summary>
             Represents the DataRepository.EPrescriptionProvider object that provides
@@ -4885,6 +5070,196 @@
             that is used exclusively with a <see cref="T:ePrescription.Entities.EPrescriptionDetail"/> object.
             </summary>
         </member>
+        <member name="T:ePrescription.Web.Data.FavoritDetailDataSource">
+            <summary>
+            Represents the DataRepository.FavoritDetailProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FavoritDetailDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the FavoritDetailDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FavoritDetailDataSource.FavoritDetailView">
+            <summary>
+            Gets a reference to the FavoritDetailDataSourceView used by the FavoritDetailDataSource.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FavoritDetailDataSource.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the FavoritDetailDataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FavoritDetailDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the FavoritDetailDataSourceView class that is to be
+            used by the FavoritDetailDataSource.
+            </summary>
+            <returns>An instance of the FavoritDetailDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.FavoritDetailDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.FavoritDetailDataSourceView">
+            <summary>
+            Supports the FavoritDetailDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FavoritDetailDataSourceView.#ctor(ePrescription.Web.Data.FavoritDetailDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the FavoritDetailDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the FavoritDetailDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.FavoritDetailDataSourceView.FavoritDetailOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FavoritDetailDataSourceView.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the DataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FavoritDetailDataSourceView.FavoritDetailProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FavoritDetailDataSourceView.GetSelectData(System.Collections.IDictionary,System.Int32@)">
+            <summary>
+            Gets a collection of Entity objects based on the value of the SelectMethod property.
+            </summary>
+            <param name="count">The total number of rows in the DataSource.</param>
+            <param name="values"></param>
+            <returns>A collection of Entity objects.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.FavoritDetailDataSourceView.GetSelectParameters(System.Collections.IDictionary)">
+            <summary>
+            Gets the values of any supplied parameters for internal caching.
+            </summary>
+            <param name="values">An IDictionary object of name/value pairs.</param>
+        </member>
+        <member name="M:ePrescription.Web.Data.FavoritDetailDataSourceView.DeepLoad">
+            <summary>
+            Performs a DeepLoad operation for the current entity if it has
+            not already been performed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FavoritDetailDataSourceView.DeepLoad(ePrescription.Entities.TList{ePrescription.Entities.FavoritDetail},ePrescription.Web.Data.ProviderDataSourceDeepLoadList)">
+            <summary>
+            Performs a DeepLoad operation on the specified entity collection.
+            </summary>
+            <param name="entityList"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="T:ePrescription.Web.Data.FavoritDetailDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the FavoritDetailDataSource class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FavoritDetailDataSourceDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the FavoritDetailDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FavoritDetailDataSourceDesigner.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FavoritDetailDataSourceDesigner.ActionLists">
+            <summary>Gets the designer action list collection for this designer.</summary>
+            <returns>The <see cref="T:System.ComponentModel.Design.DesignerActionListCollection"/>
+            associated with this designer.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.FavoritDetailDataSourceActionList">
+            <summary>
+            Supports the FavoritDetailDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FavoritDetailDataSourceActionList.#ctor(ePrescription.Web.Data.FavoritDetailDataSourceDesigner)">
+            <summary>
+            Initializes a new instance of the FavoritDetailDataSourceActionList class.
+            </summary>
+            <param name="designer"></param>
+        </member>
+        <member name="P:ePrescription.Web.Data.FavoritDetailDataSourceActionList.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FavoritDetailDataSourceActionList.GetSortedActionItems">
+            <summary>
+            Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            objects contained in the list.
+            </summary>
+            <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            array that contains the items in this list.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.FavoritDetailSelectMethod">
+            <summary>
+            Enumeration of method names available for the FavoritDetailDataSource.SelectMethod property.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.FavoritDetailSelectMethod.Get">
+            <summary>
+            Represents the Get method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.FavoritDetailSelectMethod.GetAll">
+            <summary>
+            Represents the GetAll method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.FavoritDetailSelectMethod.GetPaged">
+            <summary>
+            Represents the GetPaged method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.FavoritDetailSelectMethod.Find">
+            <summary>
+            Represents the Find method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.FavoritDetailSelectMethod.GetById">
+            <summary>
+            Represents the GetById method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.FavoritDetailSelectMethod.GetByFavouriteId">
+            <summary>
+            Represents the GetByFavouriteId method.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.FavoritDetailFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.FavoritDetail"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.FavoritDetailExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.FavoritDetail"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.FavoritDetailProperty">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.ChildEntityProperty`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.FavoritDetail"/> object.
+            </summary>
+        </member>
         <member name="T:ePrescription.Web.Data.FavoritMasterDataSource">
             <summary>
             Represents the DataRepository.FavoritMasterProvider object that provides
@@ -5047,9 +5422,9 @@
             Represents the Find method.
             </summary>
         </member>
-        <member name="F:ePrescription.Web.Data.FavoritMasterSelectMethod.GetById">
+        <member name="F:ePrescription.Web.Data.FavoritMasterSelectMethod.GetByFavouriteId">
             <summary>
-            Represents the GetById method.
+            Represents the GetByFavouriteId method.
             </summary>
         </member>
         <member name="T:ePrescription.Web.Data.FavoritMasterFilter">
@@ -5068,6 +5443,376 @@
             <summary>
             A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.ChildEntityProperty`1"/> class
             that is used exclusively with a <see cref="T:ePrescription.Entities.FavoritMaster"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.FrequencyDataSource">
+            <summary>
+            Represents the DataRepository.FrequencyProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FrequencyDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the FrequencyDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FrequencyDataSource.FrequencyView">
+            <summary>
+            Gets a reference to the FrequencyDataSourceView used by the FrequencyDataSource.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FrequencyDataSource.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the FrequencyDataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FrequencyDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the FrequencyDataSourceView class that is to be
+            used by the FrequencyDataSource.
+            </summary>
+            <returns>An instance of the FrequencyDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.FrequencyDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.FrequencyDataSourceView">
+            <summary>
+            Supports the FrequencyDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FrequencyDataSourceView.#ctor(ePrescription.Web.Data.FrequencyDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the FrequencyDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the FrequencyDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.FrequencyDataSourceView.FrequencyOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FrequencyDataSourceView.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the DataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FrequencyDataSourceView.FrequencyProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FrequencyDataSourceView.GetSelectData(System.Collections.IDictionary,System.Int32@)">
+            <summary>
+            Gets a collection of Entity objects based on the value of the SelectMethod property.
+            </summary>
+            <param name="count">The total number of rows in the DataSource.</param>
+            <param name="values"></param>
+            <returns>A collection of Entity objects.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.FrequencyDataSourceView.GetSelectParameters(System.Collections.IDictionary)">
+            <summary>
+            Gets the values of any supplied parameters for internal caching.
+            </summary>
+            <param name="values">An IDictionary object of name/value pairs.</param>
+        </member>
+        <member name="M:ePrescription.Web.Data.FrequencyDataSourceView.DeepLoad">
+            <summary>
+            Performs a DeepLoad operation for the current entity if it has
+            not already been performed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FrequencyDataSourceView.DeepLoad(ePrescription.Entities.TList{ePrescription.Entities.Frequency},ePrescription.Web.Data.ProviderDataSourceDeepLoadList)">
+            <summary>
+            Performs a DeepLoad operation on the specified entity collection.
+            </summary>
+            <param name="entityList"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="T:ePrescription.Web.Data.FrequencyDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the FrequencyDataSource class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FrequencyDataSourceDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the FrequencyDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FrequencyDataSourceDesigner.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.FrequencyDataSourceDesigner.ActionLists">
+            <summary>Gets the designer action list collection for this designer.</summary>
+            <returns>The <see cref="T:System.ComponentModel.Design.DesignerActionListCollection"/>
+            associated with this designer.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.FrequencyDataSourceActionList">
+            <summary>
+            Supports the FrequencyDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FrequencyDataSourceActionList.#ctor(ePrescription.Web.Data.FrequencyDataSourceDesigner)">
+            <summary>
+            Initializes a new instance of the FrequencyDataSourceActionList class.
+            </summary>
+            <param name="designer"></param>
+        </member>
+        <member name="P:ePrescription.Web.Data.FrequencyDataSourceActionList.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.FrequencyDataSourceActionList.GetSortedActionItems">
+            <summary>
+            Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            objects contained in the list.
+            </summary>
+            <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            array that contains the items in this list.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.FrequencySelectMethod">
+            <summary>
+            Enumeration of method names available for the FrequencyDataSource.SelectMethod property.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.FrequencySelectMethod.Get">
+            <summary>
+            Represents the Get method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.FrequencySelectMethod.GetAll">
+            <summary>
+            Represents the GetAll method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.FrequencySelectMethod.GetPaged">
+            <summary>
+            Represents the GetPaged method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.FrequencySelectMethod.Find">
+            <summary>
+            Represents the Find method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.FrequencySelectMethod.GetByFrequencyId">
+            <summary>
+            Represents the GetByFrequencyId method.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.FrequencyFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Frequency"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.FrequencyExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Frequency"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.FrequencyProperty">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.ChildEntityProperty`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Frequency"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.RouteDataSource">
+            <summary>
+            Represents the DataRepository.RouteProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.RouteDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the RouteDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.RouteDataSource.RouteView">
+            <summary>
+            Gets a reference to the RouteDataSourceView used by the RouteDataSource.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.RouteDataSource.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the RouteDataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.RouteDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the RouteDataSourceView class that is to be
+            used by the RouteDataSource.
+            </summary>
+            <returns>An instance of the RouteDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.RouteDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.RouteDataSourceView">
+            <summary>
+            Supports the RouteDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.RouteDataSourceView.#ctor(ePrescription.Web.Data.RouteDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the RouteDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the RouteDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.RouteDataSourceView.RouteOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.RouteDataSourceView.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the DataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.RouteDataSourceView.RouteProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.RouteDataSourceView.GetSelectData(System.Collections.IDictionary,System.Int32@)">
+            <summary>
+            Gets a collection of Entity objects based on the value of the SelectMethod property.
+            </summary>
+            <param name="count">The total number of rows in the DataSource.</param>
+            <param name="values"></param>
+            <returns>A collection of Entity objects.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.RouteDataSourceView.GetSelectParameters(System.Collections.IDictionary)">
+            <summary>
+            Gets the values of any supplied parameters for internal caching.
+            </summary>
+            <param name="values">An IDictionary object of name/value pairs.</param>
+        </member>
+        <member name="M:ePrescription.Web.Data.RouteDataSourceView.DeepLoad">
+            <summary>
+            Performs a DeepLoad operation for the current entity if it has
+            not already been performed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.RouteDataSourceView.DeepLoad(ePrescription.Entities.TList{ePrescription.Entities.Route},ePrescription.Web.Data.ProviderDataSourceDeepLoadList)">
+            <summary>
+            Performs a DeepLoad operation on the specified entity collection.
+            </summary>
+            <param name="entityList"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="T:ePrescription.Web.Data.RouteDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the RouteDataSource class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.RouteDataSourceDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the RouteDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.RouteDataSourceDesigner.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.RouteDataSourceDesigner.ActionLists">
+            <summary>Gets the designer action list collection for this designer.</summary>
+            <returns>The <see cref="T:System.ComponentModel.Design.DesignerActionListCollection"/>
+            associated with this designer.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.RouteDataSourceActionList">
+            <summary>
+            Supports the RouteDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.RouteDataSourceActionList.#ctor(ePrescription.Web.Data.RouteDataSourceDesigner)">
+            <summary>
+            Initializes a new instance of the RouteDataSourceActionList class.
+            </summary>
+            <param name="designer"></param>
+        </member>
+        <member name="P:ePrescription.Web.Data.RouteDataSourceActionList.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.RouteDataSourceActionList.GetSortedActionItems">
+            <summary>
+            Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            objects contained in the list.
+            </summary>
+            <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            array that contains the items in this list.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.RouteSelectMethod">
+            <summary>
+            Enumeration of method names available for the RouteDataSource.SelectMethod property.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.RouteSelectMethod.Get">
+            <summary>
+            Represents the Get method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.RouteSelectMethod.GetAll">
+            <summary>
+            Represents the GetAll method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.RouteSelectMethod.GetPaged">
+            <summary>
+            Represents the GetPaged method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.RouteSelectMethod.Find">
+            <summary>
+            Represents the Find method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.RouteSelectMethod.GetByRouteId">
+            <summary>
+            Represents the GetByRouteId method.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.RouteFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Route"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.RouteExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Route"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.RouteProperty">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.ChildEntityProperty`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Route"/> object.
             </summary>
         </member>
         <member name="T:ePrescription.Web.Data.UserRolesDataSource">
@@ -5510,6 +6255,225 @@
             A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
             that is used exclusively with a <see cref="T:ePrescription.Entities.VrEPresDetail"/> object.
             </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrUnitTableDataSource">
+            <summary>
+            Represents the DataRepository.VrUnitTableProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrUnitTableDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the VrUnitTableDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrUnitTableDataSource.VrUnitTableView">
+            <summary>
+            Gets a reference to the VrUnitTableDataSourceView used by the VrUnitTableDataSource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrUnitTableDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the VrUnitTableDataSourceView class that is to be
+            used by the VrUnitTableDataSource.
+            </summary>
+            <returns>An instance of the VrUnitTableDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrUnitTableDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrUnitTableDataSourceView">
+            <summary>
+            Supports the VrUnitTableDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrUnitTableDataSourceView.#ctor(ePrescription.Web.Data.VrUnitTableDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the VrUnitTableDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the VrUnitTableDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrUnitTableDataSourceView.VrUnitTableOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrUnitTableDataSourceView.VrUnitTableProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrUnitTableDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the VrUnitTableDataSource class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrUnitTableFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrUnitTable"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrUnitTableExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrUnitTable"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.UI.DiaglistRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>DiaglistRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.DiaglistRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DiaglistRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.DiaglistRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.DiaglistRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.DiaglistRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.DiaglistRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.DiaglistRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DiaglistRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.DiaglistRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.DiaglistRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.DiaglistRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.DiaglistRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.DiaglistRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.DiaglistItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.DiaglistItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DiaglistItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.DiaglistItem.#ctor(ePrescription.Entities.Diaglist)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DiaglistItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistItem.Category">
+            <summary>
+            Gets the Category
+            </summary>
+            <value>The Category.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistItem.DiagCode">
+            <summary>
+            Gets the DiagCode
+            </summary>
+            <value>The DiagCode.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistItem.DiagName">
+            <summary>
+            Gets the DiagName
+            </summary>
+            <value>The DiagName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistItem.DiagNameVn">
+            <summary>
+            Gets the DiagNameVn
+            </summary>
+            <value>The DiagNameVn.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistItem.IsDisabled">
+            <summary>
+            Gets the IsDisabled
+            </summary>
+            <value>The IsDisabled.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DiaglistItem.Entity">
+            <summary>
+            Gets a <see cref="T:ePrescription.Entities.Diaglist"></see> object
+            </summary>
+            <value></value>
         </member>
         <member name="T:ePrescription.Web.UI.EPrescriptionRepeaterDesigner">
             <summary>
@@ -5963,6 +6927,214 @@
             </summary>
             <value></value>
         </member>
+        <member name="T:ePrescription.Web.UI.FavoritDetailRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>FavoritDetailRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FavoritDetailRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FavoritDetailRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FavoritDetailRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.FavoritDetailRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.FavoritDetailRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.FavoritDetailRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FavoritDetailRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FavoritDetailRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.FavoritDetailRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.FavoritDetailRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.FavoritDetailRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FavoritDetailRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.FavoritDetailRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.FavoritDetailItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FavoritDetailItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FavoritDetailItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FavoritDetailItem.#ctor(ePrescription.Entities.FavoritDetail)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FavoritDetailItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.Id">
+            <summary>
+            Gets the Id
+            </summary>
+            <value>The Id.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.FavouriteId">
+            <summary>
+            Gets the FavouriteId
+            </summary>
+            <value>The FavouriteId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.DrugId">
+            <summary>
+            Gets the DrugId
+            </summary>
+            <value>The DrugId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.DrugName">
+            <summary>
+            Gets the DrugName
+            </summary>
+            <value>The DrugName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.RouteType">
+            <summary>
+            Gets the RouteType
+            </summary>
+            <value>The RouteType.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.RouteTypeVn">
+            <summary>
+            Gets the RouteTypeVn
+            </summary>
+            <value>The RouteTypeVn.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.Dosage">
+            <summary>
+            Gets the Dosage
+            </summary>
+            <value>The Dosage.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.DosageUnit">
+            <summary>
+            Gets the DosageUnit
+            </summary>
+            <value>The DosageUnit.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.DosageUnitVn">
+            <summary>
+            Gets the DosageUnitVn
+            </summary>
+            <value>The DosageUnitVn.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.Frequency">
+            <summary>
+            Gets the Frequency
+            </summary>
+            <value>The Frequency.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.FrequencyVn">
+            <summary>
+            Gets the FrequencyVn
+            </summary>
+            <value>The FrequencyVn.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.Duration">
+            <summary>
+            Gets the Duration
+            </summary>
+            <value>The Duration.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.DurationUnit">
+            <summary>
+            Gets the DurationUnit
+            </summary>
+            <value>The DurationUnit.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.DurationUnitVn">
+            <summary>
+            Gets the DurationUnitVn
+            </summary>
+            <value>The DurationUnitVn.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.TotalUnit">
+            <summary>
+            Gets the TotalUnit
+            </summary>
+            <value>The TotalUnit.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.Entity">
+            <summary>
+            Gets a <see cref="T:ePrescription.Entities.FavoritDetail"></see> object
+            </summary>
+            <value></value>
+        </member>
         <member name="T:ePrescription.Web.UI.FavoritMasterRepeaterDesigner">
             <summary>
             A designer class for a strongly typed repeater <c>FavoritMasterRepeater</c>
@@ -6075,11 +7247,11 @@
             Initializes a new instance of the <see cref="T:FavoritMasterItem"/> class.
             </summary>
         </member>
-        <member name="P:ePrescription.Web.UI.FavoritMasterItem.Id">
+        <member name="P:ePrescription.Web.UI.FavoritMasterItem.FavouriteId">
             <summary>
-            Gets the Id
+            Gets the FavouriteId
             </summary>
-            <value>The Id.</value>
+            <value>The FavouriteId.</value>
         </member>
         <member name="P:ePrescription.Web.UI.FavoritMasterItem.DiceaseName">
             <summary>
@@ -6114,6 +7286,284 @@
         <member name="P:ePrescription.Web.UI.FavoritMasterItem.Entity">
             <summary>
             Gets a <see cref="T:ePrescription.Entities.FavoritMaster"></see> object
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:ePrescription.Web.UI.FrequencyRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>FrequencyRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FrequencyRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FrequencyRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FrequencyRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.FrequencyRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.FrequencyRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.FrequencyRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FrequencyRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FrequencyRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.FrequencyRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.FrequencyRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FrequencyRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FrequencyRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.FrequencyRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FrequencyRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.FrequencyRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.FrequencyRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.FrequencyRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FrequencyRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.FrequencyRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.FrequencyItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FrequencyItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:FrequencyItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.FrequencyItem.#ctor(ePrescription.Entities.Frequency)">
+            <summary>
+            Initializes a new instance of the <see cref="T:FrequencyItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.FrequencyItem.FrequencyId">
+            <summary>
+            Gets the FrequencyId
+            </summary>
+            <value>The FrequencyId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FrequencyItem.Abbre">
+            <summary>
+            Gets the Abbre
+            </summary>
+            <value>The Abbre.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FrequencyItem.Meaning">
+            <summary>
+            Gets the Meaning
+            </summary>
+            <value>The Meaning.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FrequencyItem.VnMeaning">
+            <summary>
+            Gets the VnMeaning
+            </summary>
+            <value>The VnMeaning.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FrequencyItem.Entity">
+            <summary>
+            Gets a <see cref="T:ePrescription.Entities.Frequency"></see> object
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:ePrescription.Web.UI.RouteRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>RouteRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.RouteRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RouteRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.RouteRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.RouteRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.RouteRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.RouteRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.RouteRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RouteRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.RouteRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.RouteRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.RouteRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.RouteRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.RouteRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.RouteRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.RouteRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.RouteRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.RouteRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.RouteRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.RouteRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.RouteItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.RouteItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:RouteItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.RouteItem.#ctor(ePrescription.Entities.Route)">
+            <summary>
+            Initializes a new instance of the <see cref="T:RouteItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.RouteItem.RouteId">
+            <summary>
+            Gets the RouteId
+            </summary>
+            <value>The RouteId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.RouteItem.Route">
+            <summary>
+            Gets the Route
+            </summary>
+            <value>The Route.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.RouteItem.RouteVn">
+            <summary>
+            Gets the RouteVn
+            </summary>
+            <value>The RouteVn.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.RouteItem.Entity">
+            <summary>
+            Gets a <see cref="T:ePrescription.Entities.Route"></see> object
             </summary>
             <value></value>
         </member>
@@ -6627,12 +8077,6 @@
             </summary>
             <value>The TotalUnit.</value>
         </member>
-        <member name="P:ePrescription.Web.UI.VrEPresDetailItem.Expr1">
-            <summary>
-            Gets the Expr1
-            </summary>
-            <value>The Expr1.</value>
-        </member>
         <member name="P:ePrescription.Web.UI.VrEPresDetailItem.Meaning">
             <summary>
             Gets the Meaning
@@ -6644,6 +8088,142 @@
             Gets the Abbre
             </summary>
             <value>The Abbre.</value>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrUnitTableRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>VrUnitTableRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrUnitTableRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrUnitTableRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrUnitTableRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrUnitTableRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrUnitTableRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.VrUnitTableRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrUnitTableRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrUnitTableRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrUnitTableRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrUnitTableRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrUnitTableRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrUnitTableRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrUnitTableRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrUnitTableRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrUnitTableRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrUnitTableRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrUnitTableRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrUnitTableRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrUnitTableRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrUnitTableItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrUnitTableItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrUnitTableItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrUnitTableItem.#ctor(ePrescription.Entities.VrUnitTable)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrUnitTableItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrUnitTableItem.Unit">
+            <summary>
+            Gets the Unit
+            </summary>
+            <value>The Unit.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrUnitTableItem.UnitVn">
+            <summary>
+            Gets the UnitVn
+            </summary>
+            <value>The UnitVn.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrUnitTableItem.DosageUnit">
+            <summary>
+            Gets the DosageUnit
+            </summary>
+            <value>The DosageUnit.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrUnitTableItem.DosageUnitVn">
+            <summary>
+            Gets the DosageUnitVn
+            </summary>
+            <value>The DosageUnitVn.</value>
         </member>
         <member name="T:ePrescription.Web.UI.FormUtil">
             <summary>

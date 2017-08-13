@@ -161,7 +161,7 @@ namespace ePrescription.Web.Data
 			FavoritMaster item;
 			count = 0;
 			
-			System.Int32 _id;
+			System.String _favouriteId;
 
 			switch ( SelectMethod )
 			{
@@ -186,9 +186,9 @@ namespace ePrescription.Web.Data
 						results = FavoritMasterProvider.Find(GetTransactionManager(), WhereClause, StartIndex, PageSize, out count);
                     break;
 				// PK
-				case FavoritMasterSelectMethod.GetById:
-					_id = ( values["Id"] != null ) ? (System.Int32) EntityUtil.ChangeType(values["Id"], typeof(System.Int32)) : (int)0;
-					item = FavoritMasterProvider.GetById(GetTransactionManager(), _id);
+				case FavoritMasterSelectMethod.GetByFavouriteId:
+					_favouriteId = ( values["FavouriteId"] != null ) ? (System.String) EntityUtil.ChangeType(values["FavouriteId"], typeof(System.String)) : string.Empty;
+					item = FavoritMasterProvider.GetByFavouriteId(GetTransactionManager(), _favouriteId);
 					results = new TList<FavoritMaster>();
 					if ( item != null ) results.Add(item);
 					count = results.Count;
@@ -225,7 +225,7 @@ namespace ePrescription.Web.Data
 		/// <param name="values">An IDictionary object of name/value pairs.</param>
 		protected override void GetSelectParameters(IDictionary values)
 		{
-			if ( SelectMethod == FavoritMasterSelectMethod.Get || SelectMethod == FavoritMasterSelectMethod.GetById )
+			if ( SelectMethod == FavoritMasterSelectMethod.Get || SelectMethod == FavoritMasterSelectMethod.GetByFavouriteId )
 			{
 				EntityId = GetEntityKey(values);
 			}
@@ -372,9 +372,9 @@ namespace ePrescription.Web.Data
 		/// </summary>
 		Find,
 		/// <summary>
-		/// Represents the GetById method.
+		/// Represents the GetByFavouriteId method.
 		/// </summary>
-		GetById
+		GetByFavouriteId
 	}
 	
 	#endregion FavoritMasterSelectMethod

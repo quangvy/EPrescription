@@ -81,7 +81,6 @@ namespace ePrescription.Data.Bases
 					c.VnMeaning = (Convert.IsDBNull(row["VN_meaning"]))?string.Empty:(System.String)row["VN_meaning"];
 					c.Duration = (Convert.IsDBNull(row["Duration"]))?string.Empty:(System.String)row["Duration"];
 					c.TotalUnit = (Convert.IsDBNull(row["TotalUnit"]))?string.Empty:(System.String)row["TotalUnit"];
-					c.Expr1 = (Convert.IsDBNull(row["Expr1"]))?string.Empty:(System.String)row["Expr1"];
 					c.Meaning = (Convert.IsDBNull(row["meaning"]))?string.Empty:(System.String)row["meaning"];
 					c.Abbre = (Convert.IsDBNull(row["abbre"]))?string.Empty:(System.String)row["abbre"];
 					c.AcceptChanges();
@@ -147,8 +146,6 @@ namespace ePrescription.Data.Bases
 					//entity.Duration = (Convert.IsDBNull(reader["Duration"]))?string.Empty:(System.String)reader["Duration"];
 					entity.TotalUnit = (reader.IsDBNull(((int)VrEPresDetailColumn.TotalUnit)))?null:(System.String)reader[((int)VrEPresDetailColumn.TotalUnit)];
 					//entity.TotalUnit = (Convert.IsDBNull(reader["TotalUnit"]))?string.Empty:(System.String)reader["TotalUnit"];
-					entity.Expr1 = (reader.IsDBNull(((int)VrEPresDetailColumn.Expr1)))?null:(System.String)reader[((int)VrEPresDetailColumn.Expr1)];
-					//entity.Expr1 = (Convert.IsDBNull(reader["Expr1"]))?string.Empty:(System.String)reader["Expr1"];
 					entity.Meaning = (reader.IsDBNull(((int)VrEPresDetailColumn.Meaning)))?null:(System.String)reader[((int)VrEPresDetailColumn.Meaning)];
 					//entity.Meaning = (Convert.IsDBNull(reader["meaning"]))?string.Empty:(System.String)reader["meaning"];
 					entity.Abbre = (reader.IsDBNull(((int)VrEPresDetailColumn.Abbre)))?null:(System.String)reader[((int)VrEPresDetailColumn.Abbre)];
@@ -199,8 +196,6 @@ namespace ePrescription.Data.Bases
 			//entity.Duration = (Convert.IsDBNull(reader["Duration"]))?string.Empty:(System.String)reader["Duration"];
 			entity.TotalUnit = (reader.IsDBNull(((int)VrEPresDetailColumn.TotalUnit)))?null:(System.String)reader[((int)VrEPresDetailColumn.TotalUnit)];
 			//entity.TotalUnit = (Convert.IsDBNull(reader["TotalUnit"]))?string.Empty:(System.String)reader["TotalUnit"];
-			entity.Expr1 = (reader.IsDBNull(((int)VrEPresDetailColumn.Expr1)))?null:(System.String)reader[((int)VrEPresDetailColumn.Expr1)];
-			//entity.Expr1 = (Convert.IsDBNull(reader["Expr1"]))?string.Empty:(System.String)reader["Expr1"];
 			entity.Meaning = (reader.IsDBNull(((int)VrEPresDetailColumn.Meaning)))?null:(System.String)reader[((int)VrEPresDetailColumn.Meaning)];
 			//entity.Meaning = (Convert.IsDBNull(reader["meaning"]))?string.Empty:(System.String)reader["meaning"];
 			entity.Abbre = (reader.IsDBNull(((int)VrEPresDetailColumn.Abbre)))?null:(System.String)reader[((int)VrEPresDetailColumn.Abbre)];
@@ -233,7 +228,6 @@ namespace ePrescription.Data.Bases
 			entity.VnMeaning = (Convert.IsDBNull(dataRow["VN_meaning"]))?string.Empty:(System.String)dataRow["VN_meaning"];
 			entity.Duration = (Convert.IsDBNull(dataRow["Duration"]))?string.Empty:(System.String)dataRow["Duration"];
 			entity.TotalUnit = (Convert.IsDBNull(dataRow["TotalUnit"]))?string.Empty:(System.String)dataRow["TotalUnit"];
-			entity.Expr1 = (Convert.IsDBNull(dataRow["Expr1"]))?string.Empty:(System.String)dataRow["Expr1"];
 			entity.Meaning = (Convert.IsDBNull(dataRow["meaning"]))?string.Empty:(System.String)dataRow["meaning"];
 			entity.Abbre = (Convert.IsDBNull(dataRow["abbre"]))?string.Empty:(System.String)dataRow["abbre"];
 			entity.AcceptChanges();

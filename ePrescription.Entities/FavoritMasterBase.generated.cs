@@ -81,19 +81,19 @@ namespace ePrescription.Entities
 		///<summary>
 		/// Creates a new <see cref="FavoritMasterBase"/> instance.
 		///</summary>
-		///<param name="_id"></param>
+		///<param name="_favouriteId"></param>
 		///<param name="_diceaseName"></param>
 		///<param name="_createBy"></param>
 		///<param name="_diagnosis"></param>
 		///<param name="_diagnosisVn"></param>
 		///<param name="_isPrivate"></param>
-		public FavoritMasterBase(System.Int32 _id, System.String _diceaseName, System.String _createBy, 
-			System.String _diagnosis, System.String _diagnosisVn, System.Boolean? _isPrivate)
+		public FavoritMasterBase(System.String _favouriteId, System.String _diceaseName, 
+			System.String _createBy, System.String _diagnosis, System.String _diagnosisVn, System.Boolean? _isPrivate)
 		{
 			this.entityData = new FavoritMasterEntityData();
 			this.backupData = null;
 
-			this.Id = _id;
+			this.FavouriteId = _favouriteId;
 			this.DiceaseName = _diceaseName;
 			this.CreateBy = _createBy;
 			this.Diagnosis = _diagnosis;
@@ -104,17 +104,17 @@ namespace ePrescription.Entities
 		///<summary>
 		/// A simple factory method to create a new <see cref="FavoritMaster"/> instance.
 		///</summary>
-		///<param name="_id"></param>
+		///<param name="_favouriteId"></param>
 		///<param name="_diceaseName"></param>
 		///<param name="_createBy"></param>
 		///<param name="_diagnosis"></param>
 		///<param name="_diagnosisVn"></param>
 		///<param name="_isPrivate"></param>
-		public static FavoritMaster CreateFavoritMaster(System.Int32 _id, System.String _diceaseName, System.String _createBy, 
-			System.String _diagnosis, System.String _diagnosisVn, System.Boolean? _isPrivate)
+		public static FavoritMaster CreateFavoritMaster(System.String _favouriteId, System.String _diceaseName, 
+			System.String _createBy, System.String _diagnosis, System.String _diagnosisVn, System.Boolean? _isPrivate)
 		{
 			FavoritMaster newFavoritMaster = new FavoritMaster();
-			newFavoritMaster.Id = _id;
+			newFavoritMaster.FavouriteId = _favouriteId;
 			newFavoritMaster.DiceaseName = _diceaseName;
 			newFavoritMaster.CreateBy = _createBy;
 			newFavoritMaster.Diagnosis = _diagnosis;
@@ -129,55 +129,56 @@ namespace ePrescription.Entities
 		
 		#region Data Properties		
 		/// <summary>
-		/// 	Gets or sets the Id property. 
+		/// 	Gets or sets the FavouriteId property. 
 		///		
 		/// </summary>
-		/// <value>This type is int.</value>
+		/// <value>This type is nvarchar.</value>
 		/// <remarks>
 		/// This property can not be set to null. 
 		/// </remarks>
+		/// <exception cref="ArgumentNullException">If you attempt to set to null.</exception>
 		
-		[Required(ErrorMessage = "Id is required")]
+		[Required(ErrorMessage = "FavouriteId is required")]
 
 
 
 
 		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(true, false, false)]
-		public virtual System.Int32 Id
+		[DataObjectField(true, false, false, 10)]
+		public virtual System.String FavouriteId
 		{
 			get
 			{
-				return this.entityData.Id; 
+				return this.entityData.FavouriteId; 
 			}
 			
 			set
 			{
-				if (this.entityData.Id == value)
+				if (this.entityData.FavouriteId == value)
 					return;
 				
-                OnPropertyChanging("Id");                    
-				OnColumnChanging(FavoritMasterColumn.Id, this.entityData.Id);
-				this.entityData.Id = value;
-				this.EntityId.Id = value;
+                OnPropertyChanging("FavouriteId");                    
+				OnColumnChanging(FavoritMasterColumn.FavouriteId, this.entityData.FavouriteId);
+				this.entityData.FavouriteId = value;
+				this.EntityId.FavouriteId = value;
 				if (this.EntityState == EntityState.Unchanged)
 					this.EntityState = EntityState.Changed;
-				OnColumnChanged(FavoritMasterColumn.Id, this.entityData.Id);
-				OnPropertyChanged("Id");
+				OnColumnChanged(FavoritMasterColumn.FavouriteId, this.entityData.FavouriteId);
+				OnPropertyChanged("FavouriteId");
 			}
 		}
 		
 		/// <summary>
-		/// 	Get the original value of the ID property.
+		/// 	Get the original value of the FavouriteID property.
 		///		
 		/// </summary>
-		/// <remarks>This is the original value of the ID property.</remarks>
-		/// <value>This type is int</value>
+		/// <remarks>This is the original value of the FavouriteID property.</remarks>
+		/// <value>This type is nvarchar</value>
 		[BrowsableAttribute(false)/*, XmlIgnoreAttribute()*/]
-		public  virtual System.Int32 OriginalId
+		public  virtual System.String OriginalFavouriteId
 		{
-			get { return this.entityData.OriginalId; }
-			set { this.entityData.OriginalId = value; }
+			get { return this.entityData.OriginalFavouriteId; }
+			set { this.entityData.OriginalFavouriteId = value; }
 		}
 		
 		/// <summary>
@@ -380,6 +381,17 @@ namespace ePrescription.Entities
 		#endregion
 		
 		#region Children Collections
+	
+		/// <summary>
+		///	Holds a collection of FavoritDetail objects
+		///	which are related to this object through the relation FK_FavoritDetail_ID
+		/// </summary>	
+		[System.ComponentModel.Bindable(System.ComponentModel.BindableSupport.Yes)]
+		public virtual TList<FavoritDetail> FavoritDetailCollection
+		{
+			get { return entityData.FavoritDetailCollection; }
+			set { entityData.FavoritDetailCollection = value; }	
+		}
 		#endregion Children Collections
 		
 		#endregion
@@ -392,6 +404,10 @@ namespace ePrescription.Entities
 		protected override void AddValidationRules()
 		{
 			//Validation rules based on database schema.
+			ValidationRules.AddRule( CommonRules.NotNull,
+				new ValidationRuleArgs("FavouriteId", "Favourite Id"));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("FavouriteId", "Favourite Id", 10));
 			ValidationRules.AddRule( CommonRules.NotNull,
 				new ValidationRuleArgs("DiceaseName", "Dicease Name"));
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
@@ -423,7 +439,7 @@ namespace ePrescription.Entities
 		{
 			get
 			{
-				return new string[] {"ID", "DiceaseName", "CreateBy", "Diagnosis", "DiagnosisVN", "IsPrivate"};
+				return new string[] {"FavouriteID", "DiceaseName", "CreateBy", "Diagnosis", "DiagnosisVN", "IsPrivate"};
 			}
 		}
 		#endregion 
@@ -571,8 +587,8 @@ namespace ePrescription.Entities
 			FavoritMaster copy = new FavoritMaster();
 			existingCopies.Add(this, copy);
 			copy.SuppressEntityEvents = true;
-				copy.Id = this.Id;
-					copy.OriginalId = this.OriginalId;
+				copy.FavouriteId = this.FavouriteId;
+					copy.OriginalFavouriteId = this.OriginalFavouriteId;
 				copy.DiceaseName = this.DiceaseName;
 				copy.CreateBy = this.CreateBy;
 				copy.Diagnosis = this.Diagnosis;
@@ -580,6 +596,8 @@ namespace ePrescription.Entities
 				copy.IsPrivate = this.IsPrivate;
 			
 		
+			//deep copy nested objects
+			copy.FavoritDetailCollection = (TList<FavoritDetail>) MakeCopyOf(this.FavoritDetailCollection, existingCopies); 
 			copy.EntityState = this.EntityState;
 			copy.SuppressEntityEvents = false;
 			return copy;
@@ -710,8 +728,8 @@ namespace ePrescription.Entities
 		{
 			switch(column)
 			{
-					case FavoritMasterColumn.Id:
-					return entityData.Id != _originalData.Id;
+					case FavoritMasterColumn.FavouriteId:
+					return entityData.FavouriteId != _originalData.FavouriteId;
 					case FavoritMasterColumn.DiceaseName:
 					return entityData.DiceaseName != _originalData.DiceaseName;
 					case FavoritMasterColumn.CreateBy:
@@ -749,7 +767,7 @@ namespace ePrescription.Entities
 		public bool HasDataChanged()
 		{
 			bool result = false;
-			result = result || entityData.Id != _originalData.Id;
+			result = result || entityData.FavouriteId != _originalData.FavouriteId;
 			result = result || entityData.DiceaseName != _originalData.DiceaseName;
 			result = result || entityData.CreateBy != _originalData.CreateBy;
 			result = result || entityData.Diagnosis != _originalData.Diagnosis;
@@ -765,7 +783,7 @@ namespace ePrescription.Entities
 		{
 			if (_originalData != null)
 				return CreateFavoritMaster(
-				_originalData.Id,
+				_originalData.FavouriteId,
 				_originalData.DiceaseName,
 				_originalData.CreateBy,
 				_originalData.Diagnosis,
@@ -800,7 +818,7 @@ namespace ePrescription.Entities
         /// <returns>number (hash code) that corresponds to the value of an object</returns>
         public override int GetHashCode()
         {
-			return this.Id.GetHashCode() ^ 
+			return this.FavouriteId.GetHashCode() ^ 
 					this.DiceaseName.GetHashCode() ^ 
 					((this.CreateBy == null) ? string.Empty : this.CreateBy.ToString()).GetHashCode() ^ 
 					((this.Diagnosis == null) ? string.Empty : this.Diagnosis.ToString()).GetHashCode() ^ 
@@ -838,7 +856,7 @@ namespace ePrescription.Entities
 				return false;
 				
 			bool equal = true;
-			if (Object1.Id != Object2.Id)
+			if (Object1.FavouriteId != Object2.FavouriteId)
 				equal = false;
 			if (Object1.DiceaseName != Object2.DiceaseName)
 				equal = false;
@@ -922,8 +940,8 @@ namespace ePrescription.Entities
             {
             	
             	
-            	case FavoritMasterColumn.Id:
-            		return this.Id.CompareTo(rhs.Id);
+            	case FavoritMasterColumn.FavouriteId:
+            		return this.FavouriteId.CompareTo(rhs.FavouriteId);
             		
             		                 
             	
@@ -1071,7 +1089,7 @@ namespace ePrescription.Entities
 			{
 				if(entityTrackingKey == null)
 					entityTrackingKey = new System.Text.StringBuilder("FavoritMaster")
-					.Append("|").Append( this.Id.ToString()).ToString();
+					.Append("|").Append( this.FavouriteId.ToString()).ToString();
 				return entityTrackingKey;
 			}
 			set
@@ -1090,8 +1108,8 @@ namespace ePrescription.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{7}{6}- Id: {0}{6}- DiceaseName: {1}{6}- CreateBy: {2}{6}- Diagnosis: {3}{6}- DiagnosisVn: {4}{6}- IsPrivate: {5}{6}{8}", 
-				this.Id,
+				"{7}{6}- FavouriteId: {0}{6}- DiceaseName: {1}{6}- CreateBy: {2}{6}- Diagnosis: {3}{6}- DiagnosisVn: {4}{6}- IsPrivate: {5}{6}{8}", 
+				this.FavouriteId,
 				this.DiceaseName,
 				(this.CreateBy == null) ? string.Empty : this.CreateBy.ToString(),
 				(this.Diagnosis == null) ? string.Empty : this.Diagnosis.ToString(),
@@ -1121,15 +1139,15 @@ namespace ePrescription.Entities
 		
 		#region Primary key(s)
 		/// <summary>			
-		/// ID : 
+		/// FavouriteID : 
 		/// </summary>
 		/// <remarks>Member of the primary key of the underlying table "FavoritMaster"</remarks>
-		public System.Int32 Id;
+		public System.String FavouriteId;
 			
 		/// <summary>
 		/// keep a copy of the original so it can be used for editable primary keys.
 		/// </summary>
-		public System.Int32 OriginalId;
+		public System.String OriginalFavouriteId;
 		
 		#endregion
 		
@@ -1169,6 +1187,31 @@ namespace ePrescription.Entities
 
 		#region Data Properties
 
+		#region FavoritDetailCollection
+		
+		private TList<FavoritDetail> _favoritDetailFavouriteId;
+		
+		/// <summary>
+		///	Holds a collection of entity objects
+		///	which are related to this object through the relation _favoritDetailFavouriteId
+		/// </summary>
+		
+		public TList<FavoritDetail> FavoritDetailCollection
+		{
+			get
+			{
+				if (_favoritDetailFavouriteId == null)
+				{
+				_favoritDetailFavouriteId = new TList<FavoritDetail>();
+				}
+	
+				return _favoritDetailFavouriteId;
+			}
+			set { _favoritDetailFavouriteId = value; }
+		}
+		
+		#endregion
+
 		#endregion Data Properties
 		#region Clone Method
 
@@ -1180,8 +1223,8 @@ namespace ePrescription.Entities
 		{
 			FavoritMasterEntityData _tmp = new FavoritMasterEntityData();
 						
-			_tmp.Id = this.Id;
-			_tmp.OriginalId = this.OriginalId;
+			_tmp.FavouriteId = this.FavouriteId;
+			_tmp.OriginalFavouriteId = this.OriginalFavouriteId;
 			
 			_tmp.DiceaseName = this.DiceaseName;
 			_tmp.CreateBy = this.CreateBy;
@@ -1193,6 +1236,9 @@ namespace ePrescription.Entities
 			#endregion
 		
 			#region Child Collections
+			//deep copy nested objects
+			if (this._favoritDetailFavouriteId != null)
+				_tmp.FavoritDetailCollection = (TList<FavoritDetail>) MakeCopyOf(this.FavoritDetailCollection); 
 			#endregion Child Collections
 			
 			//EntityState
@@ -1212,8 +1258,8 @@ namespace ePrescription.Entities
 				
 			FavoritMasterEntityData _tmp = new FavoritMasterEntityData();
 						
-			_tmp.Id = this.Id;
-			_tmp.OriginalId = this.OriginalId;
+			_tmp.FavouriteId = this.FavouriteId;
+			_tmp.OriginalFavouriteId = this.OriginalFavouriteId;
 			
 			_tmp.DiceaseName = this.DiceaseName;
 			_tmp.CreateBy = this.CreateBy;
@@ -1225,6 +1271,8 @@ namespace ePrescription.Entities
 			#endregion
 		
 			#region Child Collections
+			//deep copy nested objects
+			_tmp.FavoritDetailCollection = (TList<FavoritDetail>) MakeCopyOf(this.FavoritDetailCollection, existingCopies); 
 			#endregion Child Collections
 			
 			//EntityState
@@ -1468,7 +1516,7 @@ namespace ePrescription.Entities
 
 			if ( entity != null )
 			{
-				this.Id = entity.Id;
+				this.FavouriteId = entity.FavouriteId;
 			}
 
 			#endregion
@@ -1477,11 +1525,11 @@ namespace ePrescription.Entities
 		/// <summary>
 		/// Initializes a new instance of the FavoritMasterKey class.
 		/// </summary>
-		public FavoritMasterKey(System.Int32 _id)
+		public FavoritMasterKey(System.String _favouriteId)
 		{
 			#region Init Properties
 
-			this.Id = _id;
+			this.FavouriteId = _favouriteId;
 
 			#endregion
 		}
@@ -1502,21 +1550,21 @@ namespace ePrescription.Entities
 			set { _entity = value; }
 		}
 		
-		// member variable for the Id property
-		private System.Int32 _id;
+		// member variable for the FavouriteId property
+		private System.String _favouriteId;
 		
 		/// <summary>
-		/// Gets or sets the Id property.
+		/// Gets or sets the FavouriteId property.
 		/// </summary>
-		public System.Int32 Id
+		public System.String FavouriteId
 		{
-			get { return _id; }
+			get { return _favouriteId; }
 			set
 			{
 				if ( this.Entity != null )
-					this.Entity.Id = value;
+					this.Entity.FavouriteId = value;
 				
-				_id = value;
+				_favouriteId = value;
 			}
 		}
 		
@@ -1536,7 +1584,7 @@ namespace ePrescription.Entities
 
 			if ( values != null )
 			{
-				Id = ( values["Id"] != null ) ? (System.Int32) EntityUtil.ChangeType(values["Id"], typeof(System.Int32)) : (int)0;
+				FavouriteId = ( values["FavouriteId"] != null ) ? (System.String) EntityUtil.ChangeType(values["FavouriteId"], typeof(System.String)) : string.Empty;
 			}
 
 			#endregion
@@ -1553,7 +1601,7 @@ namespace ePrescription.Entities
 
 			#region Init Dictionary
 
-			values.Add("Id", Id);
+			values.Add("FavouriteId", FavouriteId);
 
 			#endregion Init Dictionary
 
@@ -1565,8 +1613,8 @@ namespace ePrescription.Entities
 		///</summary>
 		public override string ToString()
 		{
-			return String.Format("Id: {0}{1}",
-								Id,
+			return String.Format("FavouriteId: {0}{1}",
+								FavouriteId,
 								System.Environment.NewLine);
 		}
 
@@ -1584,11 +1632,11 @@ namespace ePrescription.Entities
 	public enum FavoritMasterColumn : int
 	{
 		/// <summary>
-		/// Id : 
+		/// FavouriteId : 
 		/// </summary>
-		[EnumTextValue("Id")]
-		[ColumnEnum("ID", typeof(System.Int32), System.Data.DbType.Int32, true, false, false)]
-		Id = 1,
+		[EnumTextValue("Favourite Id")]
+		[ColumnEnum("FavouriteID", typeof(System.String), System.Data.DbType.String, true, false, false, 10)]
+		FavouriteId = 1,
 		/// <summary>
 		/// DiceaseName : 
 		/// </summary>

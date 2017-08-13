@@ -1,3 +1,4 @@
+D:\Work\ePrescription-gen\ePrescription.Data\obj\Debug\ePrescription.Data.csprojResolveAssemblyReference.cache
 D:\Work\EPrescription\ePrescription.Data\bin\Debug\ePrescription.Data.dll
 D:\Work\EPrescription\ePrescription.Data\bin\Debug\ePrescription.Data.pdb
 D:\Work\EPrescription\ePrescription.Data\bin\Debug\ePrescription.Data.xml

@@ -32,28 +32,28 @@ namespace ePrescription.Data.Bases
 		/// <returns>Returns true if operation suceeded.</returns>
 		public override bool Delete(TransactionManager transactionManager, ePrescription.Entities.FavoritMasterKey key)
 		{
-			return Delete(transactionManager, key.Id);
+			return Delete(transactionManager, key.FavouriteId);
 		}
 		
 		/// <summary>
 		/// 	Deletes a row from the DataSource.
 		/// </summary>
-		/// <param name="_id">. Primary Key.</param>
+		/// <param name="_favouriteId">. Primary Key.</param>
 		/// <remarks>Deletes based on primary key(s).</remarks>
 		/// <returns>Returns true if operation suceeded.</returns>
-		public bool Delete(System.Int32 _id)
+		public bool Delete(System.String _favouriteId)
 		{
-			return Delete(null, _id);
+			return Delete(null, _favouriteId);
 		}
 		
 		/// <summary>
 		/// 	Deletes a row from the DataSource.
 		/// </summary>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
-		/// <param name="_id">. Primary Key.</param>
+		/// <param name="_favouriteId">. Primary Key.</param>
 		/// <remarks>Deletes based on primary key(s).</remarks>
 		/// <returns>Returns true if operation suceeded.</returns>
-		public abstract bool Delete(TransactionManager transactionManager, System.Int32 _id);		
+		public abstract bool Delete(TransactionManager transactionManager, System.String _favouriteId);		
 		
 		#endregion Delete Methods
 		
@@ -72,74 +72,74 @@ namespace ePrescription.Data.Bases
 		/// <returns>Returns an instance of the Entity class.</returns>
 		public override ePrescription.Entities.FavoritMaster Get(TransactionManager transactionManager, ePrescription.Entities.FavoritMasterKey key, int start, int pageLength)
 		{
-			return GetById(transactionManager, key.Id, start, pageLength);
+			return GetByFavouriteId(transactionManager, key.FavouriteId, start, pageLength);
 		}
 		
 		/// <summary>
 		/// 	Gets rows from the datasource based on the primary key PK_FavoritMaster index.
 		/// </summary>
-		/// <param name="_id"></param>
+		/// <param name="_favouriteId"></param>
 		/// <returns>Returns an instance of the <see cref="ePrescription.Entities.FavoritMaster"/> class.</returns>
-		public ePrescription.Entities.FavoritMaster GetById(System.Int32 _id)
+		public ePrescription.Entities.FavoritMaster GetByFavouriteId(System.String _favouriteId)
 		{
 			int count = -1;
-			return GetById(null,_id, 0, int.MaxValue, out count);
+			return GetByFavouriteId(null,_favouriteId, 0, int.MaxValue, out count);
 		}
 		
 		/// <summary>
 		/// 	Gets rows from the datasource based on the PK_FavoritMaster index.
 		/// </summary>
-		/// <param name="_id"></param>
+		/// <param name="_favouriteId"></param>
 		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <remarks></remarks>
 		/// <returns>Returns an instance of the <see cref="ePrescription.Entities.FavoritMaster"/> class.</returns>
-		public ePrescription.Entities.FavoritMaster GetById(System.Int32 _id, int start, int pageLength)
+		public ePrescription.Entities.FavoritMaster GetByFavouriteId(System.String _favouriteId, int start, int pageLength)
 		{
 			int count = -1;
-			return GetById(null, _id, start, pageLength, out count);
+			return GetByFavouriteId(null, _favouriteId, start, pageLength, out count);
 		}
 		
 		/// <summary>
 		/// 	Gets rows from the datasource based on the PK_FavoritMaster index.
 		/// </summary>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
-		/// <param name="_id"></param>
+		/// <param name="_favouriteId"></param>
 		/// <remarks></remarks>
 		/// <returns>Returns an instance of the <see cref="ePrescription.Entities.FavoritMaster"/> class.</returns>
-		public ePrescription.Entities.FavoritMaster GetById(TransactionManager transactionManager, System.Int32 _id)
+		public ePrescription.Entities.FavoritMaster GetByFavouriteId(TransactionManager transactionManager, System.String _favouriteId)
 		{
 			int count = -1;
-			return GetById(transactionManager, _id, 0, int.MaxValue, out count);
+			return GetByFavouriteId(transactionManager, _favouriteId, 0, int.MaxValue, out count);
 		}
 		
 		/// <summary>
 		/// 	Gets rows from the datasource based on the PK_FavoritMaster index.
 		/// </summary>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
-		/// <param name="_id"></param>
+		/// <param name="_favouriteId"></param>
 		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <remarks></remarks>
 		/// <returns>Returns an instance of the <see cref="ePrescription.Entities.FavoritMaster"/> class.</returns>
-		public ePrescription.Entities.FavoritMaster GetById(TransactionManager transactionManager, System.Int32 _id, int start, int pageLength)
+		public ePrescription.Entities.FavoritMaster GetByFavouriteId(TransactionManager transactionManager, System.String _favouriteId, int start, int pageLength)
 		{
 			int count = -1;
-			return GetById(transactionManager, _id, start, pageLength, out count);
+			return GetByFavouriteId(transactionManager, _favouriteId, start, pageLength, out count);
 		}
 		
 		/// <summary>
 		/// 	Gets rows from the datasource based on the PK_FavoritMaster index.
 		/// </summary>
-		/// <param name="_id"></param>
+		/// <param name="_favouriteId"></param>
 		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <param name="count">out parameter to get total records for query</param>
 		/// <remarks></remarks>
 		/// <returns>Returns an instance of the <see cref="ePrescription.Entities.FavoritMaster"/> class.</returns>
-		public ePrescription.Entities.FavoritMaster GetById(System.Int32 _id, int start, int pageLength, out int count)
+		public ePrescription.Entities.FavoritMaster GetByFavouriteId(System.String _favouriteId, int start, int pageLength, out int count)
 		{
-			return GetById(null, _id, start, pageLength, out count);
+			return GetByFavouriteId(null, _favouriteId, start, pageLength, out count);
 		}
 		
 				
@@ -147,12 +147,12 @@ namespace ePrescription.Data.Bases
 		/// 	Gets rows from the datasource based on the PK_FavoritMaster index.
 		/// </summary>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
-		/// <param name="_id"></param>
+		/// <param name="_favouriteId"></param>
 		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <param name="count">The total number of records.</param>
 		/// <returns>Returns an instance of the <see cref="ePrescription.Entities.FavoritMaster"/> class.</returns>
-		public abstract ePrescription.Entities.FavoritMaster GetById(TransactionManager transactionManager, System.Int32 _id, int start, int pageLength, out int count);
+		public abstract ePrescription.Entities.FavoritMaster GetByFavouriteId(TransactionManager transactionManager, System.String _favouriteId, int start, int pageLength, out int count);
 						
 		#endregion "Get By Index Functions"
 	
@@ -196,7 +196,7 @@ namespace ePrescription.Data.Bases
 				if (useEntityFactory)
 				{
 					key = new System.Text.StringBuilder("FavoritMaster")
-					.Append("|").Append((System.Int32)reader[((int)FavoritMasterColumn.Id - 1)]).ToString();
+					.Append("|").Append((System.String)reader[((int)FavoritMasterColumn.FavouriteId - 1)]).ToString();
 					c = EntityManager.LocateOrCreate<FavoritMaster>(
 					key.ToString(), // EntityTrackingKey
 					"FavoritMaster",  //Creational Type
@@ -219,8 +219,8 @@ namespace ePrescription.Data.Bases
 					))
 				{
 					c.SuppressEntityEvents = true;
-					c.Id = (System.Int32)reader[((int)FavoritMasterColumn.Id - 1)];
-					c.OriginalId = c.Id;
+					c.FavouriteId = (System.String)reader[((int)FavoritMasterColumn.FavouriteId - 1)];
+					c.OriginalFavouriteId = c.FavouriteId;
 					c.DiceaseName = (System.String)reader[((int)FavoritMasterColumn.DiceaseName - 1)];
 					c.CreateBy = (reader.IsDBNull(((int)FavoritMasterColumn.CreateBy - 1)))?null:(System.String)reader[((int)FavoritMasterColumn.CreateBy - 1)];
 					c.Diagnosis = (reader.IsDBNull(((int)FavoritMasterColumn.Diagnosis - 1)))?null:(System.String)reader[((int)FavoritMasterColumn.Diagnosis - 1)];
@@ -243,8 +243,8 @@ namespace ePrescription.Data.Bases
 		{
 			if (!reader.Read()) return;
 			
-			entity.Id = (System.Int32)reader[((int)FavoritMasterColumn.Id - 1)];
-			entity.OriginalId = (System.Int32)reader["ID"];
+			entity.FavouriteId = (System.String)reader[((int)FavoritMasterColumn.FavouriteId - 1)];
+			entity.OriginalFavouriteId = (System.String)reader["FavouriteID"];
 			entity.DiceaseName = (System.String)reader[((int)FavoritMasterColumn.DiceaseName - 1)];
 			entity.CreateBy = (reader.IsDBNull(((int)FavoritMasterColumn.CreateBy - 1)))?null:(System.String)reader[((int)FavoritMasterColumn.CreateBy - 1)];
 			entity.Diagnosis = (reader.IsDBNull(((int)FavoritMasterColumn.Diagnosis - 1)))?null:(System.String)reader[((int)FavoritMasterColumn.Diagnosis - 1)];
@@ -262,8 +262,8 @@ namespace ePrescription.Data.Bases
 		{
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
-			entity.Id = (System.Int32)dataRow["ID"];
-			entity.OriginalId = (System.Int32)dataRow["ID"];
+			entity.FavouriteId = (System.String)dataRow["FavouriteID"];
+			entity.OriginalFavouriteId = (System.String)dataRow["FavouriteID"];
 			entity.DiceaseName = (System.String)dataRow["DiceaseName"];
 			entity.CreateBy = Convert.IsDBNull(dataRow["CreateBy"]) ? null : (System.String)dataRow["CreateBy"];
 			entity.Diagnosis = Convert.IsDBNull(dataRow["Diagnosis"]) ? null : (System.String)dataRow["Diagnosis"];
@@ -296,6 +296,28 @@ namespace ePrescription.Data.Bases
 			
 			//used to hold DeepLoad method delegates and fire after all the local children have been loaded.
 			Dictionary<string, KeyValuePair<Delegate, object>> deepHandles = new Dictionary<string, KeyValuePair<Delegate, object>>();
+			// Deep load child collections  - Call GetByFavouriteId methods when available
+			
+			#region FavoritDetailCollection
+			//Relationship Type One : Many
+			if (CanDeepLoad(entity, "List<FavoritDetail>|FavoritDetailCollection", deepLoadType, innerList)) 
+			{
+				#if NETTIERS_DEBUG
+				System.Diagnostics.Debug.WriteLine("- property 'FavoritDetailCollection' loaded. key " + entity.EntityTrackingKey);
+				#endif 
+
+				entity.FavoritDetailCollection = DataRepository.FavoritDetailProvider.GetByFavouriteId(transactionManager, entity.FavouriteId);
+
+				if (deep && entity.FavoritDetailCollection.Count > 0)
+				{
+					deepHandles.Add("FavoritDetailCollection",
+						new KeyValuePair<Delegate, object>((DeepLoadHandle<FavoritDetail>) DataRepository.FavoritDetailProvider.DeepLoad,
+						new object[] { transactionManager, entity.FavoritDetailCollection, deep, deepLoadType, childTypes, innerList }
+					));
+				}
+			}		
+			#endregion 
+			
 			
 			//Fire all DeepLoad Items
 			foreach(KeyValuePair<Delegate, object> pair in deepHandles.Values)
@@ -334,6 +356,36 @@ namespace ePrescription.Data.Bases
 			
 			//used to hold DeepSave method delegates and fire after all the local children have been saved.
 			Dictionary<string, KeyValuePair<Delegate, object>> deepHandles = new Dictionary<string, KeyValuePair<Delegate, object>>();
+	
+			#region List<FavoritDetail>
+				if (CanDeepSave(entity.FavoritDetailCollection, "List<FavoritDetail>|FavoritDetailCollection", deepSaveType, innerList)) 
+				{	
+					// update each child parent id with the real parent id (mostly used on insert)
+					foreach(FavoritDetail child in entity.FavoritDetailCollection)
+					{
+						if(child.FavouriteIdSource != null)
+						{
+							child.FavouriteId = child.FavouriteIdSource.FavouriteId;
+						}
+						else
+						{
+							child.FavouriteId = entity.FavouriteId;
+						}
+
+					}
+
+					if (entity.FavoritDetailCollection.Count > 0 || entity.FavoritDetailCollection.DeletedItems.Count > 0)
+					{
+						//DataRepository.FavoritDetailProvider.Save(transactionManager, entity.FavoritDetailCollection);
+						
+						deepHandles.Add("FavoritDetailCollection",
+						new KeyValuePair<Delegate, object>((DeepSaveHandle< FavoritDetail >) DataRepository.FavoritDetailProvider.DeepSave,
+							new object[] { transactionManager, entity.FavoritDetailCollection, deepSaveType, childTypes, innerList }
+						));
+					}
+				} 
+			#endregion 
+				
 			//Fire all DeepSave Items
 			foreach(KeyValuePair<Delegate, object> pair in deepHandles.Values)
 		    {
@@ -360,6 +412,12 @@ namespace ePrescription.Data.Bases
 	///</summary>
 	public enum FavoritMasterChildEntityTypes
 	{
+
+		///<summary>
+		/// Collection of <c>FavoritMaster</c> as OneToMany for FavoritDetailCollection
+		///</summary>
+		[ChildEntityType(typeof(TList<FavoritDetail>))]
+		FavoritDetailCollection,
 	}
 	
 	#endregion FavoritMasterChildEntityTypes

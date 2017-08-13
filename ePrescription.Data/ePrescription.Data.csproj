@@ -120,7 +120,7 @@
     </Reference>
     <ProjectReference Include="..\ePrescription.Entities\ePrescription.Entities.csproj">
       <Name>ePrescription.Entities</Name>
-      <Project>{4B44B908-C8B7-4E6D-898C-3B5B8644BEBA}</Project>
+      <Project>{A8B390E2-9BAE-4B69-9B8E-7C9E09A323B6}</Project>
       <Package>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</Package>
     </ProjectReference>
   </ItemGroup>
@@ -144,6 +144,20 @@
       <DependentUpon>VrEPresDetailProviderBase.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Bases\Views\VrUnitTableProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrUnitTableProviderBase.generatedCore.cs">
+      <DependentUpon>VrUnitTableProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\DiaglistProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\DiaglistProviderBase.generatedCore.cs">
+      <DependentUpon>DiaglistProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Bases\EPrescriptionProviderBase.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -158,11 +172,32 @@
       <DependentUpon>EPrescriptionDetailProviderBase.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Bases\FavoritDetailProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\FavoritDetailProviderBase.generatedCore.cs">
+      <DependentUpon>FavoritDetailProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Bases\FavoritMasterProviderBase.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bases\FavoritMasterProviderBase.generatedCore.cs">
       <DependentUpon>FavoritMasterProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\FrequencyProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\FrequencyProviderBase.generatedCore.cs">
+      <DependentUpon>FrequencyProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\RouteProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\RouteProviderBase.generatedCore.cs">
+      <DependentUpon>RouteProviderBase.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bases\UserRolesProviderBase.cs">

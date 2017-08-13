@@ -21,9 +21,29 @@ namespace ePrescription.Data.Bases
 	{
 		
 		///<summary>
+		/// Current RouteProviderBase instance.
+		///</summary>
+		public virtual RouteProviderBase RouteProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current DiaglistProviderBase instance.
+		///</summary>
+		public virtual DiaglistProviderBase DiaglistProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current FrequencyProviderBase instance.
+		///</summary>
+		public virtual FrequencyProviderBase FrequencyProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
 		/// Current UserRolesProviderBase instance.
 		///</summary>
 		public virtual UserRolesProviderBase UserRolesProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current FavoritMasterProviderBase instance.
+		///</summary>
+		public virtual FavoritMasterProviderBase FavoritMasterProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
 		/// Current EPrescriptionProviderBase instance.
@@ -31,9 +51,9 @@ namespace ePrescription.Data.Bases
 		public virtual EPrescriptionProviderBase EPrescriptionProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
-		/// Current FavoritMasterProviderBase instance.
+		/// Current FavoritDetailProviderBase instance.
 		///</summary>
-		public virtual FavoritMasterProviderBase FavoritMasterProvider{get {throw new NotImplementedException();}}
+		public virtual FavoritDetailProviderBase FavoritDetailProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
 		/// Current UsersProviderBase instance.
@@ -50,6 +70,11 @@ namespace ePrescription.Data.Bases
 		/// Current VrEPresDetailProviderBase instance.
 		///</summary>
 		public virtual VrEPresDetailProviderBase VrEPresDetailProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current VrUnitTableProviderBase instance.
+		///</summary>
+		public virtual VrUnitTableProviderBase VrUnitTableProvider{get {throw new NotImplementedException();}}
 		
 	}
 }
