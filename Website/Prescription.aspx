@@ -128,7 +128,7 @@
             SelectCommand="SELECT top 100 Diag_code, Diag_code+' - ' + diag_name as diag_name FROM [diag_list] ORDER BY [diag_name]">
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
-            SelectCommand="SELECT abbre+' - ' + meaning as frequency,vn_meaning FROM [Pres_Abbre] ORDER BY [meaning]">
+            SelectCommand="SELECT abbre as frequency FROM [Frequency] ORDER BY [abbre]">
         </asp:SqlDataSource>
     <div class="Favourite">
         Favourite
@@ -144,6 +144,7 @@
                         <td>DrugID</td>
                         <td>Form.</td>
                         <td>Dosage</td>
+                        <td>DosUnit</td>
                         <td>Frequency</td>
                         <td>Dur.</td>
                         <td>Total</td>
@@ -188,9 +189,11 @@
                             <asp:Label ID="lblUnit" runat="server" Width="70px"
                                 Font-Size="Smaller"></asp:Label></td>
                         <td>
-                            <asp:TextBox ID="tbxDosage" runat="server" Width="50px"></asp:TextBox></td>
+                            <asp:TextBox ID="tbxDosage" runat="server" Width="30px"></asp:TextBox></td>
+                        <td><asp:Label ID="lblDosageUnit" runat="server" Width="50px"
+                                Font-Size="Smaller"></asp:Label></td>
                         <td>
-                            <telerik:RadComboBox ID="rcbFreq" Width="150px" runat="server" DropDownWidth="300"
+                            <telerik:RadComboBox ID="rcbFreq" Width="70px" runat="server" DropDownWidth="100"
                                 RenderMode="Lightweight" AllowCustomText="true" DataSourceID="SqlDataSource2" DataTextField="frequency"
                                 EmptyMessage="Search for frequency...">
                             </telerik:RadComboBox>

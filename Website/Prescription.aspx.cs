@@ -222,7 +222,7 @@ public partial class Prescription : System.Web.UI.Page
     
     protected void rcbFreq_SelectedIndexChanged(object o, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
-        string sqlSelectCommand = "SELECT [abbre],[meaning] FROM [Pres_Abbre] WHERE abbre Like'%' + @text +'%' or meaning Like'%' + @text +'%' ORDER BY meaning";
+        string sqlSelectCommand = "SELECT [abbre] FROM [Frequency] WHERE abbre Like'%' + @text +'%' or meaning Like'%' + @text +'%' ORDER BY meaning";
        
         SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
             ConfigurationManager.ConnectionStrings["ePrecription"].ConnectionString);
