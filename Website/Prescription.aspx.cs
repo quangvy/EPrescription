@@ -20,10 +20,10 @@ public partial class Prescription : System.Web.UI.Page
         {
             ViewState["autogen"] = 1;
             DataTable dt = new DataTable();
-            dt.Columns.AddRange(new DataColumn[9]
+            dt.Columns.AddRange(new DataColumn[12]
                 { new DataColumn("ID"), new DataColumn("DrugName"), new DataColumn("DrugID"), new DataColumn("Unit")
-                ,  new DataColumn("Dosage"),new DataColumn("Frequency")
-                , new DataColumn("Duration"), new DataColumn("TotalUnit"),new DataColumn("Remark")});
+                , new DataColumn("RouteType"), new DataColumn("Dosage"),new DataColumn("DosageUnit"),new DataColumn("Frequency")
+                , new DataColumn("Duration"), new DataColumn("DurationUnit"),new DataColumn("TotalUnit"),new DataColumn("Remark")});
             ViewState["Medications"] = dt;
             this.BindGrid();
             rcbDiag.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
@@ -246,7 +246,8 @@ public partial class Prescription : System.Web.UI.Page
     {
         DataTable dt = (DataTable)ViewState["Medications"];
         dt.Rows.Add(1, rcbSearchMed.Text.Trim(), lblDrugID.Text.Trim(),
-        lblUnit.Text.Trim(), tbxDosage.Text.Trim(), rcbFreq.Text.Trim(), tbxDuration.Text.Trim(), tbxTotalUnit.Text.ToString(),
+        lblUnit.Text.Trim(), ddlRoute.Text.Trim(), tbxDosage.Text.Trim(), lblDosageUnit.Text.Trim(), rcbFreq.Text.Trim(), 
+        tbxDuration.Text.Trim(), ddlDUnit.Text.Trim(), tbxTotalUnit.Text.ToString(),
             tbxRemark.Text.Trim());
         //ViewState["Customers"] = dt;
         this.BindGrid();

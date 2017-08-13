@@ -1,0 +1,2375 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml-stylesheet type='text/xsl' href="scriptsql.xsl"?>
+<root xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database includeDrop="true">EPrescription</database>
+<procedures>
+		
+		<procedure owner="dbo" name="UserRoles_Get_List" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets all records from the UserRoles table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters/>
+			<body><![CDATA[
+				
+				SELECT
+					[RoleID],
+					[RoleName],
+					[Remark]
+				FROM
+					[dbo].[UserRoles]
+					
+				SELECT @@ROWCOUNT
+			]]></body>
+		</procedure>
+		
+		
+		<procedure owner="dbo" name="UserRoles_GetPaged" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the UserRoles table passing page index and page count parameters
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@WhereClause" type="varchar" direction="Input" size="8000" precision="0" scale="0" param="(8000)" />
+				<parameter name="@OrderBy" type="varchar" direction="Input" size="2000" precision="0" scale="0" param="(2000)"/>
+				<parameter name="@PageIndex" type="int" direction="Input" size="0" precision="10" scale="0" />
+				<parameter name="@PageSize" type="int" direction="Input" size="0" precision="10" scale="0" /> 
+			</parameters>
+			<body><![CDATA[
+				
+				BEGIN
+				DECLARE @PageLowerBound int
+				DECLARE @PageUpperBound int
+				
+				-- Set the page bounds
+				SET @PageLowerBound = @PageSize * @PageIndex
+				SET @PageUpperBound = @PageLowerBound + @PageSize
+
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[RoleID]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
+				SET @SQL = @SQL + ' SELECT'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [RoleID]'
+				SET @SQL = @SQL + ', [RoleName]'
+				SET @SQL = @SQL + ', [Remark]'
+				SET @SQL = @SQL + ' FROM [dbo].[UserRoles]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [RoleID],'
+				SET @SQL = @SQL + ' [RoleName],'
+				SET @SQL = @SQL + ' [Remark]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+				EXEC sp_executesql @SQL
+				
+				-- get row count
+				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
+				SET @SQL = @SQL + ' FROM [dbo].[UserRoles]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				EXEC sp_executesql @SQL
+			
+				END
+			]]></body>
+		</procedure>
+		
+		<procedure owner="dbo" name="UserRoles_Insert" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Inserts a record into the UserRoles table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@RoleId" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@RoleName" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault=""/>
+				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				
+				INSERT INTO [dbo].[UserRoles]
+					(
+					[RoleID]
+					,[RoleName]
+					,[Remark]
+					)
+				VALUES
+					(
+					@RoleId
+					,@RoleName
+					,@Remark
+					)
+									
+							
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="UserRoles_Update" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Updates a record in the UserRoles table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@RoleId" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@OriginalRoleId" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@RoleName" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault=""/>
+				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				
+				
+				-- Modify the updatable columns
+				UPDATE
+					[dbo].[UserRoles]
+				SET
+					[RoleID] = @RoleId
+					,[RoleName] = @RoleName
+					,[Remark] = @Remark
+				WHERE
+[RoleID] = @OriginalRoleId 
+				
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="UserRoles_Delete" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Deletes a record in the UserRoles table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@RoleId" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				DELETE FROM [dbo].[UserRoles] WITH (ROWLOCK) 
+				WHERE
+					[RoleID] = @RoleId
+					
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="UserRoles_GetByRoleId" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Select records from the UserRoles table through an index
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@RoleId" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				SELECT
+					[RoleID],
+					[RoleName],
+					[Remark]
+				FROM
+					[dbo].[UserRoles]
+				WHERE
+                        
+                            ISNULL([RoleID],0) = ISNULL(@RoleId,0)
+				SELECT @@ROWCOUNT
+					
+			]]></body>
+			
+		</procedure>
+		<procedure owner="dbo" name="UserRoles_Find" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Finds records in the UserRoles table passing nullable parameters
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@SearchUsingOR" type="bit" direction="Input" size="0" precision="1" scale="0" param="" nulldefault="null"/>
+				<parameter name="@RoleId" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@RoleName" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault="null"/>
+				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault="null"/>
+			</parameters>
+			<body><![CDATA[
+				
+  IF ISNULL(@SearchUsingOR, 0) <> 1
+  BEGIN
+    SELECT
+	  [RoleID]
+	, [RoleName]
+	, [Remark]
+    FROM
+	[dbo].[UserRoles]
+    WHERE 
+	 ([RoleID] = @RoleId OR @RoleId IS NULL)
+	AND ([RoleName] = @RoleName OR @RoleName IS NULL)
+	AND ([Remark] = @Remark OR @Remark IS NULL)
+						
+  END
+  ELSE
+  BEGIN
+    SELECT
+	  [RoleID]
+	, [RoleName]
+	, [Remark]
+    FROM
+	[dbo].[UserRoles]
+    WHERE 
+	 ([RoleID] = @RoleId AND @RoleId is not null)
+	OR ([RoleName] = @RoleName AND @RoleName is not null)
+	OR ([Remark] = @Remark AND @Remark is not null)
+	SELECT @@ROWCOUNT			
+  END
+				]]></body>
+		</procedure>
+
+		
+		<procedure owner="dbo" name="UserRoles_Find_Dynamic"  skip="true">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the UserRoles table using a dynamically generated query.
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters/>
+			<body><![CDATA[
+				
+				BEGIN
+				
+				WITH PageIndex AS (
+					SELECT TOP {3} row_number() over (order by {1}) AS RowIndex
+					, [RoleID]
+					, [RoleName]
+					, [Remark]
+					FROM [dbo].[UserRoles] {0}
+				)
+				SELECT
+				       [RoleID],
+				       [RoleName],
+				       [Remark]
+				  FROM PageIndex
+				 WHERE RowIndex > {2}
+				   AND RowIndex <= {3}
+				ORDER BY {1};
+				
+
+				-- get total count
+				SELECT COUNT(*) AS TotalRowCount FROM [dbo].[UserRoles] {0};
+				
+				END
+			]]></body>
+		</procedure>
+		
+		
+		<procedure owner="dbo" name="ePrescription_Get_List" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets all records from the ePrescription table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters/>
+			<body><![CDATA[
+				
+				SELECT
+					[PrescriptionID],
+					[TransactionID],
+					[PatientCode],
+					[FirstName],
+					[LastName],
+					[DeliveryDate],
+					[CreateDate],
+					[Address],
+					[DateOfBirth],
+					[Age],
+					[Weight],
+					[Diagnosis],
+					[DiagnosisVN],
+					[PrescribingDoctor],
+					[Sex],
+					[Remark],
+					[IsComplete]
+				FROM
+					[dbo].[ePrescription]
+					
+				SELECT @@ROWCOUNT
+			]]></body>
+		</procedure>
+		
+		
+		<procedure owner="dbo" name="ePrescription_GetPaged" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the ePrescription table passing page index and page count parameters
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@WhereClause" type="varchar" direction="Input" size="8000" precision="0" scale="0" param="(8000)" />
+				<parameter name="@OrderBy" type="varchar" direction="Input" size="2000" precision="0" scale="0" param="(2000)"/>
+				<parameter name="@PageIndex" type="int" direction="Input" size="0" precision="10" scale="0" />
+				<parameter name="@PageSize" type="int" direction="Input" size="0" precision="10" scale="0" /> 
+			</parameters>
+			<body><![CDATA[
+				
+				BEGIN
+				DECLARE @PageLowerBound int
+				DECLARE @PageUpperBound int
+				
+				-- Set the page bounds
+				SET @PageLowerBound = @PageSize * @PageIndex
+				SET @PageUpperBound = @PageLowerBound + @PageSize
+
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[PrescriptionID]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
+				SET @SQL = @SQL + ' SELECT'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [PrescriptionID]'
+				SET @SQL = @SQL + ', [TransactionID]'
+				SET @SQL = @SQL + ', [PatientCode]'
+				SET @SQL = @SQL + ', [FirstName]'
+				SET @SQL = @SQL + ', [LastName]'
+				SET @SQL = @SQL + ', [DeliveryDate]'
+				SET @SQL = @SQL + ', [CreateDate]'
+				SET @SQL = @SQL + ', [Address]'
+				SET @SQL = @SQL + ', [DateOfBirth]'
+				SET @SQL = @SQL + ', [Age]'
+				SET @SQL = @SQL + ', [Weight]'
+				SET @SQL = @SQL + ', [Diagnosis]'
+				SET @SQL = @SQL + ', [DiagnosisVN]'
+				SET @SQL = @SQL + ', [PrescribingDoctor]'
+				SET @SQL = @SQL + ', [Sex]'
+				SET @SQL = @SQL + ', [Remark]'
+				SET @SQL = @SQL + ', [IsComplete]'
+				SET @SQL = @SQL + ' FROM [dbo].[ePrescription]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [PrescriptionID],'
+				SET @SQL = @SQL + ' [TransactionID],'
+				SET @SQL = @SQL + ' [PatientCode],'
+				SET @SQL = @SQL + ' [FirstName],'
+				SET @SQL = @SQL + ' [LastName],'
+				SET @SQL = @SQL + ' [DeliveryDate],'
+				SET @SQL = @SQL + ' [CreateDate],'
+				SET @SQL = @SQL + ' [Address],'
+				SET @SQL = @SQL + ' [DateOfBirth],'
+				SET @SQL = @SQL + ' [Age],'
+				SET @SQL = @SQL + ' [Weight],'
+				SET @SQL = @SQL + ' [Diagnosis],'
+				SET @SQL = @SQL + ' [DiagnosisVN],'
+				SET @SQL = @SQL + ' [PrescribingDoctor],'
+				SET @SQL = @SQL + ' [Sex],'
+				SET @SQL = @SQL + ' [Remark],'
+				SET @SQL = @SQL + ' [IsComplete]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+				EXEC sp_executesql @SQL
+				
+				-- get row count
+				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
+				SET @SQL = @SQL + ' FROM [dbo].[ePrescription]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				EXEC sp_executesql @SQL
+			
+				END
+			]]></body>
+		</procedure>
+		
+		<procedure owner="dbo" name="ePrescription_Insert" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Inserts a record into the ePrescription table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@PrescriptionId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@TransactionId" type="nvarchar" direction="Input" size="15" precision="0" scale="0" param="(15)" nulldefault=""/>
+				<parameter name="@PatientCode" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@FirstName" type="nvarchar" direction="Input" size="30" precision="0" scale="0" param="(30)" nulldefault=""/>
+				<parameter name="@LastName" type="nvarchar" direction="Input" size="30" precision="0" scale="0" param="(30)" nulldefault=""/>
+				<parameter name="@DeliveryDate" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault=""/>
+				<parameter name="@CreateDate" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault=""/>
+				<parameter name="@Address" type="nvarchar" direction="Input" size="150" precision="0" scale="0" param="(150)" nulldefault=""/>
+				<parameter name="@DateOfBirth" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault=""/>
+				<parameter name="@Age" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@Weight" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@Diagnosis" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@DiagnosisVn" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@PrescribingDoctor" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault=""/>
+				<parameter name="@Sex" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
+				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
+				<parameter name="@IsComplete" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				
+				INSERT INTO [dbo].[ePrescription]
+					(
+					[PrescriptionID]
+					,[TransactionID]
+					,[PatientCode]
+					,[FirstName]
+					,[LastName]
+					,[DeliveryDate]
+					,[CreateDate]
+					,[Address]
+					,[DateOfBirth]
+					,[Age]
+					,[Weight]
+					,[Diagnosis]
+					,[DiagnosisVN]
+					,[PrescribingDoctor]
+					,[Sex]
+					,[Remark]
+					,[IsComplete]
+					)
+				VALUES
+					(
+					@PrescriptionId
+					,@TransactionId
+					,@PatientCode
+					,@FirstName
+					,@LastName
+					,@DeliveryDate
+					,@CreateDate
+					,@Address
+					,@DateOfBirth
+					,@Age
+					,@Weight
+					,@Diagnosis
+					,@DiagnosisVn
+					,@PrescribingDoctor
+					,@Sex
+					,@Remark
+					,@IsComplete
+					)
+									
+							
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="ePrescription_Update" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Updates a record in the ePrescription table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@PrescriptionId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@OriginalPrescriptionId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@TransactionId" type="nvarchar" direction="Input" size="15" precision="0" scale="0" param="(15)" nulldefault=""/>
+				<parameter name="@PatientCode" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@FirstName" type="nvarchar" direction="Input" size="30" precision="0" scale="0" param="(30)" nulldefault=""/>
+				<parameter name="@LastName" type="nvarchar" direction="Input" size="30" precision="0" scale="0" param="(30)" nulldefault=""/>
+				<parameter name="@DeliveryDate" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault=""/>
+				<parameter name="@CreateDate" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault=""/>
+				<parameter name="@Address" type="nvarchar" direction="Input" size="150" precision="0" scale="0" param="(150)" nulldefault=""/>
+				<parameter name="@DateOfBirth" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault=""/>
+				<parameter name="@Age" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@Weight" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@Diagnosis" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@DiagnosisVn" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@PrescribingDoctor" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault=""/>
+				<parameter name="@Sex" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
+				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
+				<parameter name="@IsComplete" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				
+				
+				-- Modify the updatable columns
+				UPDATE
+					[dbo].[ePrescription]
+				SET
+					[PrescriptionID] = @PrescriptionId
+					,[TransactionID] = @TransactionId
+					,[PatientCode] = @PatientCode
+					,[FirstName] = @FirstName
+					,[LastName] = @LastName
+					,[DeliveryDate] = @DeliveryDate
+					,[CreateDate] = @CreateDate
+					,[Address] = @Address
+					,[DateOfBirth] = @DateOfBirth
+					,[Age] = @Age
+					,[Weight] = @Weight
+					,[Diagnosis] = @Diagnosis
+					,[DiagnosisVN] = @DiagnosisVn
+					,[PrescribingDoctor] = @PrescribingDoctor
+					,[Sex] = @Sex
+					,[Remark] = @Remark
+					,[IsComplete] = @IsComplete
+				WHERE
+[PrescriptionID] = @OriginalPrescriptionId 
+				
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="ePrescription_Delete" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Deletes a record in the ePrescription table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@PrescriptionId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				DELETE FROM [dbo].[ePrescription] WITH (ROWLOCK) 
+				WHERE
+					[PrescriptionID] = @PrescriptionId
+					
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="ePrescription_GetByPrescriptionId" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Select records from the ePrescription table through an index
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@PrescriptionId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				SELECT
+					[PrescriptionID],
+					[TransactionID],
+					[PatientCode],
+					[FirstName],
+					[LastName],
+					[DeliveryDate],
+					[CreateDate],
+					[Address],
+					[DateOfBirth],
+					[Age],
+					[Weight],
+					[Diagnosis],
+					[DiagnosisVN],
+					[PrescribingDoctor],
+					[Sex],
+					[Remark],
+					[IsComplete]
+				FROM
+					[dbo].[ePrescription]
+				WHERE
+                        
+                            ISNULL([PrescriptionID],0) = ISNULL(@PrescriptionId,0)
+				SELECT @@ROWCOUNT
+					
+			]]></body>
+			
+		</procedure>
+		<procedure owner="dbo" name="ePrescription_Find" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Finds records in the ePrescription table passing nullable parameters
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@SearchUsingOR" type="bit" direction="Input" size="0" precision="1" scale="0" param="" nulldefault="null"/>
+				<parameter name="@PrescriptionId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault="null"/>
+				<parameter name="@TransactionId" type="nvarchar" direction="Input" size="15" precision="0" scale="0" param="(15)" nulldefault="null"/>
+				<parameter name="@PatientCode" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@FirstName" type="nvarchar" direction="Input" size="30" precision="0" scale="0" param="(30)" nulldefault="null"/>
+				<parameter name="@LastName" type="nvarchar" direction="Input" size="30" precision="0" scale="0" param="(30)" nulldefault="null"/>
+				<parameter name="@DeliveryDate" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault="null"/>
+				<parameter name="@CreateDate" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault="null"/>
+				<parameter name="@Address" type="nvarchar" direction="Input" size="150" precision="0" scale="0" param="(150)" nulldefault="null"/>
+				<parameter name="@DateOfBirth" type="datetime" direction="Input" size="8" precision="23" scale="3" param="" nulldefault="null"/>
+				<parameter name="@Age" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault="null"/>
+				<parameter name="@Weight" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault="null"/>
+				<parameter name="@Diagnosis" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault="null"/>
+				<parameter name="@DiagnosisVn" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault="null"/>
+				<parameter name="@PrescribingDoctor" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault="null"/>
+				<parameter name="@Sex" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault="null"/>
+				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault="null"/>
+				<parameter name="@IsComplete" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault="null"/>
+			</parameters>
+			<body><![CDATA[
+				
+  IF ISNULL(@SearchUsingOR, 0) <> 1
+  BEGIN
+    SELECT
+	  [PrescriptionID]
+	, [TransactionID]
+	, [PatientCode]
+	, [FirstName]
+	, [LastName]
+	, [DeliveryDate]
+	, [CreateDate]
+	, [Address]
+	, [DateOfBirth]
+	, [Age]
+	, [Weight]
+	, [Diagnosis]
+	, [DiagnosisVN]
+	, [PrescribingDoctor]
+	, [Sex]
+	, [Remark]
+	, [IsComplete]
+    FROM
+	[dbo].[ePrescription]
+    WHERE 
+	 ([PrescriptionID] = @PrescriptionId OR @PrescriptionId IS NULL)
+	AND ([TransactionID] = @TransactionId OR @TransactionId IS NULL)
+	AND ([PatientCode] = @PatientCode OR @PatientCode IS NULL)
+	AND ([FirstName] = @FirstName OR @FirstName IS NULL)
+	AND ([LastName] = @LastName OR @LastName IS NULL)
+	AND ([DeliveryDate] = @DeliveryDate OR @DeliveryDate IS NULL)
+	AND ([CreateDate] = @CreateDate OR @CreateDate IS NULL)
+	AND ([Address] = @Address OR @Address IS NULL)
+	AND ([DateOfBirth] = @DateOfBirth OR @DateOfBirth IS NULL)
+	AND ([Age] = @Age OR @Age IS NULL)
+	AND ([Weight] = @Weight OR @Weight IS NULL)
+	AND ([Diagnosis] = @Diagnosis OR @Diagnosis IS NULL)
+	AND ([DiagnosisVN] = @DiagnosisVn OR @DiagnosisVn IS NULL)
+	AND ([PrescribingDoctor] = @PrescribingDoctor OR @PrescribingDoctor IS NULL)
+	AND ([Sex] = @Sex OR @Sex IS NULL)
+	AND ([Remark] = @Remark OR @Remark IS NULL)
+	AND ([IsComplete] = @IsComplete OR @IsComplete IS NULL)
+						
+  END
+  ELSE
+  BEGIN
+    SELECT
+	  [PrescriptionID]
+	, [TransactionID]
+	, [PatientCode]
+	, [FirstName]
+	, [LastName]
+	, [DeliveryDate]
+	, [CreateDate]
+	, [Address]
+	, [DateOfBirth]
+	, [Age]
+	, [Weight]
+	, [Diagnosis]
+	, [DiagnosisVN]
+	, [PrescribingDoctor]
+	, [Sex]
+	, [Remark]
+	, [IsComplete]
+    FROM
+	[dbo].[ePrescription]
+    WHERE 
+	 ([PrescriptionID] = @PrescriptionId AND @PrescriptionId is not null)
+	OR ([TransactionID] = @TransactionId AND @TransactionId is not null)
+	OR ([PatientCode] = @PatientCode AND @PatientCode is not null)
+	OR ([FirstName] = @FirstName AND @FirstName is not null)
+	OR ([LastName] = @LastName AND @LastName is not null)
+	OR ([DeliveryDate] = @DeliveryDate AND @DeliveryDate is not null)
+	OR ([CreateDate] = @CreateDate AND @CreateDate is not null)
+	OR ([Address] = @Address AND @Address is not null)
+	OR ([DateOfBirth] = @DateOfBirth AND @DateOfBirth is not null)
+	OR ([Age] = @Age AND @Age is not null)
+	OR ([Weight] = @Weight AND @Weight is not null)
+	OR ([Diagnosis] = @Diagnosis AND @Diagnosis is not null)
+	OR ([DiagnosisVN] = @DiagnosisVn AND @DiagnosisVn is not null)
+	OR ([PrescribingDoctor] = @PrescribingDoctor AND @PrescribingDoctor is not null)
+	OR ([Sex] = @Sex AND @Sex is not null)
+	OR ([Remark] = @Remark AND @Remark is not null)
+	OR ([IsComplete] = @IsComplete AND @IsComplete is not null)
+	SELECT @@ROWCOUNT			
+  END
+				]]></body>
+		</procedure>
+
+		
+		<procedure owner="dbo" name="ePrescription_Find_Dynamic"  skip="true">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the ePrescription table using a dynamically generated query.
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters/>
+			<body><![CDATA[
+				
+				BEGIN
+				
+				WITH PageIndex AS (
+					SELECT TOP {3} row_number() over (order by {1}) AS RowIndex
+					, [PrescriptionID]
+					, [TransactionID]
+					, [PatientCode]
+					, [FirstName]
+					, [LastName]
+					, [DeliveryDate]
+					, [CreateDate]
+					, [Address]
+					, [DateOfBirth]
+					, [Age]
+					, [Weight]
+					, [Diagnosis]
+					, [DiagnosisVN]
+					, [PrescribingDoctor]
+					, [Sex]
+					, [Remark]
+					, [IsComplete]
+					FROM [dbo].[ePrescription] {0}
+				)
+				SELECT
+				       [PrescriptionID],
+				       [TransactionID],
+				       [PatientCode],
+				       [FirstName],
+				       [LastName],
+				       [DeliveryDate],
+				       [CreateDate],
+				       [Address],
+				       [DateOfBirth],
+				       [Age],
+				       [Weight],
+				       [Diagnosis],
+				       [DiagnosisVN],
+				       [PrescribingDoctor],
+				       [Sex],
+				       [Remark],
+				       [IsComplete]
+				  FROM PageIndex
+				 WHERE RowIndex > {2}
+				   AND RowIndex <= {3}
+				ORDER BY {1};
+				
+
+				-- get total count
+				SELECT COUNT(*) AS TotalRowCount FROM [dbo].[ePrescription] {0};
+				
+				END
+			]]></body>
+		</procedure>
+		
+		
+		<procedure owner="dbo" name="FavoritMaster_Get_List" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets all records from the FavoritMaster table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters/>
+			<body><![CDATA[
+				
+				SELECT
+					[ID],
+					[DiceaseName],
+					[CreateBy],
+					[Diagnosis],
+					[DiagnosisVN],
+					[IsPrivate]
+				FROM
+					[dbo].[FavoritMaster]
+					
+				SELECT @@ROWCOUNT
+			]]></body>
+		</procedure>
+		
+		
+		<procedure owner="dbo" name="FavoritMaster_GetPaged" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the FavoritMaster table passing page index and page count parameters
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@WhereClause" type="varchar" direction="Input" size="8000" precision="0" scale="0" param="(8000)" />
+				<parameter name="@OrderBy" type="varchar" direction="Input" size="2000" precision="0" scale="0" param="(2000)"/>
+				<parameter name="@PageIndex" type="int" direction="Input" size="0" precision="10" scale="0" />
+				<parameter name="@PageSize" type="int" direction="Input" size="0" precision="10" scale="0" /> 
+			</parameters>
+			<body><![CDATA[
+				
+				BEGIN
+				DECLARE @PageLowerBound int
+				DECLARE @PageUpperBound int
+				
+				-- Set the page bounds
+				SET @PageLowerBound = @PageSize * @PageIndex
+				SET @PageUpperBound = @PageLowerBound + @PageSize
+
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[ID]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
+				SET @SQL = @SQL + ' SELECT'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [ID]'
+				SET @SQL = @SQL + ', [DiceaseName]'
+				SET @SQL = @SQL + ', [CreateBy]'
+				SET @SQL = @SQL + ', [Diagnosis]'
+				SET @SQL = @SQL + ', [DiagnosisVN]'
+				SET @SQL = @SQL + ', [IsPrivate]'
+				SET @SQL = @SQL + ' FROM [dbo].[FavoritMaster]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [ID],'
+				SET @SQL = @SQL + ' [DiceaseName],'
+				SET @SQL = @SQL + ' [CreateBy],'
+				SET @SQL = @SQL + ' [Diagnosis],'
+				SET @SQL = @SQL + ' [DiagnosisVN],'
+				SET @SQL = @SQL + ' [IsPrivate]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+				EXEC sp_executesql @SQL
+				
+				-- get row count
+				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
+				SET @SQL = @SQL + ' FROM [dbo].[FavoritMaster]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				EXEC sp_executesql @SQL
+			
+				END
+			]]></body>
+		</procedure>
+		
+		<procedure owner="dbo" name="FavoritMaster_Insert" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Inserts a record into the FavoritMaster table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@Id" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
+				<parameter name="@DiceaseName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@CreateBy" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Diagnosis" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@DiagnosisVn" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@IsPrivate" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				
+				INSERT INTO [dbo].[FavoritMaster]
+					(
+					[ID]
+					,[DiceaseName]
+					,[CreateBy]
+					,[Diagnosis]
+					,[DiagnosisVN]
+					,[IsPrivate]
+					)
+				VALUES
+					(
+					@Id
+					,@DiceaseName
+					,@CreateBy
+					,@Diagnosis
+					,@DiagnosisVn
+					,@IsPrivate
+					)
+									
+							
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="FavoritMaster_Update" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Updates a record in the FavoritMaster table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@Id" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
+				<parameter name="@OriginalId" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
+				<parameter name="@DiceaseName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@CreateBy" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Diagnosis" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@DiagnosisVn" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@IsPrivate" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				
+				
+				-- Modify the updatable columns
+				UPDATE
+					[dbo].[FavoritMaster]
+				SET
+					[ID] = @Id
+					,[DiceaseName] = @DiceaseName
+					,[CreateBy] = @CreateBy
+					,[Diagnosis] = @Diagnosis
+					,[DiagnosisVN] = @DiagnosisVn
+					,[IsPrivate] = @IsPrivate
+				WHERE
+[ID] = @OriginalId 
+				
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="FavoritMaster_Delete" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Deletes a record in the FavoritMaster table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@Id" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				DELETE FROM [dbo].[FavoritMaster] WITH (ROWLOCK) 
+				WHERE
+					[ID] = @Id
+					
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="FavoritMaster_GetById" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Select records from the FavoritMaster table through an index
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@Id" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				SELECT
+					[ID],
+					[DiceaseName],
+					[CreateBy],
+					[Diagnosis],
+					[DiagnosisVN],
+					[IsPrivate]
+				FROM
+					[dbo].[FavoritMaster]
+				WHERE
+                        
+                            ISNULL([ID],0) = ISNULL(@Id,0)
+				SELECT @@ROWCOUNT
+					
+			]]></body>
+			
+		</procedure>
+		<procedure owner="dbo" name="FavoritMaster_Find" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Finds records in the FavoritMaster table passing nullable parameters
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@SearchUsingOR" type="bit" direction="Input" size="0" precision="1" scale="0" param="" nulldefault="null"/>
+				<parameter name="@Id" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault="null"/>
+				<parameter name="@DiceaseName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@CreateBy" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Diagnosis" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault="null"/>
+				<parameter name="@DiagnosisVn" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault="null"/>
+				<parameter name="@IsPrivate" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault="null"/>
+			</parameters>
+			<body><![CDATA[
+				
+  IF ISNULL(@SearchUsingOR, 0) <> 1
+  BEGIN
+    SELECT
+	  [ID]
+	, [DiceaseName]
+	, [CreateBy]
+	, [Diagnosis]
+	, [DiagnosisVN]
+	, [IsPrivate]
+    FROM
+	[dbo].[FavoritMaster]
+    WHERE 
+	 ([ID] = @Id OR @Id IS NULL)
+	AND ([DiceaseName] = @DiceaseName OR @DiceaseName IS NULL)
+	AND ([CreateBy] = @CreateBy OR @CreateBy IS NULL)
+	AND ([Diagnosis] = @Diagnosis OR @Diagnosis IS NULL)
+	AND ([DiagnosisVN] = @DiagnosisVn OR @DiagnosisVn IS NULL)
+	AND ([IsPrivate] = @IsPrivate OR @IsPrivate IS NULL)
+						
+  END
+  ELSE
+  BEGIN
+    SELECT
+	  [ID]
+	, [DiceaseName]
+	, [CreateBy]
+	, [Diagnosis]
+	, [DiagnosisVN]
+	, [IsPrivate]
+    FROM
+	[dbo].[FavoritMaster]
+    WHERE 
+	 ([ID] = @Id AND @Id is not null)
+	OR ([DiceaseName] = @DiceaseName AND @DiceaseName is not null)
+	OR ([CreateBy] = @CreateBy AND @CreateBy is not null)
+	OR ([Diagnosis] = @Diagnosis AND @Diagnosis is not null)
+	OR ([DiagnosisVN] = @DiagnosisVn AND @DiagnosisVn is not null)
+	OR ([IsPrivate] = @IsPrivate AND @IsPrivate is not null)
+	SELECT @@ROWCOUNT			
+  END
+				]]></body>
+		</procedure>
+
+		
+		<procedure owner="dbo" name="FavoritMaster_Find_Dynamic"  skip="true">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the FavoritMaster table using a dynamically generated query.
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters/>
+			<body><![CDATA[
+				
+				BEGIN
+				
+				WITH PageIndex AS (
+					SELECT TOP {3} row_number() over (order by {1}) AS RowIndex
+					, [ID]
+					, [DiceaseName]
+					, [CreateBy]
+					, [Diagnosis]
+					, [DiagnosisVN]
+					, [IsPrivate]
+					FROM [dbo].[FavoritMaster] {0}
+				)
+				SELECT
+				       [ID],
+				       [DiceaseName],
+				       [CreateBy],
+				       [Diagnosis],
+				       [DiagnosisVN],
+				       [IsPrivate]
+				  FROM PageIndex
+				 WHERE RowIndex > {2}
+				   AND RowIndex <= {3}
+				ORDER BY {1};
+				
+
+				-- get total count
+				SELECT COUNT(*) AS TotalRowCount FROM [dbo].[FavoritMaster] {0};
+				
+				END
+			]]></body>
+		</procedure>
+		
+		
+		<procedure owner="dbo" name="Users_Get_List" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets all records from the Users table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters/>
+			<body><![CDATA[
+				
+				SELECT
+					[UserName],
+					[Password],
+					[UserRole],
+					[FullName],
+					[Email],
+					[DisplayName],
+					[Signature],
+					[Location],
+					[IsDisabled],
+					[Avatar],
+					[MobilePhone]
+				FROM
+					[dbo].[Users]
+					
+				SELECT @@ROWCOUNT
+			]]></body>
+		</procedure>
+		
+		
+		<procedure owner="dbo" name="Users_GetPaged" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the Users table passing page index and page count parameters
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@WhereClause" type="varchar" direction="Input" size="8000" precision="0" scale="0" param="(8000)" />
+				<parameter name="@OrderBy" type="varchar" direction="Input" size="2000" precision="0" scale="0" param="(2000)"/>
+				<parameter name="@PageIndex" type="int" direction="Input" size="0" precision="10" scale="0" />
+				<parameter name="@PageSize" type="int" direction="Input" size="0" precision="10" scale="0" /> 
+			</parameters>
+			<body><![CDATA[
+				
+				BEGIN
+				DECLARE @PageLowerBound int
+				DECLARE @PageUpperBound int
+				
+				-- Set the page bounds
+				SET @PageLowerBound = @PageSize * @PageIndex
+				SET @PageUpperBound = @PageLowerBound + @PageSize
+
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[UserName]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
+				SET @SQL = @SQL + ' SELECT'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [UserName]'
+				SET @SQL = @SQL + ', [Password]'
+				SET @SQL = @SQL + ', [UserRole]'
+				SET @SQL = @SQL + ', [FullName]'
+				SET @SQL = @SQL + ', [Email]'
+				SET @SQL = @SQL + ', [DisplayName]'
+				SET @SQL = @SQL + ', [Signature]'
+				SET @SQL = @SQL + ', [Location]'
+				SET @SQL = @SQL + ', [IsDisabled]'
+				SET @SQL = @SQL + ', [Avatar]'
+				SET @SQL = @SQL + ', [MobilePhone]'
+				SET @SQL = @SQL + ' FROM [dbo].[Users]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [UserName],'
+				SET @SQL = @SQL + ' [Password],'
+				SET @SQL = @SQL + ' [UserRole],'
+				SET @SQL = @SQL + ' [FullName],'
+				SET @SQL = @SQL + ' [Email],'
+				SET @SQL = @SQL + ' [DisplayName],'
+				SET @SQL = @SQL + ' [Signature],'
+				SET @SQL = @SQL + ' [Location],'
+				SET @SQL = @SQL + ' [IsDisabled],'
+				SET @SQL = @SQL + ' [Avatar],'
+				SET @SQL = @SQL + ' [MobilePhone]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+				EXEC sp_executesql @SQL
+				
+				-- get row count
+				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
+				SET @SQL = @SQL + ' FROM [dbo].[Users]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				EXEC sp_executesql @SQL
+			
+				END
+			]]></body>
+		</procedure>
+		
+		<procedure owner="dbo" name="Users_Insert" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Inserts a record into the Users table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@UserName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Password" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
+				<parameter name="@UserRole" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@FullName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Email" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@DisplayName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Signature" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
+				<parameter name="@Location" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
+				<parameter name="@IsDisabled" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault=""/>
+				<parameter name="@Avatar" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
+				<parameter name="@MobilePhone" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				
+				INSERT INTO [dbo].[Users]
+					(
+					[UserName]
+					,[Password]
+					,[UserRole]
+					,[FullName]
+					,[Email]
+					,[DisplayName]
+					,[Signature]
+					,[Location]
+					,[IsDisabled]
+					,[Avatar]
+					,[MobilePhone]
+					)
+				VALUES
+					(
+					@UserName
+					,@Password
+					,@UserRole
+					,@FullName
+					,@Email
+					,@DisplayName
+					,@Signature
+					,@Location
+					,@IsDisabled
+					,@Avatar
+					,@MobilePhone
+					)
+									
+							
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="Users_Update" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Updates a record in the Users table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@UserName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@OriginalUserName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Password" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault=""/>
+				<parameter name="@UserRole" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@FullName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Email" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@DisplayName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Signature" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
+				<parameter name="@Location" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
+				<parameter name="@IsDisabled" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault=""/>
+				<parameter name="@Avatar" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
+				<parameter name="@MobilePhone" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				
+				
+				-- Modify the updatable columns
+				UPDATE
+					[dbo].[Users]
+				SET
+					[UserName] = @UserName
+					,[Password] = @Password
+					,[UserRole] = @UserRole
+					,[FullName] = @FullName
+					,[Email] = @Email
+					,[DisplayName] = @DisplayName
+					,[Signature] = @Signature
+					,[Location] = @Location
+					,[IsDisabled] = @IsDisabled
+					,[Avatar] = @Avatar
+					,[MobilePhone] = @MobilePhone
+				WHERE
+[UserName] = @OriginalUserName 
+				
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="Users_Delete" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Deletes a record in the Users table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@UserName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				DELETE FROM [dbo].[Users] WITH (ROWLOCK) 
+				WHERE
+					[UserName] = @UserName
+					
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="Users_GetByUserName" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Select records from the Users table through an index
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@UserName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				SELECT
+					[UserName],
+					[Password],
+					[UserRole],
+					[FullName],
+					[Email],
+					[DisplayName],
+					[Signature],
+					[Location],
+					[IsDisabled],
+					[Avatar],
+					[MobilePhone]
+				FROM
+					[dbo].[Users]
+				WHERE
+                        
+                            ISNULL([UserName],0) = ISNULL(@UserName,0)
+				SELECT @@ROWCOUNT
+					
+			]]></body>
+			
+		</procedure>
+		<procedure owner="dbo" name="Users_Find" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Finds records in the Users table passing nullable parameters
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@SearchUsingOR" type="bit" direction="Input" size="0" precision="1" scale="0" param="" nulldefault="null"/>
+				<parameter name="@UserName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Password" type="nvarchar" direction="Input" size="200" precision="0" scale="0" param="(200)" nulldefault="null"/>
+				<parameter name="@UserRole" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@FullName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Email" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@DisplayName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Signature" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault="null"/>
+				<parameter name="@Location" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault="null"/>
+				<parameter name="@IsDisabled" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault="null"/>
+				<parameter name="@Avatar" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault="null"/>
+				<parameter name="@MobilePhone" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault="null"/>
+			</parameters>
+			<body><![CDATA[
+				
+  IF ISNULL(@SearchUsingOR, 0) <> 1
+  BEGIN
+    SELECT
+	  [UserName]
+	, [Password]
+	, [UserRole]
+	, [FullName]
+	, [Email]
+	, [DisplayName]
+	, [Signature]
+	, [Location]
+	, [IsDisabled]
+	, [Avatar]
+	, [MobilePhone]
+    FROM
+	[dbo].[Users]
+    WHERE 
+	 ([UserName] = @UserName OR @UserName IS NULL)
+	AND ([Password] = @Password OR @Password IS NULL)
+	AND ([UserRole] = @UserRole OR @UserRole IS NULL)
+	AND ([FullName] = @FullName OR @FullName IS NULL)
+	AND ([Email] = @Email OR @Email IS NULL)
+	AND ([DisplayName] = @DisplayName OR @DisplayName IS NULL)
+	AND ([Location] = @Location OR @Location IS NULL)
+	AND ([IsDisabled] = @IsDisabled OR @IsDisabled IS NULL)
+	AND ([MobilePhone] = @MobilePhone OR @MobilePhone IS NULL)
+						
+  END
+  ELSE
+  BEGIN
+    SELECT
+	  [UserName]
+	, [Password]
+	, [UserRole]
+	, [FullName]
+	, [Email]
+	, [DisplayName]
+	, [Signature]
+	, [Location]
+	, [IsDisabled]
+	, [Avatar]
+	, [MobilePhone]
+    FROM
+	[dbo].[Users]
+    WHERE 
+	 ([UserName] = @UserName AND @UserName is not null)
+	OR ([Password] = @Password AND @Password is not null)
+	OR ([UserRole] = @UserRole AND @UserRole is not null)
+	OR ([FullName] = @FullName AND @FullName is not null)
+	OR ([Email] = @Email AND @Email is not null)
+	OR ([DisplayName] = @DisplayName AND @DisplayName is not null)
+	OR ([Location] = @Location AND @Location is not null)
+	OR ([IsDisabled] = @IsDisabled AND @IsDisabled is not null)
+	OR ([MobilePhone] = @MobilePhone AND @MobilePhone is not null)
+	SELECT @@ROWCOUNT			
+  END
+				]]></body>
+		</procedure>
+
+		
+		<procedure owner="dbo" name="Users_Find_Dynamic"  skip="true">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the Users table using a dynamically generated query.
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters/>
+			<body><![CDATA[
+				
+				BEGIN
+				
+				WITH PageIndex AS (
+					SELECT TOP {3} row_number() over (order by {1}) AS RowIndex
+					, [UserName]
+					, [Password]
+					, [UserRole]
+					, [FullName]
+					, [Email]
+					, [DisplayName]
+					, [Signature]
+					, [Location]
+					, [IsDisabled]
+					, [Avatar]
+					, [MobilePhone]
+					FROM [dbo].[Users] {0}
+				)
+				SELECT
+				       [UserName],
+				       [Password],
+				       [UserRole],
+				       [FullName],
+				       [Email],
+				       [DisplayName],
+				       [Signature],
+				       [Location],
+				       [IsDisabled],
+				       [Avatar],
+				       [MobilePhone]
+				  FROM PageIndex
+				 WHERE RowIndex > {2}
+				   AND RowIndex <= {3}
+				ORDER BY {1};
+				
+
+				-- get total count
+				SELECT COUNT(*) AS TotalRowCount FROM [dbo].[Users] {0};
+				
+				END
+			]]></body>
+		</procedure>
+		
+		
+		<procedure owner="dbo" name="ePrescriptionDetail_Get_List" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets all records from the ePrescriptionDetail table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters/>
+			<body><![CDATA[
+				
+				SELECT
+					[PrescriptionDetailId],
+					[PrescriptionID],
+					[Sq],
+					[DrugId],
+					[DrugName],
+					[Unit],
+					[UnitVN],
+					[Remark],
+					[RouteType],
+					[RouteTypeVN],
+					[Dosage],
+					[DosageUnit],
+					[DosageUnitVN],
+					[Frequency],
+					[FrequencyVN],
+					[Duration],
+					[DurationUnit],
+					[DurationUnitVN],
+					[TotalUnit]
+				FROM
+					[dbo].[ePrescriptionDetail]
+					
+				SELECT @@ROWCOUNT
+			]]></body>
+		</procedure>
+		
+		
+		<procedure owner="dbo" name="ePrescriptionDetail_GetPaged" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the ePrescriptionDetail table passing page index and page count parameters
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@WhereClause" type="varchar" direction="Input" size="8000" precision="0" scale="0" param="(8000)" />
+				<parameter name="@OrderBy" type="varchar" direction="Input" size="2000" precision="0" scale="0" param="(2000)"/>
+				<parameter name="@PageIndex" type="int" direction="Input" size="0" precision="10" scale="0" />
+				<parameter name="@PageSize" type="int" direction="Input" size="0" precision="10" scale="0" /> 
+			</parameters>
+			<body><![CDATA[
+				
+				BEGIN
+				DECLARE @PageLowerBound int
+				DECLARE @PageUpperBound int
+				
+				-- Set the page bounds
+				SET @PageLowerBound = @PageSize * @PageIndex
+				SET @PageUpperBound = @PageLowerBound + @PageSize
+
+				IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+				BEGIN
+					-- default order by to first column
+					SET @OrderBy = '[PrescriptionDetailId]'
+				END
+
+				-- SQL Server 2005 Paging
+				DECLARE @SQL AS nvarchar(MAX)
+				SET @SQL = 'WITH PageIndex AS ('
+				SET @SQL = @SQL + ' SELECT'
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+				SET @SQL = @SQL + ', [PrescriptionDetailId]'
+				SET @SQL = @SQL + ', [PrescriptionID]'
+				SET @SQL = @SQL + ', [Sq]'
+				SET @SQL = @SQL + ', [DrugId]'
+				SET @SQL = @SQL + ', [DrugName]'
+				SET @SQL = @SQL + ', [Unit]'
+				SET @SQL = @SQL + ', [UnitVN]'
+				SET @SQL = @SQL + ', [Remark]'
+				SET @SQL = @SQL + ', [RouteType]'
+				SET @SQL = @SQL + ', [RouteTypeVN]'
+				SET @SQL = @SQL + ', [Dosage]'
+				SET @SQL = @SQL + ', [DosageUnit]'
+				SET @SQL = @SQL + ', [DosageUnitVN]'
+				SET @SQL = @SQL + ', [Frequency]'
+				SET @SQL = @SQL + ', [FrequencyVN]'
+				SET @SQL = @SQL + ', [Duration]'
+				SET @SQL = @SQL + ', [DurationUnit]'
+				SET @SQL = @SQL + ', [DurationUnitVN]'
+				SET @SQL = @SQL + ', [TotalUnit]'
+				SET @SQL = @SQL + ' FROM [dbo].[ePrescriptionDetail]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				SET @SQL = @SQL + ' ) SELECT'
+				SET @SQL = @SQL + ' [PrescriptionDetailId],'
+				SET @SQL = @SQL + ' [PrescriptionID],'
+				SET @SQL = @SQL + ' [Sq],'
+				SET @SQL = @SQL + ' [DrugId],'
+				SET @SQL = @SQL + ' [DrugName],'
+				SET @SQL = @SQL + ' [Unit],'
+				SET @SQL = @SQL + ' [UnitVN],'
+				SET @SQL = @SQL + ' [Remark],'
+				SET @SQL = @SQL + ' [RouteType],'
+				SET @SQL = @SQL + ' [RouteTypeVN],'
+				SET @SQL = @SQL + ' [Dosage],'
+				SET @SQL = @SQL + ' [DosageUnit],'
+				SET @SQL = @SQL + ' [DosageUnitVN],'
+				SET @SQL = @SQL + ' [Frequency],'
+				SET @SQL = @SQL + ' [FrequencyVN],'
+				SET @SQL = @SQL + ' [Duration],'
+				SET @SQL = @SQL + ' [DurationUnit],'
+				SET @SQL = @SQL + ' [DurationUnitVN],'
+				SET @SQL = @SQL + ' [TotalUnit]'
+				SET @SQL = @SQL + ' FROM PageIndex'
+				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+				IF @PageSize > 0
+				BEGIN
+					SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
+				END
+				SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+				EXEC sp_executesql @SQL
+				
+				-- get row count
+				SET @SQL = 'SELECT COUNT(1) AS TotalRowCount'
+				SET @SQL = @SQL + ' FROM [dbo].[ePrescriptionDetail]'
+				IF LEN(@WhereClause) > 0
+				BEGIN
+					SET @SQL = @SQL + ' WHERE ' + @WhereClause
+				END
+				EXEC sp_executesql @SQL
+			
+				END
+			]]></body>
+		</procedure>
+		
+		<procedure owner="dbo" name="ePrescriptionDetail_Insert" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Inserts a record into the ePrescriptionDetail table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@PrescriptionDetailId" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@PrescriptionId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@Sq" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
+				<parameter name="@DrugId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@DrugName" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
+				<parameter name="@Unit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@UnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
+				<parameter name="@RouteType" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@RouteTypeVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Dosage" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@DosageUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@DosageUnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Frequency" type="nvarchar" direction="Input" size="150" precision="0" scale="0" param="(150)" nulldefault=""/>
+				<parameter name="@FrequencyVn" type="nvarchar" direction="Input" size="150" precision="0" scale="0" param="(150)" nulldefault=""/>
+				<parameter name="@Duration" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@DurationUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@DurationUnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@TotalUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				
+				INSERT INTO [dbo].[ePrescriptionDetail]
+					(
+					[PrescriptionID]
+					,[Sq]
+					,[DrugId]
+					,[DrugName]
+					,[Unit]
+					,[UnitVN]
+					,[Remark]
+					,[RouteType]
+					,[RouteTypeVN]
+					,[Dosage]
+					,[DosageUnit]
+					,[DosageUnitVN]
+					,[Frequency]
+					,[FrequencyVN]
+					,[Duration]
+					,[DurationUnit]
+					,[DurationUnitVN]
+					,[TotalUnit]
+					)
+				VALUES
+					(
+					@PrescriptionId
+					,@Sq
+					,@DrugId
+					,@DrugName
+					,@Unit
+					,@UnitVn
+					,@Remark
+					,@RouteType
+					,@RouteTypeVn
+					,@Dosage
+					,@DosageUnit
+					,@DosageUnitVn
+					,@Frequency
+					,@FrequencyVn
+					,@Duration
+					,@DurationUnit
+					,@DurationUnitVn
+					,@TotalUnit
+					)
+				-- Get the identity value
+				SET @PrescriptionDetailId = SCOPE_IDENTITY()
+									
+							
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="ePrescriptionDetail_Update" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Updates a record in the ePrescriptionDetail table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@PrescriptionDetailId" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+				<parameter name="@PrescriptionId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@Sq" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault=""/>
+				<parameter name="@DrugId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@DrugName" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
+				<parameter name="@Unit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@UnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
+				<parameter name="@RouteType" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@RouteTypeVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Dosage" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+				<parameter name="@DosageUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@DosageUnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Frequency" type="nvarchar" direction="Input" size="150" precision="0" scale="0" param="(150)" nulldefault=""/>
+				<parameter name="@FrequencyVn" type="nvarchar" direction="Input" size="150" precision="0" scale="0" param="(150)" nulldefault=""/>
+				<parameter name="@Duration" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@DurationUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@DurationUnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@TotalUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				
+				
+				-- Modify the updatable columns
+				UPDATE
+					[dbo].[ePrescriptionDetail]
+				SET
+					[PrescriptionID] = @PrescriptionId
+					,[Sq] = @Sq
+					,[DrugId] = @DrugId
+					,[DrugName] = @DrugName
+					,[Unit] = @Unit
+					,[UnitVN] = @UnitVn
+					,[Remark] = @Remark
+					,[RouteType] = @RouteType
+					,[RouteTypeVN] = @RouteTypeVn
+					,[Dosage] = @Dosage
+					,[DosageUnit] = @DosageUnit
+					,[DosageUnitVN] = @DosageUnitVn
+					,[Frequency] = @Frequency
+					,[FrequencyVN] = @FrequencyVn
+					,[Duration] = @Duration
+					,[DurationUnit] = @DurationUnit
+					,[DurationUnitVN] = @DurationUnitVn
+					,[TotalUnit] = @TotalUnit
+				WHERE
+[PrescriptionDetailId] = @PrescriptionDetailId 
+				
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="ePrescriptionDetail_Delete" grant="">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Deletes a record in the ePrescriptionDetail table
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@PrescriptionDetailId" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				DELETE FROM [dbo].[ePrescriptionDetail] WITH (ROWLOCK) 
+				WHERE
+					[PrescriptionDetailId] = @PrescriptionDetailId
+					
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="ePrescriptionDetail_GetByPrescriptionId" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Select records from the ePrescriptionDetail table through a foreign key
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@PrescriptionId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				SET ANSI_NULLS OFF
+				
+				SELECT
+					[PrescriptionDetailId],
+					[PrescriptionID],
+					[Sq],
+					[DrugId],
+					[DrugName],
+					[Unit],
+					[UnitVN],
+					[Remark],
+					[RouteType],
+					[RouteTypeVN],
+					[Dosage],
+					[DosageUnit],
+					[DosageUnitVN],
+					[Frequency],
+					[FrequencyVN],
+					[Duration],
+					[DurationUnit],
+					[DurationUnitVN],
+					[TotalUnit]
+				FROM
+					[dbo].[ePrescriptionDetail]
+				WHERE
+					[PrescriptionID] = @PrescriptionId
+				
+				SELECT @@ROWCOUNT
+				SET ANSI_NULLS ON
+			]]></body>
+		</procedure>
+		<procedure owner="dbo" name="ePrescriptionDetail_GetByPrescriptionDetailId" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Select records from the ePrescriptionDetail table through an index
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@PrescriptionDetailId" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
+			</parameters>
+			<body><![CDATA[
+				SELECT
+					[PrescriptionDetailId],
+					[PrescriptionID],
+					[Sq],
+					[DrugId],
+					[DrugName],
+					[Unit],
+					[UnitVN],
+					[Remark],
+					[RouteType],
+					[RouteTypeVN],
+					[Dosage],
+					[DosageUnit],
+					[DosageUnitVN],
+					[Frequency],
+					[FrequencyVN],
+					[Duration],
+					[DurationUnit],
+					[DurationUnitVN],
+					[TotalUnit]
+				FROM
+					[dbo].[ePrescriptionDetail]
+				WHERE
+                        
+                            ISNULL([PrescriptionDetailId],0) = ISNULL(@PrescriptionDetailId,0)
+				SELECT @@ROWCOUNT
+					
+			]]></body>
+			
+		</procedure>
+		<procedure owner="dbo" name="ePrescriptionDetail_Find" >
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Finds records in the ePrescriptionDetail table passing nullable parameters
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters>
+				<parameter name="@SearchUsingOR" type="bit" direction="Input" size="0" precision="1" scale="0" param="" nulldefault="null"/>
+				<parameter name="@PrescriptionDetailId" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault="null"/>
+				<parameter name="@PrescriptionId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault="null"/>
+				<parameter name="@Sq" type="int" direction="Input" size="4" precision="10" scale="0" param="" nulldefault="null"/>
+				<parameter name="@DrugId" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault="null"/>
+				<parameter name="@DrugName" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault="null"/>
+				<parameter name="@Unit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@UnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault="null"/>
+				<parameter name="@RouteType" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@RouteTypeVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Dosage" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault="null"/>
+				<parameter name="@DosageUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@DosageUnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Frequency" type="nvarchar" direction="Input" size="150" precision="0" scale="0" param="(150)" nulldefault="null"/>
+				<parameter name="@FrequencyVn" type="nvarchar" direction="Input" size="150" precision="0" scale="0" param="(150)" nulldefault="null"/>
+				<parameter name="@Duration" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@DurationUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@DurationUnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@TotalUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+			</parameters>
+			<body><![CDATA[
+				
+  IF ISNULL(@SearchUsingOR, 0) <> 1
+  BEGIN
+    SELECT
+	  [PrescriptionDetailId]
+	, [PrescriptionID]
+	, [Sq]
+	, [DrugId]
+	, [DrugName]
+	, [Unit]
+	, [UnitVN]
+	, [Remark]
+	, [RouteType]
+	, [RouteTypeVN]
+	, [Dosage]
+	, [DosageUnit]
+	, [DosageUnitVN]
+	, [Frequency]
+	, [FrequencyVN]
+	, [Duration]
+	, [DurationUnit]
+	, [DurationUnitVN]
+	, [TotalUnit]
+    FROM
+	[dbo].[ePrescriptionDetail]
+    WHERE 
+	 ([PrescriptionDetailId] = @PrescriptionDetailId OR @PrescriptionDetailId IS NULL)
+	AND ([PrescriptionID] = @PrescriptionId OR @PrescriptionId IS NULL)
+	AND ([Sq] = @Sq OR @Sq IS NULL)
+	AND ([DrugId] = @DrugId OR @DrugId IS NULL)
+	AND ([DrugName] = @DrugName OR @DrugName IS NULL)
+	AND ([Unit] = @Unit OR @Unit IS NULL)
+	AND ([UnitVN] = @UnitVn OR @UnitVn IS NULL)
+	AND ([Remark] = @Remark OR @Remark IS NULL)
+	AND ([RouteType] = @RouteType OR @RouteType IS NULL)
+	AND ([RouteTypeVN] = @RouteTypeVn OR @RouteTypeVn IS NULL)
+	AND ([Dosage] = @Dosage OR @Dosage IS NULL)
+	AND ([DosageUnit] = @DosageUnit OR @DosageUnit IS NULL)
+	AND ([DosageUnitVN] = @DosageUnitVn OR @DosageUnitVn IS NULL)
+	AND ([Frequency] = @Frequency OR @Frequency IS NULL)
+	AND ([FrequencyVN] = @FrequencyVn OR @FrequencyVn IS NULL)
+	AND ([Duration] = @Duration OR @Duration IS NULL)
+	AND ([DurationUnit] = @DurationUnit OR @DurationUnit IS NULL)
+	AND ([DurationUnitVN] = @DurationUnitVn OR @DurationUnitVn IS NULL)
+	AND ([TotalUnit] = @TotalUnit OR @TotalUnit IS NULL)
+						
+  END
+  ELSE
+  BEGIN
+    SELECT
+	  [PrescriptionDetailId]
+	, [PrescriptionID]
+	, [Sq]
+	, [DrugId]
+	, [DrugName]
+	, [Unit]
+	, [UnitVN]
+	, [Remark]
+	, [RouteType]
+	, [RouteTypeVN]
+	, [Dosage]
+	, [DosageUnit]
+	, [DosageUnitVN]
+	, [Frequency]
+	, [FrequencyVN]
+	, [Duration]
+	, [DurationUnit]
+	, [DurationUnitVN]
+	, [TotalUnit]
+    FROM
+	[dbo].[ePrescriptionDetail]
+    WHERE 
+	 ([PrescriptionDetailId] = @PrescriptionDetailId AND @PrescriptionDetailId is not null)
+	OR ([PrescriptionID] = @PrescriptionId AND @PrescriptionId is not null)
+	OR ([Sq] = @Sq AND @Sq is not null)
+	OR ([DrugId] = @DrugId AND @DrugId is not null)
+	OR ([DrugName] = @DrugName AND @DrugName is not null)
+	OR ([Unit] = @Unit AND @Unit is not null)
+	OR ([UnitVN] = @UnitVn AND @UnitVn is not null)
+	OR ([Remark] = @Remark AND @Remark is not null)
+	OR ([RouteType] = @RouteType AND @RouteType is not null)
+	OR ([RouteTypeVN] = @RouteTypeVn AND @RouteTypeVn is not null)
+	OR ([Dosage] = @Dosage AND @Dosage is not null)
+	OR ([DosageUnit] = @DosageUnit AND @DosageUnit is not null)
+	OR ([DosageUnitVN] = @DosageUnitVn AND @DosageUnitVn is not null)
+	OR ([Frequency] = @Frequency AND @Frequency is not null)
+	OR ([FrequencyVN] = @FrequencyVn AND @FrequencyVn is not null)
+	OR ([Duration] = @Duration AND @Duration is not null)
+	OR ([DurationUnit] = @DurationUnit AND @DurationUnit is not null)
+	OR ([DurationUnitVN] = @DurationUnitVn AND @DurationUnitVn is not null)
+	OR ([TotalUnit] = @TotalUnit AND @TotalUnit is not null)
+	SELECT @@ROWCOUNT			
+  END
+				]]></body>
+		</procedure>
+
+		
+		<procedure owner="dbo" name="ePrescriptionDetail_Find_Dynamic"  skip="true">
+			<comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the ePrescriptionDetail table using a dynamically generated query.
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+			<parameters/>
+			<body><![CDATA[
+				
+				BEGIN
+				
+				WITH PageIndex AS (
+					SELECT TOP {3} row_number() over (order by {1}) AS RowIndex
+					, [PrescriptionDetailId]
+					, [PrescriptionID]
+					, [Sq]
+					, [DrugId]
+					, [DrugName]
+					, [Unit]
+					, [UnitVN]
+					, [Remark]
+					, [RouteType]
+					, [RouteTypeVN]
+					, [Dosage]
+					, [DosageUnit]
+					, [DosageUnitVN]
+					, [Frequency]
+					, [FrequencyVN]
+					, [Duration]
+					, [DurationUnit]
+					, [DurationUnitVN]
+					, [TotalUnit]
+					FROM [dbo].[ePrescriptionDetail] {0}
+				)
+				SELECT
+				       [PrescriptionDetailId],
+				       [PrescriptionID],
+				       [Sq],
+				       [DrugId],
+				       [DrugName],
+				       [Unit],
+				       [UnitVN],
+				       [Remark],
+				       [RouteType],
+				       [RouteTypeVN],
+				       [Dosage],
+				       [DosageUnit],
+				       [DosageUnitVN],
+				       [Frequency],
+				       [FrequencyVN],
+				       [Duration],
+				       [DurationUnit],
+				       [DurationUnitVN],
+				       [TotalUnit]
+				  FROM PageIndex
+				 WHERE RowIndex > {2}
+				   AND RowIndex <= {3}
+				ORDER BY {1};
+				
+
+				-- get total count
+				SELECT COUNT(*) AS TotalRowCount FROM [dbo].[ePrescriptionDetail] {0};
+				
+				END
+			]]></body>
+		</procedure>
+		
+            <procedure owner="dbo" name="VR_ePresDetail_Get_List" >
+                <comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets all records from the VR_ePresDetail view
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+                <parameters/>
+                <body><![CDATA[
+                    
+                    SELECT
+                        [PrescriptionDetailId],
+                        [PrescriptionID],
+                        [Sq],
+                        [DrugId],
+                        [DrugName],
+                        [Unit],
+                        [UnitVN],
+                        [Remark],
+                        [Dosage],
+                        [Frequency],
+                        [VN_meaning],
+                        [Duration],
+                        [TotalUnit],
+                        [Expr1],
+                        [meaning],
+                        [abbre]
+                    FROM
+                        [dbo].[VR_ePresDetail]
+                        
+                    SELECT @@ROWCOUNT			
+                ]]></body>
+            </procedure>
+            
+            <procedure owner="dbo" name="VR_ePresDetail_Get" >
+                <comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the VR_ePresDetail view passing page index and page count parameters
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+                <parameters>
+                    <parameter name="@WhereClause" type="varchar" direction="Input" size="2000" precision="0" scale="0" param="(2000)" />
+                    <parameter name="@OrderBy" type="varchar" direction="Input" size="2000" precision="0" scale="0" param="(2000)"/>			
+                    <parameter name="@PageIndex" type="int" direction="Input" size="0" precision="10" scale="0" />
+                    <parameter name="@PageSize" type="int" direction="Input" size="0" precision="10" scale="0" /> 
+                </parameters>
+                <body><![CDATA[
+                    
+                    BEGIN
+    
+                    DECLARE @PageLowerBound int
+                    DECLARE @PageUpperBound int
+                    
+                    -- Set the page bounds
+                    SET @PageLowerBound = @PageSize * @PageIndex
+                    SET @PageUpperBound = @PageLowerBound + @PageSize
+    
+                    IF (@OrderBy IS NULL OR LEN(@OrderBy) < 1)
+                    BEGIN
+                        -- default order by to first column
+                        SET @OrderBy = '[PrescriptionDetailId]'
+                    END
+    
+                    -- SQL Server 2005 Paging
+                    DECLARE @SQL AS nvarchar(MAX)
+                    SET @SQL = 'WITH PageIndex AS ('
+                    SET @SQL = @SQL + ' SELECT'
+                    IF @PageSize > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' TOP ' + CONVERT(nvarchar, @PageUpperBound)
+                    END
+                    SET @SQL = @SQL + ' ROW_NUMBER() OVER (ORDER BY ' + @OrderBy + ') as RowIndex'
+                    SET @SQL = @SQL + ', [PrescriptionDetailId]'
+                    SET @SQL = @SQL + ', [PrescriptionID]'
+                    SET @SQL = @SQL + ', [Sq]'
+                    SET @SQL = @SQL + ', [DrugId]'
+                    SET @SQL = @SQL + ', [DrugName]'
+                    SET @SQL = @SQL + ', [Unit]'
+                    SET @SQL = @SQL + ', [UnitVN]'
+                    SET @SQL = @SQL + ', [Remark]'
+                    SET @SQL = @SQL + ', [Dosage]'
+                    SET @SQL = @SQL + ', [Frequency]'
+                    SET @SQL = @SQL + ', [VN_meaning]'
+                    SET @SQL = @SQL + ', [Duration]'
+                    SET @SQL = @SQL + ', [TotalUnit]'
+                    SET @SQL = @SQL + ', [Expr1]'
+                    SET @SQL = @SQL + ', [meaning]'
+                    SET @SQL = @SQL + ', [abbre]'
+                    SET @SQL = @SQL + ' FROM [dbo].[VR_ePresDetail]'
+                    IF LEN(@WhereClause) > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' WHERE ' + @WhereClause
+                    END
+                    SET @SQL = @SQL + ' ) SELECT'
+                    SET @SQL = @SQL + ' [PrescriptionDetailId],'
+                    SET @SQL = @SQL + ' [PrescriptionID],'
+                    SET @SQL = @SQL + ' [Sq],'
+                    SET @SQL = @SQL + ' [DrugId],'
+                    SET @SQL = @SQL + ' [DrugName],'
+                    SET @SQL = @SQL + ' [Unit],'
+                    SET @SQL = @SQL + ' [UnitVN],'
+                    SET @SQL = @SQL + ' [Remark],'
+                    SET @SQL = @SQL + ' [Dosage],'
+                    SET @SQL = @SQL + ' [Frequency],'
+                    SET @SQL = @SQL + ' [VN_meaning],'
+                    SET @SQL = @SQL + ' [Duration],'
+                    SET @SQL = @SQL + ' [TotalUnit],'
+                    SET @SQL = @SQL + ' [Expr1],'
+                    SET @SQL = @SQL + ' [meaning],'
+                    SET @SQL = @SQL + ' [abbre]'
+                    SET @SQL = @SQL + ' FROM PageIndex'
+                    SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
+                    IF @PageSize > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' AND RowIndex <= ' + CONVERT(nvarchar, @PageUpperBound)
+                    END
+                    IF LEN(@OrderBy) > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' ORDER BY ' + @OrderBy
+                    END
+                    EXEC sp_executesql @SQL
+    
+                    -- get row count
+                    SET @SQL = 'SELECT COUNT(*) AS TotalRowCount'
+                    SET @SQL = @SQL + ' FROM [dbo].[VR_ePresDetail]'
+                    IF LEN(@WhereClause) > 0
+                    BEGIN
+                        SET @SQL = @SQL + ' WHERE ' + @WhereClause
+                    END
+                    EXEC sp_executesql @SQL
+                    
+                    END
+                ]]></body>
+            </procedure>
+            
+            
+            <procedure owner="dbo" name="VR_ePresDetail_Find_Dynamic"  skip="true">
+                <comment><![CDATA[/*
+----------------------------------------------------------------------------------------------------
+
+-- Created By: RafflesMedical ()
+-- Purpose: Gets records from the VR_ePresDetail table using a dynamically generated query.
+----------------------------------------------------------------------------------------------------
+*/
+]]></comment>
+                <parameters/>
+                <body><![CDATA[
+                    
+                    BEGIN
+                    
+                    WITH PageIndex AS (
+                        SELECT TOP {3} row_number() OVER (ORDER BY {1}) AS RowIndex
+                        , [PrescriptionDetailId]
+                        , [PrescriptionID]
+                        , [Sq]
+                        , [DrugId]
+                        , [DrugName]
+                        , [Unit]
+                        , [UnitVN]
+                        , [Remark]
+                        , [Dosage]
+                        , [Frequency]
+                        , [VN_meaning]
+                        , [Duration]
+                        , [TotalUnit]
+                        , [Expr1]
+                        , [meaning]
+                        , [abbre]
+                        FROM [dbo].[VR_ePresDetail] {0}
+                    )
+                    SELECT
+                        [PrescriptionDetailId],
+                        [PrescriptionID],
+                        [Sq],
+                        [DrugId],
+                        [DrugName],
+                        [Unit],
+                        [UnitVN],
+                        [Remark],
+                        [Dosage],
+                        [Frequency],
+                        [VN_meaning],
+                        [Duration],
+                        [TotalUnit],
+                        [Expr1],
+                        [meaning],
+                        [abbre]
+                    FROM PageIndex
+                    WHERE RowIndex > {2}
+                    AND RowIndex <= {3}
+                    ORDER BY {1};
+                    
+                    -- get total count
+                    SELECT COUNT(*) AS TotalRowCount FROM [dbo].[VR_ePresDetail] {0};
+                    
+                    END
+                ]]></body>
+            </procedure>
+            
+</procedures>
+</root>
