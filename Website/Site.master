@@ -104,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <img alt="logo" src="images/logo.png" style="height: 70px; border: 0;"/>
                         </li>
                         <li class="second logo">
-                            <h1><a href="main-page.html"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Electronic Prescription </a></h1>
+                            <h1><a href="/"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Electronic Prescription </a></h1>
                         </li>
                         <li class="second admin-pic">
                             <ul class="top_dp_agile">
@@ -119,7 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <ul class="dropdown-menu drp-mnu">
                                         <li><a href="#"><i class="fa fa-cog"></i>Settings</a> </li>
                                         <li><a href="#"><i class="fa fa-user"></i>Profile</a> </li>
-                                        <li><a href="#"><i class="fa fa-sign-out"></i>Logout</a> </li>
+                                        <li><asp:LinkButton runat="server" OnClick="btnLogOut_Click" ID="btnLogOut"><i class="fa fa-sign-out"></i>Logout</asp:LinkButton></li>
                                     </ul>
                                 </li>
 
