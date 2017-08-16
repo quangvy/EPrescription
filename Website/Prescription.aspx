@@ -130,6 +130,10 @@
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
             SelectCommand="SELECT abbre as frequency FROM [Frequency] ORDER BY [abbre]">
         </asp:SqlDataSource>
+         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
+            SelectCommand="SELECT route FROM [route] ORDER BY [route]">
+        </asp:SqlDataSource>
+         
     <div class="Favourite">
         Favourite
     </div>
@@ -146,8 +150,8 @@
                         <td>Route</td>
                         <td>Dosage</td>
                         <td>DosUnit</td>
-                        <td>Frequency</td>
-                        <td>Dur.</td>
+                        <td>Freq</td>
+                        <td>Dur</td>
                         <td>DUnit</td>
                         <td>Total</td>
                         <td>Remark</td>
@@ -191,14 +195,17 @@
                             <asp:Label ID="lblUnit" runat="server" Width="50px"
                                 Font-Size="Smaller"></asp:Label></td>
                         <td>
-                            <asp:dropdownlist ID="ddlRoute" runat="server" Width="50px"
-                                Font-Size="Smaller"></asp:dropdownlist></td>
+                            <telerik:RadComboBox ID="rcbRoute" Width="50px" runat="server" DropDownWidth="100"
+                                RenderMode="Lightweight" AllowCustomText="true" DataSourceID="SqlDataSource3" DataTextField="route"
+                                EmptyMessage="Search...">
+                            </telerik:RadComboBox>
+                        </td>
                         <td>
                             <asp:TextBox ID="tbxDosage" runat="server" Width="30px"></asp:TextBox></td>
                         <td><asp:Label ID="lblDosageUnit" runat="server" Width="40px"
                                 Font-Size="Smaller"></asp:Label></td>
                         <td>
-                            <telerik:RadComboBox ID="rcbFreq" Width="70px" runat="server" DropDownWidth="100"
+                            <telerik:RadComboBox ID="rcbFreq" Width="50px" runat="server" DropDownWidth="100"
                                 RenderMode="Lightweight" AllowCustomText="true" DataSourceID="SqlDataSource2" DataTextField="frequency"
                                 EmptyMessage="Search for frequency...">
                             </telerik:RadComboBox>
@@ -207,7 +214,11 @@
                             <asp:TextBox ID="tbxDuration" runat="server" Width="30px"></asp:TextBox></td>
                         <td>
                             <asp:dropdownlist ID="ddlDUnit" runat="server" Width="40px"
-                                Font-Size="Smaller"></asp:dropdownlist></td>
+                                Font-Size="Smaller">
+                                <asp:ListItem >Day(s)</asp:ListItem>
+                                <asp:ListItem >Hour(s)</asp:ListItem>
+                                <asp:ListItem >Week(s)</asp:ListItem>
+                            </asp:dropdownlist></td>
                         <td>
                             <asp:TextBox ID="tbxTotalUnit" runat="server" Width="30px"></asp:TextBox></td>
                         <asp:RegularExpressionValidator ID="NumberOnlyTotal" runat="server" ControlToValidate="tbxTotalUnit" ErrorMessage="Please Enter Only Numbers" ForeColor="Red" ValidationExpression="^\d+$">
@@ -245,11 +256,11 @@
                         <asp:BoundField HeaderText="Sq" DataField="ID" ItemStyle-Width="15px" ControlStyle-Width="15" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
                         <asp:BoundField HeaderText="Drug Name" DataField="Drugname" ItemStyle-Width="300px" ControlStyle-Width="300" ReadOnly="true"></asp:BoundField>
                         <asp:BoundField HeaderText="Drug ID" DataField="DrugID" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center" ReadOnly="true"></asp:BoundField>
-                         <asp:BoundField HeaderText="Type" DataField="RouteType" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
+                         <asp:BoundField HeaderText="Route" DataField="RouteType" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
                         <asp:BoundField HeaderText="Form" DataField="Unit" ItemStyle-Width="60px" ControlStyle-Width="60" ItemStyle-HorizontalAlign="Center" ReadOnly="true"></asp:BoundField>
                         <asp:BoundField HeaderText="Dosage" DataField="Dosage" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" />
-                         <asp:BoundField HeaderText="Dose.Unit" DataField="DosageUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" />
-                        <asp:BoundField HeaderText="Frequency" DataField="Frequency" ItemStyle-Width="85px" ControlStyle-Width="85" ItemStyle-HorizontalAlign="Center" />
+                         <asp:BoundField HeaderText="Dose.Unit" DataField="DosageUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"  ReadOnly="true" />
+                        <asp:BoundField HeaderText="Freq" DataField="Frequency" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center" />
                         <asp:BoundField HeaderText="Dur." DataField="Duration" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
                         <asp:BoundField HeaderText="D_Unit" DataField="DurationUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
                         <asp:BoundField HeaderText="Total" DataField="TotalUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>

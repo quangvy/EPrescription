@@ -95,87 +95,7 @@ public partial class Prescription : System.Web.UI.Page
         }
         
     }
-    //For RCB Diag name//
-    //private const int ItemsPerRequest = 10;
-
-    //[WebMethod]
-    //public static RadComboBoxData GetCompanyNames(RadComboBoxContext context)
-    //{
-    //    DataTable data = GetData(context.Text);
-    //    RadComboBoxData comboData = new RadComboBoxData();
-    //    int itemOffset = context.NumberOfItems;
-    //    int endOffset = Math.Min(itemOffset + ItemsPerRequest, data.Rows.Count);
-    //    comboData.EndOfItems = endOffset == data.Rows.Count;
-    //    List<RadComboBoxItemData> result = new List<RadComboBoxItemData>(endOffset - itemOffset);
-    //    for (int i = itemOffset; i < endOffset; i++)
-    //    {
-    //        RadComboBoxItemData itemData = new RadComboBoxItemData();
-    //        itemData.Text = data.Rows[i]["Diag_name"].ToString();
-    //        itemData.Value = data.Rows[i]["Diag_name"].ToString();
-    //        result.Add(itemData);
-    //    }
-
-    //    comboData.Message = GetStatusMessage(endOffset, data.Rows.Count);
-    //    comboData.Items = result.ToArray();
-    //    return comboData;
-    //}
-
-    //private static string GetStatusMessage(int offset, int total)
-    //{
-    //    if (total <= 0)
-    //        return "No matches";
-
-    //    return String.Format("Items <b>1</b>-<b>{0}</b> out of <b>{1}</b>", offset, total);
-    //}
-
-    //private static DataTable GetData(string text)
-    //{
-    //    SqlDataAdapter adapter = new SqlDataAdapter("SELECT diag_code+'-'+Diag_name as Diag_name from Diag_list WHERE diag_name"+
-    //        " LIKE '%'+ @text + '%' or diag_code LIKE '%'+ @text + '%'",
-    //        ConfigurationManager.ConnectionStrings["CMS"].ConnectionString);
-    //    adapter.SelectCommand.Parameters.AddWithValue("@text", text.Replace("%", "[%]"));
-
-    //    DataTable data = new DataTable();
-    //    adapter.Fill(data);
-
-    //    return data;
-    //}
-    //protected void cbo_DrugID_ItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
-    //{
-    //    string sqlSelectCommand = "SELECT top diag_code, diag_name from diag_listShort where diag_code like '%' + @text +'%' or diag_name like '%' + @text +'%'";
-
-    //    SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
-    //        ConfigurationManager.ConnectionStrings["CMS"].ConnectionString);
-    //    adapter.SelectCommand.Parameters.AddWithValue("@text", e.Text);
-    //    DataTable dataTable = new DataTable();
-    //    adapter.Fill(dataTable);
-    //    foreach (DataRow dataRow in dataTable.Rows)
-    //    {
-    //        RadComboBoxItem item = new RadComboBoxItem();
-    //        item.Text = (string)dataRow["Diag_name"];
-    //        item.Value = (string)dataRow["Diag_name"];
-
-    //        string diag = (string)dataRow["diag_code"] +"-"+ (string)dataRow["diag_name"];
-    //        string diag_code = (string)dataRow["diag_code"];
-
-    //        item.Attributes.Add("diag_name", diag.ToString());
-    //        item.Attributes.Add("diag_code", diag_code.ToString());
-
-    //        RadComboBox1.Items.Add(item);
-    //        item.DataBind();
-    //    }
-    //}
-    //protected void OnClientSelectedIndexChanged(object o, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
-    //{
-    //    string sqlSelectCommand = "SELECT top diag_code, diag_name from diag_listShort where diag_code like '%' + @text +'%' or diag_name like '%' + @text +'%'";
-
-    //    SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
-    //        ConfigurationManager.ConnectionStrings["CMS"].ConnectionString);
-    //    adapter.SelectCommand.Parameters.AddWithValue("@text", e.Text);
-    //    DataTable dataTable = new DataTable();
-    //    adapter.Fill(dataTable);
-    //}
-    // Add medication to Gridview//
+  
     protected void rcbSearchMed_ItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
     {
         string sqlSelectCommand = "SELECT [DrugId],[DrugName],[GenericName],GenericName+' ('+DrugName+')' As GenName,[Quantity] FROM [Vr_DrugForPrescription] WHERE genericname Like'%' + @text +'%' or drugname Like'%' + @text +'%' ORDER BY DrugName";
@@ -219,18 +139,7 @@ public partial class Prescription : System.Web.UI.Page
     {
 
     }
-    
-    protected void rcbFreq_SelectedIndexChanged(object o, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
-    {
-        string sqlSelectCommand = "SELECT [abbre] FROM [Frequency] WHERE abbre Like'%' + @text +'%' or meaning Like'%' + @text +'%' ORDER BY meaning";
-       
-        SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
-            ConfigurationManager.ConnectionStrings["ePrecription"].ConnectionString);
-        adapter.SelectCommand.Parameters.AddWithValue("@text", rcbFreq.Text.ToString());
-        DataTable dataTable = new DataTable();
-        adapter.Fill(dataTable);
-
-    }
+   
     protected void BindGrid()
     {
         var dt = (DataTable)ViewState["Medications"];
@@ -246,7 +155,7 @@ public partial class Prescription : System.Web.UI.Page
     {
         DataTable dt = (DataTable)ViewState["Medications"];
         dt.Rows.Add(1, rcbSearchMed.Text.Trim(), lblDrugID.Text.Trim(),
-        lblUnit.Text.Trim(), ddlRoute.Text.Trim(), tbxDosage.Text.Trim(), lblDosageUnit.Text.Trim(), rcbFreq.Text.Trim(), 
+        lblUnit.Text.Trim(), rcbRoute.Text.Trim(), tbxDosage.Text.Trim(), lblDosageUnit.Text.Trim(), rcbFreq.Text.Trim(), 
         tbxDuration.Text.Trim(), ddlDUnit.Text.Trim(), tbxTotalUnit.Text.ToString(),
             tbxRemark.Text.Trim());
         //ViewState["Customers"] = dt;
@@ -263,16 +172,20 @@ public partial class Prescription : System.Web.UI.Page
     {
         GridViewRow row = (sender as LinkButton).NamingContainer as GridViewRow;
 
-        string dosage = (row.Cells[6].Controls[0] as TextBox).Text;
-        string freq = (row.Cells[7].Controls[0] as TextBox).Text;
-        string dur = (row.Cells[8].Controls[0] as TextBox).Text;
-        string totalunit = (row.Cells[9].Controls[0] as TextBox).Text;
-        string remark = (row.Cells[10].Controls[0] as TextBox).Text;
+        string route = (row.Cells[5].Controls[0] as TextBox).Text;
+        string dosage = (row.Cells[7].Controls[0] as TextBox).Text;
+        string freq = (row.Cells[9].Controls[0] as TextBox).Text;
+        string dur = (row.Cells[10].Controls[0] as TextBox).Text;
+        string Dunit = (row.Cells[11].Controls[0] as TextBox).Text;
+        string totalunit = (row.Cells[12].Controls[0] as TextBox).Text;
+        string remark = (row.Cells[13].Controls[0] as TextBox).Text;
 
         DataTable dt = ViewState["Medications"] as DataTable;
+        dt.Rows[row.RowIndex]["RouteType"] = route;
         dt.Rows[row.RowIndex]["Dosage"] = dosage;
         dt.Rows[row.RowIndex]["Frequency"] = freq;
         dt.Rows[row.RowIndex]["Duration"] = dur;
+        dt.Rows[row.RowIndex]["DurationUnit"] = Dunit;
         dt.Rows[row.RowIndex]["TotalUnit"] = totalunit;
         dt.Rows[row.RowIndex]["Remark"] = remark;
         ViewState["Medications"] = dt;
@@ -380,7 +293,7 @@ public partial class Prescription : System.Web.UI.Page
             for (int i = 0; i < dtMed.Rows.Count; i++)
             {
                 sqlInsertDetail = "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
-                        "Remark,Dosage,Frequency,Duration,TotalUnit)VALUES('"
+                        "Remark,Dosage,Frequency,Duration,RouteType,DurationUnit,TotalUnit)VALUES('"
                         + newPresID + "','"
                         + dtMed.Rows[i]["Sq"].ToString().Trim() + "','"
                         + dtMed.Rows[i]["Drug ID"].ToString().Trim() + "','"
@@ -388,8 +301,10 @@ public partial class Prescription : System.Web.UI.Page
                         + dtMed.Rows[i]["Form"].ToString().Trim() + "','"
                         + dtMed.Rows[i]["Remark"].ToString().Trim() + "','"
                         + dtMed.Rows[i]["Dosage"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Frequency"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Freq"].ToString().Trim() + "','"
                         + dtMed.Rows[i]["Dur."].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Route"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["D_Unit"].ToString().Trim() + "','"
                         + dtMed.Rows[i]["Total"].ToString().Trim() + "')";
                 using (SqlCommand cmd = new SqlCommand(sqlInsertDetail, ePresCon))
                 {
@@ -434,7 +349,7 @@ public partial class Prescription : System.Web.UI.Page
             for (int i = 0; i < dtMed.Rows.Count; i++)
             {
                 sqlInsertDetail = "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
-                        "Remark,Dosage,Frequency,Duration,TotalUnit)VALUES('"
+                        "Remark,Dosage,Frequency,Duration,RouteType,DurationUnit,TotalUnit)VALUES('"
                         + newPresID + "','"
                         + dtMed.Rows[i]["Sq"].ToString().Trim() + "','"
                         + dtMed.Rows[i]["Drug ID"].ToString().Trim() + "','"
@@ -442,8 +357,10 @@ public partial class Prescription : System.Web.UI.Page
                         + dtMed.Rows[i]["Form"].ToString().Trim() + "','"
                         + dtMed.Rows[i]["Remark"].ToString().Trim() + "','"
                         + dtMed.Rows[i]["Dosage"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Frequency"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Freq"].ToString().Trim() + "','"
                         + dtMed.Rows[i]["Dur."].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["Route"].ToString().Trim() + "','"
+                        + dtMed.Rows[i]["D_Unit"].ToString().Trim() + "','"
                         + dtMed.Rows[i]["Total"].ToString().Trim() + "')";
                 using (SqlCommand cmd = new SqlCommand(sqlInsertDetail, ePresCon))
                 {
@@ -454,7 +371,7 @@ public partial class Prescription : System.Web.UI.Page
             }
         }
         //Response.Write("<script language='javascript'> window.open('" + ne + "', 'window','HEIGHT=600,WIDTH=820,top=50,left=50,toolbar=yes,scrollbars=yes,resizable=yes');</script>");
-        //Response.Redirect("Print.aspx?PrescriptionId=" + newPresID);
+        Response.Redirect("Print.aspx?PrescriptionId=" + newPresID);
 
         string url = "Print.aspx?PrescriptionId=" + newPresID;
         string script = String.Format("window.open('{0}','YourWindowName','HEIGHT=600,WIDTH=820,fullscreen=yes,resizable=no,scrollbars=yes,toolbar=yes,menubar=no,status=yes');", url);

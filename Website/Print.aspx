@@ -10,11 +10,10 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:TextBox ID="tbxPresID" runat="server"></asp:TextBox>
-        <asp:Button ID="btnView" runat="server" OnClick="btnView_Click" />
+        <asp:Button ID="btnView"  Text="PRINT" runat="server" OnClick="btnView_Click" />
         <div>
 
-            <rsweb:ReportViewer ID="ReportViewer1" runat="server" Height="399px" Width="1026px" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
+            <rsweb:ReportViewer ID="ReportViewer1" runat="server" Height="470px" Width="632px" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
                 <LocalReport ReportPath="ePres.rdlc">
                     <DataSources>
                         <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DataSet1" />
