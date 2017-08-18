@@ -7,13 +7,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    <style type="text/css">
+        #btnPrint {
+            width: 69px;
+        }
+    </style>
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Button ID="btnView"  Text="PRINT" runat="server" OnClick="btnView_Click" />
         <div>
 
-            <rsweb:ReportViewer ID="ReportViewer1" runat="server" Height="470px" Width="632px" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
+        <asp:Button ID="btnView"  Text="PRINT" runat="server" OnClick="btnView_Click"   />
+            <rsweb:ReportViewer ID="ReportViewer1" runat="server" Height="515px" Width="808px" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
                 <LocalReport ReportPath="ePres.rdlc">
                     <DataSources>
                         <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DataSet1" />

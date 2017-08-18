@@ -15,7 +15,7 @@
                   HighlightTemplatedItems="true"
                   EnableLoadOnDemand="true" 
                   OnItemsRequested="RadComboBoxProduct_ItemsRequested"
-                  onselectedindexchanged="RadComboBox1_SelectedIndexChanged" 
+                  onselectedindexchanged="RadComboBoxProduct_SelectedIndexChanged" 
                   AutoPostBack="True" TabIndex="1">
                     <HeaderTemplate>
                         <table style="width: 500px; border: thin; border-color: black">
@@ -128,7 +128,7 @@
             SelectCommand="SELECT top 100 Diag_code, Diag_code+' - ' + diag_name as diag_name FROM [diag_list] ORDER BY [diag_name]">
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
-            SelectCommand="SELECT abbre as frequency FROM [Frequency] ORDER BY [abbre]">
+            SelectCommand="SELECT abbre, abbre+ ' - ' + meaning as meaning FROM [Frequency] ORDER BY [abbre]">
         </asp:SqlDataSource>
          <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
             SelectCommand="SELECT route FROM [route] ORDER BY [route]">
@@ -197,7 +197,7 @@
                         <td>
                             <telerik:RadComboBox ID="rcbRoute" Width="50px" runat="server" DropDownWidth="100"
                                 RenderMode="Lightweight" AllowCustomText="true" DataSourceID="SqlDataSource3" DataTextField="route"
-                                EmptyMessage="Search...">
+                                EmptyMessage="Oral">
                             </telerik:RadComboBox>
                         </td>
                         <td>
@@ -205,15 +205,16 @@
                         <td><asp:Label ID="lblDosageUnit" runat="server" Width="40px"
                                 Font-Size="Smaller"></asp:Label></td>
                         <td>
-                            <telerik:RadComboBox ID="rcbFreq" Width="50px" runat="server" DropDownWidth="100"
-                                RenderMode="Lightweight" AllowCustomText="true" DataSourceID="SqlDataSource2" DataTextField="frequency"
-                                EmptyMessage="Search for frequency...">
+                            <telerik:RadComboBox ID="rcbFreq" Width="50px" runat="server" DropDownWidth="300"
+                                RenderMode="Lightweight" AllowCustomText="true" DataSourceID="SqlDataSource2" 
+                                DataValueField="abbre" DataTextField="meaning"
+                                EmptyMessage="Frequency...">
                             </telerik:RadComboBox>
                         </td>
                         <td>
                             <asp:TextBox ID="tbxDuration" runat="server" Width="30px"></asp:TextBox></td>
                         <td>
-                            <asp:dropdownlist ID="ddlDUnit" runat="server" Width="40px"
+                            <asp:dropdownlist ID="ddlDUnit" runat="server" Width="40px" Height="21px"
                                 Font-Size="Smaller">
                                 <asp:ListItem >Day(s)</asp:ListItem>
                                 <asp:ListItem >Hour(s)</asp:ListItem>

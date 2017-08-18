@@ -9,32 +9,34 @@ using System.Data.SqlClient;
 using System.Configuration;
 using Telerik.Web.UI;
 using System.Web.Services;
+using ePrescription.Data;
+using ePrescription.Entities;
 
 public partial class Prescription : System.Web.UI.Page
 {
     SqlConnection ePresCon = new SqlConnection(ConfigurationManager.ConnectionStrings["EPrescription"].ConnectionString);
-         
-        protected void Page_Load(object sender, EventArgs e)
+
+    protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
         {
-            ViewState["autogen"] = 1;
+            //ViewState["autogen"] = 1;
             DataTable dt = new DataTable();
             dt.Columns.AddRange(new DataColumn[12]
                 { new DataColumn("ID"), new DataColumn("DrugName"), new DataColumn("DrugID"), new DataColumn("Unit")
                 , new DataColumn("RouteType"), new DataColumn("Dosage"),new DataColumn("DosageUnit"),new DataColumn("Frequency")
                 , new DataColumn("Duration"), new DataColumn("DurationUnit"),new DataColumn("TotalUnit"),new DataColumn("Remark")});
             ViewState["Medications"] = dt;
-            this.BindGrid();
+            //this.BindGrid();
             rcbDiag.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
             rcbFreq.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
         }
     }
-    
+
     protected void RadComboBoxProduct_ItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
     {
         string sqlSelectCommand = "SELECT firstname, lastname,firstname+' '+lastname AS fullname, DateOfBirth, Sex,TransactionId," +
-            "MemberType FROM dbo.PatientActivation WHERE (CONVERT(DATE,CreateDate))=(CONVERT(DATE,getdate()))"+
+            "MemberType FROM dbo.PatientActivation WHERE (CONVERT(DATE,CreateDate))=(CONVERT(DATE,getdate()))" +
             "and Firstname like '%' + @text +'%' or lastname like '%' + @text +'%'";
         SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
         ConfigurationManager.ConnectionStrings["CMS"].ConnectionString);
@@ -60,7 +62,7 @@ public partial class Prescription : System.Web.UI.Page
             item.DataBind();
         }
     }
-    protected void RadComboBox1_SelectedIndexChanged(object o, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
+    protected void RadComboBoxProduct_SelectedIndexChanged(object o, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
         string sqlSelectCommand = "SELECT firstname, lastname,firstname+' '+lastname AS fullname, CONVERT(VARCHAR(9), DateOfBirth, 6) as DateOfBirth, Sex,TransactionId," +
             "MemberType,patientcode,address,age FROM dbo.VR_PatActivation WHERE (CONVERT(DATE,CreateDate))=(CONVERT(DATE,getdate()))" +
@@ -79,7 +81,7 @@ public partial class Prescription : System.Web.UI.Page
             lblAge.Text = dataTable.Rows[0]["Age"].ToString();
             lblCode.Text = dataTable.Rows[0]["patientcode"].ToString();
             lblGender.Text = dataTable.Rows[0]["Sex"].ToString();
-            lblAddress.Text = dataTable.Rows[0]["address"].ToString();  
+            lblAddress.Text = dataTable.Rows[0]["address"].ToString();
             lblTID.Text = dataTable.Rows[0]["TransactionId"].ToString();
         }
         else
@@ -93,9 +95,9 @@ public partial class Prescription : System.Web.UI.Page
             lblAddress.Text = null;
             lblTID.Text = null;
         }
-        
+
     }
-  
+
     protected void rcbSearchMed_ItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
     {
         string sqlSelectCommand = "SELECT [DrugId],[DrugName],[GenericName],GenericName+' ('+DrugName+')' As GenName,[Quantity] FROM [Vr_DrugForPrescription] WHERE genericname Like'%' + @text +'%' or drugname Like'%' + @text +'%' ORDER BY DrugName";
@@ -123,7 +125,7 @@ public partial class Prescription : System.Web.UI.Page
     }
     protected void rcbSearchMed_SelectedIndexChanged(object o, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
-        string sqlSelectCommand = "SELECT [DrugID],[GenericName],[Unit],[IsControlDrug] FROM [Vr_DrugForPrescription] WHERE Genericname+' ('+DrugName+')'=@text ";
+        string sqlSelectCommand = "SELECT [DrugID],[GenericName],[Unit],[IsControlDrug], DosageUnit FROM [Vr_DrugForPrescription] WHERE Genericname+' ('+DrugName+')'=@text ";
         SqlDataAdapter adapter = new SqlDataAdapter(sqlSelectCommand,
             ConfigurationManager.ConnectionStrings["UFPharma"].ConnectionString);
         adapter.SelectCommand.Parameters.AddWithValue("@text", rcbSearchMed.Text.ToString());
@@ -133,13 +135,14 @@ public partial class Prescription : System.Web.UI.Page
         {
             lblDrugID.Text = dataTable.Rows[0]["DrugID"].ToString();
             lblUnit.Text = dataTable.Rows[0]["Unit"].ToString();
+            lblDosageUnit.Text = dataTable.Rows[0]["DosageUnit"].ToString();
         }
     }
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
     }
-   
+
     protected void BindGrid()
     {
         var dt = (DataTable)ViewState["Medications"];
@@ -155,7 +158,7 @@ public partial class Prescription : System.Web.UI.Page
     {
         DataTable dt = (DataTable)ViewState["Medications"];
         dt.Rows.Add(1, rcbSearchMed.Text.Trim(), lblDrugID.Text.Trim(),
-        lblUnit.Text.Trim(), rcbRoute.Text.Trim(), tbxDosage.Text.Trim(), lblDosageUnit.Text.Trim(), rcbFreq.Text.Trim(), 
+        lblUnit.Text.Trim(), rcbRoute.Text.Trim(), tbxDosage.Text.Trim(), lblDosageUnit.Text.Trim(), rcbFreq.SelectedValue,
         tbxDuration.Text.Trim(), ddlDUnit.Text.Trim(), tbxTotalUnit.Text.ToString(),
             tbxRemark.Text.Trim());
         //ViewState["Customers"] = dt;
@@ -219,7 +222,7 @@ public partial class Prescription : System.Web.UI.Page
     {
         Clear();
     }
-    protected void Clear ()
+    protected void Clear()
     {
         lblDrugID.Text = string.Empty;
         rcbSearchMed.Text = string.Empty;
@@ -256,118 +259,96 @@ public partial class Prescription : System.Web.UI.Page
             ConfigurationManager.ConnectionStrings["EPrescription"].ConnectionString);
         DataTable dataTable = new DataTable();
         adapter.Fill(dataTable);
-        string newPresID="";
+        string newPresID = "";
         if (dataTable.Rows.Count > 0)
         {
             string CharID = dataTable.Rows[0]["DateID"].ToString();
             int RunID = Convert.ToInt32(dataTable.Rows[0]["RunID"].ToString()) + 1;
             newPresID = CharID + "HCM" + RunID.ToString().PadLeft(4, '0');
-
-            string firstname = lblFirstName.Text;
-            string lastname = lblLastName.Text;
-            DateTime dob = DateTime.Parse(lblDOB.Text);
-            string age = lblAge.Text;
-            string patientcode = lblCode.Text;
-            string weight = tbxWeight.Text;
-            string gender = lblGender.Text;
-            string address = lblAddress.Text;
-            string tid = lblTID.Text;
-            string diag = rcbDiag.Text;
-            string doctor = "PresDoctor";
-            string remarkgen = "";
-            DateTime deliverydate = DateTime.Now;
-            DateTime createdate = DateTime.Now;
-
-            string sqlInsertMaster = "INSERT INTO dbo.ePrescription (PrescriptionID,TransactionID,PatientCode,FirstName,LastName,DeliveryDate," +
-          "CreateDate,Address,DateOfBirth,Age,Weight,Diagnosis, PrescribingDoctor,Sex,Remark,IsComplete) VALUES ('" + newPresID + "','" + tid + "','" +
-          patientcode + "','" + firstname + "','" + lastname + "','" + deliverydate + "','" + createdate + "','" + address + "','" + dob + "','" + age + "','" + weight + "','"
-          + diag + "','" + doctor + "','" + gender + "','" + remarkgen + "',1)";
-            using (SqlCommand command = new SqlCommand(sqlInsertMaster, ePresCon))
-            {
-                ePresCon.Open();
-                command.ExecuteNonQuery();
-                ePresCon.Close();
-            }
-
-            string sqlInsertDetail = "";
-            for (int i = 0; i < dtMed.Rows.Count; i++)
-            {
-                sqlInsertDetail = "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
-                        "Remark,Dosage,Frequency,Duration,RouteType,DurationUnit,TotalUnit)VALUES('"
-                        + newPresID + "','"
-                        + dtMed.Rows[i]["Sq"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Drug ID"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Drug Name"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Form"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Remark"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Dosage"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Freq"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Dur."].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Route"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["D_Unit"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Total"].ToString().Trim() + "')";
-                using (SqlCommand cmd = new SqlCommand(sqlInsertDetail, ePresCon))
-                {
-                    ePresCon.Open();
-                    cmd.ExecuteNonQuery();
-                    ePresCon.Close();
-                }
-            }
         }
-        if (dataTable.Rows.Count == 0)
+        else
         {
             string CharID = DateTime.Now.ToString("ddMMMyy");
             int RunID = 1;
             newPresID = CharID + "HCM" + RunID.ToString().PadLeft(4, '0');
-            string firstname = lblFirstName.Text;
-            string lastname = lblLastName.Text;
-            DateTime dob = DateTime.Parse(lblDOB.Text);
-            string age = lblAge.Text;
-            string patientcode = lblCode.Text;
-            string weight = tbxWeight.Text;
-            string gender = lblGender.Text;
-            string address = lblAddress.Text;
-            string tid = lblTID.Text;
-            string diag = rcbDiag.Text;
-            string doctor = "PresDoctor";
-            string remarkgen = "";
-            DateTime deliverydate = DateTime.Now;
-            DateTime createdate = DateTime.Now;
+        }
+        string firstname = lblFirstName.Text;
+        string lastname = lblLastName.Text;
+        DateTime dob = DateTime.Parse(lblDOB.Text);
+        string age = lblAge.Text;
+        string patientcode = lblCode.Text;
+        string weight = tbxWeight.Text;
+        string gender = lblGender.Text;
+        string address = lblAddress.Text;
+        string tid = lblTID.Text;
+        string diag = rcbDiag.Text;
+        string remarkgen = "";
+        DateTime deliverydate = DateTime.Now;
+        DateTime createdate = DateTime.Now;
 
-            string sqlInsertMaster = "INSERT INTO dbo.ePrescription (PrescriptionID,TransactionID,PatientCode,FirstName,LastName,DeliveryDate," +
-          "CreateDate,Address,DateOfBirth,Age,Weight,Diagnosis, PrescribingDoctor,Sex,Remark,IsComplete) VALUES ('" + newPresID + "','" + tid + "','" +
-          patientcode + "','" + firstname + "','" + lastname + "','" + deliverydate + "','" + createdate + "','" + address + "','" + dob + "','" + age + "','" + weight + "','"
-          + diag + "','" + doctor + "','" + gender + "','" + remarkgen + "',1)";
-            using (SqlCommand command = new SqlCommand(sqlInsertMaster, ePresCon))
+        var loggedInDoctor = HttpContext.Current.User.Identity.Name;
+
+        string sqlInsertMaster = "INSERT INTO dbo.ePrescription (PrescriptionID,TransactionID,PatientCode,FirstName,LastName,DeliveryDate," +
+      "CreateDate,Address,DateOfBirth,Age,Weight,Diagnosis, PrescribingDoctor,Sex,Remark,IsComplete) VALUES ('" + newPresID + "','" + tid + "','" +
+      patientcode + "','" + firstname + "','" + lastname + "','" + deliverydate + "','" + createdate + "','" + address + "','" + dob + "','" + age + "','" + weight + "','"
+      + diag + "','" + loggedInDoctor + "','" + gender + "','" + remarkgen + "',1)";
+        using (SqlCommand command = new SqlCommand(sqlInsertMaster, ePresCon))
+        {
+            ePresCon.Open();
+            command.ExecuteNonQuery();
+            ePresCon.Close();
+        }
+
+        string sqlInsertDetail = "";
+        for (int i = 0; i < dtMed.Rows.Count; i++)
+        {
+            int count = 0;
+            var unitList = DataRepository.VrUnitTableProvider.GetPaged("Unit = '"+ dtMed.Rows[i]["Form"].ToString().Trim()+"'","",0,1,out count);
+            VrUnitTable unitItem= new VrUnitTable();
+            if (count==1)
             {
-                ePresCon.Open();
-                command.ExecuteNonQuery();
-                ePresCon.Close();
+                unitItem = unitList[0];
             }
 
-            string sqlInsertDetail = "";
-            for (int i = 0; i < dtMed.Rows.Count; i++)
+            var freList = DataRepository.FrequencyProvider.GetPaged("abbre = '" + dtMed.Rows[i]["Freq"].ToString().Trim() + "'", "", 0, 1, out count);
+            Frequency frequencyItem = new Frequency();
+            if (count == 1)
             {
-                sqlInsertDetail = "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
-                        "Remark,Dosage,Frequency,Duration,RouteType,DurationUnit,TotalUnit)VALUES('"
-                        + newPresID + "','"
-                        + dtMed.Rows[i]["Sq"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Drug ID"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Drug Name"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Form"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Remark"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Dosage"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Freq"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Dur."].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Route"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["D_Unit"].ToString().Trim() + "','"
-                        + dtMed.Rows[i]["Total"].ToString().Trim() + "')";
-                using (SqlCommand cmd = new SqlCommand(sqlInsertDetail, ePresCon))
-                {
-                    ePresCon.Open();
-                    cmd.ExecuteNonQuery();
-                    ePresCon.Close();
-                }
+                frequencyItem = freList[0];
+            }
+
+            string hardCode = dtMed.Rows[i]["D_Unit"].ToString().Trim();
+            switch (hardCode)
+            {
+                case "Day(s)": hardCode = "Ngày";break;
+                case "Week(s)": hardCode = "Tuần";break;
+                case "Hour(s)": hardCode = "Giờ";break;
+            }
+
+            sqlInsertDetail = "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
+                    "Remark,Dosage,Frequency,Duration,RouteType,DurationUnit,UnitVN,DosageUnit,DosageUnitVN,FrequencyVN,DurationUnitVN,TotalUnit)VALUES('"
+                    + newPresID + "','"
+                    + dtMed.Rows[i]["Sq"].ToString().Trim() + "','"
+                    + dtMed.Rows[i]["Drug ID"].ToString().Trim() + "','"
+                    + dtMed.Rows[i]["Drug Name"].ToString().Trim() + "','"
+                    + dtMed.Rows[i]["Form"].ToString().Trim() + "','"
+                    + dtMed.Rows[i]["Remark"].ToString().Trim() + "','"
+                    + dtMed.Rows[i]["Dosage"].ToString().Trim() + "',N'"
+                    + frequencyItem.Meaning + "','"
+                    + dtMed.Rows[i]["Dur."].ToString().Trim() + "','"
+                    + dtMed.Rows[i]["Route"].ToString().Trim() + "','"
+                    + dtMed.Rows[i]["D_Unit"].ToString().Trim() + "',N'"
+                    + unitItem.UnitVn + "',N'"
+                    + unitItem.DosageUnit + "',N'"
+                    + unitItem.DosageUnitVn + "',N'"
+                    + frequencyItem.VnMeaning + "','"
+                    + hardCode + "','"
+                    + dtMed.Rows[i]["Total"].ToString().Trim() + "')";
+            using (SqlCommand cmd = new SqlCommand(sqlInsertDetail, ePresCon))
+            {
+                ePresCon.Open();
+                cmd.ExecuteNonQuery();
+                ePresCon.Close();
             }
         }
         //Response.Write("<script language='javascript'> window.open('" + ne + "', 'window','HEIGHT=600,WIDTH=820,top=50,left=50,toolbar=yes,scrollbars=yes,resizable=yes');</script>");

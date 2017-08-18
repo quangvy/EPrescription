@@ -35,7 +35,7 @@ public partial class LoginPage : System.Web.UI.Page
             FormsAuthentication.RedirectFromLoginPage(txtName.Value,
             true);
         else
-            Response.Redirect("Default.aspx", true);
+            Response.Redirect("Login.aspx", true);
 
     }
 }
