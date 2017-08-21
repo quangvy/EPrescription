@@ -11,8 +11,7 @@ using Telerik.Web.UI;
 using System.Web.Services;
 using ePrescription.Data;
 using ePrescription.Entities;
-
-public partial class Prescription : System.Web.UI.Page
+public partial class CloneEprescription : System.Web.UI.Page
 {
     SqlConnection ePresCon = new SqlConnection(ConfigurationManager.ConnectionStrings["EPrescription"].ConnectionString);
 
@@ -296,22 +295,22 @@ public partial class Prescription : System.Web.UI.Page
             diagVN = diagList[0];
         }
 
-        string sqlInsertMaster = "INSERT INTO dbo.ePrescription (PrescriptionID,TransactionID,PatientCode,FirstName,"+
-                "LastName,DeliveryDate,CreateDate,Address,DateOfBirth,Age,Weight,Diagnosis, PrescribingDoctor,Sex,"+
+        string sqlInsertMaster = "INSERT INTO dbo.ePrescription (PrescriptionID,TransactionID,PatientCode,FirstName," +
+                "LastName,DeliveryDate,CreateDate,Address,DateOfBirth,Age,Weight,Diagnosis, PrescribingDoctor,Sex," +
                 "DiagnosisVN,Remark,IsComplete) VALUES ('"
-                + newPresID + "','" 
-                + tid + "','" 
-                + patientcode  + "','" 
-                + firstname + "','" 
-                + lastname + "','" 
-                + deliverydate + "','" 
-                + createdate + "','" 
-                + address + "','" 
-                + dob + "','" 
-                + age + "','" 
-                + weight + "','"     
-                + diag + "','" 
-                + loggedInDoctor + "','" 
+                + newPresID + "','"
+                + tid + "','"
+                + patientcode + "','"
+                + firstname + "','"
+                + lastname + "','"
+                + deliverydate + "','"
+                + createdate + "','"
+                + address + "','"
+                + dob + "','"
+                + age + "','"
+                + weight + "','"
+                + diag + "','"
+                + loggedInDoctor + "','"
                 + gender + "','"
                 + diagVN + "','"
                 + remarkgen + "',1)";
@@ -384,3 +383,4 @@ public partial class Prescription : System.Web.UI.Page
 
 
 }
+

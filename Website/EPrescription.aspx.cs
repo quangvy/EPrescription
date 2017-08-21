@@ -27,7 +27,20 @@ public partial class EPrescriptionPage : System.Web.UI.Page
 		string urlParams = string.Format("PrescriptionId={0}", GridView1.SelectedDataKey.Values[0]);
 		Response.Redirect("EPrescriptionEdit.aspx?" + urlParams, true);
 	}
-	
+    protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
+    {
+        if (e.CommandName == "Reprint")
+        {
+            
+            GridViewRow grvRow = (GridViewRow)((Button)e.CommandSource).NamingContainer;
+            var presID = e.CommandArgument.ToString();
+            Response.Redirect("Print.aspx?PrescriptionId=" + presID, true );
+            string url = "Print.aspx?PrescriptionId=" + presID;
+            string script = String.Format("window.open('{0}','YourWindowName','HEIGHT=600,WIDTH=820,fullscreen=yes,resizable=no,scrollbars=yes,toolbar=yes,menubar=no,status=yes');", url);
+            ClientScript.RegisterStartupScript(this.GetType(), "OPEN_WINDOW", script, true);
+        }
+    }
+
 }
 
 
