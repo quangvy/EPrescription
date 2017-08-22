@@ -34,7 +34,6 @@ public partial class EPrescriptionPage : System.Web.UI.Page
             
             GridViewRow grvRow = (GridViewRow)((Button)e.CommandSource).NamingContainer;
             var presID = e.CommandArgument.ToString();
-            Response.Redirect("Print.aspx?PrescriptionId=" + presID, true );
             string url = "Print.aspx?PrescriptionId=" + presID;
             string script = String.Format("window.open('{0}','YourWindowName','HEIGHT=600,WIDTH=820,fullscreen=yes,resizable=no,scrollbars=yes,toolbar=yes,menubar=no,status=yes');", url);
             ClientScript.RegisterStartupScript(this.GetType(), "OPEN_WINDOW", script, true);
