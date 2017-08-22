@@ -7561,6 +7561,12 @@
             </summary>
             <value>The RouteVn.</value>
         </member>
+        <member name="P:ePrescription.Web.UI.RouteItem.Description">
+            <summary>
+            Gets the Description
+            </summary>
+            <value>The Description.</value>
+        </member>
         <member name="P:ePrescription.Web.UI.RouteItem.Entity">
             <summary>
             Gets a <see cref="T:ePrescription.Entities.Route"></see> object
