@@ -93,8 +93,8 @@ namespace ePrescription.Entities
 		///<param name="_avatar"></param>
 		///<param name="_mobilePhone"></param>
 		public UsersBase(System.String _userName, System.String _password, System.String _userRole, 
-			System.String _fullName, System.String _email, System.String _displayName, System.Byte[] _signature, System.String _location, 
-			System.Boolean _isDisabled, System.Byte[] _avatar, System.String _mobilePhone)
+			System.String _fullName, System.String _email, System.String _displayName, System.String _signature, System.String _location, 
+			System.Boolean _isDisabled, System.String _avatar, System.String _mobilePhone)
 		{
 			this.entityData = new UsersEntityData();
 			this.backupData = null;
@@ -127,8 +127,8 @@ namespace ePrescription.Entities
 		///<param name="_avatar"></param>
 		///<param name="_mobilePhone"></param>
 		public static Users CreateUsers(System.String _userName, System.String _password, System.String _userRole, 
-			System.String _fullName, System.String _email, System.String _displayName, System.Byte[] _signature, System.String _location, 
-			System.Boolean _isDisabled, System.Byte[] _avatar, System.String _mobilePhone)
+			System.String _fullName, System.String _email, System.String _displayName, System.String _signature, System.String _location, 
+			System.Boolean _isDisabled, System.String _avatar, System.String _mobilePhone)
 		{
 			Users newUsers = new Users();
 			newUsers.UserName = _userName;
@@ -402,7 +402,7 @@ namespace ePrescription.Entities
 		/// 	Gets or sets the Signature property. 
 		///		
 		/// </summary>
-		/// <value>This type is varbinary.</value>
+		/// <value>This type is nvarchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
@@ -413,8 +413,8 @@ namespace ePrescription.Entities
 
 
 		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, true)]
-		public virtual System.Byte[] Signature
+		[DataObjectField(false, false, true, 250)]
+		public virtual System.String Signature
 		{
 			get
 			{
@@ -516,7 +516,7 @@ namespace ePrescription.Entities
 		/// 	Gets or sets the Avatar property. 
 		///		
 		/// </summary>
-		/// <value>This type is varbinary.</value>
+		/// <value>This type is nvarchar.</value>
 		/// <remarks>
 		/// This property can be set to null. 
 		/// </remarks>
@@ -527,8 +527,8 @@ namespace ePrescription.Entities
 
 
 		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, true)]
-		public virtual System.Byte[] Avatar
+		[DataObjectField(false, false, true, 250)]
+		public virtual System.String Avatar
 		{
 			get
 			{
@@ -632,7 +632,11 @@ namespace ePrescription.Entities
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("DisplayName", "Display Name", 50));
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("Signature", "Signature", 250));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("Location", "Location", 10));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("Avatar", "Avatar", 250));
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("MobilePhone", "Mobile Phone", 20));
 		}
@@ -1230,6 +1234,10 @@ namespace ePrescription.Entities
             		
             		                 
             	
+            	
+            	case UsersColumn.Signature:
+            		return this.Signature.CompareTo(rhs.Signature);
+            		
             		                 
             	
             	
@@ -1244,6 +1252,10 @@ namespace ePrescription.Entities
             		
             		                 
             	
+            	
+            	case UsersColumn.Avatar:
+            		return this.Avatar.CompareTo(rhs.Avatar);
+            		
             		                 
             	
             	
@@ -1463,7 +1475,7 @@ namespace ePrescription.Entities
 		/// <summary>
 		/// Signature : 
 		/// </summary>
-		public System.Byte[] Signature = null;
+		public System.String Signature = null;
 		
 		/// <summary>
 		/// Location : 
@@ -1478,7 +1490,7 @@ namespace ePrescription.Entities
 		/// <summary>
 		/// Avatar : 
 		/// </summary>
-		public System.Byte[] Avatar = null;
+		public System.String Avatar = null;
 		
 		/// <summary>
 		/// MobilePhone : 
@@ -1958,7 +1970,7 @@ namespace ePrescription.Entities
 		/// Signature : 
 		/// </summary>
 		[EnumTextValue("Signature")]
-		[ColumnEnum("Signature", typeof(System.Byte[]), System.Data.DbType.Binary, false, false, true)]
+		[ColumnEnum("Signature", typeof(System.String), System.Data.DbType.String, false, false, true, 250)]
 		Signature = 7,
 		/// <summary>
 		/// Location : 
@@ -1976,7 +1988,7 @@ namespace ePrescription.Entities
 		/// Avatar : 
 		/// </summary>
 		[EnumTextValue("Avatar")]
-		[ColumnEnum("Avatar", typeof(System.Byte[]), System.Data.DbType.Binary, false, false, true)]
+		[ColumnEnum("Avatar", typeof(System.String), System.Data.DbType.String, false, false, true, 250)]
 		Avatar = 10,
 		/// <summary>
 		/// MobilePhone : 

@@ -390,7 +390,7 @@ namespace ePrescription.Web.UI
         /// </summary>
         /// <value>The Signature.</value>
 		[System.ComponentModel.Bindable(true)]
-		public System.Byte[] Signature
+		public System.String Signature
 		{
 			get { return _entity.Signature; }
 		}
@@ -417,7 +417,7 @@ namespace ePrescription.Web.UI
         /// </summary>
         /// <value>The Avatar.</value>
 		[System.ComponentModel.Bindable(true)]
-		public System.Byte[] Avatar
+		public System.String Avatar
 		{
 			get { return _entity.Avatar; }
 		}

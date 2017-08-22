@@ -31,6 +31,11 @@ public partial class Prescription : System.Web.UI.Page
             rcbDiag.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
             rcbFreq.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
             rcbRoute.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
+
+            var favoriteList = DataRepository.FavoritMasterProvider.GetAll();
+            grvFavorite.DataSource = favoriteList;
+            grvFavorite.DataBind();
+
         }
     }
 
@@ -383,4 +388,15 @@ public partial class Prescription : System.Web.UI.Page
     }
 
 
+
+    protected void grvFavorite_RowDataBound(object sender, GridViewRowEventArgs e)
+    {
+        if (e.Row.RowType == DataControlRowType.DataRow)
+        {
+            GridView grvDetails = (GridView)e.Row.FindControl("grvDetails");
+            string id = grvFavorite.DataKeys[e.Row.RowIndex].Value.ToString();
+            grvDetails.DataSource = DataRepository.FavoritDetailProvider.GetByFavouriteId(id);
+            grvDetails.DataBind();
+        }
+    }
 }

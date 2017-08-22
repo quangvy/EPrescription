@@ -222,6 +222,7 @@ namespace ePrescription.Data.Bases
 					c.RouteId = (System.Int64)reader[((int)RouteColumn.RouteId - 1)];
 					c.Route = (reader.IsDBNull(((int)RouteColumn.Route - 1)))?null:(System.String)reader[((int)RouteColumn.Route - 1)];
 					c.RouteVn = (reader.IsDBNull(((int)RouteColumn.RouteVn - 1)))?null:(System.String)reader[((int)RouteColumn.RouteVn - 1)];
+					c.Description = (reader.IsDBNull(((int)RouteColumn.Description - 1)))?null:(System.String)reader[((int)RouteColumn.Description - 1)];
 					c.EntityTrackingKey = key;
 					c.AcceptChanges();
 					c.SuppressEntityEvents = false;
@@ -242,6 +243,7 @@ namespace ePrescription.Data.Bases
 			entity.RouteId = (System.Int64)reader[((int)RouteColumn.RouteId - 1)];
 			entity.Route = (reader.IsDBNull(((int)RouteColumn.Route - 1)))?null:(System.String)reader[((int)RouteColumn.Route - 1)];
 			entity.RouteVn = (reader.IsDBNull(((int)RouteColumn.RouteVn - 1)))?null:(System.String)reader[((int)RouteColumn.RouteVn - 1)];
+			entity.Description = (reader.IsDBNull(((int)RouteColumn.Description - 1)))?null:(System.String)reader[((int)RouteColumn.Description - 1)];
 			entity.AcceptChanges();
 		}
 		
@@ -257,6 +259,7 @@ namespace ePrescription.Data.Bases
 			entity.RouteId = (System.Int64)dataRow["RouteId"];
 			entity.Route = Convert.IsDBNull(dataRow["Route"]) ? null : (System.String)dataRow["Route"];
 			entity.RouteVn = Convert.IsDBNull(dataRow["RouteVN"]) ? null : (System.String)dataRow["RouteVN"];
+			entity.Description = Convert.IsDBNull(dataRow["Description"]) ? null : (System.String)dataRow["Description"];
 			entity.AcceptChanges();
 		}
 		#endregion 

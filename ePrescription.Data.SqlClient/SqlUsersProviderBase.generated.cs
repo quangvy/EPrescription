@@ -182,10 +182,10 @@ namespace ePrescription.Data.SqlClient
 		database.AddInParameter(commandWrapper, "@FullName", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Email", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@DisplayName", DbType.String, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@Signature", DbType.Binary, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Signature", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Location", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@IsDisabled", DbType.Boolean, DBNull.Value);
-		database.AddInParameter(commandWrapper, "@Avatar", DbType.Binary, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Avatar", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@MobilePhone", DbType.String, DBNull.Value);
 	
 			// replace all instances of 'AND' and 'OR' because we already set searchUsingOR
@@ -664,13 +664,13 @@ namespace ePrescription.Data.SqlClient
 			col4.AllowDBNull = false;		
 			DataColumn col5 = dataTable.Columns.Add("DisplayName", typeof(System.String));
 			col5.AllowDBNull = false;		
-			DataColumn col6 = dataTable.Columns.Add("Signature", typeof(System.Byte[]));
+			DataColumn col6 = dataTable.Columns.Add("Signature", typeof(System.String));
 			col6.AllowDBNull = true;		
 			DataColumn col7 = dataTable.Columns.Add("Location", typeof(System.String));
 			col7.AllowDBNull = true;		
 			DataColumn col8 = dataTable.Columns.Add("IsDisabled", typeof(System.Boolean));
 			col8.AllowDBNull = false;		
-			DataColumn col9 = dataTable.Columns.Add("Avatar", typeof(System.Byte[]));
+			DataColumn col9 = dataTable.Columns.Add("Avatar", typeof(System.String));
 			col9.AllowDBNull = true;		
 			DataColumn col10 = dataTable.Columns.Add("MobilePhone", typeof(System.String));
 			col10.AllowDBNull = true;		
@@ -767,10 +767,10 @@ namespace ePrescription.Data.SqlClient
             database.AddInParameter(commandWrapper, "@FullName", DbType.String, entity.FullName );
             database.AddInParameter(commandWrapper, "@Email", DbType.String, entity.Email );
             database.AddInParameter(commandWrapper, "@DisplayName", DbType.String, entity.DisplayName );
-            database.AddInParameter(commandWrapper, "@Signature", DbType.Binary, entity.Signature );
+            database.AddInParameter(commandWrapper, "@Signature", DbType.String, entity.Signature );
             database.AddInParameter(commandWrapper, "@Location", DbType.String, entity.Location );
             database.AddInParameter(commandWrapper, "@IsDisabled", DbType.Boolean, entity.IsDisabled );
-            database.AddInParameter(commandWrapper, "@Avatar", DbType.Binary, entity.Avatar );
+            database.AddInParameter(commandWrapper, "@Avatar", DbType.String, entity.Avatar );
             database.AddInParameter(commandWrapper, "@MobilePhone", DbType.String, entity.MobilePhone );
 			
 			int results = 0;
@@ -826,10 +826,10 @@ namespace ePrescription.Data.SqlClient
             database.AddInParameter(commandWrapper, "@FullName", DbType.String, entity.FullName );
             database.AddInParameter(commandWrapper, "@Email", DbType.String, entity.Email );
             database.AddInParameter(commandWrapper, "@DisplayName", DbType.String, entity.DisplayName );
-            database.AddInParameter(commandWrapper, "@Signature", DbType.Binary, entity.Signature );
+            database.AddInParameter(commandWrapper, "@Signature", DbType.String, entity.Signature );
             database.AddInParameter(commandWrapper, "@Location", DbType.String, entity.Location );
             database.AddInParameter(commandWrapper, "@IsDisabled", DbType.Boolean, entity.IsDisabled );
-            database.AddInParameter(commandWrapper, "@Avatar", DbType.Binary, entity.Avatar );
+            database.AddInParameter(commandWrapper, "@Avatar", DbType.String, entity.Avatar );
             database.AddInParameter(commandWrapper, "@MobilePhone", DbType.String, entity.MobilePhone );
 			
 			int results = 0;

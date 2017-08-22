@@ -19,7 +19,8 @@
 				SELECT
 					[RouteId],
 					[Route],
-					[RouteVN]
+					[RouteVN],
+					[Description]
 				FROM
 					[dbo].[Route]
 					
@@ -71,6 +72,7 @@
 				SET @SQL = @SQL + ', [RouteId]'
 				SET @SQL = @SQL + ', [Route]'
 				SET @SQL = @SQL + ', [RouteVN]'
+				SET @SQL = @SQL + ', [Description]'
 				SET @SQL = @SQL + ' FROM [dbo].[Route]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
@@ -79,7 +81,8 @@
 				SET @SQL = @SQL + ' ) SELECT'
 				SET @SQL = @SQL + ' [RouteId],'
 				SET @SQL = @SQL + ' [Route],'
-				SET @SQL = @SQL + ' [RouteVN]'
+				SET @SQL = @SQL + ' [RouteVN],'
+				SET @SQL = @SQL + ' [Description]'
 				SET @SQL = @SQL + ' FROM PageIndex'
 				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
 				IF @PageSize > 0
@@ -115,6 +118,7 @@
 				<parameter name="@RouteId" type="bigint" direction="Output" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@Route" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@RouteVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Description" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
 				
@@ -122,11 +126,13 @@
 					(
 					[Route]
 					,[RouteVN]
+					,[Description]
 					)
 				VALUES
 					(
 					@Route
 					,@RouteVn
+					,@Description
 					)
 				-- Get the identity value
 				SET @RouteId = SCOPE_IDENTITY()
@@ -147,6 +153,7 @@
 				<parameter name="@RouteId" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault=""/>
 				<parameter name="@Route" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@RouteVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Description" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
 				
@@ -157,6 +164,7 @@
 				SET
 					[Route] = @Route
 					,[RouteVN] = @RouteVn
+					,[Description] = @Description
 				WHERE
 [RouteId] = @RouteId 
 				
@@ -197,7 +205,8 @@
 				SELECT
 					[RouteId],
 					[Route],
-					[RouteVN]
+					[RouteVN],
+					[Description]
 				FROM
 					[dbo].[Route]
 				WHERE
@@ -222,6 +231,7 @@
 				<parameter name="@RouteId" type="bigint" direction="Input" size="8" precision="19" scale="0" param="" nulldefault="null"/>
 				<parameter name="@Route" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@RouteVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Description" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault="null"/>
 			</parameters>
 			<body><![CDATA[
 				
@@ -231,12 +241,14 @@
 	  [RouteId]
 	, [Route]
 	, [RouteVN]
+	, [Description]
     FROM
 	[dbo].[Route]
     WHERE 
 	 ([RouteId] = @RouteId OR @RouteId IS NULL)
 	AND ([Route] = @Route OR @Route IS NULL)
 	AND ([RouteVN] = @RouteVn OR @RouteVn IS NULL)
+	AND ([Description] = @Description OR @Description IS NULL)
 						
   END
   ELSE
@@ -245,12 +257,14 @@
 	  [RouteId]
 	, [Route]
 	, [RouteVN]
+	, [Description]
     FROM
 	[dbo].[Route]
     WHERE 
 	 ([RouteId] = @RouteId AND @RouteId is not null)
 	OR ([Route] = @Route AND @Route is not null)
 	OR ([RouteVN] = @RouteVn AND @RouteVn is not null)
+	OR ([Description] = @Description AND @Description is not null)
 	SELECT @@ROWCOUNT			
   END
 				]]></body>
@@ -276,12 +290,14 @@
 					, [RouteId]
 					, [Route]
 					, [RouteVN]
+					, [Description]
 					FROM [dbo].[Route] {0}
 				)
 				SELECT
 				       [RouteId],
 				       [Route],
-				       [RouteVN]
+				       [RouteVN],
+				       [Description]
 				  FROM PageIndex
 				 WHERE RowIndex > {2}
 				   AND RowIndex <= {3}
@@ -2746,10 +2762,10 @@
 				<parameter name="@FullName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Email" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@DisplayName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@Signature" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
+				<parameter name="@Signature" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
 				<parameter name="@Location" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
 				<parameter name="@IsDisabled" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault=""/>
-				<parameter name="@Avatar" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
+				<parameter name="@Avatar" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
 				<parameter name="@MobilePhone" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
@@ -2803,10 +2819,10 @@
 				<parameter name="@FullName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@Email" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@DisplayName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
-				<parameter name="@Signature" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
+				<parameter name="@Signature" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
 				<parameter name="@Location" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
 				<parameter name="@IsDisabled" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault=""/>
-				<parameter name="@Avatar" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault=""/>
+				<parameter name="@Avatar" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
 				<parameter name="@MobilePhone" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
@@ -2903,10 +2919,10 @@
 				<parameter name="@FullName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@Email" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@DisplayName" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
-				<parameter name="@Signature" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault="null"/>
+				<parameter name="@Signature" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault="null"/>
 				<parameter name="@Location" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault="null"/>
 				<parameter name="@IsDisabled" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault="null"/>
-				<parameter name="@Avatar" type="varbinary" direction="Input" size="-1" precision="0" scale="0" param="(MAX)" nulldefault="null"/>
+				<parameter name="@Avatar" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault="null"/>
 				<parameter name="@MobilePhone" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault="null"/>
 			</parameters>
 			<body><![CDATA[
@@ -2934,8 +2950,10 @@
 	AND ([FullName] = @FullName OR @FullName IS NULL)
 	AND ([Email] = @Email OR @Email IS NULL)
 	AND ([DisplayName] = @DisplayName OR @DisplayName IS NULL)
+	AND ([Signature] = @Signature OR @Signature IS NULL)
 	AND ([Location] = @Location OR @Location IS NULL)
 	AND ([IsDisabled] = @IsDisabled OR @IsDisabled IS NULL)
+	AND ([Avatar] = @Avatar OR @Avatar IS NULL)
 	AND ([MobilePhone] = @MobilePhone OR @MobilePhone IS NULL)
 						
   END
@@ -2962,8 +2980,10 @@
 	OR ([FullName] = @FullName AND @FullName is not null)
 	OR ([Email] = @Email AND @Email is not null)
 	OR ([DisplayName] = @DisplayName AND @DisplayName is not null)
+	OR ([Signature] = @Signature AND @Signature is not null)
 	OR ([Location] = @Location AND @Location is not null)
 	OR ([IsDisabled] = @IsDisabled AND @IsDisabled is not null)
+	OR ([Avatar] = @Avatar AND @Avatar is not null)
 	OR ([MobilePhone] = @MobilePhone AND @MobilePhone is not null)
 	SELECT @@ROWCOUNT			
   END

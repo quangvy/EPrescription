@@ -83,13 +83,15 @@ namespace ePrescription.Entities
 		///</summary>
 		///<param name="_route"></param>
 		///<param name="_routeVn"></param>
-		public RouteBase(System.String _route, System.String _routeVn)
+		///<param name="_description"></param>
+		public RouteBase(System.String _route, System.String _routeVn, System.String _description)
 		{
 			this.entityData = new RouteEntityData();
 			this.backupData = null;
 
 			this.Route = _route;
 			this.RouteVn = _routeVn;
+			this.Description = _description;
 		}
 		
 		///<summary>
@@ -97,11 +99,13 @@ namespace ePrescription.Entities
 		///</summary>
 		///<param name="_route"></param>
 		///<param name="_routeVn"></param>
-		public static Route CreateRoute(System.String _route, System.String _routeVn)
+		///<param name="_description"></param>
+		public static Route CreateRoute(System.String _route, System.String _routeVn, System.String _description)
 		{
 			Route newRoute = new Route();
 			newRoute.Route = _route;
 			newRoute.RouteVn = _routeVn;
+			newRoute.Description = _description;
 			return newRoute;
 		}
 				
@@ -225,6 +229,44 @@ namespace ePrescription.Entities
 			}
 		}
 		
+		/// <summary>
+		/// 	Gets or sets the Description property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true, 500)]
+		public virtual System.String Description
+		{
+			get
+			{
+				return this.entityData.Description; 
+			}
+			
+			set
+			{
+				if (this.entityData.Description == value)
+					return;
+				
+                OnPropertyChanging("Description");                    
+				OnColumnChanging(RouteColumn.Description, this.entityData.Description);
+				this.entityData.Description = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(RouteColumn.Description, this.entityData.Description);
+				OnPropertyChanged("Description");
+			}
+		}
+		
 		#endregion Data Properties		
 
 		#region Source Foreign Key Property
@@ -248,6 +290,8 @@ namespace ePrescription.Entities
 				new CommonRules.MaxLengthRuleArgs("Route", "Route", 50));
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("RouteVn", "Route Vn", 50));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("Description", "Description", 500));
 		}
    		#endregion
 		
@@ -269,7 +313,7 @@ namespace ePrescription.Entities
 		{
 			get
 			{
-				return new string[] {"RouteId", "Route", "RouteVN"};
+				return new string[] {"RouteId", "Route", "RouteVN", "Description"};
 			}
 		}
 		#endregion 
@@ -420,6 +464,7 @@ namespace ePrescription.Entities
 				copy.RouteId = this.RouteId;
 				copy.Route = this.Route;
 				copy.RouteVn = this.RouteVn;
+				copy.Description = this.Description;
 			
 		
 			copy.EntityState = this.EntityState;
@@ -558,6 +603,8 @@ namespace ePrescription.Entities
 					return entityData.Route != _originalData.Route;
 					case RouteColumn.RouteVn:
 					return entityData.RouteVn != _originalData.RouteVn;
+					case RouteColumn.Description:
+					return entityData.Description != _originalData.Description;
 			
 				default:
 					return false;
@@ -588,6 +635,7 @@ namespace ePrescription.Entities
 			result = result || entityData.RouteId != _originalData.RouteId;
 			result = result || entityData.Route != _originalData.Route;
 			result = result || entityData.RouteVn != _originalData.RouteVn;
+			result = result || entityData.Description != _originalData.Description;
 			return result;
 		}	
 		
@@ -599,7 +647,8 @@ namespace ePrescription.Entities
 			if (_originalData != null)
 				return CreateRoute(
 				_originalData.Route,
-				_originalData.RouteVn
+				_originalData.RouteVn,
+				_originalData.Description
 				);
 				
 			return (Route)this.Clone();
@@ -631,7 +680,8 @@ namespace ePrescription.Entities
         {
 			return this.RouteId.GetHashCode() ^ 
 					((this.Route == null) ? string.Empty : this.Route.ToString()).GetHashCode() ^ 
-					((this.RouteVn == null) ? string.Empty : this.RouteVn.ToString()).GetHashCode();
+					((this.RouteVn == null) ? string.Empty : this.RouteVn.ToString()).GetHashCode() ^ 
+					((this.Description == null) ? string.Empty : this.Description.ToString()).GetHashCode();
         }
 		
 		///<summary>
@@ -681,6 +731,15 @@ namespace ePrescription.Entities
 					equal = false;
 			}
 			else if (Object1.RouteVn == null ^ Object2.RouteVn == null )
+			{
+				equal = false;
+			}
+			if ( Object1.Description != null && Object2.Description != null )
+			{
+				if (Object1.Description != Object2.Description)
+					equal = false;
+			}
+			else if (Object1.Description == null ^ Object2.Description == null )
 			{
 				equal = false;
 			}
@@ -742,6 +801,12 @@ namespace ePrescription.Entities
             	
             	case RouteColumn.RouteVn:
             		return this.RouteVn.CompareTo(rhs.RouteVn);
+            		
+            		                 
+            	
+            	
+            	case RouteColumn.Description:
+            		return this.Description.CompareTo(rhs.Description);
             		
             		                 
             }
@@ -878,10 +943,11 @@ namespace ePrescription.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{4}{3}- RouteId: {0}{3}- Route: {1}{3}- RouteVn: {2}{3}{5}", 
+				"{5}{4}- RouteId: {0}{4}- Route: {1}{4}- RouteVn: {2}{4}- Description: {3}{4}{6}", 
 				this.RouteId,
 				(this.Route == null) ? string.Empty : this.Route.ToString(),
 				(this.RouteVn == null) ? string.Empty : this.RouteVn.ToString(),
+				(this.Description == null) ? string.Empty : this.Description.ToString(),
 				System.Environment.NewLine, 
 				this.GetType(),
 				this.Error.Length == 0 ? string.Empty : string.Format("- Error: {0}\n",this.Error));
@@ -924,6 +990,11 @@ namespace ePrescription.Entities
 		/// RouteVN : 
 		/// </summary>
 		public System.String RouteVn = null;
+		
+		/// <summary>
+		/// Description : 
+		/// </summary>
+		public System.String Description = null;
 		#endregion
 			
 		#region Source Foreign Key Property
@@ -949,6 +1020,7 @@ namespace ePrescription.Entities
 			
 			_tmp.Route = this.Route;
 			_tmp.RouteVn = this.RouteVn;
+			_tmp.Description = this.Description;
 			
 			#region Source Parent Composite Entities
 			#endregion
@@ -977,6 +1049,7 @@ namespace ePrescription.Entities
 			
 			_tmp.Route = this.Route;
 			_tmp.RouteVn = this.RouteVn;
+			_tmp.Description = this.Description;
 			
 			#region Source Parent Composite Entities
 			#endregion
@@ -1357,7 +1430,13 @@ namespace ePrescription.Entities
 		/// </summary>
 		[EnumTextValue("Route Vn")]
 		[ColumnEnum("RouteVN", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
-		RouteVn = 3
+		RouteVn = 3,
+		/// <summary>
+		/// Description : 
+		/// </summary>
+		[EnumTextValue("Description")]
+		[ColumnEnum("Description", typeof(System.String), System.Data.DbType.String, false, false, true, 500)]
+		Description = 4
 	}//End enum
 
 	#endregion RouteColumn Enum

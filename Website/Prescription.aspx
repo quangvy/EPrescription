@@ -1,22 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Prescription.aspx.cs" Inherits="Prescription" %>
+
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
 
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="css/ePress.css" rel="stylesheet" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
     <div id="PageE">
         <div class="inputE">
             <div class="colLabel">Patient</div>
             <div class="colValue">
-                <telerik:RadComboBox ID="RadComboBox1" Width="160" Height="400"  runat="server" DropDownWidth="500"     EmptyMessage="Please choose a patient" 
-                  HighlightTemplatedItems="true"
-                  EnableLoadOnDemand="true" 
-                  OnItemsRequested="RadComboBoxProduct_ItemsRequested"
-                  onselectedindexchanged="RadComboBoxProduct_SelectedIndexChanged" 
-                  AutoPostBack="True" TabIndex="1">
+                <telerik:RadComboBox ID="RadComboBox1" Width="160" Height="400" runat="server" DropDownWidth="500" EmptyMessage="Please choose a patient"
+                    HighlightTemplatedItems="true"
+                    EnableLoadOnDemand="true"
+                    OnItemsRequested="RadComboBoxProduct_ItemsRequested"
+                    OnSelectedIndexChanged="RadComboBoxProduct_SelectedIndexChanged"
+                    AutoPostBack="True" TabIndex="1">
                     <HeaderTemplate>
                         <table style="width: 500px; border: thin; border-color: black">
                             <tr>
@@ -51,97 +52,94 @@
                 </asp:Label>
             </div>
             <div class="clear"></div>
-          </div>
+        </div>
 
         <div class="PatInfo">
-        <div class="title-info">
-            First Name
-        </div>
-        <div class="content-info" id="divFirstname" style="margin-right: 35px;">
-            &nbsp;
-            <asp:label ID="lblFirstName" runat="server"></asp:label>
-        </div>
-        <div class="title-info">
-            Last Name
-        </div>
-        <div class="content-info" id="divLastname">
-            &nbsp;
-            <asp:label ID="lblLastName" runat="server"></asp:label>
-        </div>
-        <div class="clear">
-        </div>
-        <div class="title-info">
-            DOB
-        </div>
-        <div class="content-info" id="divDOB" style="margin-right: 35px;">
-            &nbsp;
-            <asp:label ID="lblDOB" runat="server"></asp:label>
-        </div>
-        <div class="title-info">
-            Age
-        </div>
-        <div class="content-info" id="divAge">
-            &nbsp;
-            <asp:label ID="lblAge" runat="server"></asp:label>
-        </div>
-        <div class="clear">
-        </div>
-        <div class="title-info">
-            Code
-        </div>
-        <div class="content-info" id="divCode" style="margin-right: 35px;">
-            &nbsp;
-            <asp:label ID="lblCode" runat="server"></asp:label>
-        </div>
-        <div class="title-info">
-            Gender
-        </div>
-        <div class="content-info" id="divGender">
-            &nbsp;
-            <asp:label ID="lblGender" runat="server"></asp:label>
-        </div>
-        <div class="clear">
-        </div>
-          <div class="title-info">
-            Address
-        </div>
-        <div class="content-infoAdd" id="divAdd">
-            &nbsp;
-            <asp:label ID="lblAddress" runat="server"></asp:label>
-        </div>
-        <div class="clear">
-        </div>
-        <div class="title-info">
-            Diagnosis
-        </div>
-        <div class="content-infoDiag" id="divDiag">
-            &nbsp; 
+            <div class="title-info">
+                First Name
+            </div>
+            <div class="content-info" id="divFirstname" style="margin-right: 35px;">
+                &nbsp;
+            <asp:Label ID="lblFirstName" runat="server"></asp:Label>
+            </div>
+            <div class="title-info">
+                Last Name
+            </div>
+            <div class="content-info" id="divLastname">
+                &nbsp;
+            <asp:Label ID="lblLastName" runat="server"></asp:Label>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="title-info">
+                DOB
+            </div>
+            <div class="content-info" id="divDOB" style="margin-right: 35px;">
+                &nbsp;
+            <asp:Label ID="lblDOB" runat="server"></asp:Label>
+            </div>
+            <div class="title-info">
+                Age
+            </div>
+            <div class="content-info" id="divAge">
+                &nbsp;
+            <asp:Label ID="lblAge" runat="server"></asp:Label>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="title-info">
+                Code
+            </div>
+            <div class="content-info" id="divCode" style="margin-right: 35px;">
+                &nbsp;
+            <asp:Label ID="lblCode" runat="server"></asp:Label>
+            </div>
+            <div class="title-info">
+                Gender
+            </div>
+            <div class="content-info" id="divGender">
+                &nbsp;
+            <asp:Label ID="lblGender" runat="server"></asp:Label>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="title-info">
+                Address
+            </div>
+            <div class="content-infoAdd" id="divAdd">
+                &nbsp;
+            <asp:Label ID="lblAddress" runat="server"></asp:Label>
+            </div>
+            <div class="clear">
+            </div>
+            <div class="title-info">
+                Diagnosis
+            </div>
+            <div class="content-infoDiag" id="divDiag">
+                &nbsp; 
             <telerik:RadComboBox RenderMode="Lightweight" ID="rcbDiag" AllowCustomText="true" runat="server" Width="450" Height="400px"
                 DataSourceID="SqlDataSource1" DataTextField="diag_name" EmptyMessage="Search for diagnosis..."
                 DataValueField="diag_name" EnableAutomaticLoadOnDemand="True" ItemsPerRequest="15"
                 ShowMoreResultsBox="true" EnableVirtualScrolling="true">
-            </telerik:RadComboBox>        
-  
+            </telerik:RadComboBox>
+
+            </div>
+            <div class="clear">
+            </div>
         </div>
-        <div class="clear">
-        </div>
-    </div>
         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CMS %>"
-            SelectCommand="SELECT diag_name FROM [diag_list] ORDER BY [diag_name]">
-        </asp:SqlDataSource>
+            SelectCommand="SELECT diag_name FROM [diag_list] ORDER BY [diag_name]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
-            SelectCommand="SELECT abbre, abbre+ ' - ' + meaning as meaning FROM [Frequency] ORDER BY [abbre]">
-        </asp:SqlDataSource>
-         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
-            SelectCommand="SELECT route FROM [route] ORDER BY [route]">
-        </asp:SqlDataSource>
-         
-    <div class="Favourite">
-        Favourite
+            SelectCommand="SELECT abbre, abbre+ ' - ' + meaning as meaning FROM [Frequency] ORDER BY [abbre]"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
+            SelectCommand="SELECT route FROM [route] ORDER BY [route]"></asp:SqlDataSource>
+
+        <div class="Favourite">
+            Favourite
+        </div>
     </div>
-    </div>    
-    
-    <div id="Med" >
+
+    <div id="Med">
         <div class="AddMed">
             <div class="Add">
                 <table style="width: 600px;">
@@ -204,11 +202,12 @@
                         </td>
                         <td>
                             <asp:TextBox ID="tbxDosage" runat="server" Width="30px"></asp:TextBox></td>
-                        <td><asp:Label ID="lblDosageUnit" runat="server" Width="40px"
+                        <td>
+                            <asp:Label ID="lblDosageUnit" runat="server" Width="40px"
                                 Font-Size="Smaller"></asp:Label></td>
                         <td>
                             <telerik:RadComboBox ID="rcbFreq" Width="50px" runat="server" DropDownWidth="300"
-                                RenderMode="Lightweight" AllowCustomText="true" DataSourceID="SqlDataSource2" 
+                                RenderMode="Lightweight" AllowCustomText="true" DataSourceID="SqlDataSource2"
                                 DataValueField="abbre" DataTextField="meaning"
                                 EmptyMessage="Frequency...">
                             </telerik:RadComboBox>
@@ -216,12 +215,12 @@
                         <td>
                             <asp:TextBox ID="tbxDuration" runat="server" Width="30px"></asp:TextBox></td>
                         <td>
-                            <asp:dropdownlist ID="ddlDUnit" runat="server" Width="40px" Height="21px"
+                            <asp:DropDownList ID="ddlDUnit" runat="server" Width="40px" Height="21px"
                                 Font-Size="Smaller">
-                                <asp:ListItem >Day(s)</asp:ListItem>
-                                <asp:ListItem >Hour(s)</asp:ListItem>
-                                <asp:ListItem >Week(s)</asp:ListItem>
-                            </asp:dropdownlist></td>
+                                <asp:ListItem>Day(s)</asp:ListItem>
+                                <asp:ListItem>Hour(s)</asp:ListItem>
+                                <asp:ListItem>Week(s)</asp:ListItem>
+                            </asp:DropDownList></td>
                         <td>
                             <asp:TextBox ID="tbxTotalUnit" runat="server" Width="30px"></asp:TextBox></td>
                         <asp:RegularExpressionValidator ID="NumberOnlyTotal" runat="server" ControlToValidate="tbxTotalUnit" ErrorMessage="Please Enter Only Numbers" ForeColor="Red" ValidationExpression="^\d+$">
@@ -259,10 +258,10 @@
                         <asp:BoundField HeaderText="Sq" DataField="ID" ItemStyle-Width="15px" ControlStyle-Width="15" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
                         <asp:BoundField HeaderText="Drug Name" DataField="Drugname" ItemStyle-Width="300px" ControlStyle-Width="300" ReadOnly="true"></asp:BoundField>
                         <asp:BoundField HeaderText="Drug ID" DataField="DrugID" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center" ReadOnly="true"></asp:BoundField>
-                         <asp:BoundField HeaderText="Route" DataField="RouteType" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
+                        <asp:BoundField HeaderText="Route" DataField="RouteType" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
                         <asp:BoundField HeaderText="Form" DataField="Unit" ItemStyle-Width="60px" ControlStyle-Width="60" ItemStyle-HorizontalAlign="Center" ReadOnly="true"></asp:BoundField>
                         <asp:BoundField HeaderText="Dosage" DataField="Dosage" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" />
-                         <asp:BoundField HeaderText="Dose.Unit" DataField="DosageUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"  ReadOnly="true" />
+                        <asp:BoundField HeaderText="Dose.Unit" DataField="DosageUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" ReadOnly="true" />
                         <asp:BoundField HeaderText="Freq" DataField="Frequency" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center" />
                         <asp:BoundField HeaderText="Dur." DataField="Duration" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
                         <asp:BoundField HeaderText="D_Unit" DataField="DurationUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
@@ -277,12 +276,28 @@
                 </asp:GridView>
             </div>
             <div class="SavePres">
-                <asp:Button ID="btnSave" runat="server" Width="100%" height="30px" Text="SAVE PRESCRIPTION" OnClick="btnSave_OnClick" />
+                <asp:Button ID="btnSave" runat="server" Width="100%" Height="30px" Text="SAVE PRESCRIPTION" OnClick="btnSave_OnClick" />
             </div>
         </div>
 
         <div class="LoadPres">
-        <asp:Label ID="lblPresID" runat="server" Width="70px" Text="lbl"></asp:Label>
+           
+            <asp:GridView ID="grvFavorite" runat="server" AutoGenerateColumns="false" DataKeyNames="FavouriteID" OnRowDataBound="grvFavorite_RowDataBound">
+                <Columns>
+                    <asp:BoundField DataField="DiceaseName" HeaderText="Favorite Name" />
+                    <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" />
+                    <asp:TemplateField>
+                        <ItemTemplate>
+                            <asp:GridView ID="grvDetails" runat="server" AutoGenerateColumns="false">
+                                <Columns>
+                                    <asp:BoundField DataField="DrugName" HeaderText="Drug Name" />
+                                    <asp:BoundField DataField="Frequency" HeaderText="Frequency" />
+                                </Columns>
+                            </asp:GridView>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </asp:GridView>
         </div>
 
     </div>
