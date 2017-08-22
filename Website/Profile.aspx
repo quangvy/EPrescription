@@ -9,6 +9,22 @@
             </td>
         </tr>
         <tr>
+            <td>Full name</td>
+            <td> <asp:TextBox runat="server" ID="txtFullName"/></td>
+        </tr>
+        <tr>
+            <td>Display name</td>
+            <td> <asp:TextBox runat="server" ID="txtDisplayName"/></td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td> <asp:TextBox runat="server" ID="txtEmail"/></td>
+        </tr>
+        <tr>
+            <td>Mobile phone number</td>
+            <td> <asp:TextBox runat="server" ID="txtMobilePhone"/></td>
+        </tr>
+        <tr>
             <td>Password</td>
             <td>
                 <asp:TextBox runat="server" ID="txtPassword" TextMode="Password"></asp:TextBox></td>
@@ -25,23 +41,20 @@
             </td>
             <td>
                 <asp:Image ID="imgAvatar" runat="server" />
-                <asp:FileUpload runat="server" ID="fulAvatar" />
+                <asp:FileUpload runat="server" ID="fulAvatar" accept="image/*" />
             </td>
         </tr>
         <tr>
             <td>Signature</td>
             <td>
                 <asp:Image ID="imgSignature" runat="server" />
-                <asp:FileUpload runat="server" ID="fulSignature" /></td>
-        </tr>
-        <tr>
-            <td></td>
-            <td></td>
+                <asp:FileUpload runat="server" ID="fulSignature" accept="image/*" /></td>
         </tr>
         <tr>
             <td></td>
             <td>
-                <asp:LinkButton runat="server" ID="btnSubmit" Text="Update" CausesValidation="True" /></td>
+                <asp:LinkButton runat="server" ID="btnSubmit" Text="Update" CausesValidation="True" OnClick="btnSubmit_OnClick" />
+                <asp:LinkButton runat="server" ID="btnCancel" Text="Cancel" CausesValidation="False" /></td>
         </tr>
     </table>
 

@@ -84,7 +84,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
                                         <div class="profile_img">
                                             <span class="prfil-img">
-                                                <img src="images/admin.jpg" alt="">
+                                                <asp:Image runat="server" ID="imgAvatar" alt=""/>
                                             </span>
                                         </div>
                                     </a>
