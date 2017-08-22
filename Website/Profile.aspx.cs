@@ -17,10 +17,7 @@ public partial class ProfilePage : System.Web.UI.Page
 {
 	protected void Page_Load(object sender, EventArgs e)
 	{		
-		FormUtil.RedirectAfterInsertUpdate(FormView1, "UsersEdit.aspx?{0}", UsersDataSource);
-		FormUtil.RedirectAfterAddNew(FormView1, "UsersEdit.aspx");
-		FormUtil.RedirectAfterCancel(FormView1, "Users.aspx");
-		FormUtil.SetDefaultMode(FormView1, "UserName");
+		
 	}
 }
 
