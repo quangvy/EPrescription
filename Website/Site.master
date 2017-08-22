@@ -44,13 +44,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <nav class="gn-menu-wrapper">
                                 <div class="gn-scroller scrollbar1" tabindex="5000" style="overflow: hidden; outline: none;">
                                     <ul class="gn-menu agile_menu_drop">
-    <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
-        <ItemTemplate>
-            <li>
-                    <a href='<%#Eval("url") %>'>><i class="fa fa-tachometer"></i><%#Eval("Title") %></a>
-                </li>
-        </ItemTemplate>
-    </asp:Repeater>
+                                        <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SiteMapDataSource1">
+                                            <ItemTemplate>
+                                                <li>
+                                                    <a href='<%#Eval("url") %>'>><i class="fa fa-tachometer"></i><%#Eval("Title") %></a>
+                                                </li>
+                                            </ItemTemplate>
+                                        </asp:Repeater>
                                         <%--<li><a href="main-page.html"><i class="fa fa-tachometer"></i>Dashboard</a></li>
                                         <li>
                                             <a href="#"><i class="fa fa-cogs" aria-hidden="true"></i>UI Components <i class="fa fa-angle-down" aria-hidden="true"></i></a>
@@ -59,7 +59,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                 <li class="mini_list_w3"><a href="grids.html"><i class="fa fa-caret-right" aria-hidden="true"></i>Grids</a></li>
                                             </ul>
                                         </li>--%>
-<asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server"/>
+                                        <asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" />
                                     </ul>
                                 </div>
                                 <!-- /gn-scroller -->
@@ -72,8 +72,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </nav>
                         </li>
                         <!-- //nav_agile_w3l -->
-                        <li class="header logo" style="border: 0;padding: 0 20px;margin-top: -5px;">
-                            <img alt="logo" src="images/logo.png" style="height: 70px; border: 0;"/>
+                        <li class="header logo" style="border: 0; padding: 0 20px; margin-top: -5px;">
+                            <img alt="logo" src="images/logo.png" style="height: 70px; border: 0;" />
                         </li>
                         <li class="second logo">
                             <h1><a href="/"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Electronic Prescription </a></h1>
@@ -91,7 +91,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <ul class="dropdown-menu drp-mnu">
                                         <li><a href="#"><i class="fa fa-cog"></i>Settings</a> </li>
                                         <li><a href="#"><i class="fa fa-user"></i>Profile</a> </li>
-                                        <li><asp:LinkButton runat="server" OnClick="btnLogOut_Click" ID="btnLogOut"><i class="fa fa-sign-out"></i>Logout</asp:LinkButton></li>
+                                        <li>
+                                            <asp:LinkButton runat="server" OnClick="btnLogOut_Click" ID="btnLogOut"><i class="fa fa-sign-out"></i>Logout</asp:LinkButton></li>
                                     </ul>
                                 </li>
 
@@ -118,7 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- banner -->
             <!--copy rights start here-->
             <div class="copyrights">
-               <%-- <p>© 2017 Esteem. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>--%>
+                <%-- <p>© 2017 Esteem. All Rights Reserved | Design by  <a href="http://w3layouts.com/" target="_blank">W3layouts</a> </p>--%>
             </div>
             <!--copy rights end here-->
             <!-- js -->

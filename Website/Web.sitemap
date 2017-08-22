@@ -1,7 +1,4 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" >
-    <siteMapNode url="EPrescription" title="EPrescription"  description="">
-        <siteMapNode url="" title=""  description="" />
-        <siteMapNode url="" title=""  description="" />
-    </siteMapNode>
+    <siteMapNode url="EPrescription.aspx" title="EPrescription"  description=""/>
 </siteMap>
