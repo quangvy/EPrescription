@@ -1,7 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="Prescription.aspx.cs" Inherits="Prescription" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"  CodeFile="CloneEprescription.aspx.cs" Inherits="CloneEprescription" Title="Clone Eprescription" %>
 <%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
-
-
+<%--<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">E Prescription - Add/Edit</asp:Content>--%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
     <link href="css/ePress.css" rel="stylesheet" />
 </asp:Content>
@@ -117,17 +116,15 @@
         <div class="content-infoDiag" id="divDiag">
             &nbsp; 
             <telerik:RadComboBox RenderMode="Lightweight" ID="rcbDiag" AllowCustomText="true" runat="server" Width="450" Height="400px"
-                DataSourceID="SqlDataSource1" DataTextField="diag_name" EmptyMessage="Search for diagnosis..."
-                DataValueField="diag_name" EnableAutomaticLoadOnDemand="True" ItemsPerRequest="15"
-                ShowMoreResultsBox="true" EnableVirtualScrolling="true">
+                DataSourceID="SqlDataSource1" DataTextField="diag_name" EmptyMessage="Search for diagnosis...">
             </telerik:RadComboBox>        
   
         </div>
         <div class="clear">
         </div>
     </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CMS %>"
-            SelectCommand="SELECT diag_name FROM [diag_list] ORDER BY [diag_name]">
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
+            SelectCommand="SELECT Diag_code, diag_name FROM [diaglist] ORDER BY [diag_name]">
         </asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
             SelectCommand="SELECT abbre, abbre+ ' - ' + meaning as meaning FROM [Frequency] ORDER BY [abbre]">
@@ -287,4 +284,3 @@
 
     </div>
 </asp:Content>
-
