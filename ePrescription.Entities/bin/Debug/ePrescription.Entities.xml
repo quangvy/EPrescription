@@ -5671,19 +5671,21 @@
              Creates a new <see cref="T:ePrescription.Entities.RouteBase"/> instance.
             </summary>
         </member>
-        <member name="M:ePrescription.Entities.RouteBase.#ctor(System.String,System.String)">
+        <member name="M:ePrescription.Entities.RouteBase.#ctor(System.String,System.String,System.String)">
             <summary>
              Creates a new <see cref="T:ePrescription.Entities.RouteBase"/> instance.
             </summary>
             <param name="_route"></param>
             <param name="_routeVn"></param>
+            <param name="_description"></param>
         </member>
-        <member name="M:ePrescription.Entities.RouteBase.CreateRoute(System.String,System.String)">
+        <member name="M:ePrescription.Entities.RouteBase.CreateRoute(System.String,System.String,System.String)">
             <summary>
              A simple factory method to create a new <see cref="P:ePrescription.Entities.RouteBase.Route"/> instance.
             </summary>
             <param name="_route"></param>
             <param name="_routeVn"></param>
+            <param name="_description"></param>
         </member>
         <member name="P:ePrescription.Entities.RouteBase.RouteId">
             <summary>
@@ -5708,6 +5710,16 @@
         <member name="P:ePrescription.Entities.RouteBase.RouteVn">
             <summary>
             	Gets or sets the RouteVn property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.RouteBase.Description">
+            <summary>
+            	Gets or sets the Description property. 
             	
             </summary>
             <value>This type is nvarchar.</value>
@@ -5955,6 +5967,11 @@
             RouteVN : 
             </summary>
         </member>
+        <member name="F:ePrescription.Entities.RouteBase.RouteEntityData.Description">
+            <summary>
+            Description : 
+            </summary>
+        </member>
         <member name="M:ePrescription.Entities.RouteBase.RouteEntityData.Clone">
             <summary>
             Creates a new object that is a copy of the current instance.
@@ -6150,6 +6167,11 @@
             RouteVn : 
             </summary>
         </member>
+        <member name="F:ePrescription.Entities.RouteColumn.Description">
+            <summary>
+            Description : 
+            </summary>
+        </member>
         <member name="T:ePrescription.Entities.IRoute">
             <summary>
             	The data structure representation of the 'Route' table via interface.
@@ -6172,6 +6194,11 @@
         <member name="P:ePrescription.Entities.IRoute.RouteVn">
             <summary>
             RouteVN : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IRoute.Description">
+            <summary>
+            Description : 
             </summary>
         </member>
         <member name="M:ePrescription.Entities.IRoute.Clone">
@@ -6829,7 +6856,7 @@
              Creates a new <see cref="T:ePrescription.Entities.UsersBase"/> instance.
             </summary>
         </member>
-        <member name="M:ePrescription.Entities.UsersBase.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.Byte[],System.String,System.Boolean,System.Byte[],System.String)">
+        <member name="M:ePrescription.Entities.UsersBase.#ctor(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String)">
             <summary>
              Creates a new <see cref="T:ePrescription.Entities.UsersBase"/> instance.
             </summary>
@@ -6845,7 +6872,7 @@
             <param name="_avatar"></param>
             <param name="_mobilePhone"></param>
         </member>
-        <member name="M:ePrescription.Entities.UsersBase.CreateUsers(System.String,System.String,System.String,System.String,System.String,System.String,System.Byte[],System.String,System.Boolean,System.Byte[],System.String)">
+        <member name="M:ePrescription.Entities.UsersBase.CreateUsers(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean,System.String,System.String)">
             <summary>
              A simple factory method to create a new <see cref="T:ePrescription.Entities.Users"/> instance.
             </summary>
@@ -6940,7 +6967,7 @@
             	Gets or sets the Signature property. 
             	
             </summary>
-            <value>This type is varbinary.</value>
+            <value>This type is nvarchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
@@ -6970,7 +6997,7 @@
             	Gets or sets the Avatar property. 
             	
             </summary>
-            <value>This type is varbinary.</value>
+            <value>This type is nvarchar.</value>
             <remarks>
             This property can be set to null. 
             </remarks>
