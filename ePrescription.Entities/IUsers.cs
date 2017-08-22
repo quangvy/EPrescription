@@ -52,7 +52,7 @@ namespace ePrescription.Entities
 		/// <summary>
 		/// Signature : 
 		/// </summary>
-		System.Byte[]  Signature  { get; set; }
+		System.String  Signature  { get; set; }
 		
 		/// <summary>
 		/// Location : 
@@ -67,7 +67,7 @@ namespace ePrescription.Entities
 		/// <summary>
 		/// Avatar : 
 		/// </summary>
-		System.Byte[]  Avatar  { get; set; }
+		System.String  Avatar  { get; set; }
 		
 		/// <summary>
 		/// MobilePhone : 

@@ -179,6 +179,7 @@ namespace ePrescription.Data.SqlClient
 		database.AddInParameter(commandWrapper, "@RouteId", DbType.Int64, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Route", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@RouteVn", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Description", DbType.String, DBNull.Value);
 	
 			// replace all instances of 'AND' and 'OR' because we already set searchUsingOR
 			whereClause = whereClause.Replace(" AND ", "|").Replace(" OR ", "|") ; 
@@ -209,6 +210,12 @@ namespace ePrescription.Data.SqlClient
 				{
 					database.SetParameterValue(commandWrapper, "@RouteVn", 
 						clause.Trim().Remove(0,7).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("description ") || clause.Trim().StartsWith("description="))
+				{
+					database.SetParameterValue(commandWrapper, "@Description", 
+						clause.Trim().Remove(0,11).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
 					continue;
 				}
 	
@@ -602,10 +609,13 @@ namespace ePrescription.Data.SqlClient
 			col1.AllowDBNull = true;		
 			DataColumn col2 = dataTable.Columns.Add("RouteVN", typeof(System.String));
 			col2.AllowDBNull = true;		
+			DataColumn col3 = dataTable.Columns.Add("Description", typeof(System.String));
+			col3.AllowDBNull = true;		
 			
 			bulkCopy.ColumnMappings.Add("RouteId", "RouteId");
 			bulkCopy.ColumnMappings.Add("Route", "Route");
 			bulkCopy.ColumnMappings.Add("RouteVN", "RouteVN");
+			bulkCopy.ColumnMappings.Add("Description", "Description");
 			
 			foreach(ePrescription.Entities.Route entity in entities)
 			{
@@ -621,6 +631,9 @@ namespace ePrescription.Data.SqlClient
 							
 				
 					row["RouteVN"] = entity.RouteVn;
+							
+				
+					row["Description"] = entity.Description;
 							
 				
 				dataTable.Rows.Add(row);
@@ -660,6 +673,7 @@ namespace ePrescription.Data.SqlClient
 			database.AddOutParameter(commandWrapper, "@RouteId", DbType.Int64, 8);
             database.AddInParameter(commandWrapper, "@Route", DbType.String, entity.Route );
             database.AddInParameter(commandWrapper, "@RouteVn", DbType.String, entity.RouteVn );
+            database.AddInParameter(commandWrapper, "@Description", DbType.String, entity.Description );
 			
 			int results = 0;
 			
@@ -711,6 +725,7 @@ namespace ePrescription.Data.SqlClient
             database.AddInParameter(commandWrapper, "@RouteId", DbType.Int64, entity.RouteId );
             database.AddInParameter(commandWrapper, "@Route", DbType.String, entity.Route );
             database.AddInParameter(commandWrapper, "@RouteVn", DbType.String, entity.RouteVn );
+            database.AddInParameter(commandWrapper, "@Description", DbType.String, entity.Description );
 			
 			int results = 0;
 			

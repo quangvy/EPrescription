@@ -226,10 +226,10 @@ namespace ePrescription.Data.Bases
 					c.FullName = (System.String)reader[((int)UsersColumn.FullName - 1)];
 					c.Email = (System.String)reader[((int)UsersColumn.Email - 1)];
 					c.DisplayName = (System.String)reader[((int)UsersColumn.DisplayName - 1)];
-					c.Signature = (reader.IsDBNull(((int)UsersColumn.Signature - 1)))?null:(System.Byte[])reader[((int)UsersColumn.Signature - 1)];
+					c.Signature = (reader.IsDBNull(((int)UsersColumn.Signature - 1)))?null:(System.String)reader[((int)UsersColumn.Signature - 1)];
 					c.Location = (reader.IsDBNull(((int)UsersColumn.Location - 1)))?null:(System.String)reader[((int)UsersColumn.Location - 1)];
 					c.IsDisabled = (System.Boolean)reader[((int)UsersColumn.IsDisabled - 1)];
-					c.Avatar = (reader.IsDBNull(((int)UsersColumn.Avatar - 1)))?null:(System.Byte[])reader[((int)UsersColumn.Avatar - 1)];
+					c.Avatar = (reader.IsDBNull(((int)UsersColumn.Avatar - 1)))?null:(System.String)reader[((int)UsersColumn.Avatar - 1)];
 					c.MobilePhone = (reader.IsDBNull(((int)UsersColumn.MobilePhone - 1)))?null:(System.String)reader[((int)UsersColumn.MobilePhone - 1)];
 					c.EntityTrackingKey = key;
 					c.AcceptChanges();
@@ -255,10 +255,10 @@ namespace ePrescription.Data.Bases
 			entity.FullName = (System.String)reader[((int)UsersColumn.FullName - 1)];
 			entity.Email = (System.String)reader[((int)UsersColumn.Email - 1)];
 			entity.DisplayName = (System.String)reader[((int)UsersColumn.DisplayName - 1)];
-			entity.Signature = (reader.IsDBNull(((int)UsersColumn.Signature - 1)))?null:(System.Byte[])reader[((int)UsersColumn.Signature - 1)];
+			entity.Signature = (reader.IsDBNull(((int)UsersColumn.Signature - 1)))?null:(System.String)reader[((int)UsersColumn.Signature - 1)];
 			entity.Location = (reader.IsDBNull(((int)UsersColumn.Location - 1)))?null:(System.String)reader[((int)UsersColumn.Location - 1)];
 			entity.IsDisabled = (System.Boolean)reader[((int)UsersColumn.IsDisabled - 1)];
-			entity.Avatar = (reader.IsDBNull(((int)UsersColumn.Avatar - 1)))?null:(System.Byte[])reader[((int)UsersColumn.Avatar - 1)];
+			entity.Avatar = (reader.IsDBNull(((int)UsersColumn.Avatar - 1)))?null:(System.String)reader[((int)UsersColumn.Avatar - 1)];
 			entity.MobilePhone = (reader.IsDBNull(((int)UsersColumn.MobilePhone - 1)))?null:(System.String)reader[((int)UsersColumn.MobilePhone - 1)];
 			entity.AcceptChanges();
 		}
@@ -279,10 +279,10 @@ namespace ePrescription.Data.Bases
 			entity.FullName = (System.String)dataRow["FullName"];
 			entity.Email = (System.String)dataRow["Email"];
 			entity.DisplayName = (System.String)dataRow["DisplayName"];
-			entity.Signature = Convert.IsDBNull(dataRow["Signature"]) ? null : (System.Byte[])dataRow["Signature"];
+			entity.Signature = Convert.IsDBNull(dataRow["Signature"]) ? null : (System.String)dataRow["Signature"];
 			entity.Location = Convert.IsDBNull(dataRow["Location"]) ? null : (System.String)dataRow["Location"];
 			entity.IsDisabled = (System.Boolean)dataRow["IsDisabled"];
-			entity.Avatar = Convert.IsDBNull(dataRow["Avatar"]) ? null : (System.Byte[])dataRow["Avatar"];
+			entity.Avatar = Convert.IsDBNull(dataRow["Avatar"]) ? null : (System.String)dataRow["Avatar"];
 			entity.MobilePhone = Convert.IsDBNull(dataRow["MobilePhone"]) ? null : (System.String)dataRow["MobilePhone"];
 			entity.AcceptChanges();
 		}
