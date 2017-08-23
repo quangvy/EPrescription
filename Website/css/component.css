@@ -150,7 +150,10 @@ ul.gn-menu.agile_menu_drop li:hover{
 	      width: 283px;
 		height: 100%;
 }
-
+ .gridToolTips,.detailsRow
+    {
+        display:none;
+    }
 .gn-menu {
 		text-align: left;
 }
@@ -188,6 +191,8 @@ ul.gn-menu.agile_menu_drop li.page {
 }
 ul.gn-menu ul.gn-submenu li.mini_list_agile {
     border-top: 1px solid rgb(19, 25, 35);
+    padding-left:30px;
+    background: rgba(28, 39, 56, 0.83);
 }
 li.mini_list_w3 {
       border-bottom: none!important;

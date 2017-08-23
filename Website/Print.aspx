@@ -17,7 +17,7 @@
     <form id="form1" runat="server">
         <div>
 
-        <asp:Button ID="btnView"  Text="PRINT" runat="server" OnClick="btnView_Click"   />
+        <%--<asp:Button ID="btnView"  Text="PRINT" runat="server" OnClick="btnView_Click"   />--%>
             <rsweb:ReportViewer ID="ReportViewer1" runat="server" Height="515px" Width="808px" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
                 <LocalReport ReportPath="ePres.rdlc">
                     <DataSources>

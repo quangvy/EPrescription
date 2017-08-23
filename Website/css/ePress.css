@@ -6,7 +6,23 @@
     overflow: hidden;
     background: transparent;
 }
-
+.tooltip
+    {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 3;
+        display: none;
+        background-color: #FB66AA;
+        color: White;
+        padding: 5px;
+        font-size: 10pt;
+        font-family: Arial;
+    }
+    td
+    {
+        cursor: pointer;
+    }
 div.inputE {
     float: left;
     height: 160px;

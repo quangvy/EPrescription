@@ -5,6 +5,20 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="css/ePress.css" rel="stylesheet" />
+    <script type="text/javascript">
+    $(function () {
+        $('[id*=grvFavorite] tr').each(function () {
+            var toolTip = $(this).attr("title");
+            $(this).find("td").each(function () {
+                $(this).simpletip({
+                    content: toolTip
+                });
+            });
+            $(this).removeAttr("title");
+        });
+    });
+</script>
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
@@ -118,24 +132,25 @@
             <div class="content-infoDiag" id="divDiag">
                 &nbsp; 
             <telerik:RadComboBox RenderMode="Lightweight" ID="rcbDiag" AllowCustomText="true" runat="server" Width="450" Height="400px"
-                DataSourceID="SqlDataSource1" DataTextField="diag_name" EmptyMessage="Search for diagnosis..."
-                DataValueField="diag_name" EnableAutomaticLoadOnDemand="True" ItemsPerRequest="15"
-                ShowMoreResultsBox="true" EnableVirtualScrolling="true">
+                EnableLoadOnDemand="True" ShowMoreResultsBox="true"
+                EnableVirtualScrolling="true" OnItemsRequested="rcbDiag_ItemsRequested"
+                EmptyMessage="Search for diagnosis...">
             </telerik:RadComboBox>
 
             </div>
             <div class="clear">
             </div>
         </div>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:CMS %>"
-            SelectCommand="SELECT diag_name FROM [diag_list] ORDER BY [diag_name]"></asp:SqlDataSource>
+       <%-- <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
+            SelectCommand="SELECT diag_name FROM [diaglist] ORDER BY [diag_name]"></asp:SqlDataSource>--%>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
             SelectCommand="SELECT abbre, abbre+ ' - ' + meaning as meaning FROM [Frequency] ORDER BY [abbre]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
             SelectCommand="SELECT route FROM [route] ORDER BY [route]"></asp:SqlDataSource>
 
         <div class="Favourite">
-            Favourite
+            Prescription remark:
+            <asp:TextBox ID="txbRemarkPres" runat="server" Width="100%" Height="100%" ></asp:TextBox>
         </div>
     </div>
 
@@ -197,14 +212,14 @@
                         <td>
                             <telerik:RadComboBox ID="rcbRoute" Width="50px" runat="server" DropDownWidth="100"
                                 RenderMode="Lightweight" AllowCustomText="true" DataSourceID="SqlDataSource3" DataTextField="route"
-                                EmptyMessage="Oral">
+                                EmptyMessage="Route...">
                             </telerik:RadComboBox>
                         </td>
                         <td>
                             <asp:TextBox ID="tbxDosage" runat="server" Width="30px"></asp:TextBox></td>
                         <td>
-                            <asp:Label ID="lblDosageUnit" runat="server" Width="40px"
-                                Font-Size="Smaller"></asp:Label></td>
+                            <asp:TextBox ID="lblDosageUnit" runat="server" Width="40px" Height="21px"
+                                Font-Size="Smaller"></asp:TextBox></td>
                         <td>
                             <telerik:RadComboBox ID="rcbFreq" Width="50px" runat="server" DropDownWidth="300"
                                 RenderMode="Lightweight" AllowCustomText="true" DataSourceID="SqlDataSource2"
@@ -281,15 +296,16 @@
         </div>
 
         <div class="LoadPres">
-           
-            <asp:GridView ID="grvFavorite" runat="server" AutoGenerateColumns="false" DataKeyNames="FavouriteID" OnRowDataBound="grvFavorite_RowDataBound">
+            Preserved for Favourite function
+            <%--<asp:GridView ID="grvFavorite" runat="server" AutoGenerateColumns="false" DataKeyNames="FavouriteID" OnRowDataBound="grvFavorite_RowDataBound">
                 <Columns>
                     <asp:BoundField DataField="DiceaseName" HeaderText="Favorite Name" />
                     <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" />
-                    <asp:TemplateField>
+                    <asp:TemplateField HeaderText="Details" ItemStyle-CssClass="detailsRow" HeaderStyle-CssClass="detailsRow"  >
                         <ItemTemplate>
-                            <asp:GridView ID="grvDetails" runat="server" AutoGenerateColumns="false">
+                            <asp:GridView ID="grvDetails" runat="server" AutoGenerateColumns="false" CssClass="gridToolTips">
                                 <Columns>
+                                    <asp:BoundField DataField="DrugID" HeaderText="Drug ID" />
                                     <asp:BoundField DataField="DrugName" HeaderText="Drug Name" />
                                     <asp:BoundField DataField="Frequency" HeaderText="Frequency" />
                                 </Columns>
@@ -297,7 +313,7 @@
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
-            </asp:GridView>
+            </asp:GridView>--%>
         </div>
 
     </div>

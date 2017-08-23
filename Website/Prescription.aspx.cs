@@ -15,7 +15,7 @@ using ePrescription.Entities;
 public partial class Prescription : System.Web.UI.Page
 {
     SqlConnection ePresCon = new SqlConnection(ConfigurationManager.ConnectionStrings["EPrescription"].ConnectionString);
-
+    private const int ItemsPerRequest = 15;
     protected void Page_Load(object sender, EventArgs e)
     {
         if (!Page.IsPostBack)
@@ -31,10 +31,12 @@ public partial class Prescription : System.Web.UI.Page
             rcbDiag.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
             rcbFreq.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
             rcbRoute.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
-
+            //DataTable dtFav = new DataTable();
+            //dtFav.Columns.AddRange(new DataColumn[3] { new DataColumn("DiceaseName"), new DataColumn("Diagnosis"), new DataColumn("CreateBy") });
             var favoriteList = DataRepository.FavoritMasterProvider.GetAll();
-            grvFavorite.DataSource = favoriteList;
-            grvFavorite.DataBind();
+           
+            //grvFavorite.DataSource = favoriteList;
+            //grvFavorite.DataBind();
 
         }
     }
@@ -147,6 +149,40 @@ public partial class Prescription : System.Web.UI.Page
     protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
     {
 
+    }
+    //Paging server side for RadCombo Diagnosis - 70K rows data//
+    private static string GetStatusMessage(int offset, int total)
+    {
+        if (total <= 0)
+            return "No matches";
+
+        return String.Format("Items <b>1</b>-<b>{0}</b> out of <b>{1}</b>", offset, total);
+    }
+    private static DataTable GetData(string text)
+    {
+        SqlDataAdapter adapter = new SqlDataAdapter("SELECT * from diaglist WHERE diag_name LIKE @text + '%'",
+            ConfigurationManager.ConnectionStrings["EPrescription"].ConnectionString);
+        adapter.SelectCommand.Parameters.AddWithValue("@text", text.Replace("%", "[%]"));
+
+        DataTable data = new DataTable();
+        adapter.Fill(data);
+
+        return data;
+    }
+    protected void rcbDiag_ItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
+    {
+        DataTable data = GetData(e.Text);
+
+        int itemOffset = e.NumberOfItems;
+        int endOffset = Math.Min(itemOffset + ItemsPerRequest, data.Rows.Count);
+        e.EndOfItems = endOffset == data.Rows.Count;
+
+        for (int i = itemOffset; i < endOffset; i++)
+        {
+            rcbDiag.Items.Add(new RadComboBoxItem(data.Rows[i]["diag_name"].ToString(), data.Rows[i]["diag_name"].ToString()));
+        }
+
+        e.Message = GetStatusMessage(endOffset, data.Rows.Count);
     }
 
     protected void BindGrid()
@@ -288,7 +324,7 @@ public partial class Prescription : System.Web.UI.Page
         string address = lblAddress.Text;
         string tid = lblTID.Text;
         string diag = rcbDiag.Text;
-        string remarkgen = "";
+        string remarkgen = txbRemarkPres.Text;
         DateTime deliverydate = DateTime.Now;
         DateTime createdate = DateTime.Now;
         var loggedInDoctor = HttpContext.Current.User.Identity.Name;
@@ -303,7 +339,7 @@ public partial class Prescription : System.Web.UI.Page
 
         string sqlInsertMaster = "INSERT INTO dbo.ePrescription (PrescriptionID,TransactionID,PatientCode,FirstName,"+
                 "LastName,DeliveryDate,CreateDate,Address,DateOfBirth,Age,Weight,Diagnosis, PrescribingDoctor,Sex,"+
-                "DiagnosisVN,Remark,IsComplete) VALUES ('"
+                "DiagnosisVN,DiagCode,Remark,IsComplete) VALUES ('"
                 + newPresID + "','" 
                 + tid + "','" 
                 + patientcode  + "','" 
@@ -317,8 +353,9 @@ public partial class Prescription : System.Web.UI.Page
                 + weight + "','"     
                 + diag + "','" 
                 + loggedInDoctor + "','" 
-                + gender + "','"
-                + diagVN + "','"
+                + gender + "',N'"
+                + diagVN.DiagNameVn + "','"
+                + diagVN.DiagCode + "','"
                 + remarkgen + "',1)";
         using (SqlCommand command = new SqlCommand(sqlInsertMaster, ePresCon))
         {
@@ -344,7 +381,12 @@ public partial class Prescription : System.Web.UI.Page
             {
                 frequencyItem = freList[0];
             }
-
+            var routeVNList = DataRepository.RouteProvider.GetPaged("Route = '" + dtMed.Rows[i]["Route"].ToString().Trim() + "'", "", 0, 1, out count);
+            Route routeVNItem = new Route();
+            if (count == 1)
+            {
+                routeVNItem = routeVNList[0];
+            }
             string hardCode = dtMed.Rows[i]["D_Unit"].ToString().Trim();
             switch (hardCode)
             {
@@ -354,7 +396,7 @@ public partial class Prescription : System.Web.UI.Page
             }
 
             sqlInsertDetail = "INSERT INTO ePrescriptionDetail( PrescriptionID,Sq,DrugId,DrugName,Unit," +
-                    "Remark,Dosage,Frequency,Duration,RouteType,DurationUnit,UnitVN,DosageUnit,DosageUnitVN,FrequencyVN,DurationUnitVN,TotalUnit)VALUES('"
+                    "Remark,Dosage,Frequency,Duration,RouteType,RouteTypeVN,DurationUnit,UnitVN,DosageUnit,DosageUnitVN,FrequencyVN,DurationUnitVN,TotalUnit)VALUES('"
                     + newPresID + "','"
                     + dtMed.Rows[i]["Sq"].ToString().Trim() + "','"
                     + dtMed.Rows[i]["Drug ID"].ToString().Trim() + "','"
@@ -364,7 +406,8 @@ public partial class Prescription : System.Web.UI.Page
                     + dtMed.Rows[i]["Dosage"].ToString().Trim() + "',N'"
                     + frequencyItem.Meaning + "','"
                     + dtMed.Rows[i]["Dur."].ToString().Trim() + "','"
-                    + dtMed.Rows[i]["Route"].ToString().Trim() + "','"
+                    + dtMed.Rows[i]["Route"].ToString().Trim() + "',N'"
+                    + routeVNItem.RouteVn + "','"
                     + dtMed.Rows[i]["D_Unit"].ToString().Trim() + "',N'"
                     + unitItem.UnitVn + "',N'"
                     + unitItem.DosageUnit + "',N'"
@@ -389,14 +432,17 @@ public partial class Prescription : System.Web.UI.Page
 
 
 
-    protected void grvFavorite_RowDataBound(object sender, GridViewRowEventArgs e)
-    {
-        if (e.Row.RowType == DataControlRowType.DataRow)
-        {
-            GridView grvDetails = (GridView)e.Row.FindControl("grvDetails");
-            string id = grvFavorite.DataKeys[e.Row.RowIndex].Value.ToString();
-            grvDetails.DataSource = DataRepository.FavoritDetailProvider.GetByFavouriteId(id);
-            grvDetails.DataBind();
-        }
-    }
+    //protected void grvFavorite_RowDataBound(object sender, GridViewRowEventArgs e)
+    //{
+    //    if (e.Row.RowType == DataControlRowType.DataRow)
+      
+    //        {
+    //        GridView grvDetails = (GridView)e.Row.FindControl("grvDetails");
+    //        string id = grvFavorite.DataKeys[e.Row.RowIndex].Value.ToString();
+    //        grvDetails.DataSource = DataRepository.FavoritDetailProvider.GetByFavouriteId(id);
+    //        grvDetails.DataBind();
+    //        //e.Row.ToolTip = (e.Row.DataItem as DataRowView)["Details"].ToString();
+
+    //    }
+    //}
 }

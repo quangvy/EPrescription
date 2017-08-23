@@ -17,10 +17,10 @@
         PageSelectorPageSizeInterval="10" RecordsCount="0" ShowGridOnEmptyData="False"
         OnRowCommand="GridView1_RowCommand">
         <Columns>
-            <asp:CommandField ShowSelectButton="true" ShowEditButton="false" />
+           <%-- <asp:CommandField ShowSelectButton="true" ShowEditButton="false" />--%>
             <asp:TemplateField HeaderText="Command">
                 <ItemTemplate>
-                    <asp:Button ID="btnClone" runat="server" Text="Clone" CommandName="Clone" CommandArgument='<%#Bind("PrescriptionId") %>'/>
+                  <%--  <asp:Button ID="btnClone" runat="server" Text="Clone" CommandName="Clone" CommandArgument='<%#Bind("PrescriptionId") %>'/>--%>
                     <asp:Button ID="btnReprint" runat="server" Text="Reprint" CommandName="Reprint" CommandArgument='<%#Bind("PrescriptionId") %>' />
                 </ItemTemplate>
             </asp:TemplateField>
