@@ -19,7 +19,7 @@
 
         <%--<asp:Button ID="btnView"  Text="PRINT" runat="server" OnClick="btnView_Click"   />--%>
             <rsweb:ReportViewer ID="ReportViewer1" runat="server" Height="515px" Width="808px" Font-Names="Verdana" Font-Size="8pt" WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
-                <LocalReport ReportPath="ePres.rdlc">
+                <LocalReport ReportPath="ePres.rdlc" EnableExternalImages="true">
                     <DataSources>
                         <rsweb:ReportDataSource DataSourceId="ObjectDataSource1" Name="DataSet1" />
                     </DataSources>

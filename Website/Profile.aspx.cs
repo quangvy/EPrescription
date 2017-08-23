@@ -67,7 +67,7 @@ public partial class ProfilePage : System.Web.UI.Page
         {
             string fileName = Path.GetFileName(fulSignature.FileName);
             FileInfo fi = new FileInfo(fileName);
-            string ext = fi.Extension; fulAvatar.SaveAs(Server.MapPath("~/images/signature/") + user.UserName + "signature" + ext);
+            string ext = fi.Extension; fulSignature.SaveAs(Server.MapPath("~/images/signature/") + user.UserName + "signature" + ext);
             user.Signature = user.UserName + "signature" + ext;
         }
         DataRepository.UsersProvider.Update(user);

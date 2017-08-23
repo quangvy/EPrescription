@@ -2239,6 +2239,21 @@
           </Border>
         </Style>
       </Tablix>
+      <Image Name="Image1">
+        <Source>External</Source>
+        <Value>=First(Fields!Signature.Value, "DataSet1")</Value>
+        <Sizing>FitProportional</Sizing>
+        <Top>10.53916cm</Top>
+        <Left>14.32574cm</Left>
+        <Height>0.91254cm</Height>
+        <Width>4.78083cm</Width>
+        <ZIndex>11</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
     </ReportItems>
     <Height>12.26536cm</Height>
     <Style />
