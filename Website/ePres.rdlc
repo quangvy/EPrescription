@@ -2239,21 +2239,6 @@
           </Border>
         </Style>
       </Tablix>
-      <Image Name="Image1">
-        <Source>External</Source>
-        <Value>="~/images/signature/usersignature.jpg"</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>10.20974cm</Top>
-        <Left>11.18251cm</Left>
-        <Height>1.13613cm</Height>
-        <Width>2.71371cm</Width>
-        <ZIndex>11</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
     </ReportItems>
     <Height>12.26536cm</Height>
     <Style />
