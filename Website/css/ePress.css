@@ -1,4 +1,4 @@
-﻿#PageE {
+﻿rom#PageE {
     margin: 0 0 10px 0;
     padding: 0;
     height: 170px;
@@ -6,35 +6,37 @@
     overflow: hidden;
     background: transparent;
 }
-.tooltip
-    {
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: 3;
-        display: none;
-        background-color: #FB66AA;
-        color: White;
-        padding: 5px;
-        font-size: 10pt;
-        font-family: Arial;
-    }
-    td
-    {
-        cursor: pointer;
-    }
+
+.tooltip {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+    display: none;
+    background-color: #FB66AA;
+    color: White;
+    padding: 5px;
+    font-size: 10pt;
+    font-family: Arial;
+}
+
+td {
+    cursor: pointer;
+}
+
 div.inputE {
     float: left;
     height: 160px;
     padding: 10px 20px 20px 10px;
     box-shadow: 5px 5px 5px #888;
-    max-width: 30%;
+    width: 25%;
     border: 1px solid #aaa;
 }
 
 .colLabel {
     font-size: small;
-    width: 70px;
+    width: 25%;
+    /*width: 70px;*/
     float: left;
     padding: 3px 0 0 0;
     margin: 3px 0 3px 0;
@@ -45,7 +47,8 @@ div.inputE {
     float: left;
     padding: 0 0 1px 5px;
     margin: 3px 3px 3px 0;
-    width: 160px;
+    /*width: 160px;*/
+    width: 50%;
 }
 
 #PageE div.PatInfo {
@@ -60,7 +63,8 @@ div.inputE {
 
 div.PatInfo div.title-info {
     font-size: small;
-    width: 70px;
+    /*width: 70px;*/
+    width: 20%;
     float: left;
     padding: 3px 0 0 0;
     margin: 3px 0 3px 0;
@@ -72,7 +76,7 @@ div.PatInfo div.content-info {
     padding: 0 0 1px 5px;
     border-bottom: 1px solid #000;
     margin: 3px 3px 3px 0;
-    width: 180px;
+    width: 25%;
     text-transform: uppercase;
 }
 
@@ -81,13 +85,14 @@ div.PatInfo div.content-infoAdd {
     padding: 0 0 1px 10px;
     border-bottom: 1px solid #000;
     margin: 1px 1px 1px 0;
-    width: 83%;
+    width: 75%;
 }
 
 div.PatInfo div.content-infoDiag {
     float: left;
-    padding: 0 0 1px 10px;
-    width: 480px;
+    padding: 0 0 0px 0px;
+    /*width: 480px;*/
+    width: 77%;
 }
 
 div.clear {
@@ -99,8 +104,13 @@ div.clear {
     height: 160px;
     padding: 10px 20px 20px 10px;
     box-shadow: 5px 5px 5px #888;
-    width: 30%;
+    width: 27%;
     border: 1px solid #aaa;
+}
+#PageSpace 
+{
+    clear: both;
+        min-height:10px;
 }
 
 #Med {
@@ -113,7 +123,7 @@ div.clear {
 
     #Med div.AddMed {
         float: left;
-        width: 69%;
+        width: 72.7%;
         box-shadow: 5px 5px 5px #888;
         border: 1px solid #aaa;
         min-height: 100%;
@@ -137,7 +147,7 @@ div.SavePres {
 
 #Med div.LoadPres {
     float: right;
-    min-width: 30%;
+    width: 27%;
     box-shadow: 5px 5px 5px #888;
     border: 1px solid #aaa;
     min-height: 100%;
@@ -162,4 +172,3 @@ div.SavePres {
     float: left;
     min-width: 50%;
 }
-

@@ -26,7 +26,7 @@
         <div class="inputE">
             <div class="colLabel">Patient</div>
             <div class="colValue">
-                <telerik:RadComboBox ID="RadComboBox1" Width="160" Height="400" runat="server" DropDownWidth="500" EmptyMessage="Please choose a patient"
+                <telerik:RadComboBox ID="RadComboBox1" Width= "100%" Height="400" runat="server" DropDownWidth="500" EmptyMessage="Please choose a patient"
                     HighlightTemplatedItems="true"
                     EnableLoadOnDemand="true"
                     OnItemsRequested="RadComboBoxProduct_ItemsRequested"
@@ -57,12 +57,12 @@
             <div class="clear"></div>
             <div class="colLabel">Weight</div>
             <div class="colValue">
-                <asp:TextBox ID="tbxWeight" runat="server" Width="160px"></asp:TextBox>
+                <asp:TextBox ID="tbxWeight" runat="server" Width=100%></asp:TextBox>
             </div>
             <div class="clear"></div>
             <div class="colLabel">TID</div>
-            <div class="colLabel">
-                <asp:Label ID="lblTID" runat="server" Width="160px">
+            <div class="colValue">
+                <asp:Label ID="lblTID" runat="server">
                 </asp:Label>
             </div>
             <div class="clear"></div>
@@ -131,7 +131,7 @@
             </div>
             <div class="content-infoDiag" id="divDiag">
                 &nbsp; 
-            <telerik:RadComboBox RenderMode="Lightweight" ID="rcbDiag" AllowCustomText="true" runat="server" Width="450" Height="400px"
+            <telerik:RadComboBox RenderMode="Lightweight" ID="rcbDiag" AllowCustomText="true" runat="server" Width=100% Height="400px"
                 EnableLoadOnDemand="True" ShowMoreResultsBox="true"
                 EnableVirtualScrolling="true" OnItemsRequested="rcbDiag_ItemsRequested"
                 EmptyMessage="Search for diagnosis...">
@@ -153,11 +153,13 @@
             <asp:TextBox ID="txbRemarkPres" runat="server" Width="100%" Height="100%" ></asp:TextBox>
         </div>
     </div>
-
+    <div id="PageSpace">
+        
+    </div>
     <div id="Med">
         <div class="AddMed">
             <div class="Add">
-                <table style="width: 600px;">
+                <table style="width: 100%;">
                     <tr>
                         <td>Search by Generic Name</td>
                         <td>DrugID</td>
