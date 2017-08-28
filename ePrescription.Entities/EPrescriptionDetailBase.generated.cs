@@ -99,13 +99,14 @@ namespace ePrescription.Entities
 		///<param name="_durationUnit"></param>
 		///<param name="_durationUnitVn"></param>
 		///<param name="_totalUnit"></param>
+		///<param name="_refill"></param>
 		public EPrescriptionDetailBase(System.String _prescriptionId, System.Int32 _sq, 
 			System.String _drugId, System.String _drugName, System.String _unit, 
 			System.String _unitVn, System.String _remark, System.String _routeType, 
 			System.String _routeTypeVn, System.String _dosage, System.String _dosageUnit, 
 			System.String _dosageUnitVn, System.String _frequency, System.String _frequencyVn, 
 			System.String _duration, System.String _durationUnit, System.String _durationUnitVn, 
-			System.String _totalUnit)
+			System.String _totalUnit, System.Boolean? _refill)
 		{
 			this.entityData = new EPrescriptionDetailEntityData();
 			this.backupData = null;
@@ -128,6 +129,7 @@ namespace ePrescription.Entities
 			this.DurationUnit = _durationUnit;
 			this.DurationUnitVn = _durationUnitVn;
 			this.TotalUnit = _totalUnit;
+			this.Refill = _refill;
 		}
 		
 		///<summary>
@@ -151,13 +153,14 @@ namespace ePrescription.Entities
 		///<param name="_durationUnit"></param>
 		///<param name="_durationUnitVn"></param>
 		///<param name="_totalUnit"></param>
+		///<param name="_refill"></param>
 		public static EPrescriptionDetail CreateEPrescriptionDetail(System.String _prescriptionId, System.Int32 _sq, 
 			System.String _drugId, System.String _drugName, System.String _unit, 
 			System.String _unitVn, System.String _remark, System.String _routeType, 
 			System.String _routeTypeVn, System.String _dosage, System.String _dosageUnit, 
 			System.String _dosageUnitVn, System.String _frequency, System.String _frequencyVn, 
 			System.String _duration, System.String _durationUnit, System.String _durationUnitVn, 
-			System.String _totalUnit)
+			System.String _totalUnit, System.Boolean? _refill)
 		{
 			EPrescriptionDetail newEPrescriptionDetail = new EPrescriptionDetail();
 			newEPrescriptionDetail.PrescriptionId = _prescriptionId;
@@ -178,6 +181,7 @@ namespace ePrescription.Entities
 			newEPrescriptionDetail.DurationUnit = _durationUnit;
 			newEPrescriptionDetail.DurationUnitVn = _durationUnitVn;
 			newEPrescriptionDetail.TotalUnit = _totalUnit;
+			newEPrescriptionDetail.Refill = _refill;
 			return newEPrescriptionDetail;
 		}
 				
@@ -911,6 +915,46 @@ namespace ePrescription.Entities
 			}
 		}
 		
+		/// <summary>
+		/// 	Gets or sets the Refill property. 
+		///		
+		/// </summary>
+		/// <value>This type is bit.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null it is up to the developer to check using the HasValue property
+		/// and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.Boolean? Refill
+		{
+			get
+			{
+				return this.entityData.Refill; 
+			}
+			
+			set
+			{
+				if (this.entityData.Refill == value)
+					return;
+				
+                OnPropertyChanging("Refill");                    
+				OnColumnChanging(EPrescriptionDetailColumn.Refill, this.entityData.Refill);
+				this.entityData.Refill = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(EPrescriptionDetailColumn.Refill, this.entityData.Refill);
+				OnPropertyChanged("Refill");
+			}
+		}
+		
 		#endregion Data Properties		
 
 		#region Source Foreign Key Property
@@ -1000,7 +1044,7 @@ namespace ePrescription.Entities
 		{
 			get
 			{
-				return new string[] {"PrescriptionDetailId", "PrescriptionID", "Sq", "DrugId", "DrugName", "Unit", "UnitVN", "Remark", "RouteType", "RouteTypeVN", "Dosage", "DosageUnit", "DosageUnitVN", "Frequency", "FrequencyVN", "Duration", "DurationUnit", "DurationUnitVN", "TotalUnit"};
+				return new string[] {"PrescriptionDetailId", "PrescriptionID", "Sq", "DrugId", "DrugName", "Unit", "UnitVN", "Remark", "RouteType", "RouteTypeVN", "Dosage", "DosageUnit", "DosageUnitVN", "Frequency", "FrequencyVN", "Duration", "DurationUnit", "DurationUnitVN", "TotalUnit", "Refill"};
 			}
 		}
 		#endregion 
@@ -1167,6 +1211,7 @@ namespace ePrescription.Entities
 				copy.DurationUnit = this.DurationUnit;
 				copy.DurationUnitVn = this.DurationUnitVn;
 				copy.TotalUnit = this.TotalUnit;
+				copy.Refill = this.Refill;
 			
 			if (this.PrescriptionIdSource != null && existingCopies.Contains(this.PrescriptionIdSource))
 				copy.PrescriptionIdSource = existingCopies[this.PrescriptionIdSource] as EPrescription;
@@ -1341,6 +1386,8 @@ namespace ePrescription.Entities
 					return entityData.DurationUnitVn != _originalData.DurationUnitVn;
 					case EPrescriptionDetailColumn.TotalUnit:
 					return entityData.TotalUnit != _originalData.TotalUnit;
+					case EPrescriptionDetailColumn.Refill:
+					return entityData.Refill != _originalData.Refill;
 			
 				default:
 					return false;
@@ -1387,6 +1434,7 @@ namespace ePrescription.Entities
 			result = result || entityData.DurationUnit != _originalData.DurationUnit;
 			result = result || entityData.DurationUnitVn != _originalData.DurationUnitVn;
 			result = result || entityData.TotalUnit != _originalData.TotalUnit;
+			result = result || entityData.Refill != _originalData.Refill;
 			return result;
 		}	
 		
@@ -1414,7 +1462,8 @@ namespace ePrescription.Entities
 				_originalData.Duration,
 				_originalData.DurationUnit,
 				_originalData.DurationUnitVn,
-				_originalData.TotalUnit
+				_originalData.TotalUnit,
+				_originalData.Refill
 				);
 				
 			return (EPrescriptionDetail)this.Clone();
@@ -1462,7 +1511,8 @@ namespace ePrescription.Entities
 					((this.Duration == null) ? string.Empty : this.Duration.ToString()).GetHashCode() ^ 
 					((this.DurationUnit == null) ? string.Empty : this.DurationUnit.ToString()).GetHashCode() ^ 
 					((this.DurationUnitVn == null) ? string.Empty : this.DurationUnitVn.ToString()).GetHashCode() ^ 
-					((this.TotalUnit == null) ? string.Empty : this.TotalUnit.ToString()).GetHashCode();
+					((this.TotalUnit == null) ? string.Empty : this.TotalUnit.ToString()).GetHashCode() ^ 
+					((this.Refill == null) ? string.Empty : this.Refill.ToString()).GetHashCode();
         }
 		
 		///<summary>
@@ -1638,6 +1688,15 @@ namespace ePrescription.Entities
 			{
 				equal = false;
 			}
+			if ( Object1.Refill != null && Object2.Refill != null )
+			{
+				if (Object1.Refill != Object2.Refill)
+					equal = false;
+			}
+			else if (Object1.Refill == null ^ Object2.Refill == null )
+			{
+				equal = false;
+			}
 					
 			return equal;
 		}
@@ -1794,6 +1853,12 @@ namespace ePrescription.Entities
             		return this.TotalUnit.CompareTo(rhs.TotalUnit);
             		
             		                 
+            	
+            	
+            	case EPrescriptionDetailColumn.Refill:
+            		return this.Refill.Value.CompareTo(rhs.Refill.Value);
+            		
+            		                 
             }
             return 0;
         }
@@ -1928,7 +1993,7 @@ namespace ePrescription.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{20}{19}- PrescriptionDetailId: {0}{19}- PrescriptionId: {1}{19}- Sq: {2}{19}- DrugId: {3}{19}- DrugName: {4}{19}- Unit: {5}{19}- UnitVn: {6}{19}- Remark: {7}{19}- RouteType: {8}{19}- RouteTypeVn: {9}{19}- Dosage: {10}{19}- DosageUnit: {11}{19}- DosageUnitVn: {12}{19}- Frequency: {13}{19}- FrequencyVn: {14}{19}- Duration: {15}{19}- DurationUnit: {16}{19}- DurationUnitVn: {17}{19}- TotalUnit: {18}{19}{21}", 
+				"{21}{20}- PrescriptionDetailId: {0}{20}- PrescriptionId: {1}{20}- Sq: {2}{20}- DrugId: {3}{20}- DrugName: {4}{20}- Unit: {5}{20}- UnitVn: {6}{20}- Remark: {7}{20}- RouteType: {8}{20}- RouteTypeVn: {9}{20}- Dosage: {10}{20}- DosageUnit: {11}{20}- DosageUnitVn: {12}{20}- Frequency: {13}{20}- FrequencyVn: {14}{20}- Duration: {15}{20}- DurationUnit: {16}{20}- DurationUnitVn: {17}{20}- TotalUnit: {18}{20}- Refill: {19}{20}{22}", 
 				this.PrescriptionDetailId,
 				this.PrescriptionId,
 				this.Sq,
@@ -1948,6 +2013,7 @@ namespace ePrescription.Entities
 				(this.DurationUnit == null) ? string.Empty : this.DurationUnit.ToString(),
 				(this.DurationUnitVn == null) ? string.Empty : this.DurationUnitVn.ToString(),
 				(this.TotalUnit == null) ? string.Empty : this.TotalUnit.ToString(),
+				(this.Refill == null) ? string.Empty : this.Refill.ToString(),
 				System.Environment.NewLine, 
 				this.GetType(),
 				this.Error.Length == 0 ? string.Empty : string.Format("- Error: {0}\n",this.Error));
@@ -2070,6 +2136,11 @@ namespace ePrescription.Entities
 		/// TotalUnit : 
 		/// </summary>
 		public System.String TotalUnit = null;
+		
+		/// <summary>
+		/// Refill : 
+		/// </summary>
+		public System.Boolean? Refill = null;
 		#endregion
 			
 		#region Source Foreign Key Property
@@ -2124,6 +2195,7 @@ namespace ePrescription.Entities
 			_tmp.DurationUnit = this.DurationUnit;
 			_tmp.DurationUnitVn = this.DurationUnitVn;
 			_tmp.TotalUnit = this.TotalUnit;
+			_tmp.Refill = this.Refill;
 			
 			#region Source Parent Composite Entities
 			if (this.PrescriptionIdSource != null)
@@ -2170,6 +2242,7 @@ namespace ePrescription.Entities
 			_tmp.DurationUnit = this.DurationUnit;
 			_tmp.DurationUnitVn = this.DurationUnitVn;
 			_tmp.TotalUnit = this.TotalUnit;
+			_tmp.Refill = this.Refill;
 			
 			#region Source Parent Composite Entities
 			if (this.PrescriptionIdSource != null && existingCopies.Contains(this.PrescriptionIdSource))
@@ -2650,7 +2723,13 @@ namespace ePrescription.Entities
 		/// </summary>
 		[EnumTextValue("Total Unit")]
 		[ColumnEnum("TotalUnit", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
-		TotalUnit = 19
+		TotalUnit = 19,
+		/// <summary>
+		/// Refill : 
+		/// </summary>
+		[EnumTextValue("Refill")]
+		[ColumnEnum("Refill", typeof(System.Boolean), System.Data.DbType.Boolean, false, false, true)]
+		Refill = 20
 	}//End enum
 
 	#endregion EPrescriptionDetailColumn Enum

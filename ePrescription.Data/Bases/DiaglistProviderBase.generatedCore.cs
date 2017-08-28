@@ -223,7 +223,7 @@ namespace ePrescription.Data.Bases
 					c.DiagCode = (System.String)reader[((int)DiaglistColumn.DiagCode - 1)];
 					c.OriginalDiagCode = c.DiagCode;
 					c.DiagName = (System.String)reader[((int)DiaglistColumn.DiagName - 1)];
-					c.DiagNameVn = (System.String)reader[((int)DiaglistColumn.DiagNameVn - 1)];
+					c.DiagNameVn = (reader.IsDBNull(((int)DiaglistColumn.DiagNameVn - 1)))?null:(System.String)reader[((int)DiaglistColumn.DiagNameVn - 1)];
 					c.IsDisabled = (System.Boolean)reader[((int)DiaglistColumn.IsDisabled - 1)];
 					c.EntityTrackingKey = key;
 					c.AcceptChanges();
@@ -246,7 +246,7 @@ namespace ePrescription.Data.Bases
 			entity.DiagCode = (System.String)reader[((int)DiaglistColumn.DiagCode - 1)];
 			entity.OriginalDiagCode = (System.String)reader["DIAG_CODE"];
 			entity.DiagName = (System.String)reader[((int)DiaglistColumn.DiagName - 1)];
-			entity.DiagNameVn = (System.String)reader[((int)DiaglistColumn.DiagNameVn - 1)];
+			entity.DiagNameVn = (reader.IsDBNull(((int)DiaglistColumn.DiagNameVn - 1)))?null:(System.String)reader[((int)DiaglistColumn.DiagNameVn - 1)];
 			entity.IsDisabled = (System.Boolean)reader[((int)DiaglistColumn.IsDisabled - 1)];
 			entity.AcceptChanges();
 		}
@@ -264,7 +264,7 @@ namespace ePrescription.Data.Bases
 			entity.DiagCode = (System.String)dataRow["DIAG_CODE"];
 			entity.OriginalDiagCode = (System.String)dataRow["DIAG_CODE"];
 			entity.DiagName = (System.String)dataRow["DIAG_NAME"];
-			entity.DiagNameVn = (System.String)dataRow["DIAG_NAME_VN"];
+			entity.DiagNameVn = Convert.IsDBNull(dataRow["DIAG_NAME_VN"]) ? null : (System.String)dataRow["DIAG_NAME_VN"];
 			entity.IsDisabled = (System.Boolean)dataRow["IsDisabled"];
 			entity.AcceptChanges();
 		}

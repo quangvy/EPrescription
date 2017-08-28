@@ -83,7 +83,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Prescription - Đơn thuốc</Value>
+                <Value>Đơn thuốc - Prescription</Value>
                 <Style>
                   <FontFamily>Calibri</FontFamily>
                   <FontSize>16pt</FontSize>
@@ -119,22 +119,22 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value />
+                <Value>=First(Fields!PrescriptionID.Value, "DataSet1")</Value>
                 <Style>
                   <FontFamily>Calibri</FontFamily>
                 </Style>
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>2.10537cm</Top>
-        <Left>13.85159cm</Left>
+        <Left>15.91597cm</Left>
         <Height>0.54709cm</Height>
-        <Width>5.91944cm</Width>
+        <Width>3.85506cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -153,13 +153,20 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Date </Value>
+                <Value>Ngày</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>times New Roman</FontFamily>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
                 <Style>
                   <FontFamily>times New Roman</FontFamily>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>(ngày)</Value>
+                <Value>(Date)</Value>
                 <Style>
                   <FontStyle>Italic</FontStyle>
                   <FontFamily>times New Roman</FontFamily>
@@ -192,14 +199,14 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Prescribing doctor</Value>
+                <Value>Bác sĩ khám/</Value>
                 <Style>
                   <FontStyle>Normal</FontStyle>
                   <FontFamily>times New Roman</FontFamily>
                 </Style>
               </TextRun>
               <TextRun>
-                <Value>/ Bác sĩ khám</Value>
+                <Value> Prescribing doctor</Value>
                 <Style>
                   <FontStyle>Italic</FontStyle>
                   <FontFamily>times New Roman</FontFamily>
@@ -245,7 +252,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Format(Fields!CreateDate.Value,"dd-MMM-yyyy")</Value>
+                              <Value>=Format(Fields!CreateDate.Value,"dd-MMM-yyyy HH:mm")</Value>
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
                               </Style>
@@ -309,28 +316,31 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.30928cm</Width>
+              <Width>1.11293cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.17898cm</Width>
+              <Width>1.60742cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.55206cm</Width>
+              <Width>0.76276cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.75864cm</Width>
+              <Width>1.0107cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>4.02404cm</Width>
+              <Width>3.97959cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.85848cm</Width>
+              <Width>2.81403cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>3.86831cm</Width>
+              <Width>4.79394cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.05113cm</Width>
+              <Width>1.37029cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.15835cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -346,7 +356,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Sq</Value>
+                              <Value>TT/Sq</Value>
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -385,8 +395,17 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Drug name and usage/ Tên thuốc và cách dùng</Value>
+                              <Value>Tên thuốc và cách dùng/ </Value>
                               <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>Drug name and usage</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>times New Roman</FontFamily>
                                 <FontSize>9pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
@@ -411,13 +430,62 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <ColSpan>6</ColSpan>
+                    <ColSpan>5</ColSpan>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
                 <TablixCell />
                 <TablixCell />
                 <TablixCell />
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox43">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Tái đơn/ </Value>
+                              <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>Refill</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Right</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox43</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
                 <TablixCell />
                 <TablixCell>
                   <CellContents>
@@ -428,10 +496,19 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Total/ Sl</Value>
+                              <Value>Số lượng/</Value>
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>Total</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>8pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
@@ -507,7 +584,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=UCase(Fields!DrugName.Value)</Value>
+                              <Value>="["+Fields!DrugId.Value+"] "+UCase(Fields!DrugName.Value)</Value>
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
                                 <FontSize>11pt</FontSize>
@@ -535,9 +612,10 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <ColSpan>6</ColSpan>
+                    <ColSpan>7</ColSpan>
                   </CellContents>
                 </TablixCell>
+                <TablixCell />
                 <TablixCell />
                 <TablixCell />
                 <TablixCell />
@@ -587,282 +665,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.5874cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Sq">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>times New Roman</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Sq</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="RouteType">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!RouteType.Value</Value>
-                              <Style>
-                                <FontFamily>times New Roman</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>RouteType</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Dosage1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Dosage.Value</Value>
-                              <Style>
-                                <FontFamily>times New Roman</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style />
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Dosage1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Unit">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Unit.Value</Value>
-                              <Style>
-                                <FontFamily>times New Roman</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Unit</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Frequency1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Frequency.Value</Value>
-                              <Style>
-                                <FontFamily>times New Roman</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Frequency1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Duration">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>="In "+Fields!Duration.Value +" "+Fields!DurationUnit.Value</Value>
-                              <Style>
-                                <FontFamily>times New Roman</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Duration</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Remark1">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!Remark1.Value</Value>
-                              <Style>
-                                <FontFamily>times New Roman</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Remark1</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="TotalUnit">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontFamily>times New Roman</FontFamily>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Right</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>TotalUnit</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>None</Style>
-                        </Border>
-                        <VerticalAlign>Middle</VerticalAlign>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-            <TablixRow>
-              <Height>0.36187cm</Height>
+              <Height>0.54708cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -876,7 +679,7 @@
                               <Value />
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -910,9 +713,8 @@
                             <TextRun>
                               <Value>=Fields!RouteTypeVN.Value</Value>
                               <Style>
-                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>times New Roman</FontFamily>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -946,9 +748,8 @@
                             <TextRun>
                               <Value>=Fields!Dosage.Value</Value>
                               <Style>
-                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>times New Roman</FontFamily>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -971,18 +772,17 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="UnitVN">
+                    <Textbox Name="DosageUnitVN">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!UnitVN.Value</Value>
+                              <Value>=Fields!DosageUnitVN.Value</Value>
                               <Style>
-                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>times New Roman</FontFamily>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -991,7 +791,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>UnitVN</rd:DefaultName>
+                      <rd:DefaultName>DosageUnitVN</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -1016,9 +816,8 @@
                             <TextRun>
                               <Value>=Fields!FrequencyVN.Value</Value>
                               <Style>
-                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>times New Roman</FontFamily>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1052,9 +851,8 @@
                             <TextRun>
                               <Value>="trong "+Fields!Duration.Value +" "+Fields!DurationUnitVN.Value</Value>
                               <Style>
-                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>times New Roman</FontFamily>
-                                <FontSize>7pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -1081,7 +879,82 @@
                 <TablixCell />
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox73">
+                    <Textbox Name="Refill">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Iif(Fields!Refill.Value="True","Được","Không")</Value>
+                              <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Refill</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="UnitVN">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!UnitVN.Value</Value>
+                              <Style>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>UnitVN</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox23">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -1090,17 +963,303 @@
                             <TextRun>
                               <Value />
                               <Style>
+                                <FontStyle>Italic</FontStyle>
                                 <FontFamily>times New Roman</FontFamily>
-                                <FontSize>9pt</FontSize>
+                                <FontSize>8pt</FontSize>
                               </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Right</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox73</rd:DefaultName>
+                      <rd:DefaultName>Textbox23</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="RouteType1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!RouteType.Value</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>RouteType1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Dosage2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Dosage.Value</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Dosage2</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="DosageUnit">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!DosageUnit.Value</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>DosageUnit</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Frequency">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Frequency.Value</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Frequency</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox28">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>="In "+Fields!Duration.Value +" "+Fields!DurationUnit.Value</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox28</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Remark11">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Iif(Fields!Remark1.Value="&amp;nbsp;","",Fields!Remark1.Value)</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Remark11</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Refill1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Iif(Fields!Refill.Value="True","Yes","No")</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Refill1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <VerticalAlign>Middle</VerticalAlign>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Unit">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!Unit.Value</Value>
+                              <Style>
+                                <FontStyle>Italic</FontStyle>
+                                <FontFamily>times New Roman</FontFamily>
+                                <FontSize>8pt</FontSize>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Unit</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>None</Style>
@@ -1128,6 +1287,7 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -1146,10 +1306,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>6.99763cm</Top>
+        <Top>7.31513cm</Top>
         <Left>0.28529cm</Left>
-        <Height>2.04344cm</Height>
-        <Width>19.60092cm</Width>
+        <Height>2.24125cm</Height>
+        <Width>19.61001cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -1166,25 +1326,25 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.8156cm</Height>
+              <Height>0.86852cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Weight1">
+                    <Textbox Name="Sex">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Weight.Value</Value>
+                              <Value>=Fields!Sex.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Weight1</rd:DefaultName>
+                      <rd:DefaultName>Sex</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1202,7 +1362,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.73614cm</Height>
+              <Height>0.86843cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1238,25 +1398,25 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.89104cm</Height>
+              <Height>0.94396cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Sex">
+                    <Textbox Name="Weight1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Sex.Value</Value>
+                              <Value>=Fields!Weight.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Sex</rd:DefaultName>
+                      <rd:DefaultName>Weight1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -1309,7 +1469,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.73229cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1377,8 +1537,9 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Name</Value>
+                            <Value>Họ và tên</Value>
                             <Style>
+                              <FontStyle>Normal</FontStyle>
                               <FontFamily>times New Roman</FontFamily>
                               <FontSize>8pt</FontSize>
                             </Style>
@@ -1389,17 +1550,15 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Họ và tên</Value>
+                            <Value>Name</Value>
                             <Style>
                               <FontStyle>Italic</FontStyle>
                               <FontFamily>times New Roman</FontFamily>
-                              <FontSize>6pt</FontSize>
+                              <FontSize>8pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style>
-                          <LineHeight>6pt</LineHeight>
-                        </Style>
+                        <Style />
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox134</rd:DefaultName>
@@ -1465,8 +1624,9 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Weight</Value>
+                                    <Value>Giới tính</Value>
                                     <Style>
+                                      <FontStyle>Normal</FontStyle>
                                       <FontFamily>times New Roman</FontFamily>
                                       <FontSize>8pt</FontSize>
                                     </Style>
@@ -1477,17 +1637,15 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Cân nặng</Value>
+                                    <Value>Sex</Value>
                                     <Style>
                                       <FontStyle>Italic</FontStyle>
                                       <FontFamily>times New Roman</FontFamily>
-                                      <FontSize>6pt</FontSize>
+                                      <FontSize>8pt</FontSize>
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
-                                <Style>
-                                  <LineHeight>6pt</LineHeight>
-                                </Style>
+                                <Style />
                               </Paragraph>
                             </Paragraphs>
                             <rd:DefaultName>Textbox145</rd:DefaultName>
@@ -1523,8 +1681,9 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Patient Code</Value>
+                            <Value>Mã bệnh nhân</Value>
                             <Style>
+                              <FontStyle>Normal</FontStyle>
                               <FontFamily>times New Roman</FontFamily>
                               <FontSize>8pt</FontSize>
                             </Style>
@@ -1535,17 +1694,15 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Mã bệnh nhân</Value>
+                            <Value>Patient Code</Value>
                             <Style>
                               <FontStyle>Italic</FontStyle>
                               <FontFamily>times New Roman</FontFamily>
-                              <FontSize>6pt</FontSize>
+                              <FontSize>8pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style>
-                          <LineHeight>6pt</LineHeight>
-                        </Style>
+                        <Style />
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox49</rd:DefaultName>
@@ -1608,8 +1765,9 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>DOB</Value>
+                                    <Value>Ngày sinh</Value>
                                     <Style>
+                                      <FontStyle>Normal</FontStyle>
                                       <FontFamily>times New Roman</FontFamily>
                                       <FontSize>8pt</FontSize>
                                     </Style>
@@ -1620,17 +1778,15 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Ngày sinh</Value>
+                                    <Value>DOB</Value>
                                     <Style>
                                       <FontStyle>Italic</FontStyle>
                                       <FontFamily>times New Roman</FontFamily>
-                                      <FontSize>6pt</FontSize>
+                                      <FontSize>8pt</FontSize>
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
-                                <Style>
-                                  <LineHeight>6pt</LineHeight>
-                                </Style>
+                                <Style />
                               </Paragraph>
                             </Paragraphs>
                             <rd:DefaultName>Textbox60</rd:DefaultName>
@@ -1695,8 +1851,9 @@
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>Age</Value>
+                                            <Value>Tuổi</Value>
                                             <Style>
+                                              <FontStyle>Normal</FontStyle>
                                               <FontFamily>times New Roman</FontFamily>
                                               <FontSize>8pt</FontSize>
                                             </Style>
@@ -1707,17 +1864,15 @@
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>Tuổi</Value>
+                                            <Value>Age</Value>
                                             <Style>
                                               <FontStyle>Italic</FontStyle>
                                               <FontFamily>times New Roman</FontFamily>
-                                              <FontSize>6pt</FontSize>
+                                              <FontSize>8pt</FontSize>
                                             </Style>
                                           </TextRun>
                                         </TextRuns>
-                                        <Style>
-                                          <LineHeight>6pt</LineHeight>
-                                        </Style>
+                                        <Style />
                                       </Paragraph>
                                     </Paragraphs>
                                     <rd:DefaultName>Textbox146</rd:DefaultName>
@@ -1757,8 +1912,9 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Address</Value>
+                            <Value>Địa chỉ</Value>
                             <Style>
+                              <FontStyle>Normal</FontStyle>
                               <FontFamily>times New Roman</FontFamily>
                               <FontSize>8pt</FontSize>
                             </Style>
@@ -1769,17 +1925,15 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Địa chỉ</Value>
+                            <Value>Address</Value>
                             <Style>
                               <FontStyle>Italic</FontStyle>
                               <FontFamily>times New Roman</FontFamily>
-                              <FontSize>6pt</FontSize>
+                              <FontSize>8pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style>
-                          <LineHeight>6pt</LineHeight>
-                        </Style>
+                        <Style />
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox120</rd:DefaultName>
@@ -1834,15 +1988,16 @@
                       <TablixHeader>
                         <Size>2.63692cm</Size>
                         <CellContents>
-                          <Textbox Name="Textbox147">
+                          <Textbox Name="Textbox13">
                             <CanGrow>true</CanGrow>
                             <KeepTogether>true</KeepTogether>
                             <Paragraphs>
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Sex</Value>
+                                    <Value>Cân nặng</Value>
                                     <Style>
+                                      <FontStyle>Normal</FontStyle>
                                       <FontFamily>times New Roman</FontFamily>
                                       <FontSize>8pt</FontSize>
                                     </Style>
@@ -1853,20 +2008,18 @@
                               <Paragraph>
                                 <TextRuns>
                                   <TextRun>
-                                    <Value>Giới tính</Value>
+                                    <Value>Weight</Value>
                                     <Style>
                                       <FontStyle>Italic</FontStyle>
                                       <FontFamily>times New Roman</FontFamily>
-                                      <FontSize>6pt</FontSize>
+                                      <FontSize>8pt</FontSize>
                                     </Style>
                                   </TextRun>
                                 </TextRuns>
-                                <Style>
-                                  <LineHeight>6pt</LineHeight>
-                                </Style>
+                                <Style />
                               </Paragraph>
                             </Paragraphs>
-                            <rd:DefaultName>Textbox147</rd:DefaultName>
+                            <rd:DefaultName>Textbox13</rd:DefaultName>
                             <Style>
                               <Border>
                                 <Color>LightGrey</Color>
@@ -1899,8 +2052,9 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Diagnosis</Value>
+                            <Value>Chẩn đoán</Value>
                             <Style>
+                              <FontStyle>Normal</FontStyle>
                               <FontFamily>times New Roman</FontFamily>
                               <FontSize>8pt</FontSize>
                             </Style>
@@ -1911,17 +2065,15 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>Chẩn đoán</Value>
+                            <Value>Diagnosis</Value>
                             <Style>
                               <FontStyle>Italic</FontStyle>
                               <FontFamily>times New Roman</FontFamily>
-                              <FontSize>6pt</FontSize>
+                              <FontSize>8pt</FontSize>
                             </Style>
                           </TextRun>
                         </TextRuns>
-                        <Style>
-                          <LineHeight>6pt</LineHeight>
-                        </Style>
+                        <Style />
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox127</rd:DefaultName>
@@ -1983,7 +2135,7 @@
               <TablixHeader>
                 <Size>2.72035cm</Size>
                 <CellContents>
-                  <Textbox Name="Textbox13">
+                  <Textbox Name="Textbox21">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
@@ -2000,7 +2152,7 @@
                         <Style />
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox13</rd:DefaultName>
+                    <rd:DefaultName>Textbox21</rd:DefaultName>
                     <Style>
                       <Border>
                         <Color>LightGrey</Color>
@@ -2058,7 +2210,7 @@
         <DataSetName>DataSet1</DataSetName>
         <Top>2.84332cm</Top>
         <Left>0.28529cm</Left>
-        <Height>4.0132cm</Height>
+        <Height>4.38362cm</Height>
         <Width>19.61003cm</Width>
         <ZIndex>8</ZIndex>
         <Style>
@@ -2071,7 +2223,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>4.68563cm</Width>
+              <Width>5.18897cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -2142,10 +2294,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>11.52226cm</Top>
+        <Top>11.89268cm</Top>
         <Left>13.96677cm</Left>
         <Height>0.6525cm</Height>
-        <Width>4.68563cm</Width>
+        <Width>5.18897cm</Width>
         <ZIndex>9</ZIndex>
         <Style>
           <Border>
@@ -2176,7 +2328,7 @@
                               <Value>=Fields!Remark.Value</Value>
                               <Style>
                                 <FontFamily>times New Roman</FontFamily>
-                                <FontSize>9pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                               </Style>
                             </TextRun>
                           </TextRuns>
@@ -2228,7 +2380,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>DataSet1</DataSetName>
-        <Top>9.95214cm</Top>
+        <Top>10.32256cm</Top>
         <Left>0.63998cm</Left>
         <Height>2.22262cm</Height>
         <Width>10.16513cm</Width>
@@ -2243,10 +2395,10 @@
         <Source>External</Source>
         <Value>=First(Fields!Signature.Value, "DataSet1")</Value>
         <Sizing>FitProportional</Sizing>
-        <Top>10.53916cm</Top>
-        <Left>14.32574cm</Left>
-        <Height>0.91254cm</Height>
-        <Width>4.78083cm</Width>
+        <Top>10.54143cm</Top>
+        <Left>13.96677cm</Left>
+        <Height>1.21013cm</Height>
+        <Width>5.18897cm</Width>
         <ZIndex>11</ZIndex>
         <Style>
           <Border>
@@ -2254,14 +2406,94 @@
           </Border>
         </Style>
       </Image>
+      <Textbox Name="Textbox15">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Số</Value>
+                <Style>
+                  <FontStyle>Normal</FontStyle>
+                  <FontFamily>times New Roman</FontFamily>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontFamily>times New Roman</FontFamily>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>(P.ID)</Value>
+                <Style>
+                  <FontStyle>Italic</FontStyle>
+                  <FontFamily>times New Roman</FontFamily>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>2.12012cm</Top>
+        <Left>13.88686cm</Left>
+        <Height>0.58209cm</Height>
+        <Width>1.95855cm</Width>
+        <ZIndex>12</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox17">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Remark:</Value>
+                <Style>
+                  <FontFamily>times New Roman</FontFamily>
+                  <FontWeight>Bold</FontWeight>
+                  <TextDecoration>Underline</TextDecoration>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox4</rd:DefaultName>
+        <Top>9.77425cm</Top>
+        <Left>0.63998cm</Left>
+        <Height>0.51303cm</Height>
+        <Width>1.95855cm</Width>
+        <ZIndex>13</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>12.26536cm</Height>
+    <Height>16.52515cm</Height>
     <Style />
   </Body>
   <Width>19.89532cm</Width>
   <Page>
     <PageFooter>
-      <Height>7.81898cm</Height>
+      <Height>2.3421cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -2272,7 +2504,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Bring this prescription on next visit</Value>
+                  <Value>Tái khám mang theo đơn thuốc này</Value>
                   <Style>
                     <FontFamily>times New Roman</FontFamily>
                   </Style>
@@ -2283,8 +2515,21 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Tái khám mang theo đơn thuốc này</Value>
+                  <Value>Bring this prescription on next visit</Value>
                   <Style>
+                    <FontStyle>Italic</FontStyle>
+                    <FontFamily>times New Roman</FontFamily>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value />
+                  <Style>
+                    <FontStyle>Italic</FontStyle>
                     <FontFamily>times New Roman</FontFamily>
                     <FontSize>6pt</FontSize>
                   </Style>
@@ -2327,7 +2572,7 @@
           <rd:DefaultName>Textbox4</rd:DefaultName>
           <Top>0.67377cm</Top>
           <Left>13.65558cm</Left>
-          <Height>0.9525cm</Height>
+          <Height>0.51303cm</Height>
           <Width>1.95855cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
@@ -2357,7 +2602,7 @@
           <rd:DefaultName>Textbox5</rd:DefaultName>
           <Top>0.67377cm</Top>
           <Left>15.61413cm</Left>
-          <Height>0.9525cm</Height>
+          <Height>0.47625cm</Height>
           <Width>4.27208cm</Width>
           <ZIndex>2</ZIndex>
           <Style>
@@ -2407,8 +2652,9 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Page</Value>
+                  <Value>Trang</Value>
                   <Style>
+                    <FontStyle>Normal</FontStyle>
                     <FontFamily>times New Roman</FontFamily>
                   </Style>
                 </TextRun>
@@ -2418,11 +2664,10 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Trang</Value>
+                  <Value>Page</Value>
                   <Style>
                     <FontStyle>Italic</FontStyle>
                     <FontFamily>times New Roman</FontFamily>
-                    <FontSize>6pt</FontSize>
                   </Style>
                 </TextRun>
               </TextRuns>
@@ -2431,9 +2676,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
           <Top>0.74583cm</Top>
-          <Left>7.46026cm</Left>
+          <Left>7.26064cm</Left>
           <Height>0.9525cm</Height>
-          <Width>0.95313cm</Width>
+          <Width>1.15275cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -2511,6 +2756,82 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Textbox Name="Textbox14">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!ExecutionTime</Value>
+                  <Style>
+                    <FontSize>9pt</FontSize>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox5</rd:DefaultName>
+          <Top>1.22208cm</Top>
+          <Left>15.61413cm</Left>
+          <Height>0.52417cm</Height>
+          <Width>4.27208cm</Width>
+          <ZIndex>7</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox16">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Date print:</Value>
+                  <Style>
+                    <FontFamily>times New Roman</FontFamily>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox4</rd:DefaultName>
+          <Top>1.23322cm</Top>
+          <Left>13.6203cm</Left>
+          <Height>0.51303cm</Height>
+          <Width>1.95855cm</Width>
+          <ZIndex>8</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Line Name="Line1">
+          <Top>0.2198cm</Top>
+          <Left>0cm</Left>
+          <Height>0cm</Height>
+          <Width>19.89532cm</Width>
+          <ZIndex>9</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -2525,7 +2846,12 @@
     <TopMargin>0.5cm</TopMargin>
     <BottomMargin>0.5cm</BottomMargin>
     <ColumnSpacing>1.27cm</ColumnSpacing>
-    <Style />
+    <Style>
+      <Border>
+        <Style>None</Style>
+        <Width>2pt</Width>
+      </Border>
+    </Style>
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -2695,6 +3021,10 @@
         <Field Name="DiagCode">
           <DataField>DiagCode</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Refill">
+          <DataField>Refill</DataField>
+          <rd:TypeName>System.Boolean</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>

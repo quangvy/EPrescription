@@ -6665,6 +6665,12 @@
             </summary>
             <value>The DiagnosisVn.</value>
         </member>
+        <member name="P:ePrescription.Web.UI.EPrescriptionItem.DiagCode">
+            <summary>
+            Gets the DiagCode
+            </summary>
+            <value>The DiagCode.</value>
+        </member>
         <member name="P:ePrescription.Web.UI.EPrescriptionItem.PrescribingDoctor">
             <summary>
             Gets the PrescribingDoctor
@@ -6920,6 +6926,12 @@
             Gets the TotalUnit
             </summary>
             <value>The TotalUnit.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.EPrescriptionDetailItem.Refill">
+            <summary>
+            Gets the Refill
+            </summary>
+            <value>The Refill.</value>
         </member>
         <member name="P:ePrescription.Web.UI.EPrescriptionDetailItem.Entity">
             <summary>

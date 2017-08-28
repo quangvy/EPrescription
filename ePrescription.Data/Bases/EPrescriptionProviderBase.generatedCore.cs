@@ -233,6 +233,7 @@ namespace ePrescription.Data.Bases
 					c.Weight = (reader.IsDBNull(((int)EPrescriptionColumn.Weight - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.Weight - 1)];
 					c.Diagnosis = (reader.IsDBNull(((int)EPrescriptionColumn.Diagnosis - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.Diagnosis - 1)];
 					c.DiagnosisVn = (reader.IsDBNull(((int)EPrescriptionColumn.DiagnosisVn - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.DiagnosisVn - 1)];
+					c.DiagCode = (reader.IsDBNull(((int)EPrescriptionColumn.DiagCode - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.DiagCode - 1)];
 					c.PrescribingDoctor = (reader.IsDBNull(((int)EPrescriptionColumn.PrescribingDoctor - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.PrescribingDoctor - 1)];
 					c.Sex = (reader.IsDBNull(((int)EPrescriptionColumn.Sex - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.Sex - 1)];
 					c.Remark = (reader.IsDBNull(((int)EPrescriptionColumn.Remark - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.Remark - 1)];
@@ -268,6 +269,7 @@ namespace ePrescription.Data.Bases
 			entity.Weight = (reader.IsDBNull(((int)EPrescriptionColumn.Weight - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.Weight - 1)];
 			entity.Diagnosis = (reader.IsDBNull(((int)EPrescriptionColumn.Diagnosis - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.Diagnosis - 1)];
 			entity.DiagnosisVn = (reader.IsDBNull(((int)EPrescriptionColumn.DiagnosisVn - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.DiagnosisVn - 1)];
+			entity.DiagCode = (reader.IsDBNull(((int)EPrescriptionColumn.DiagCode - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.DiagCode - 1)];
 			entity.PrescribingDoctor = (reader.IsDBNull(((int)EPrescriptionColumn.PrescribingDoctor - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.PrescribingDoctor - 1)];
 			entity.Sex = (reader.IsDBNull(((int)EPrescriptionColumn.Sex - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.Sex - 1)];
 			entity.Remark = (reader.IsDBNull(((int)EPrescriptionColumn.Remark - 1)))?null:(System.String)reader[((int)EPrescriptionColumn.Remark - 1)];
@@ -298,6 +300,7 @@ namespace ePrescription.Data.Bases
 			entity.Weight = Convert.IsDBNull(dataRow["Weight"]) ? null : (System.String)dataRow["Weight"];
 			entity.Diagnosis = Convert.IsDBNull(dataRow["Diagnosis"]) ? null : (System.String)dataRow["Diagnosis"];
 			entity.DiagnosisVn = Convert.IsDBNull(dataRow["DiagnosisVN"]) ? null : (System.String)dataRow["DiagnosisVN"];
+			entity.DiagCode = Convert.IsDBNull(dataRow["DiagCode"]) ? null : (System.String)dataRow["DiagCode"];
 			entity.PrescribingDoctor = Convert.IsDBNull(dataRow["PrescribingDoctor"]) ? null : (System.String)dataRow["PrescribingDoctor"];
 			entity.Sex = Convert.IsDBNull(dataRow["Sex"]) ? null : (System.String)dataRow["Sex"];
 			entity.Remark = Convert.IsDBNull(dataRow["Remark"]) ? null : (System.String)dataRow["Remark"];

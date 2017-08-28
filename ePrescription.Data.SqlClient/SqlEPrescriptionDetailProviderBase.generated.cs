@@ -195,6 +195,7 @@ namespace ePrescription.Data.SqlClient
 		database.AddInParameter(commandWrapper, "@DurationUnit", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@DurationUnitVn", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@TotalUnit", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Refill", DbType.Boolean, DBNull.Value);
 	
 			// replace all instances of 'AND' and 'OR' because we already set searchUsingOR
 			whereClause = whereClause.Replace(" AND ", "|").Replace(" OR ", "|") ; 
@@ -321,6 +322,12 @@ namespace ePrescription.Data.SqlClient
 				{
 					database.SetParameterValue(commandWrapper, "@TotalUnit", 
 						clause.Trim().Remove(0,9).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("refill ") || clause.Trim().StartsWith("refill="))
+				{
+					database.SetParameterValue(commandWrapper, "@Refill", 
+						clause.Trim().Remove(0,6).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
 					continue;
 				}
 	
@@ -810,6 +817,8 @@ namespace ePrescription.Data.SqlClient
 			col17.AllowDBNull = true;		
 			DataColumn col18 = dataTable.Columns.Add("TotalUnit", typeof(System.String));
 			col18.AllowDBNull = true;		
+			DataColumn col19 = dataTable.Columns.Add("Refill", typeof(System.Boolean));
+			col19.AllowDBNull = true;		
 			
 			bulkCopy.ColumnMappings.Add("PrescriptionDetailId", "PrescriptionDetailId");
 			bulkCopy.ColumnMappings.Add("PrescriptionID", "PrescriptionID");
@@ -830,6 +839,7 @@ namespace ePrescription.Data.SqlClient
 			bulkCopy.ColumnMappings.Add("DurationUnit", "DurationUnit");
 			bulkCopy.ColumnMappings.Add("DurationUnitVN", "DurationUnitVN");
 			bulkCopy.ColumnMappings.Add("TotalUnit", "TotalUnit");
+			bulkCopy.ColumnMappings.Add("Refill", "Refill");
 			
 			foreach(ePrescription.Entities.EPrescriptionDetail entity in entities)
 			{
@@ -895,6 +905,9 @@ namespace ePrescription.Data.SqlClient
 					row["TotalUnit"] = entity.TotalUnit;
 							
 				
+					row["Refill"] = entity.Refill.HasValue ? (object) entity.Refill  : System.DBNull.Value;
+							
+				
 				dataTable.Rows.Add(row);
 			}		
 			
@@ -948,6 +961,7 @@ namespace ePrescription.Data.SqlClient
             database.AddInParameter(commandWrapper, "@DurationUnit", DbType.String, entity.DurationUnit );
             database.AddInParameter(commandWrapper, "@DurationUnitVn", DbType.String, entity.DurationUnitVn );
             database.AddInParameter(commandWrapper, "@TotalUnit", DbType.String, entity.TotalUnit );
+			database.AddInParameter(commandWrapper, "@Refill", DbType.Boolean, (entity.Refill.HasValue ? (object) entity.Refill  : System.DBNull.Value));
 			
 			int results = 0;
 			
@@ -1015,6 +1029,7 @@ namespace ePrescription.Data.SqlClient
             database.AddInParameter(commandWrapper, "@DurationUnit", DbType.String, entity.DurationUnit );
             database.AddInParameter(commandWrapper, "@DurationUnitVn", DbType.String, entity.DurationUnitVn );
             database.AddInParameter(commandWrapper, "@TotalUnit", DbType.String, entity.TotalUnit );
+			database.AddInParameter(commandWrapper, "@Refill", DbType.Boolean, (entity.Refill.HasValue ? (object) entity.Refill : System.DBNull.Value) );
 			
 			int results = 0;
 			

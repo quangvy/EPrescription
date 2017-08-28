@@ -449,6 +449,15 @@ namespace ePrescription.Web.UI
 			get { return _entity.DiagnosisVn; }
 		}
         /// <summary>
+        /// Gets the DiagCode
+        /// </summary>
+        /// <value>The DiagCode.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String DiagCode
+		{
+			get { return _entity.DiagCode; }
+		}
+        /// <summary>
         /// Gets the PrescribingDoctor
         /// </summary>
         /// <value>The PrescribingDoctor.</value>

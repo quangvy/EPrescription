@@ -1608,6 +1608,7 @@
 					[Weight],
 					[Diagnosis],
 					[DiagnosisVN],
+					[DiagCode],
 					[PrescribingDoctor],
 					[Sex],
 					[Remark],
@@ -1673,6 +1674,7 @@
 				SET @SQL = @SQL + ', [Weight]'
 				SET @SQL = @SQL + ', [Diagnosis]'
 				SET @SQL = @SQL + ', [DiagnosisVN]'
+				SET @SQL = @SQL + ', [DiagCode]'
 				SET @SQL = @SQL + ', [PrescribingDoctor]'
 				SET @SQL = @SQL + ', [Sex]'
 				SET @SQL = @SQL + ', [Remark]'
@@ -1696,6 +1698,7 @@
 				SET @SQL = @SQL + ' [Weight],'
 				SET @SQL = @SQL + ' [Diagnosis],'
 				SET @SQL = @SQL + ' [DiagnosisVN],'
+				SET @SQL = @SQL + ' [DiagCode],'
 				SET @SQL = @SQL + ' [PrescribingDoctor],'
 				SET @SQL = @SQL + ' [Sex],'
 				SET @SQL = @SQL + ' [Remark],'
@@ -1745,6 +1748,7 @@
 				<parameter name="@Weight" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
 				<parameter name="@Diagnosis" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
 				<parameter name="@DiagnosisVn" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@DiagCode" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
 				<parameter name="@PrescribingDoctor" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault=""/>
 				<parameter name="@Sex" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
 				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
@@ -1767,6 +1771,7 @@
 					,[Weight]
 					,[Diagnosis]
 					,[DiagnosisVN]
+					,[DiagCode]
 					,[PrescribingDoctor]
 					,[Sex]
 					,[Remark]
@@ -1787,6 +1792,7 @@
 					,@Weight
 					,@Diagnosis
 					,@DiagnosisVn
+					,@DiagCode
 					,@PrescribingDoctor
 					,@Sex
 					,@Remark
@@ -1820,6 +1826,7 @@
 				<parameter name="@Weight" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault=""/>
 				<parameter name="@Diagnosis" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
 				<parameter name="@DiagnosisVn" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault=""/>
+				<parameter name="@DiagCode" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
 				<parameter name="@PrescribingDoctor" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault=""/>
 				<parameter name="@Sex" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault=""/>
 				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault=""/>
@@ -1845,6 +1852,7 @@
 					,[Weight] = @Weight
 					,[Diagnosis] = @Diagnosis
 					,[DiagnosisVN] = @DiagnosisVn
+					,[DiagCode] = @DiagCode
 					,[PrescribingDoctor] = @PrescribingDoctor
 					,[Sex] = @Sex
 					,[Remark] = @Remark
@@ -1900,6 +1908,7 @@
 					[Weight],
 					[Diagnosis],
 					[DiagnosisVN],
+					[DiagCode],
 					[PrescribingDoctor],
 					[Sex],
 					[Remark],
@@ -1938,6 +1947,7 @@
 				<parameter name="@Weight" type="nvarchar" direction="Input" size="20" precision="0" scale="0" param="(20)" nulldefault="null"/>
 				<parameter name="@Diagnosis" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault="null"/>
 				<parameter name="@DiagnosisVn" type="nvarchar" direction="Input" size="500" precision="0" scale="0" param="(500)" nulldefault="null"/>
+				<parameter name="@DiagCode" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault="null"/>
 				<parameter name="@PrescribingDoctor" type="nvarchar" direction="Input" size="100" precision="0" scale="0" param="(100)" nulldefault="null"/>
 				<parameter name="@Sex" type="nvarchar" direction="Input" size="10" precision="0" scale="0" param="(10)" nulldefault="null"/>
 				<parameter name="@Remark" type="nvarchar" direction="Input" size="250" precision="0" scale="0" param="(250)" nulldefault="null"/>
@@ -1961,6 +1971,7 @@
 	, [Weight]
 	, [Diagnosis]
 	, [DiagnosisVN]
+	, [DiagCode]
 	, [PrescribingDoctor]
 	, [Sex]
 	, [Remark]
@@ -1981,6 +1992,7 @@
 	AND ([Weight] = @Weight OR @Weight IS NULL)
 	AND ([Diagnosis] = @Diagnosis OR @Diagnosis IS NULL)
 	AND ([DiagnosisVN] = @DiagnosisVn OR @DiagnosisVn IS NULL)
+	AND ([DiagCode] = @DiagCode OR @DiagCode IS NULL)
 	AND ([PrescribingDoctor] = @PrescribingDoctor OR @PrescribingDoctor IS NULL)
 	AND ([Sex] = @Sex OR @Sex IS NULL)
 	AND ([Remark] = @Remark OR @Remark IS NULL)
@@ -2003,6 +2015,7 @@
 	, [Weight]
 	, [Diagnosis]
 	, [DiagnosisVN]
+	, [DiagCode]
 	, [PrescribingDoctor]
 	, [Sex]
 	, [Remark]
@@ -2023,6 +2036,7 @@
 	OR ([Weight] = @Weight AND @Weight is not null)
 	OR ([Diagnosis] = @Diagnosis AND @Diagnosis is not null)
 	OR ([DiagnosisVN] = @DiagnosisVn AND @DiagnosisVn is not null)
+	OR ([DiagCode] = @DiagCode AND @DiagCode is not null)
 	OR ([PrescribingDoctor] = @PrescribingDoctor AND @PrescribingDoctor is not null)
 	OR ([Sex] = @Sex AND @Sex is not null)
 	OR ([Remark] = @Remark AND @Remark is not null)
@@ -2062,6 +2076,7 @@
 					, [Weight]
 					, [Diagnosis]
 					, [DiagnosisVN]
+					, [DiagCode]
 					, [PrescribingDoctor]
 					, [Sex]
 					, [Remark]
@@ -2082,6 +2097,7 @@
 				       [Weight],
 				       [Diagnosis],
 				       [DiagnosisVN],
+				       [DiagCode],
 				       [PrescribingDoctor],
 				       [Sex],
 				       [Remark],
@@ -3077,7 +3093,8 @@
 					[Duration],
 					[DurationUnit],
 					[DurationUnitVN],
-					[TotalUnit]
+					[TotalUnit],
+					[Refill]
 				FROM
 					[dbo].[ePrescriptionDetail]
 					
@@ -3145,6 +3162,7 @@
 				SET @SQL = @SQL + ', [DurationUnit]'
 				SET @SQL = @SQL + ', [DurationUnitVN]'
 				SET @SQL = @SQL + ', [TotalUnit]'
+				SET @SQL = @SQL + ', [Refill]'
 				SET @SQL = @SQL + ' FROM [dbo].[ePrescriptionDetail]'
 				IF LEN(@WhereClause) > 0
 				BEGIN
@@ -3169,7 +3187,8 @@
 				SET @SQL = @SQL + ' [Duration],'
 				SET @SQL = @SQL + ' [DurationUnit],'
 				SET @SQL = @SQL + ' [DurationUnitVN],'
-				SET @SQL = @SQL + ' [TotalUnit]'
+				SET @SQL = @SQL + ' [TotalUnit],'
+				SET @SQL = @SQL + ' [Refill]'
 				SET @SQL = @SQL + ' FROM PageIndex'
 				SET @SQL = @SQL + ' WHERE RowIndex > ' + CONVERT(nvarchar, @PageLowerBound)
 				IF @PageSize > 0
@@ -3221,6 +3240,7 @@
 				<parameter name="@DurationUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@DurationUnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@TotalUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Refill" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
 				
@@ -3244,6 +3264,7 @@
 					,[DurationUnit]
 					,[DurationUnitVN]
 					,[TotalUnit]
+					,[Refill]
 					)
 				VALUES
 					(
@@ -3265,6 +3286,7 @@
 					,@DurationUnit
 					,@DurationUnitVn
 					,@TotalUnit
+					,@Refill
 					)
 				-- Get the identity value
 				SET @PrescriptionDetailId = SCOPE_IDENTITY()
@@ -3301,6 +3323,7 @@
 				<parameter name="@DurationUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@DurationUnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
 				<parameter name="@TotalUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault=""/>
+				<parameter name="@Refill" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault=""/>
 			</parameters>
 			<body><![CDATA[
 				
@@ -3327,6 +3350,7 @@
 					,[DurationUnit] = @DurationUnit
 					,[DurationUnitVN] = @DurationUnitVn
 					,[TotalUnit] = @TotalUnit
+					,[Refill] = @Refill
 				WHERE
 [PrescriptionDetailId] = @PrescriptionDetailId 
 				
@@ -3385,7 +3409,8 @@
 					[Duration],
 					[DurationUnit],
 					[DurationUnitVN],
-					[TotalUnit]
+					[TotalUnit],
+					[Refill]
 				FROM
 					[dbo].[ePrescriptionDetail]
 				WHERE
@@ -3427,7 +3452,8 @@
 					[Duration],
 					[DurationUnit],
 					[DurationUnitVN],
-					[TotalUnit]
+					[TotalUnit],
+					[Refill]
 				FROM
 					[dbo].[ePrescriptionDetail]
 				WHERE
@@ -3468,6 +3494,7 @@
 				<parameter name="@DurationUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@DurationUnitVn" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
 				<parameter name="@TotalUnit" type="nvarchar" direction="Input" size="50" precision="0" scale="0" param="(50)" nulldefault="null"/>
+				<parameter name="@Refill" type="bit" direction="Input" size="1" precision="1" scale="0" param="" nulldefault="null"/>
 			</parameters>
 			<body><![CDATA[
 				
@@ -3493,6 +3520,7 @@
 	, [DurationUnit]
 	, [DurationUnitVN]
 	, [TotalUnit]
+	, [Refill]
     FROM
 	[dbo].[ePrescriptionDetail]
     WHERE 
@@ -3515,6 +3543,7 @@
 	AND ([DurationUnit] = @DurationUnit OR @DurationUnit IS NULL)
 	AND ([DurationUnitVN] = @DurationUnitVn OR @DurationUnitVn IS NULL)
 	AND ([TotalUnit] = @TotalUnit OR @TotalUnit IS NULL)
+	AND ([Refill] = @Refill OR @Refill IS NULL)
 						
   END
   ELSE
@@ -3539,6 +3568,7 @@
 	, [DurationUnit]
 	, [DurationUnitVN]
 	, [TotalUnit]
+	, [Refill]
     FROM
 	[dbo].[ePrescriptionDetail]
     WHERE 
@@ -3561,6 +3591,7 @@
 	OR ([DurationUnit] = @DurationUnit AND @DurationUnit is not null)
 	OR ([DurationUnitVN] = @DurationUnitVn AND @DurationUnitVn is not null)
 	OR ([TotalUnit] = @TotalUnit AND @TotalUnit is not null)
+	OR ([Refill] = @Refill AND @Refill is not null)
 	SELECT @@ROWCOUNT			
   END
 				]]></body>
@@ -3602,6 +3633,7 @@
 					, [DurationUnit]
 					, [DurationUnitVN]
 					, [TotalUnit]
+					, [Refill]
 					FROM [dbo].[ePrescriptionDetail] {0}
 				)
 				SELECT
@@ -3623,7 +3655,8 @@
 				       [Duration],
 				       [DurationUnit],
 				       [DurationUnitVN],
-				       [TotalUnit]
+				       [TotalUnit],
+				       [Refill]
 				  FROM PageIndex
 				 WHERE RowIndex > {2}
 				   AND RowIndex <= {3}

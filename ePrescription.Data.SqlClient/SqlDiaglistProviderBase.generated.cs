@@ -617,7 +617,7 @@ namespace ePrescription.Data.SqlClient
 			DataColumn col2 = dataTable.Columns.Add("DIAG_NAME", typeof(System.String));
 			col2.AllowDBNull = false;		
 			DataColumn col3 = dataTable.Columns.Add("DIAG_NAME_VN", typeof(System.String));
-			col3.AllowDBNull = false;		
+			col3.AllowDBNull = true;		
 			DataColumn col4 = dataTable.Columns.Add("IsDisabled", typeof(System.Boolean));
 			col4.AllowDBNull = false;		
 			

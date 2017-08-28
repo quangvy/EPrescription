@@ -10,9 +10,13 @@
       <siteMapNode url="Route.aspx" title="Manage Route "  description="" roles="*" />
       <siteMapNode url="Frequency.aspx" title="Manage frequency "  description="" roles="*" />
     </siteMapNode>
-    
+    <siteMapNode url="" title="Reference" roles="*">
+      <siteMapNode url="ViewPrescription.aspx" title="View Prescriptions"  description="" roles="Nurse" />
+      
+    </siteMapNode>
     <siteMapNode url="" title="Settings" roles="Admin">
       <siteMapNode url="Users.aspx" title="User"  description="" roles="Admin" />
+      <siteMapNode url="UserRoles.aspx" title="Users Role"  description="" roles="Admin" />
     </siteMapNode>
   </siteMapNode>
 </siteMap>

@@ -108,6 +108,11 @@ namespace ePrescription.Entities
 		/// TotalUnit : 
 		/// </summary>
 		System.String  TotalUnit  { get; set; }
+		
+		/// <summary>
+		/// Refill : 
+		/// </summary>
+		System.Boolean?  Refill  { get; set; }
 			
 		/// <summary>
 		/// Creates a new object that is a copy of the current instance.

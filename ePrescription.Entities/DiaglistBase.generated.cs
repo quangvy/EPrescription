@@ -261,17 +261,16 @@ namespace ePrescription.Entities
 		/// </summary>
 		/// <value>This type is nvarchar.</value>
 		/// <remarks>
-		/// This property can not be set to null. 
+		/// This property can be set to null. 
 		/// </remarks>
-		/// <exception cref="ArgumentNullException">If you attempt to set to null.</exception>
 		
-		[Required(ErrorMessage = "DiagNameVn is required")]
+		
 
 
 
 
 		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, false, 500)]
+		[DataObjectField(false, false, true, 500)]
 		public virtual System.String DiagNameVn
 		{
 			get
@@ -363,8 +362,6 @@ namespace ePrescription.Entities
 				new ValidationRuleArgs("DiagName", "Diag Name"));
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("DiagName", "Diag Name", 500));
-			ValidationRules.AddRule( CommonRules.NotNull,
-				new ValidationRuleArgs("DiagNameVn", "Diag Name Vn"));
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("DiagNameVn", "Diag Name Vn", 500));
 		}
@@ -763,7 +760,7 @@ namespace ePrescription.Entities
 			return this.Category.GetHashCode() ^ 
 					this.DiagCode.GetHashCode() ^ 
 					this.DiagName.GetHashCode() ^ 
-					this.DiagNameVn.GetHashCode() ^ 
+					((this.DiagNameVn == null) ? string.Empty : this.DiagNameVn.ToString()).GetHashCode() ^ 
 					this.IsDisabled.GetHashCode();
         }
 		
@@ -803,8 +800,15 @@ namespace ePrescription.Entities
 				equal = false;
 			if (Object1.DiagName != Object2.DiagName)
 				equal = false;
-			if (Object1.DiagNameVn != Object2.DiagNameVn)
+			if ( Object1.DiagNameVn != null && Object2.DiagNameVn != null )
+			{
+				if (Object1.DiagNameVn != Object2.DiagNameVn)
+					equal = false;
+			}
+			else if (Object1.DiagNameVn == null ^ Object2.DiagNameVn == null )
+			{
 				equal = false;
+			}
 			if (Object1.IsDisabled != Object2.IsDisabled)
 				equal = false;
 					
@@ -1017,7 +1021,7 @@ namespace ePrescription.Entities
 				this.Category,
 				this.DiagCode,
 				this.DiagName,
-				this.DiagNameVn,
+				(this.DiagNameVn == null) ? string.Empty : this.DiagNameVn.ToString(),
 				this.IsDisabled,
 				System.Environment.NewLine, 
 				this.GetType(),
@@ -1070,7 +1074,7 @@ namespace ePrescription.Entities
 		/// <summary>
 		/// DIAG_NAME_VN : 
 		/// </summary>
-		public System.String DiagNameVn = string.Empty;
+		public System.String DiagNameVn = null;
 		
 		/// <summary>
 		/// IsDisabled : 
@@ -1520,7 +1524,7 @@ namespace ePrescription.Entities
 		/// DiagNameVn : 
 		/// </summary>
 		[EnumTextValue("Diag Name Vn")]
-		[ColumnEnum("DIAG_NAME_VN", typeof(System.String), System.Data.DbType.String, false, false, false, 500)]
+		[ColumnEnum("DIAG_NAME_VN", typeof(System.String), System.Data.DbType.String, false, false, true, 500)]
 		DiagNameVn = 4,
 		/// <summary>
 		/// IsDisabled : 

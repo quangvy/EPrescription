@@ -323,6 +323,7 @@ namespace ePrescription.Data.Bases
 					c.DurationUnit = (reader.IsDBNull(((int)EPrescriptionDetailColumn.DurationUnit - 1)))?null:(System.String)reader[((int)EPrescriptionDetailColumn.DurationUnit - 1)];
 					c.DurationUnitVn = (reader.IsDBNull(((int)EPrescriptionDetailColumn.DurationUnitVn - 1)))?null:(System.String)reader[((int)EPrescriptionDetailColumn.DurationUnitVn - 1)];
 					c.TotalUnit = (reader.IsDBNull(((int)EPrescriptionDetailColumn.TotalUnit - 1)))?null:(System.String)reader[((int)EPrescriptionDetailColumn.TotalUnit - 1)];
+					c.Refill = (reader.IsDBNull(((int)EPrescriptionDetailColumn.Refill - 1)))?null:(System.Boolean?)reader[((int)EPrescriptionDetailColumn.Refill - 1)];
 					c.EntityTrackingKey = key;
 					c.AcceptChanges();
 					c.SuppressEntityEvents = false;
@@ -359,6 +360,7 @@ namespace ePrescription.Data.Bases
 			entity.DurationUnit = (reader.IsDBNull(((int)EPrescriptionDetailColumn.DurationUnit - 1)))?null:(System.String)reader[((int)EPrescriptionDetailColumn.DurationUnit - 1)];
 			entity.DurationUnitVn = (reader.IsDBNull(((int)EPrescriptionDetailColumn.DurationUnitVn - 1)))?null:(System.String)reader[((int)EPrescriptionDetailColumn.DurationUnitVn - 1)];
 			entity.TotalUnit = (reader.IsDBNull(((int)EPrescriptionDetailColumn.TotalUnit - 1)))?null:(System.String)reader[((int)EPrescriptionDetailColumn.TotalUnit - 1)];
+			entity.Refill = (reader.IsDBNull(((int)EPrescriptionDetailColumn.Refill - 1)))?null:(System.Boolean?)reader[((int)EPrescriptionDetailColumn.Refill - 1)];
 			entity.AcceptChanges();
 		}
 		
@@ -390,6 +392,7 @@ namespace ePrescription.Data.Bases
 			entity.DurationUnit = Convert.IsDBNull(dataRow["DurationUnit"]) ? null : (System.String)dataRow["DurationUnit"];
 			entity.DurationUnitVn = Convert.IsDBNull(dataRow["DurationUnitVN"]) ? null : (System.String)dataRow["DurationUnitVN"];
 			entity.TotalUnit = Convert.IsDBNull(dataRow["TotalUnit"]) ? null : (System.String)dataRow["TotalUnit"];
+			entity.Refill = Convert.IsDBNull(dataRow["Refill"]) ? null : (System.Boolean?)dataRow["Refill"];
 			entity.AcceptChanges();
 		}
 		#endregion 

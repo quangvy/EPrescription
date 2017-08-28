@@ -85,6 +85,11 @@ namespace ePrescription.Entities
 		System.String  DiagnosisVn  { get; set; }
 		
 		/// <summary>
+		/// DiagCode : 
+		/// </summary>
+		System.String  DiagCode  { get; set; }
+		
+		/// <summary>
 		/// PrescribingDoctor : 
 		/// </summary>
 		System.String  PrescribingDoctor  { get; set; }

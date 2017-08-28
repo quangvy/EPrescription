@@ -94,6 +94,7 @@ namespace ePrescription.Entities
 		///<param name="_weight"></param>
 		///<param name="_diagnosis"></param>
 		///<param name="_diagnosisVn"></param>
+		///<param name="_diagCode"></param>
 		///<param name="_prescribingDoctor"></param>
 		///<param name="_sex"></param>
 		///<param name="_remark"></param>
@@ -102,7 +103,8 @@ namespace ePrescription.Entities
 			System.String _patientCode, System.String _firstName, System.String _lastName, System.DateTime _deliveryDate, 
 			System.DateTime _createDate, System.String _address, System.DateTime? _dateOfBirth, 
 			System.String _age, System.String _weight, System.String _diagnosis, System.String _diagnosisVn, 
-			System.String _prescribingDoctor, System.String _sex, System.String _remark, System.Boolean _isComplete)
+			System.String _diagCode, System.String _prescribingDoctor, System.String _sex, System.String _remark, 
+			System.Boolean _isComplete)
 		{
 			this.entityData = new EPrescriptionEntityData();
 			this.backupData = null;
@@ -120,6 +122,7 @@ namespace ePrescription.Entities
 			this.Weight = _weight;
 			this.Diagnosis = _diagnosis;
 			this.DiagnosisVn = _diagnosisVn;
+			this.DiagCode = _diagCode;
 			this.PrescribingDoctor = _prescribingDoctor;
 			this.Sex = _sex;
 			this.Remark = _remark;
@@ -142,6 +145,7 @@ namespace ePrescription.Entities
 		///<param name="_weight"></param>
 		///<param name="_diagnosis"></param>
 		///<param name="_diagnosisVn"></param>
+		///<param name="_diagCode"></param>
 		///<param name="_prescribingDoctor"></param>
 		///<param name="_sex"></param>
 		///<param name="_remark"></param>
@@ -150,7 +154,8 @@ namespace ePrescription.Entities
 			System.String _patientCode, System.String _firstName, System.String _lastName, System.DateTime _deliveryDate, 
 			System.DateTime _createDate, System.String _address, System.DateTime? _dateOfBirth, 
 			System.String _age, System.String _weight, System.String _diagnosis, System.String _diagnosisVn, 
-			System.String _prescribingDoctor, System.String _sex, System.String _remark, System.Boolean _isComplete)
+			System.String _diagCode, System.String _prescribingDoctor, System.String _sex, System.String _remark, 
+			System.Boolean _isComplete)
 		{
 			EPrescription newEPrescription = new EPrescription();
 			newEPrescription.PrescriptionId = _prescriptionId;
@@ -166,6 +171,7 @@ namespace ePrescription.Entities
 			newEPrescription.Weight = _weight;
 			newEPrescription.Diagnosis = _diagnosis;
 			newEPrescription.DiagnosisVn = _diagnosisVn;
+			newEPrescription.DiagCode = _diagCode;
 			newEPrescription.PrescribingDoctor = _prescribingDoctor;
 			newEPrescription.Sex = _sex;
 			newEPrescription.Remark = _remark;
@@ -693,6 +699,44 @@ namespace ePrescription.Entities
 		}
 		
 		/// <summary>
+		/// 	Gets or sets the DiagCode property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true, 10)]
+		public virtual System.String DiagCode
+		{
+			get
+			{
+				return this.entityData.DiagCode; 
+			}
+			
+			set
+			{
+				if (this.entityData.DiagCode == value)
+					return;
+				
+                OnPropertyChanging("DiagCode");                    
+				OnColumnChanging(EPrescriptionColumn.DiagCode, this.entityData.DiagCode);
+				this.entityData.DiagCode = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(EPrescriptionColumn.DiagCode, this.entityData.DiagCode);
+				OnPropertyChanged("DiagCode");
+			}
+		}
+		
+		/// <summary>
 		/// 	Gets or sets the PrescribingDoctor property. 
 		///		
 		/// </summary>
@@ -903,6 +947,8 @@ namespace ePrescription.Entities
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("DiagnosisVn", "Diagnosis Vn", 500));
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("DiagCode", "Diag Code", 10));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("PrescribingDoctor", "Prescribing Doctor", 100));
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("Sex", "Sex", 10));
@@ -929,7 +975,7 @@ namespace ePrescription.Entities
 		{
 			get
 			{
-				return new string[] {"PrescriptionID", "TransactionID", "PatientCode", "FirstName", "LastName", "DeliveryDate", "CreateDate", "Address", "DateOfBirth", "Age", "Weight", "Diagnosis", "DiagnosisVN", "PrescribingDoctor", "Sex", "Remark", "IsComplete"};
+				return new string[] {"PrescriptionID", "TransactionID", "PatientCode", "FirstName", "LastName", "DeliveryDate", "CreateDate", "Address", "DateOfBirth", "Age", "Weight", "Diagnosis", "DiagnosisVN", "DiagCode", "PrescribingDoctor", "Sex", "Remark", "IsComplete"};
 			}
 		}
 		#endregion 
@@ -1091,6 +1137,7 @@ namespace ePrescription.Entities
 				copy.Weight = this.Weight;
 				copy.Diagnosis = this.Diagnosis;
 				copy.DiagnosisVn = this.DiagnosisVn;
+				copy.DiagCode = this.DiagCode;
 				copy.PrescribingDoctor = this.PrescribingDoctor;
 				copy.Sex = this.Sex;
 				copy.Remark = this.Remark;
@@ -1255,6 +1302,8 @@ namespace ePrescription.Entities
 					return entityData.Diagnosis != _originalData.Diagnosis;
 					case EPrescriptionColumn.DiagnosisVn:
 					return entityData.DiagnosisVn != _originalData.DiagnosisVn;
+					case EPrescriptionColumn.DiagCode:
+					return entityData.DiagCode != _originalData.DiagCode;
 					case EPrescriptionColumn.PrescribingDoctor:
 					return entityData.PrescribingDoctor != _originalData.PrescribingDoctor;
 					case EPrescriptionColumn.Sex:
@@ -1303,6 +1352,7 @@ namespace ePrescription.Entities
 			result = result || entityData.Weight != _originalData.Weight;
 			result = result || entityData.Diagnosis != _originalData.Diagnosis;
 			result = result || entityData.DiagnosisVn != _originalData.DiagnosisVn;
+			result = result || entityData.DiagCode != _originalData.DiagCode;
 			result = result || entityData.PrescribingDoctor != _originalData.PrescribingDoctor;
 			result = result || entityData.Sex != _originalData.Sex;
 			result = result || entityData.Remark != _originalData.Remark;
@@ -1330,6 +1380,7 @@ namespace ePrescription.Entities
 				_originalData.Weight,
 				_originalData.Diagnosis,
 				_originalData.DiagnosisVn,
+				_originalData.DiagCode,
 				_originalData.PrescribingDoctor,
 				_originalData.Sex,
 				_originalData.Remark,
@@ -1376,6 +1427,7 @@ namespace ePrescription.Entities
 					((this.Weight == null) ? string.Empty : this.Weight.ToString()).GetHashCode() ^ 
 					((this.Diagnosis == null) ? string.Empty : this.Diagnosis.ToString()).GetHashCode() ^ 
 					((this.DiagnosisVn == null) ? string.Empty : this.DiagnosisVn.ToString()).GetHashCode() ^ 
+					((this.DiagCode == null) ? string.Empty : this.DiagCode.ToString()).GetHashCode() ^ 
 					((this.PrescribingDoctor == null) ? string.Empty : this.PrescribingDoctor.ToString()).GetHashCode() ^ 
 					((this.Sex == null) ? string.Empty : this.Sex.ToString()).GetHashCode() ^ 
 					((this.Remark == null) ? string.Empty : this.Remark.ToString()).GetHashCode() ^ 
@@ -1484,6 +1536,15 @@ namespace ePrescription.Entities
 					equal = false;
 			}
 			else if (Object1.DiagnosisVn == null ^ Object2.DiagnosisVn == null )
+			{
+				equal = false;
+			}
+			if ( Object1.DiagCode != null && Object2.DiagCode != null )
+			{
+				if (Object1.DiagCode != Object2.DiagCode)
+					equal = false;
+			}
+			else if (Object1.DiagCode == null ^ Object2.DiagCode == null )
 			{
 				equal = false;
 			}
@@ -1634,6 +1695,12 @@ namespace ePrescription.Entities
             	
             	case EPrescriptionColumn.DiagnosisVn:
             		return this.DiagnosisVn.CompareTo(rhs.DiagnosisVn);
+            		
+            		                 
+            	
+            	
+            	case EPrescriptionColumn.DiagCode:
+            		return this.DiagCode.CompareTo(rhs.DiagCode);
             		
             		                 
             	
@@ -1794,7 +1861,7 @@ namespace ePrescription.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{18}{17}- PrescriptionId: {0}{17}- TransactionId: {1}{17}- PatientCode: {2}{17}- FirstName: {3}{17}- LastName: {4}{17}- DeliveryDate: {5}{17}- CreateDate: {6}{17}- Address: {7}{17}- DateOfBirth: {8}{17}- Age: {9}{17}- Weight: {10}{17}- Diagnosis: {11}{17}- DiagnosisVn: {12}{17}- PrescribingDoctor: {13}{17}- Sex: {14}{17}- Remark: {15}{17}- IsComplete: {16}{17}{19}", 
+				"{19}{18}- PrescriptionId: {0}{18}- TransactionId: {1}{18}- PatientCode: {2}{18}- FirstName: {3}{18}- LastName: {4}{18}- DeliveryDate: {5}{18}- CreateDate: {6}{18}- Address: {7}{18}- DateOfBirth: {8}{18}- Age: {9}{18}- Weight: {10}{18}- Diagnosis: {11}{18}- DiagnosisVn: {12}{18}- DiagCode: {13}{18}- PrescribingDoctor: {14}{18}- Sex: {15}{18}- Remark: {16}{18}- IsComplete: {17}{18}{20}", 
 				this.PrescriptionId,
 				(this.TransactionId == null) ? string.Empty : this.TransactionId.ToString(),
 				this.PatientCode,
@@ -1808,6 +1875,7 @@ namespace ePrescription.Entities
 				(this.Weight == null) ? string.Empty : this.Weight.ToString(),
 				(this.Diagnosis == null) ? string.Empty : this.Diagnosis.ToString(),
 				(this.DiagnosisVn == null) ? string.Empty : this.DiagnosisVn.ToString(),
+				(this.DiagCode == null) ? string.Empty : this.DiagCode.ToString(),
 				(this.PrescribingDoctor == null) ? string.Empty : this.PrescribingDoctor.ToString(),
 				(this.Sex == null) ? string.Empty : this.Sex.ToString(),
 				(this.Remark == null) ? string.Empty : this.Remark.ToString(),
@@ -1911,6 +1979,11 @@ namespace ePrescription.Entities
 		public System.String DiagnosisVn = null;
 		
 		/// <summary>
+		/// DiagCode : 
+		/// </summary>
+		public System.String DiagCode = null;
+		
+		/// <summary>
 		/// PrescribingDoctor : 
 		/// </summary>
 		public System.String PrescribingDoctor = null;
@@ -1990,6 +2063,7 @@ namespace ePrescription.Entities
 			_tmp.Weight = this.Weight;
 			_tmp.Diagnosis = this.Diagnosis;
 			_tmp.DiagnosisVn = this.DiagnosisVn;
+			_tmp.DiagCode = this.DiagCode;
 			_tmp.PrescribingDoctor = this.PrescribingDoctor;
 			_tmp.Sex = this.Sex;
 			_tmp.Remark = this.Remark;
@@ -2036,6 +2110,7 @@ namespace ePrescription.Entities
 			_tmp.Weight = this.Weight;
 			_tmp.Diagnosis = this.Diagnosis;
 			_tmp.DiagnosisVn = this.DiagnosisVn;
+			_tmp.DiagCode = this.DiagCode;
 			_tmp.PrescribingDoctor = this.PrescribingDoctor;
 			_tmp.Sex = this.Sex;
 			_tmp.Remark = this.Remark;
@@ -2484,29 +2559,35 @@ namespace ePrescription.Entities
 		[ColumnEnum("DiagnosisVN", typeof(System.String), System.Data.DbType.String, false, false, true, 500)]
 		DiagnosisVn = 13,
 		/// <summary>
+		/// DiagCode : 
+		/// </summary>
+		[EnumTextValue("Diag Code")]
+		[ColumnEnum("DiagCode", typeof(System.String), System.Data.DbType.String, false, false, true, 10)]
+		DiagCode = 14,
+		/// <summary>
 		/// PrescribingDoctor : 
 		/// </summary>
 		[EnumTextValue("Prescribing Doctor")]
 		[ColumnEnum("PrescribingDoctor", typeof(System.String), System.Data.DbType.String, false, false, true, 100)]
-		PrescribingDoctor = 14,
+		PrescribingDoctor = 15,
 		/// <summary>
 		/// Sex : 
 		/// </summary>
 		[EnumTextValue("Sex")]
 		[ColumnEnum("Sex", typeof(System.String), System.Data.DbType.String, false, false, true, 10)]
-		Sex = 15,
+		Sex = 16,
 		/// <summary>
 		/// Remark : 
 		/// </summary>
 		[EnumTextValue("Remark")]
 		[ColumnEnum("Remark", typeof(System.String), System.Data.DbType.String, false, false, true, 250)]
-		Remark = 16,
+		Remark = 17,
 		/// <summary>
 		/// IsComplete : 
 		/// </summary>
 		[EnumTextValue("Is Complete")]
 		[ColumnEnum("IsComplete", typeof(System.Boolean), System.Data.DbType.Boolean, false, false, false)]
-		IsComplete = 17
+		IsComplete = 18
 	}//End enum
 
 	#endregion EPrescriptionColumn Enum

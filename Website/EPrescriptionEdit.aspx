@@ -5,11 +5,11 @@
 		<data:MultiFormView ID="FormView1" DataKeyNames="PrescriptionId" runat="server" DataSourceID="EPrescriptionDataSource">
 		
 			<EditItemTemplatePaths>
-				<data:TemplatePath Path="~/Admin/UserControls/EPrescriptionFields.ascx" />
+				<data:TemplatePath Path="~/Admin/UserControls/EPrescriptionFieldsView.ascx" />
 			</EditItemTemplatePaths>
 		
 			<InsertItemTemplatePaths>
-				<data:TemplatePath Path="~/Admin/UserControls/EPrescriptionFields.ascx" />
+				<data:TemplatePath Path="~/Admin/UserControls/EPrescriptionFieldsView.ascx" />
 			</InsertItemTemplatePaths>
 		
 			<EmptyDataTemplate>
@@ -17,9 +17,9 @@
 			</EmptyDataTemplate>
 			
 			<FooterTemplate>
-				<asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+				<%--<asp:Button ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
 				<asp:Button ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
-				<asp:Button ID="CancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+				<asp:Button ID="CancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />--%>
 			</FooterTemplate>
 
 		</data:MultiFormView>
@@ -47,7 +47,7 @@
 			Visible='<%# (FormView1.DefaultMode == FormViewMode.Insert) ? false : true %>'	
 			>
 			<Columns>
-				<asp:CommandField ShowSelectButton="True" />
+			<%--	<asp:CommandField ShowSelectButton="false" />--%>
 				<data:HyperLinkField HeaderText="Prescription Id" DataNavigateUrlFormatString="EPrescriptionEdit.aspx?PrescriptionId={0}" DataNavigateUrlFields="PrescriptionId" DataContainer="PrescriptionIdSource" DataTextField="TransactionId" />
 				<asp:BoundField DataField="Sq" HeaderText="Sq" SortExpression="[Sq]" />				
 				<asp:BoundField DataField="DrugId" HeaderText="Drug Id" SortExpression="[DrugId]" />				

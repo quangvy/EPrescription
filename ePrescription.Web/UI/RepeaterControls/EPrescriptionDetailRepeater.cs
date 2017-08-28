@@ -502,6 +502,15 @@ namespace ePrescription.Web.UI
 		{
 			get { return _entity.TotalUnit; }
 		}
+        /// <summary>
+        /// Gets the Refill
+        /// </summary>
+        /// <value>The Refill.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.Boolean? Refill
+		{
+			get { return _entity.Refill; }
+		}
 
         /// <summary>
         /// Gets a <see cref="T:ePrescription.Entities.EPrescriptionDetail"></see> object

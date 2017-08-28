@@ -189,6 +189,7 @@ namespace ePrescription.Data.SqlClient
 		database.AddInParameter(commandWrapper, "@Weight", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Diagnosis", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@DiagnosisVn", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@DiagCode", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@PrescribingDoctor", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Sex", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Remark", DbType.String, DBNull.Value);
@@ -283,6 +284,12 @@ namespace ePrescription.Data.SqlClient
 				{
 					database.SetParameterValue(commandWrapper, "@DiagnosisVn", 
 						clause.Trim().Remove(0,11).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("diagcode ") || clause.Trim().StartsWith("diagcode="))
+				{
+					database.SetParameterValue(commandWrapper, "@DiagCode", 
+						clause.Trim().Remove(0,8).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
 					continue;
 				}
 				if (clause.Trim().StartsWith("prescribingdoctor ") || clause.Trim().StartsWith("prescribingdoctor="))
@@ -720,14 +727,16 @@ namespace ePrescription.Data.SqlClient
 			col11.AllowDBNull = true;		
 			DataColumn col12 = dataTable.Columns.Add("DiagnosisVN", typeof(System.String));
 			col12.AllowDBNull = true;		
-			DataColumn col13 = dataTable.Columns.Add("PrescribingDoctor", typeof(System.String));
+			DataColumn col13 = dataTable.Columns.Add("DiagCode", typeof(System.String));
 			col13.AllowDBNull = true;		
-			DataColumn col14 = dataTable.Columns.Add("Sex", typeof(System.String));
+			DataColumn col14 = dataTable.Columns.Add("PrescribingDoctor", typeof(System.String));
 			col14.AllowDBNull = true;		
-			DataColumn col15 = dataTable.Columns.Add("Remark", typeof(System.String));
+			DataColumn col15 = dataTable.Columns.Add("Sex", typeof(System.String));
 			col15.AllowDBNull = true;		
-			DataColumn col16 = dataTable.Columns.Add("IsComplete", typeof(System.Boolean));
-			col16.AllowDBNull = false;		
+			DataColumn col16 = dataTable.Columns.Add("Remark", typeof(System.String));
+			col16.AllowDBNull = true;		
+			DataColumn col17 = dataTable.Columns.Add("IsComplete", typeof(System.Boolean));
+			col17.AllowDBNull = false;		
 			
 			bulkCopy.ColumnMappings.Add("PrescriptionID", "PrescriptionID");
 			bulkCopy.ColumnMappings.Add("TransactionID", "TransactionID");
@@ -742,6 +751,7 @@ namespace ePrescription.Data.SqlClient
 			bulkCopy.ColumnMappings.Add("Weight", "Weight");
 			bulkCopy.ColumnMappings.Add("Diagnosis", "Diagnosis");
 			bulkCopy.ColumnMappings.Add("DiagnosisVN", "DiagnosisVN");
+			bulkCopy.ColumnMappings.Add("DiagCode", "DiagCode");
 			bulkCopy.ColumnMappings.Add("PrescribingDoctor", "PrescribingDoctor");
 			bulkCopy.ColumnMappings.Add("Sex", "Sex");
 			bulkCopy.ColumnMappings.Add("Remark", "Remark");
@@ -791,6 +801,9 @@ namespace ePrescription.Data.SqlClient
 							
 				
 					row["DiagnosisVN"] = entity.DiagnosisVn;
+							
+				
+					row["DiagCode"] = entity.DiagCode;
 							
 				
 					row["PrescribingDoctor"] = entity.PrescribingDoctor;
@@ -852,6 +865,7 @@ namespace ePrescription.Data.SqlClient
             database.AddInParameter(commandWrapper, "@Weight", DbType.String, entity.Weight );
             database.AddInParameter(commandWrapper, "@Diagnosis", DbType.String, entity.Diagnosis );
             database.AddInParameter(commandWrapper, "@DiagnosisVn", DbType.String, entity.DiagnosisVn );
+            database.AddInParameter(commandWrapper, "@DiagCode", DbType.String, entity.DiagCode );
             database.AddInParameter(commandWrapper, "@PrescribingDoctor", DbType.String, entity.PrescribingDoctor );
             database.AddInParameter(commandWrapper, "@Sex", DbType.String, entity.Sex );
             database.AddInParameter(commandWrapper, "@Remark", DbType.String, entity.Remark );
@@ -917,6 +931,7 @@ namespace ePrescription.Data.SqlClient
             database.AddInParameter(commandWrapper, "@Weight", DbType.String, entity.Weight );
             database.AddInParameter(commandWrapper, "@Diagnosis", DbType.String, entity.Diagnosis );
             database.AddInParameter(commandWrapper, "@DiagnosisVn", DbType.String, entity.DiagnosisVn );
+            database.AddInParameter(commandWrapper, "@DiagCode", DbType.String, entity.DiagCode );
             database.AddInParameter(commandWrapper, "@PrescribingDoctor", DbType.String, entity.PrescribingDoctor );
             database.AddInParameter(commandWrapper, "@Sex", DbType.String, entity.Sex );
             database.AddInParameter(commandWrapper, "@Remark", DbType.String, entity.Remark );

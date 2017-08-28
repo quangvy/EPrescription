@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EPrescription_PrintTableAdapter" GeneratorDataComponentClassName="EPrescription_PrintTableAdapter" Name="EPrescription_Print" UserDataComponentName="EPrescription_PrintTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="EPrescription (Web.config)" DbObjectName="EPrescription.dbo.EPrescription_Print" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="EPrescription (Web.config)" DbObjectName="Eprescription.dbo.EPrescription_Print" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>dbo.EPrescription_Print</CommandText>
@@ -60,6 +60,7 @@
               <Mapping SourceColumn="CopyName" DataSetColumn="CopyName" />
               <Mapping SourceColumn="Signature" DataSetColumn="Signature" />
               <Mapping SourceColumn="DiagCode" DataSetColumn="DiagCode" />
+              <Mapping SourceColumn="Refill" DataSetColumn="Refill" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -71,7 +72,7 @@
   <xs:element name="EPrescriptionDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="False" msprop:Generator_DataSetName="EPrescriptionDataSet" msprop:Generator_UserDSName="EPrescriptionDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="EPrescription_Print" msprop:Generator_TableClassName="EPrescription_PrintDataTable" msprop:Generator_TableVarName="tableEPrescription_Print" msprop:Generator_TablePropName="EPrescription_Print" msprop:Generator_RowDeletingName="EPrescription_PrintRowDeleting" msprop:Generator_RowChangingName="EPrescription_PrintRowChanging" msprop:Generator_RowEvHandlerName="EPrescription_PrintRowChangeEventHandler" msprop:Generator_RowDeletedName="EPrescription_PrintRowDeleted" msprop:Generator_UserTableName="EPrescription_Print" msprop:Generator_RowChangedName="EPrescription_PrintRowChanged" msprop:Generator_RowEvArgName="EPrescription_PrintRowChangeEvent" msprop:Generator_RowClassName="EPrescription_PrintRow">
+        <xs:element name="EPrescription_Print" msprop:Generator_TableClassName="EPrescription_PrintDataTable" msprop:Generator_TableVarName="tableEPrescription_Print" msprop:Generator_RowChangedName="EPrescription_PrintRowChanged" msprop:Generator_TablePropName="EPrescription_Print" msprop:Generator_RowDeletingName="EPrescription_PrintRowDeleting" msprop:Generator_RowChangingName="EPrescription_PrintRowChanging" msprop:Generator_RowEvHandlerName="EPrescription_PrintRowChangeEventHandler" msprop:Generator_RowDeletedName="EPrescription_PrintRowDeleted" msprop:Generator_RowClassName="EPrescription_PrintRow" msprop:Generator_UserTableName="EPrescription_Print" msprop:Generator_RowEvArgName="EPrescription_PrintRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="PrescriptionID" msprop:Generator_ColumnVarNameInTable="columnPrescriptionID" msprop:Generator_ColumnPropNameInRow="PrescriptionID" msprop:Generator_ColumnPropNameInTable="PrescriptionIDColumn" msprop:Generator_UserColumnName="PrescriptionID">
@@ -298,6 +299,7 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="Refill" msprop:Generator_ColumnVarNameInTable="columnRefill" msprop:Generator_ColumnPropNameInRow="Refill" msprop:Generator_ColumnPropNameInTable="RefillColumn" msprop:Generator_UserColumnName="Refill" type="xs:boolean" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

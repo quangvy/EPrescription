@@ -5,20 +5,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="css/ePress.css" rel="stylesheet" />
-    <script type="text/javascript">
-    $(function () {
-        $('[id*=grvFavorite] tr').each(function () {
-            var toolTip = $(this).attr("title");
-            $(this).find("td").each(function () {
-                $(this).simpletip({
-                    content: toolTip
-                });
-            });
-            $(this).removeAttr("title");
-        });
-    });
-</script>
-   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
@@ -26,7 +12,7 @@
         <div class="inputE">
             <div class="colLabel">Patient</div>
             <div class="colValue">
-                <telerik:RadComboBox ID="RadComboBox1" Width= "100%" Height="400" runat="server" DropDownWidth="500" EmptyMessage="Please choose a patient"
+                <telerik:RadComboBox ID="RadComboBox1" Width="100%" Height="400" runat="server" DropDownWidth="500" EmptyMessage="Please choose a patient"
                     HighlightTemplatedItems="true"
                     EnableLoadOnDemand="true"
                     OnItemsRequested="RadComboBoxProduct_ItemsRequested"
@@ -43,7 +29,7 @@
                         </table>
                     </HeaderTemplate>
                     <ItemTemplate>
-                        <table style="width: 500px">
+                        <table style="width: 500px; font-size:smaller">
                             <tr>
                                 <td style="width: 275px; text-transform: uppercase;"><%# DataBinder.Eval(Container, "Attributes['Fullname']")%></td>
                                 <td style="width: 15px"><%# DataBinder.Eval(Container,"Attributes['Sex']")%></td>
@@ -57,7 +43,7 @@
             <div class="clear"></div>
             <div class="colLabel">Weight</div>
             <div class="colValue">
-                <asp:TextBox ID="tbxWeight" runat="server" Width=100%></asp:TextBox>
+                <asp:TextBox ID="tbxWeight" runat="server" Width="100%"></asp:TextBox>
             </div>
             <div class="clear"></div>
             <div class="colLabel">TID</div>
@@ -66,6 +52,7 @@
                 </asp:Label>
             </div>
             <div class="clear"></div>
+            <asp:Button ID="resetForm" runat="server" Text="Reset Form" Width="100%" OnClick="resetForm_Click" />
         </div>
 
         <div class="PatInfo">
@@ -131,7 +118,7 @@
             </div>
             <div class="content-infoDiag" id="divDiag">
                 &nbsp; 
-            <telerik:RadComboBox RenderMode="Lightweight" ID="rcbDiag" AllowCustomText="true" runat="server" Width=100% Height="400px"
+            <telerik:RadComboBox RenderMode="Lightweight" ID="rcbDiag" AllowCustomText="true" runat="server" Width="100%" Height="400px"
                 EnableLoadOnDemand="True" ShowMoreResultsBox="true"
                 EnableVirtualScrolling="true" OnItemsRequested="rcbDiag_ItemsRequested"
                 EmptyMessage="Search for diagnosis...">
@@ -141,8 +128,7 @@
             <div class="clear">
             </div>
         </div>
-       <%-- <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
-            SelectCommand="SELECT diag_name FROM [diaglist] ORDER BY [diag_name]"></asp:SqlDataSource>--%>
+        <%# DataBinder.Eval(Container, "Attributes['DateOfBirth']")%>
         <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
             SelectCommand="SELECT abbre, abbre+ ' - ' + meaning as meaning FROM [Frequency] ORDER BY [abbre]"></asp:SqlDataSource>
         <asp:SqlDataSource ID="SqlDataSource3" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
@@ -150,11 +136,10 @@
 
         <div class="Favourite">
             Prescription remark:
-            <asp:TextBox ID="txbRemarkPres" runat="server" Width="100%" Height="100%" ></asp:TextBox>
+            <asp:TextBox ID="txbRemarkPres" runat="server" Width="100%" Height="100%"></asp:TextBox>
         </div>
     </div>
     <div id="PageSpace">
-        
     </div>
     <div id="Med">
         <div class="AddMed">
@@ -171,6 +156,7 @@
                         <td>Dur</td>
                         <td>DUnit</td>
                         <td>Total</td>
+                        <td>Refill</td>
                         <td>Remark</td>
                     </tr>
                     <tr>
@@ -181,12 +167,13 @@
                                 EnableLoadOnDemand="true"
                                 AutoPostBack="True"
                                 OnItemsRequested="rcbSearchMed_ItemsRequested"
-                                OnSelectedIndexChanged="rcbSearchMed_SelectedIndexChanged">
+                                OnSelectedIndexChanged="rcbSearchMed_SelectedIndexChanged"
+                                 >
 
                                 <HeaderTemplate>
-                                    <table style="width: 600px" cellspacing="0" cellpadding="0">
+                                    <table style="width: 600px;" >
                                         <tr>
-                                            <td style="width: 40px;">Drug ID</td>
+                                            <td style="width: 40px; ">Drug ID</td>
                                             <td style="width: 200px;">Drug Name</td>
                                             <td style="width: 200px;">Generic Name</td>
                                             <td style="width: 30px;">Quantity</td>
@@ -194,7 +181,7 @@
                                     </table>
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <table style="width: 580px">
+                                    <table style="width: 580px;font-size:smaller">
                                         <tr>
                                             <td style="width: 30px"><%# DataBinder.Eval(Container, "Attributes['DrugID']")%></td>
                                             <td style="width: 200px"><%# DataBinder.Eval(Container,"Attributes['DrugName']")%></td>
@@ -233,7 +220,7 @@
                             <asp:TextBox ID="tbxDuration" runat="server" Width="30px"></asp:TextBox></td>
                         <td>
                             <asp:DropDownList ID="ddlDUnit" runat="server" Width="40px" Height="21px"
-                                Font-Size="Smaller">
+                                Font-Size="Small">
                                 <asp:ListItem>Day(s)</asp:ListItem>
                                 <asp:ListItem>Hour(s)</asp:ListItem>
                                 <asp:ListItem>Week(s)</asp:ListItem>
@@ -242,6 +229,8 @@
                             <asp:TextBox ID="tbxTotalUnit" runat="server" Width="30px"></asp:TextBox></td>
                         <asp:RegularExpressionValidator ID="NumberOnlyTotal" runat="server" ControlToValidate="tbxTotalUnit" ErrorMessage="Please Enter Only Numbers" ForeColor="Red" ValidationExpression="^\d+$">
                         </asp:RegularExpressionValidator>
+                        <td>
+                            <asp:CheckBox ID="chkRefill" runat="server" Width="30px" Height="21px"></asp:CheckBox></td>
                         <td>
                             <asp:TextBox ID="tbxRemark" runat="server" Width="100px"></asp:TextBox></td>
                         <td>
@@ -272,18 +261,76 @@
                             </EditItemTemplate>
                         </asp:TemplateField>
                         <asp:CommandField HeaderText="Del" ShowDeleteButton="True" ButtonType="Link" />
-                        <asp:BoundField HeaderText="Sq" DataField="ID" ItemStyle-Width="15px" ControlStyle-Width="15" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
-                        <asp:BoundField HeaderText="Drug Name" DataField="Drugname" ItemStyle-Width="300px" ControlStyle-Width="300" ReadOnly="true"></asp:BoundField>
-                        <asp:BoundField HeaderText="Drug ID" DataField="DrugID" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center" ReadOnly="true"></asp:BoundField>
-                        <asp:BoundField HeaderText="Route" DataField="RouteType" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
-                        <asp:BoundField HeaderText="Form" DataField="Unit" ItemStyle-Width="60px" ControlStyle-Width="60" ItemStyle-HorizontalAlign="Center" ReadOnly="true"></asp:BoundField>
-                        <asp:BoundField HeaderText="Dosage" DataField="Dosage" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" />
-                        <asp:BoundField HeaderText="Dose.Unit" DataField="DosageUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" ReadOnly="true" />
-                        <asp:BoundField HeaderText="Freq" DataField="Frequency" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center" />
-                        <asp:BoundField HeaderText="Dur." DataField="Duration" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
-                        <asp:BoundField HeaderText="D_Unit" DataField="DurationUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
-                        <asp:BoundField HeaderText="Total" DataField="TotalUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center"></asp:BoundField>
-                        <asp:BoundField HeaderText="Remark" DataField="Remark" ItemStyle-Width="140px" ControlStyle-Width="140"></asp:BoundField>
+                        <asp:BoundField HeaderText="Sq" DataField="ID" ItemStyle-Width="15px" ControlStyle-Width="15" ItemStyle-HorizontalAlign="Center">
+                            <ControlStyle Width="15px"></ControlStyle>
+
+                            <ItemStyle HorizontalAlign="Center" Width="15px"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Drug Name" DataField="Drugname" ItemStyle-Width="300px" ControlStyle-Width="300" ReadOnly="true">
+                            <ControlStyle Width="300px"></ControlStyle>
+
+                            <ItemStyle Width="300px"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Drug ID" DataField="DrugID" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center" ReadOnly="true">
+                            <ControlStyle Width="50px"></ControlStyle>
+
+                            <ItemStyle HorizontalAlign="Center" Width="50px"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Route" DataField="RouteType" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center">
+                            <ControlStyle Width="40px"></ControlStyle>
+
+                            <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Form" DataField="Unit" ItemStyle-Width="60px" ControlStyle-Width="60" ItemStyle-HorizontalAlign="Center" ReadOnly="true">
+                            <ControlStyle Width="60px"></ControlStyle>
+
+                            <ItemStyle HorizontalAlign="Center" Width="60px"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Dosage" DataField="Dosage" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center">
+                            <ControlStyle Width="40px"></ControlStyle>
+
+                            <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Dose.Unit" DataField="DosageUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" ReadOnly="true">
+                            <ControlStyle Width="40px"></ControlStyle>
+
+                            <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Freq" DataField="Frequency" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center">
+                            <ControlStyle Width="50px"></ControlStyle>
+
+                            <ItemStyle HorizontalAlign="Center" Width="50px"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Dur." DataField="Duration" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center">
+                            <ControlStyle Width="40px"></ControlStyle>
+
+                            <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="D_Unit" DataField="DurationUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center">
+                            <ControlStyle Width="40px"></ControlStyle>
+
+                            <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Total" DataField="TotalUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center">
+                            <ControlStyle Width="40px"></ControlStyle>
+
+                            <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
+                        </asp:BoundField>
+                        <asp:TemplateField HeaderText="Refill">
+                            <EditItemTemplate>
+                                <asp:CheckBox ID="chkEditRefill" runat="server" />
+                            </EditItemTemplate>
+                            <ItemTemplate>
+                                <asp:Label ID="label1" runat="server" Text='<%# Bind("Refill") %>'></asp:Label>
+                            </ItemTemplate>
+                            <ControlStyle Width="40px" />
+                            <ItemStyle HorizontalAlign="Center" Width="40px" />
+                        </asp:TemplateField>
+                        <asp:BoundField HeaderText="Remark" DataField="Remark" ItemStyle-Width="140px" ControlStyle-Width="140">
+                            <ControlStyle Width="140px"></ControlStyle>
+
+                            <ItemStyle Width="140px"></ItemStyle>
+                        </asp:BoundField>
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" />
                     <PagerStyle BackColor="#F7F7DE" ForeColor="Black" HorizontalAlign="Right" />
@@ -298,24 +345,7 @@
         </div>
 
         <div class="LoadPres">
-            Preserved for Favourite function
-            <%--<asp:GridView ID="grvFavorite" runat="server" AutoGenerateColumns="false" DataKeyNames="FavouriteID" OnRowDataBound="grvFavorite_RowDataBound">
-                <Columns>
-                    <asp:BoundField DataField="DiceaseName" HeaderText="Favorite Name" />
-                    <asp:BoundField DataField="Diagnosis" HeaderText="Diagnosis" />
-                    <asp:TemplateField HeaderText="Details" ItemStyle-CssClass="detailsRow" HeaderStyle-CssClass="detailsRow"  >
-                        <ItemTemplate>
-                            <asp:GridView ID="grvDetails" runat="server" AutoGenerateColumns="false" CssClass="gridToolTips">
-                                <Columns>
-                                    <asp:BoundField DataField="DrugID" HeaderText="Drug ID" />
-                                    <asp:BoundField DataField="DrugName" HeaderText="Drug Name" />
-                                    <asp:BoundField DataField="Frequency" HeaderText="Frequency" />
-                                </Columns>
-                            </asp:GridView>
-                        </ItemTemplate>
-                    </asp:TemplateField>
-                </Columns>
-            </asp:GridView>--%>
+          
         </div>
 
     </div>

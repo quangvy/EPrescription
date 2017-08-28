@@ -898,9 +898,8 @@
             </summary>
             <value>This type is nvarchar.</value>
             <remarks>
-            This property can not be set to null. 
+            This property can be set to null. 
             </remarks>
-            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
         </member>
         <member name="P:ePrescription.Entities.DiaglistBase.IsDisabled">
             <summary>
@@ -1476,7 +1475,7 @@
              Creates a new <see cref="T:ePrescription.Entities.EPrescriptionBase"/> instance.
             </summary>
         </member>
-        <member name="M:ePrescription.Entities.EPrescriptionBase.#ctor(System.String,System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Nullable{System.DateTime},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+        <member name="M:ePrescription.Entities.EPrescriptionBase.#ctor(System.String,System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Nullable{System.DateTime},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)">
             <summary>
              Creates a new <see cref="T:ePrescription.Entities.EPrescriptionBase"/> instance.
             </summary>
@@ -1493,12 +1492,13 @@
             <param name="_weight"></param>
             <param name="_diagnosis"></param>
             <param name="_diagnosisVn"></param>
+            <param name="_diagCode"></param>
             <param name="_prescribingDoctor"></param>
             <param name="_sex"></param>
             <param name="_remark"></param>
             <param name="_isComplete"></param>
         </member>
-        <member name="M:ePrescription.Entities.EPrescriptionBase.CreateEPrescription(System.String,System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Nullable{System.DateTime},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)">
+        <member name="M:ePrescription.Entities.EPrescriptionBase.CreateEPrescription(System.String,System.String,System.String,System.String,System.String,System.DateTime,System.DateTime,System.String,System.Nullable{System.DateTime},System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Boolean)">
             <summary>
              A simple factory method to create a new <see cref="T:ePrescription.Entities.EPrescription"/> instance.
             </summary>
@@ -1515,6 +1515,7 @@
             <param name="_weight"></param>
             <param name="_diagnosis"></param>
             <param name="_diagnosisVn"></param>
+            <param name="_diagCode"></param>
             <param name="_prescribingDoctor"></param>
             <param name="_sex"></param>
             <param name="_remark"></param>
@@ -1657,6 +1658,16 @@
         <member name="P:ePrescription.Entities.EPrescriptionBase.DiagnosisVn">
             <summary>
             	Gets or sets the DiagnosisVn property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.EPrescriptionBase.DiagCode">
+            <summary>
+            	Gets or sets the DiagCode property. 
             	
             </summary>
             <value>This type is nvarchar.</value>
@@ -2005,6 +2016,11 @@
             DiagnosisVN : 
             </summary>
         </member>
+        <member name="F:ePrescription.Entities.EPrescriptionBase.EPrescriptionEntityData.DiagCode">
+            <summary>
+            DiagCode : 
+            </summary>
+        </member>
         <member name="F:ePrescription.Entities.EPrescriptionBase.EPrescriptionEntityData.PrescribingDoctor">
             <summary>
             PrescribingDoctor : 
@@ -2276,6 +2292,11 @@
             DiagnosisVn : 
             </summary>
         </member>
+        <member name="F:ePrescription.Entities.EPrescriptionColumn.DiagCode">
+            <summary>
+            DiagCode : 
+            </summary>
+        </member>
         <member name="F:ePrescription.Entities.EPrescriptionColumn.PrescribingDoctor">
             <summary>
             PrescribingDoctor : 
@@ -2375,6 +2396,11 @@
             DiagnosisVN : 
             </summary>
         </member>
+        <member name="P:ePrescription.Entities.IEPrescription.DiagCode">
+            <summary>
+            DiagCode : 
+            </summary>
+        </member>
         <member name="P:ePrescription.Entities.IEPrescription.PrescribingDoctor">
             <summary>
             PrescribingDoctor : 
@@ -2466,7 +2492,7 @@
              Creates a new <see cref="T:ePrescription.Entities.EPrescriptionDetailBase"/> instance.
             </summary>
         </member>
-        <member name="M:ePrescription.Entities.EPrescriptionDetailBase.#ctor(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:ePrescription.Entities.EPrescriptionDetailBase.#ctor(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Boolean})">
             <summary>
              Creates a new <see cref="T:ePrescription.Entities.EPrescriptionDetailBase"/> instance.
             </summary>
@@ -2488,8 +2514,9 @@
             <param name="_durationUnit"></param>
             <param name="_durationUnitVn"></param>
             <param name="_totalUnit"></param>
+            <param name="_refill"></param>
         </member>
-        <member name="M:ePrescription.Entities.EPrescriptionDetailBase.CreateEPrescriptionDetail(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:ePrescription.Entities.EPrescriptionDetailBase.CreateEPrescriptionDetail(System.String,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.Boolean})">
             <summary>
              A simple factory method to create a new <see cref="T:ePrescription.Entities.EPrescriptionDetail"/> instance.
             </summary>
@@ -2511,6 +2538,7 @@
             <param name="_durationUnit"></param>
             <param name="_durationUnitVn"></param>
             <param name="_totalUnit"></param>
+            <param name="_refill"></param>
         </member>
         <member name="P:ePrescription.Entities.EPrescriptionDetailBase.PrescriptionDetailId">
             <summary>
@@ -2702,6 +2730,18 @@
             <value>This type is nvarchar.</value>
             <remarks>
             This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.EPrescriptionDetailBase.Refill">
+            <summary>
+            	Gets or sets the Refill property. 
+            	
+            </summary>
+            <value>This type is bit.</value>
+            <remarks>
+            This property can be set to null. 
+            If this column is null it is up to the developer to check using the HasValue property
+            and perform business logic appropriately.
             </remarks>
         </member>
         <member name="P:ePrescription.Entities.EPrescriptionDetailBase.PrescriptionIdSource">
@@ -3030,6 +3070,11 @@
             TotalUnit : 
             </summary>
         </member>
+        <member name="F:ePrescription.Entities.EPrescriptionDetailBase.EPrescriptionDetailEntityData.Refill">
+            <summary>
+            Refill : 
+            </summary>
+        </member>
         <member name="P:ePrescription.Entities.EPrescriptionDetailBase.EPrescriptionDetailEntityData.PrescriptionIdSource">
             <summary>
             Gets or sets the source <see cref="T:ePrescription.Entities.EPrescription"/>.
@@ -3311,6 +3356,11 @@
             TotalUnit : 
             </summary>
         </member>
+        <member name="F:ePrescription.Entities.EPrescriptionDetailColumn.Refill">
+            <summary>
+            Refill : 
+            </summary>
+        </member>
         <member name="T:ePrescription.Entities.IEPrescriptionDetail">
             <summary>
             	The data structure representation of the 'ePrescriptionDetail' table via interface.
@@ -3413,6 +3463,11 @@
         <member name="P:ePrescription.Entities.IEPrescriptionDetail.TotalUnit">
             <summary>
             TotalUnit : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IEPrescriptionDetail.Refill">
+            <summary>
+            Refill : 
             </summary>
         </member>
         <member name="M:ePrescription.Entities.IEPrescriptionDetail.Clone">
