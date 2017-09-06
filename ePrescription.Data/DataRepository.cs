@@ -418,6 +418,40 @@ namespace ePrescription.Data
 
 		#region Static properties
 		
+		#region ClinicalStatsProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="ClinicalStats"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static ClinicalStatsProviderBase ClinicalStatsProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.ClinicalStatsProvider;
+			}
+		}
+		
+		#endregion
+		
+		#region MedReportProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="MedReport"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static MedReportProviderBase MedReportProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.MedReportProvider;
+			}
+		}
+		
+		#endregion
+		
 		#region RouteProvider
 
 		///<summary>
@@ -430,40 +464,6 @@ namespace ePrescription.Data
 			{
 				LoadProviders();
 				return _provider.RouteProvider;
-			}
-		}
-		
-		#endregion
-		
-		#region DiaglistProvider
-
-		///<summary>
-		/// Gets the current instance of the Data Access Logic Component for the <see cref="Diaglist"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		public static DiaglistProviderBase DiaglistProvider
-		{
-			get 
-			{
-				LoadProviders();
-				return _provider.DiaglistProvider;
-			}
-		}
-		
-		#endregion
-		
-		#region FrequencyProvider
-
-		///<summary>
-		/// Gets the current instance of the Data Access Logic Component for the <see cref="Frequency"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		public static FrequencyProviderBase FrequencyProvider
-		{
-			get 
-			{
-				LoadProviders();
-				return _provider.FrequencyProvider;
 			}
 		}
 		
@@ -486,6 +486,40 @@ namespace ePrescription.Data
 		
 		#endregion
 		
+		#region UsersProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="Users"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static UsersProviderBase UsersProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.UsersProvider;
+			}
+		}
+		
+		#endregion
+		
+		#region FrequencyProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="Frequency"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static FrequencyProviderBase FrequencyProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.FrequencyProvider;
+			}
+		}
+		
+		#endregion
+		
 		#region FavoritMasterProvider
 
 		///<summary>
@@ -498,6 +532,23 @@ namespace ePrescription.Data
 			{
 				LoadProviders();
 				return _provider.FavoritMasterProvider;
+			}
+		}
+		
+		#endregion
+		
+		#region DiaglistProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="Diaglist"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static DiaglistProviderBase DiaglistProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.DiaglistProvider;
 			}
 		}
 		
@@ -520,6 +571,23 @@ namespace ePrescription.Data
 		
 		#endregion
 		
+		#region EPrescriptionDetailProvider
+
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="EPrescriptionDetail"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static EPrescriptionDetailProviderBase EPrescriptionDetailProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.EPrescriptionDetailProvider;
+			}
+		}
+		
+		#endregion
+		
 		#region FavoritDetailProvider
 
 		///<summary>
@@ -537,35 +605,18 @@ namespace ePrescription.Data
 		
 		#endregion
 		
-		#region UsersProvider
+		#region VitalSignProvider
 
 		///<summary>
-		/// Gets the current instance of the Data Access Logic Component for the <see cref="Users"/> business entity.
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="VitalSign"/> business entity.
 		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
 		///</summary>
-		public static UsersProviderBase UsersProvider
+		public static VitalSignProviderBase VitalSignProvider
 		{
 			get 
 			{
 				LoadProviders();
-				return _provider.UsersProvider;
-			}
-		}
-		
-		#endregion
-		
-		#region EPrescriptionDetailProvider
-
-		///<summary>
-		/// Gets the current instance of the Data Access Logic Component for the <see cref="EPrescriptionDetail"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		public static EPrescriptionDetailProviderBase EPrescriptionDetailProvider
-		{
-			get 
-			{
-				LoadProviders();
-				return _provider.EPrescriptionDetailProvider;
+				return _provider.VitalSignProvider;
 			}
 		}
 		
@@ -584,6 +635,40 @@ namespace ePrescription.Data
 			{
 				LoadProviders();
 				return _provider.VrEPresDetailProvider;
+			}
+		}
+		
+		#endregion
+		
+		#region VrReceptionProvider
+		
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="VrReception"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static VrReceptionProviderBase VrReceptionProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.VrReceptionProvider;
+			}
+		}
+		
+		#endregion
+		
+		#region VrReceptionStartProvider
+		
+		///<summary>
+		/// Gets the current instance of the Data Access Logic Component for the <see cref="VrReceptionStart"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		public static VrReceptionStartProviderBase VrReceptionStartProvider
+		{
+			get 
+			{
+				LoadProviders();
+				return _provider.VrReceptionStartProvider;
 			}
 		}
 		
@@ -610,6 +695,142 @@ namespace ePrescription.Data
 	}
 	
 	#region Query/Filters
+		
+	#region ClinicalStatsFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="ClinicalStats"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class ClinicalStatsFilters : ClinicalStatsFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the ClinicalStatsFilters class.
+		/// </summary>
+		public ClinicalStatsFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the ClinicalStatsFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public ClinicalStatsFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the ClinicalStatsFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public ClinicalStatsFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion ClinicalStatsFilters
+	
+	#region ClinicalStatsQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="ClinicalStatsParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="ClinicalStats"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class ClinicalStatsQuery : ClinicalStatsParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the ClinicalStatsQuery class.
+		/// </summary>
+		public ClinicalStatsQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the ClinicalStatsQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public ClinicalStatsQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the ClinicalStatsQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public ClinicalStatsQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion ClinicalStatsQuery
+		
+	#region MedReportFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="MedReport"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class MedReportFilters : MedReportFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the MedReportFilters class.
+		/// </summary>
+		public MedReportFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the MedReportFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public MedReportFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the MedReportFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public MedReportFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion MedReportFilters
+	
+	#region MedReportQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="MedReportParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="MedReport"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class MedReportQuery : MedReportParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the MedReportQuery class.
+		/// </summary>
+		public MedReportQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the MedReportQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public MedReportQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the MedReportQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public MedReportQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion MedReportQuery
 		
 	#region RouteFilters
 	
@@ -679,142 +900,6 @@ namespace ePrescription.Data
 
 	#endregion RouteQuery
 		
-	#region DiaglistFilters
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
-	/// that is used exclusively with a <see cref="Diaglist"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class DiaglistFilters : DiaglistFilterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the DiaglistFilters class.
-		/// </summary>
-		public DiaglistFilters() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the DiaglistFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public DiaglistFilters(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the DiaglistFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public DiaglistFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion DiaglistFilters
-	
-	#region DiaglistQuery
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="DiaglistParameterBuilder"/> class
-	/// that is used exclusively with a <see cref="Diaglist"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class DiaglistQuery : DiaglistParameterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the DiaglistQuery class.
-		/// </summary>
-		public DiaglistQuery() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the DiaglistQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public DiaglistQuery(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the DiaglistQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public DiaglistQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion DiaglistQuery
-		
-	#region FrequencyFilters
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
-	/// that is used exclusively with a <see cref="Frequency"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class FrequencyFilters : FrequencyFilterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the FrequencyFilters class.
-		/// </summary>
-		public FrequencyFilters() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the FrequencyFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public FrequencyFilters(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the FrequencyFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public FrequencyFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion FrequencyFilters
-	
-	#region FrequencyQuery
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="FrequencyParameterBuilder"/> class
-	/// that is used exclusively with a <see cref="Frequency"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class FrequencyQuery : FrequencyParameterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the FrequencyQuery class.
-		/// </summary>
-		public FrequencyQuery() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the FrequencyQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public FrequencyQuery(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the FrequencyQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public FrequencyQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion FrequencyQuery
-		
 	#region UserRolesFilters
 	
 	/// <summary>
@@ -882,210 +967,6 @@ namespace ePrescription.Data
 	}
 
 	#endregion UserRolesQuery
-		
-	#region FavoritMasterFilters
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
-	/// that is used exclusively with a <see cref="FavoritMaster"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class FavoritMasterFilters : FavoritMasterFilterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritMasterFilters class.
-		/// </summary>
-		public FavoritMasterFilters() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritMasterFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public FavoritMasterFilters(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritMasterFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public FavoritMasterFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion FavoritMasterFilters
-	
-	#region FavoritMasterQuery
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="FavoritMasterParameterBuilder"/> class
-	/// that is used exclusively with a <see cref="FavoritMaster"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class FavoritMasterQuery : FavoritMasterParameterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritMasterQuery class.
-		/// </summary>
-		public FavoritMasterQuery() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritMasterQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public FavoritMasterQuery(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritMasterQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public FavoritMasterQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion FavoritMasterQuery
-		
-	#region EPrescriptionFilters
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
-	/// that is used exclusively with a <see cref="EPrescription"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class EPrescriptionFilters : EPrescriptionFilterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the EPrescriptionFilters class.
-		/// </summary>
-		public EPrescriptionFilters() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the EPrescriptionFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public EPrescriptionFilters(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the EPrescriptionFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public EPrescriptionFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion EPrescriptionFilters
-	
-	#region EPrescriptionQuery
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="EPrescriptionParameterBuilder"/> class
-	/// that is used exclusively with a <see cref="EPrescription"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class EPrescriptionQuery : EPrescriptionParameterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the EPrescriptionQuery class.
-		/// </summary>
-		public EPrescriptionQuery() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the EPrescriptionQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public EPrescriptionQuery(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the EPrescriptionQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public EPrescriptionQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion EPrescriptionQuery
-		
-	#region FavoritDetailFilters
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
-	/// that is used exclusively with a <see cref="FavoritDetail"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class FavoritDetailFilters : FavoritDetailFilterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritDetailFilters class.
-		/// </summary>
-		public FavoritDetailFilters() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritDetailFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public FavoritDetailFilters(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritDetailFilters class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public FavoritDetailFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion FavoritDetailFilters
-	
-	#region FavoritDetailQuery
-	
-	/// <summary>
-	/// A strongly-typed instance of the <see cref="FavoritDetailParameterBuilder"/> class
-	/// that is used exclusively with a <see cref="FavoritDetail"/> object.
-	/// </summary>
-	[CLSCompliant(true)]
-	public class FavoritDetailQuery : FavoritDetailParameterBuilder
-	{
-		#region Constructors
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritDetailQuery class.
-		/// </summary>
-		public FavoritDetailQuery() : base() { }
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritDetailQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		public FavoritDetailQuery(bool ignoreCase) : base(ignoreCase) { }
-
-		/// <summary>
-		/// Initializes a new instance of the FavoritDetailQuery class.
-		/// </summary>
-		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-		public FavoritDetailQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
-
-		#endregion Constructors
-	}
-
-	#endregion FavoritDetailQuery
 		
 	#region UsersFilters
 	
@@ -1155,6 +1036,278 @@ namespace ePrescription.Data
 
 	#endregion UsersQuery
 		
+	#region FrequencyFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="Frequency"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class FrequencyFilters : FrequencyFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the FrequencyFilters class.
+		/// </summary>
+		public FrequencyFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the FrequencyFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public FrequencyFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the FrequencyFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public FrequencyFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion FrequencyFilters
+	
+	#region FrequencyQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="FrequencyParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="Frequency"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class FrequencyQuery : FrequencyParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the FrequencyQuery class.
+		/// </summary>
+		public FrequencyQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the FrequencyQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public FrequencyQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the FrequencyQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public FrequencyQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion FrequencyQuery
+		
+	#region FavoritMasterFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="FavoritMaster"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class FavoritMasterFilters : FavoritMasterFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritMasterFilters class.
+		/// </summary>
+		public FavoritMasterFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritMasterFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public FavoritMasterFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritMasterFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public FavoritMasterFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion FavoritMasterFilters
+	
+	#region FavoritMasterQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="FavoritMasterParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="FavoritMaster"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class FavoritMasterQuery : FavoritMasterParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritMasterQuery class.
+		/// </summary>
+		public FavoritMasterQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritMasterQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public FavoritMasterQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritMasterQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public FavoritMasterQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion FavoritMasterQuery
+		
+	#region DiaglistFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="Diaglist"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class DiaglistFilters : DiaglistFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the DiaglistFilters class.
+		/// </summary>
+		public DiaglistFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the DiaglistFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public DiaglistFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the DiaglistFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public DiaglistFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion DiaglistFilters
+	
+	#region DiaglistQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="DiaglistParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="Diaglist"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class DiaglistQuery : DiaglistParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the DiaglistQuery class.
+		/// </summary>
+		public DiaglistQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the DiaglistQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public DiaglistQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the DiaglistQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public DiaglistQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion DiaglistQuery
+		
+	#region EPrescriptionFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="EPrescription"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class EPrescriptionFilters : EPrescriptionFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the EPrescriptionFilters class.
+		/// </summary>
+		public EPrescriptionFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the EPrescriptionFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public EPrescriptionFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the EPrescriptionFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public EPrescriptionFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion EPrescriptionFilters
+	
+	#region EPrescriptionQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="EPrescriptionParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="EPrescription"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class EPrescriptionQuery : EPrescriptionParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the EPrescriptionQuery class.
+		/// </summary>
+		public EPrescriptionQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the EPrescriptionQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public EPrescriptionQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the EPrescriptionQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public EPrescriptionQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion EPrescriptionQuery
+		
 	#region EPrescriptionDetailFilters
 	
 	/// <summary>
@@ -1223,6 +1376,142 @@ namespace ePrescription.Data
 
 	#endregion EPrescriptionDetailQuery
 		
+	#region FavoritDetailFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="FavoritDetail"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class FavoritDetailFilters : FavoritDetailFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritDetailFilters class.
+		/// </summary>
+		public FavoritDetailFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritDetailFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public FavoritDetailFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritDetailFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public FavoritDetailFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion FavoritDetailFilters
+	
+	#region FavoritDetailQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="FavoritDetailParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="FavoritDetail"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class FavoritDetailQuery : FavoritDetailParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritDetailQuery class.
+		/// </summary>
+		public FavoritDetailQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritDetailQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public FavoritDetailQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the FavoritDetailQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public FavoritDetailQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion FavoritDetailQuery
+		
+	#region VitalSignFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="VitalSign"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class VitalSignFilters : VitalSignFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the VitalSignFilters class.
+		/// </summary>
+		public VitalSignFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the VitalSignFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public VitalSignFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the VitalSignFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public VitalSignFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion VitalSignFilters
+	
+	#region VitalSignQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="VitalSignParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="VitalSign"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class VitalSignQuery : VitalSignParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the VitalSignQuery class.
+		/// </summary>
+		public VitalSignQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the VitalSignQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public VitalSignQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the VitalSignQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public VitalSignQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion VitalSignQuery
+		
 	#region VrEPresDetailFilters
 	
 	/// <summary>
@@ -1290,6 +1579,142 @@ namespace ePrescription.Data
 	}
 
 	#endregion VrEPresDetailQuery
+		
+	#region VrReceptionFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="VrReception"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class VrReceptionFilters : VrReceptionFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionFilters class.
+		/// </summary>
+		public VrReceptionFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public VrReceptionFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public VrReceptionFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion VrReceptionFilters
+	
+	#region VrReceptionQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="VrReceptionParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="VrReception"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class VrReceptionQuery : VrReceptionParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionQuery class.
+		/// </summary>
+		public VrReceptionQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public VrReceptionQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public VrReceptionQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion VrReceptionQuery
+		
+	#region VrReceptionStartFilters
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="SqlFilterBuilder&lt;EntityColumn&gt;"/> class
+	/// that is used exclusively with a <see cref="VrReceptionStart"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class VrReceptionStartFilters : VrReceptionStartFilterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionStartFilters class.
+		/// </summary>
+		public VrReceptionStartFilters() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionStartFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public VrReceptionStartFilters(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionStartFilters class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public VrReceptionStartFilters(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion VrReceptionStartFilters
+	
+	#region VrReceptionStartQuery
+	
+	/// <summary>
+	/// A strongly-typed instance of the <see cref="VrReceptionStartParameterBuilder"/> class
+	/// that is used exclusively with a <see cref="VrReceptionStart"/> object.
+	/// </summary>
+	[CLSCompliant(true)]
+	public class VrReceptionStartQuery : VrReceptionStartParameterBuilder
+	{
+		#region Constructors
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionStartQuery class.
+		/// </summary>
+		public VrReceptionStartQuery() : base() { }
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionStartQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		public VrReceptionStartQuery(bool ignoreCase) : base(ignoreCase) { }
+
+		/// <summary>
+		/// Initializes a new instance of the VrReceptionStartQuery class.
+		/// </summary>
+		/// <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+		/// <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+		public VrReceptionStartQuery(bool ignoreCase, bool useAnd) : base(ignoreCase, useAnd) { }
+
+		#endregion Constructors
+	}
+
+	#endregion VrReceptionStartQuery
 		
 	#region VrUnitTableFilters
 	

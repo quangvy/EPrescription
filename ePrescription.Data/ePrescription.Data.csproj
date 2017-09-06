@@ -144,11 +144,32 @@
       <DependentUpon>VrEPresDetailProviderBase.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Bases\Views\VrReceptionProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrReceptionProviderBase.generatedCore.cs">
+      <DependentUpon>VrReceptionProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrReceptionStartProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrReceptionStartProviderBase.generatedCore.cs">
+      <DependentUpon>VrReceptionStartProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Bases\Views\VrUnitTableProviderBase.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bases\Views\VrUnitTableProviderBase.generatedCore.cs">
       <DependentUpon>VrUnitTableProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\ClinicalStatsProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\ClinicalStatsProviderBase.generatedCore.cs">
+      <DependentUpon>ClinicalStatsProviderBase.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bases\DiaglistProviderBase.cs">
@@ -193,6 +214,13 @@
       <DependentUpon>FrequencyProviderBase.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Bases\MedReportProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\MedReportProviderBase.generatedCore.cs">
+      <DependentUpon>MedReportProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Bases\RouteProviderBase.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -212,6 +240,13 @@
     </Compile>
     <Compile Include="Bases\UsersProviderBase.generatedCore.cs">
       <DependentUpon>UsersProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\VitalSignProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\VitalSignProviderBase.generatedCore.cs">
+      <DependentUpon>VitalSignProviderBase.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="..\AssemblyInfo.cs">

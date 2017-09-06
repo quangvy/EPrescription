@@ -190,6 +190,12 @@
     <Compile Include="Data\SqlParameter.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataSourceControls\ClinicalStatsDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\ClinicalStatsRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataSourceControls\DiaglistDataSource.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -226,6 +232,12 @@
     <Compile Include="UI\RepeaterControls\FrequencyRepeater.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataSourceControls\MedReportDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\MedReportRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataSourceControls\RouteDataSource.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -244,10 +256,28 @@
     <Compile Include="UI\RepeaterControls\UsersRepeater.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataSourceControls\VitalSignDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\VitalSignRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataSourceControls\Views\VrEPresDetailDataSource.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UI\RepeaterControls\Views\VrEPresDetailRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSourceControls\Views\VrReceptionDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\Views\VrReceptionRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSourceControls\Views\VrReceptionStartDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\Views\VrReceptionStartRepeater.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataSourceControls\Views\VrUnitTableDataSource.cs">

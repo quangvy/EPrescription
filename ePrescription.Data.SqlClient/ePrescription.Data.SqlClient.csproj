@@ -147,11 +147,32 @@
       <DependentUpon>SqlVrEPresDetailProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\SqlVrReceptionProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrReceptionProviderBase.generated.cs">
+      <DependentUpon>SqlVrReceptionProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrReceptionStartProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrReceptionStartProviderBase.generated.cs">
+      <DependentUpon>SqlVrReceptionStartProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\SqlVrUnitTableProvider.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\SqlVrUnitTableProviderBase.generated.cs">
       <DependentUpon>SqlVrUnitTableProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlClinicalStatsProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlClinicalStatsProviderBase.generated.cs">
+      <DependentUpon>SqlClinicalStatsProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SqlDiaglistProvider.cs">
@@ -196,6 +217,13 @@
       <DependentUpon>SqlFrequencyProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="SqlMedReportProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlMedReportProviderBase.generated.cs">
+      <DependentUpon>SqlMedReportProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="SqlRouteProvider.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -215,6 +243,13 @@
     </Compile>
     <Compile Include="SqlUsersProviderBase.generated.cs">
       <DependentUpon>SqlUsersProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlVitalSignProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlVitalSignProviderBase.generated.cs">
+      <DependentUpon>SqlVitalSignProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="..\AssemblyInfo.cs">

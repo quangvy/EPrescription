@@ -161,7 +161,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <telerik:RadComboBox ID="rcbSearchMed" Width="250px" runat="server" DropDownWidth="600"
+                            <telerik:RadComboBox ID="rcbSearchMed" Width="230px" runat="server" DropDownWidth="600"
                                 EmptyMessage="Please choose a medication"
                                 HighlightTemplatedItems="true"
                                 EnableLoadOnDemand="true"
@@ -237,7 +237,7 @@
                             <asp:Button ID="Button1" runat="server" Text="Add" OnClick="Add" Width="40px" /></td>
                         <td>
                             <asp:Button ID="btnClearRow" runat="server" OnClick="btnClearRowClick"
-                                Text="Clear" Width="50px" /></td>
+                                Text="Clear" Width="40px" /></td>
                     </tr>
                 </table>
 

@@ -21,19 +21,19 @@ namespace ePrescription.Data.Bases
 	{
 		
 		///<summary>
+		/// Current ClinicalStatsProviderBase instance.
+		///</summary>
+		public virtual ClinicalStatsProviderBase ClinicalStatsProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current MedReportProviderBase instance.
+		///</summary>
+		public virtual MedReportProviderBase MedReportProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
 		/// Current RouteProviderBase instance.
 		///</summary>
 		public virtual RouteProviderBase RouteProvider{get {throw new NotImplementedException();}}
-		
-		///<summary>
-		/// Current DiaglistProviderBase instance.
-		///</summary>
-		public virtual DiaglistProviderBase DiaglistProvider{get {throw new NotImplementedException();}}
-		
-		///<summary>
-		/// Current FrequencyProviderBase instance.
-		///</summary>
-		public virtual FrequencyProviderBase FrequencyProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
 		/// Current UserRolesProviderBase instance.
@@ -41,9 +41,24 @@ namespace ePrescription.Data.Bases
 		public virtual UserRolesProviderBase UserRolesProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
+		/// Current UsersProviderBase instance.
+		///</summary>
+		public virtual UsersProviderBase UsersProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current FrequencyProviderBase instance.
+		///</summary>
+		public virtual FrequencyProviderBase FrequencyProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
 		/// Current FavoritMasterProviderBase instance.
 		///</summary>
 		public virtual FavoritMasterProviderBase FavoritMasterProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current DiaglistProviderBase instance.
+		///</summary>
+		public virtual DiaglistProviderBase DiaglistProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
 		/// Current EPrescriptionProviderBase instance.
@@ -51,25 +66,35 @@ namespace ePrescription.Data.Bases
 		public virtual EPrescriptionProviderBase EPrescriptionProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
+		/// Current EPrescriptionDetailProviderBase instance.
+		///</summary>
+		public virtual EPrescriptionDetailProviderBase EPrescriptionDetailProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
 		/// Current FavoritDetailProviderBase instance.
 		///</summary>
 		public virtual FavoritDetailProviderBase FavoritDetailProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
-		/// Current UsersProviderBase instance.
+		/// Current VitalSignProviderBase instance.
 		///</summary>
-		public virtual UsersProviderBase UsersProvider{get {throw new NotImplementedException();}}
-		
-		///<summary>
-		/// Current EPrescriptionDetailProviderBase instance.
-		///</summary>
-		public virtual EPrescriptionDetailProviderBase EPrescriptionDetailProvider{get {throw new NotImplementedException();}}
+		public virtual VitalSignProviderBase VitalSignProvider{get {throw new NotImplementedException();}}
 		
 		
 		///<summary>
 		/// Current VrEPresDetailProviderBase instance.
 		///</summary>
 		public virtual VrEPresDetailProviderBase VrEPresDetailProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current VrReceptionProviderBase instance.
+		///</summary>
+		public virtual VrReceptionProviderBase VrReceptionProvider{get {throw new NotImplementedException();}}
+		
+		///<summary>
+		/// Current VrReceptionStartProviderBase instance.
+		///</summary>
+		public virtual VrReceptionStartProviderBase VrReceptionStartProvider{get {throw new NotImplementedException();}}
 		
 		///<summary>
 		/// Current VrUnitTableProviderBase instance.
