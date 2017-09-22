@@ -29,7 +29,7 @@
                         </table>
                     </HeaderTemplate>
                     <ItemTemplate>
-                        <table style="width: 500px; font-size:smaller">
+                        <table style="width: 500px; font-size: smaller">
                             <tr>
                                 <td style="width: 275px; text-transform: uppercase;"><%# DataBinder.Eval(Container, "Attributes['Fullname']")%></td>
                                 <td style="width: 15px"><%# DataBinder.Eval(Container,"Attributes['Sex']")%></td>
@@ -167,13 +167,12 @@
                                 EnableLoadOnDemand="true"
                                 AutoPostBack="True"
                                 OnItemsRequested="rcbSearchMed_ItemsRequested"
-                                OnSelectedIndexChanged="rcbSearchMed_SelectedIndexChanged"
-                                 >
+                                OnSelectedIndexChanged="rcbSearchMed_SelectedIndexChanged">
 
                                 <HeaderTemplate>
-                                    <table style="width: 600px;" >
+                                    <table style="width: 600px;">
                                         <tr>
-                                            <td style="width: 40px; ">Drug ID</td>
+                                            <td style="width: 40px;">Drug ID</td>
                                             <td style="width: 200px;">Drug Name</td>
                                             <td style="width: 200px;">Generic Name</td>
                                             <td style="width: 30px;">Quantity</td>
@@ -181,7 +180,7 @@
                                     </table>
                                 </HeaderTemplate>
                                 <ItemTemplate>
-                                    <table style="width: 580px;font-size:smaller">
+                                    <table style="width: 580px; font-size: smaller">
                                         <tr>
                                             <td style="width: 30px"><%# DataBinder.Eval(Container, "Attributes['DrugID']")%></td>
                                             <td style="width: 200px"><%# DataBinder.Eval(Container,"Attributes['DrugName']")%></td>
@@ -266,8 +265,8 @@
 
                             <ItemStyle HorizontalAlign="Center" Width="15px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Drug Name" DataField="Drugname" ItemStyle-Width="300px" ControlStyle-Width="300" ReadOnly="true" >
-                            <ControlStyle Width="300px" ></ControlStyle>
+                        <asp:BoundField HeaderText="Drug Name" DataField="Drugname" ItemStyle-Width="300px" ControlStyle-Width="300" ReadOnly="true">
+                            <ControlStyle Width="300px"></ControlStyle>
 
                             <ItemStyle Width="300px"></ItemStyle>
                         </asp:BoundField>
@@ -276,12 +275,12 @@
 
                             <ItemStyle HorizontalAlign="Center" Width="50px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Route" DataField="RouteType" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" NullDisplayText=" " >
+                        <asp:BoundField HeaderText="Route" DataField="RouteType" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" NullDisplayText=" ">
                             <ControlStyle Width="40px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Form" DataField="Unit" ItemStyle-Width="60px" ControlStyle-Width="60" ItemStyle-HorizontalAlign="Center" ReadOnly="true" >
+                        <asp:BoundField HeaderText="Form" DataField="Unit" ItemStyle-Width="60px" ControlStyle-Width="60" ItemStyle-HorizontalAlign="Center" ReadOnly="true">
                             <ControlStyle Width="60px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="60px"></ItemStyle>
@@ -296,7 +295,7 @@
 
                             <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Freq" DataField="Frequency" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center" NullDisplayText=" " >
+                        <asp:BoundField HeaderText="Freq" DataField="Frequency" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center" NullDisplayText=" ">
                             <ControlStyle Width="50px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="50px"></ItemStyle>
@@ -306,12 +305,12 @@
 
                             <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="D_Unit" DataField="DurationUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" NullDisplayText=" " >
+                        <asp:BoundField HeaderText="D_Unit" DataField="DurationUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" NullDisplayText=" ">
                             <ControlStyle Width="40px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Total" DataField="TotalUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" NullDisplayText=" " >
+                        <asp:BoundField HeaderText="Total" DataField="TotalUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" NullDisplayText=" ">
                             <ControlStyle Width="40px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
@@ -326,10 +325,10 @@
                             <ControlStyle Width="40px" />
                             <ItemStyle HorizontalAlign="Center" Width="40px" />
                         </asp:TemplateField>
-                        <asp:BoundField HeaderText="Remark" DataField="Remark" ItemStyle-Width="140px" ControlStyle-Width="140" NullDisplayText=" " >
+                        <asp:BoundField HeaderText="Remark" DataField="Remark" ItemStyle-Width="140px" ControlStyle-Width="140" NullDisplayText=" ">
                             <ControlStyle Width="140px"></ControlStyle>
 
-                            <ItemStyle Width="140px" ></ItemStyle>
+                            <ItemStyle Width="140px"></ItemStyle>
                         </asp:BoundField>
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" />
@@ -345,7 +344,23 @@
         </div>
 
         <div class="LoadPres">
-          
+            <asp:Repeater runat="server" ID="rptFavorite" OnItemDataBound="rptFavorite_ItemDataBound" OnItemCommand="rptFavorite_OnItemCommand">
+                <ItemTemplate>
+                    <input type="checkbox" class="toggle-box" id="identifier" runat="server" />
+                    <asp:Label AssociatedControlID='identifier' runat="server" ID="lblDiceaseName" Text='<%#Eval("DiceaseName") %>'></asp:Label>
+                    <div>
+                        <asp:Button runat="server" ID="btnAdd" Text="AddFavorite" CommandName="AddToFavorite" CommandArgument='<%#Eval("FavouriteId") %>'></asp:Button>
+                        <asp:GridView ID="grvDetails" runat="server" AutoGenerateColumns="false">
+                            <Columns>
+                                <asp:BoundField DataField="DrugID" HeaderText="Drug ID" />
+                                <asp:BoundField DataField="DrugName" HeaderText="Drug Name" />
+                                <asp:BoundField DataField="Frequency" HeaderText="Frequency" />
+                            </Columns>
+                        </asp:GridView>
+                    </div>
+                </ItemTemplate>
+
+            </asp:Repeater>
         </div>
 
     </div>
