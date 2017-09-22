@@ -202,6 +202,12 @@
     <Compile Include="UI\RepeaterControls\DiaglistRepeater.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataSourceControls\DoctorRequestDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\DoctorRequestRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataSourceControls\EPrescriptionDataSource.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -268,6 +274,30 @@
     <Compile Include="UI\RepeaterControls\Views\VrEPresDetailRepeater.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DataSourceControls\Views\VrLabProcessingDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\Views\VrLabProcessingRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSourceControls\Views\VrLabReqDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\Views\VrLabReqRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSourceControls\Views\VrLabResultDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\Views\VrLabResultRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSourceControls\Views\VrMedProDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\Views\VrMedProRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataSourceControls\Views\VrReceptionDataSource.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -278,6 +308,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="UI\RepeaterControls\Views\VrReceptionStartRepeater.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataSourceControls\Views\VrTidChargedCodeDataSource.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="UI\RepeaterControls\Views\VrTidChargedCodeRepeater.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="DataSourceControls\Views\VrUnitTableDataSource.cs">

@@ -144,6 +144,34 @@
       <DependentUpon>VrEPresDetailProviderBase.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Bases\Views\VrLabProcessingProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrLabProcessingProviderBase.generatedCore.cs">
+      <DependentUpon>VrLabProcessingProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrLabReqProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrLabReqProviderBase.generatedCore.cs">
+      <DependentUpon>VrLabReqProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrLabResultProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrLabResultProviderBase.generatedCore.cs">
+      <DependentUpon>VrLabResultProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrMedProProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrMedProProviderBase.generatedCore.cs">
+      <DependentUpon>VrMedProProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Bases\Views\VrReceptionProviderBase.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -156,6 +184,13 @@
     </Compile>
     <Compile Include="Bases\Views\VrReceptionStartProviderBase.generatedCore.cs">
       <DependentUpon>VrReceptionStartProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrTidChargedCodeProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\Views\VrTidChargedCodeProviderBase.generatedCore.cs">
+      <DependentUpon>VrTidChargedCodeProviderBase.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bases\Views\VrUnitTableProviderBase.cs">
@@ -177,6 +212,13 @@
     </Compile>
     <Compile Include="Bases\DiaglistProviderBase.generatedCore.cs">
       <DependentUpon>DiaglistProviderBase.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\DoctorRequestProviderBase.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Bases\DoctorRequestProviderBase.generatedCore.cs">
+      <DependentUpon>DoctorRequestProviderBase.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bases\EPrescriptionProviderBase.cs">

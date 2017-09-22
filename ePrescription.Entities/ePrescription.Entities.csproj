@@ -141,6 +141,34 @@
       <DependentUpon>VrEPresDetail.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\VrLabProcessing.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrLabProcessingBase.generated.cs">
+      <DependentUpon>VrLabProcessing.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrLabReq.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrLabReqBase.generated.cs">
+      <DependentUpon>VrLabReq.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrLabResult.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrLabResultBase.generated.cs">
+      <DependentUpon>VrLabResult.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrMedPro.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrMedProBase.generated.cs">
+      <DependentUpon>VrMedPro.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\VrReception.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -153,6 +181,13 @@
     </Compile>
     <Compile Include="Views\VrReceptionStartBase.generated.cs">
       <DependentUpon>VrReceptionStart.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrTidChargedCode.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrTidChargedCodeBase.generated.cs">
+      <DependentUpon>VrTidChargedCode.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\VrUnitTable.cs">
@@ -182,6 +217,17 @@
     </Compile>
     <Compile Include="IDiaglist.cs">
       <DependentUpon>Diaglist.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DoctorRequest.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DoctorRequestBase.generated.cs">
+      <DependentUpon>DoctorRequest.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IDoctorRequest.cs">
+      <DependentUpon>DoctorRequest.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="EPrescription.cs">

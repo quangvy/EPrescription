@@ -159,6 +159,53 @@ namespace ePrescription.Data.Bases
 		#region Custom Methods
 		
 		
+		#region _ClinicalStats_UpdateLabDrReq 
+		
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void UpdateLabDrReq(System.String tid)
+		{
+			 UpdateLabDrReq(null, 0, int.MaxValue , tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void UpdateLabDrReq(int start, int pageLength, System.String tid)
+		{
+			 UpdateLabDrReq(null, start, pageLength , tid);
+		}
+				
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void UpdateLabDrReq(TransactionManager transactionManager, System.String tid)
+		{
+			 UpdateLabDrReq(transactionManager, 0, int.MaxValue , tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public abstract void UpdateLabDrReq(TransactionManager transactionManager, int start, int pageLength , System.String tid);
+		
+		#endregion
+		
 		#region _ClinicalStats_GetByTID 
 		
 		/// <summary>

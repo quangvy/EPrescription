@@ -1,0 +1,42 @@
+﻿
+#waiting {
+    float: left;
+    height: 250px;
+    margin-left: 10px;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 5px #888;
+    width: 49%;
+    border: 1px solid #aaa;
+}
+
+#done {
+    float: right;
+    height: 710px;
+    margin-left: 10px;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 5px #888;
+    width: 49%;
+    border: 1px solid #aaa;
+}
+
+#Update {
+    float: left;
+    height: 450px;
+    margin-left: 10px;
+    padding: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 5px #888;
+    width: 49%;
+    border: 1px solid #aaa;
+  
+}
+#PageSpace 
+{
+    float: left;
+    width: 49%;
+        min-height:10px;
+}
+.Patient 
+{
+    width: 100%;
+    background-color: aquamarine;
+}

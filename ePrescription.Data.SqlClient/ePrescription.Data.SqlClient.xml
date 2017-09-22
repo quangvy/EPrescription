@@ -92,6 +92,369 @@
             <param name="count">out. The number of rows that match this query.</param>
             <returns>Returns a typed collection of VrEPresDetail objects.</returns>
         </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlVrLabProcessingProvider">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:ePrescription.Entities.VrLabProcessing"/> entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabProcessingProvider.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrLabProcessingProvider"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use the stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlVrLabProcessingProviderBase">
+            <summary>
+            This class is the base repository for the CRUD operations on the VrLabProcessing objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabProcessingProviderBase.#ctor">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrLabProcessingProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabProcessingProviderBase.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrLabProcessingProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrLabProcessingProviderBase.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrLabProcessingProviderBase.UseStoredProcedure">
+            <summary>
+            Gets or sets a value indicating whether to use stored procedures.
+            </summary>
+            <value><c>true</c> if we choose to use stored procedures; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrLabProcessingProviderBase.ProviderInvariantName">
+            <summary>
+            Gets or sets the invariant provider name listed in the DbProviderFactories machine.config section.
+            </summary>
+            <value>The name of the provider invariant.</value>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabProcessingProviderBase.GetAll(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets All rows from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of rows in the data source.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of VrLabProcessing objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabProcessingProviderBase.Get(ePrescription.Data.TransactionManager,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of rows from the DataSource.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of rows in the data source.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of VrLabProcessing objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabProcessingProviderBase.Find(ePrescription.Data.TransactionManager,ePrescription.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="parameters">A collection of <see cref="T:ePrescription.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of VrLabProcessing objects.</returns>
+        </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlVrLabReqProvider">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:ePrescription.Entities.VrLabReq"/> entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabReqProvider.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrLabReqProvider"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use the stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlVrLabReqProviderBase">
+            <summary>
+            This class is the base repository for the CRUD operations on the VrLabReq objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabReqProviderBase.#ctor">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrLabReqProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabReqProviderBase.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrLabReqProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrLabReqProviderBase.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrLabReqProviderBase.UseStoredProcedure">
+            <summary>
+            Gets or sets a value indicating whether to use stored procedures.
+            </summary>
+            <value><c>true</c> if we choose to use stored procedures; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrLabReqProviderBase.ProviderInvariantName">
+            <summary>
+            Gets or sets the invariant provider name listed in the DbProviderFactories machine.config section.
+            </summary>
+            <value>The name of the provider invariant.</value>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabReqProviderBase.GetAll(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets All rows from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of rows in the data source.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of VrLabReq objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabReqProviderBase.Get(ePrescription.Data.TransactionManager,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of rows from the DataSource.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of rows in the data source.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of VrLabReq objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabReqProviderBase.Find(ePrescription.Data.TransactionManager,ePrescription.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="parameters">A collection of <see cref="T:ePrescription.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of VrLabReq objects.</returns>
+        </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlVrLabResultProvider">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:ePrescription.Entities.VrLabResult"/> entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabResultProvider.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrLabResultProvider"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use the stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlVrLabResultProviderBase">
+            <summary>
+            This class is the base repository for the CRUD operations on the VrLabResult objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabResultProviderBase.#ctor">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrLabResultProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabResultProviderBase.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrLabResultProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrLabResultProviderBase.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrLabResultProviderBase.UseStoredProcedure">
+            <summary>
+            Gets or sets a value indicating whether to use stored procedures.
+            </summary>
+            <value><c>true</c> if we choose to use stored procedures; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrLabResultProviderBase.ProviderInvariantName">
+            <summary>
+            Gets or sets the invariant provider name listed in the DbProviderFactories machine.config section.
+            </summary>
+            <value>The name of the provider invariant.</value>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabResultProviderBase.GetAll(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets All rows from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of rows in the data source.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of VrLabResult objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabResultProviderBase.Get(ePrescription.Data.TransactionManager,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of rows from the DataSource.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of rows in the data source.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of VrLabResult objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrLabResultProviderBase.Find(ePrescription.Data.TransactionManager,ePrescription.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="parameters">A collection of <see cref="T:ePrescription.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of VrLabResult objects.</returns>
+        </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlVrMedProProvider">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:ePrescription.Entities.VrMedPro"/> entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrMedProProvider.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrMedProProvider"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use the stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlVrMedProProviderBase">
+            <summary>
+            This class is the base repository for the CRUD operations on the VrMedPro objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrMedProProviderBase.#ctor">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrMedProProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrMedProProviderBase.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrMedProProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrMedProProviderBase.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrMedProProviderBase.UseStoredProcedure">
+            <summary>
+            Gets or sets a value indicating whether to use stored procedures.
+            </summary>
+            <value><c>true</c> if we choose to use stored procedures; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrMedProProviderBase.ProviderInvariantName">
+            <summary>
+            Gets or sets the invariant provider name listed in the DbProviderFactories machine.config section.
+            </summary>
+            <value>The name of the provider invariant.</value>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrMedProProviderBase.GetAll(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets All rows from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of rows in the data source.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of VrMedPro objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrMedProProviderBase.Get(ePrescription.Data.TransactionManager,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of rows from the DataSource.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of rows in the data source.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of VrMedPro objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrMedProProviderBase.Find(ePrescription.Data.TransactionManager,ePrescription.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="parameters">A collection of <see cref="T:ePrescription.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of VrMedPro objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrMedProProviderBase.GetByDescription(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String)">
+            <summary>
+            This method wraps the '_VR_MedPro_GetByDescription' stored procedure. 
+            </summary>
+            <param name="descriptiontion"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generated from a stored procedure.</remark>
+            <returns>A <see cref="T:ePrescription.Entities.VList`1"/> instance.</returns>
+        </member>
         <member name="T:ePrescription.Data.SqlClient.SqlVrReceptionProvider">
             <summary>
              This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:ePrescription.Entities.VrReception"/> entity.
@@ -278,6 +641,94 @@
             <param name="pageLength">Number of rows to return.</param>
             <param name="count">out. The number of rows that match this query.</param>
             <returns>Returns a typed collection of VrReceptionStart objects.</returns>
+        </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProvider">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:ePrescription.Entities.VrTidChargedCode"/> entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProvider.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProvider"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use the stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProviderBase">
+            <summary>
+            This class is the base repository for the CRUD operations on the VrTidChargedCode objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProviderBase.#ctor">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProviderBase.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProviderBase.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProviderBase.UseStoredProcedure">
+            <summary>
+            Gets or sets a value indicating whether to use stored procedures.
+            </summary>
+            <value><c>true</c> if we choose to use stored procedures; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProviderBase.ProviderInvariantName">
+            <summary>
+            Gets or sets the invariant provider name listed in the DbProviderFactories machine.config section.
+            </summary>
+            <value>The name of the provider invariant.</value>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProviderBase.GetAll(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets All rows from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of rows in the data source.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of VrTidChargedCode objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProviderBase.Get(ePrescription.Data.TransactionManager,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of rows from the DataSource.
+            </summary>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of rows in the data source.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of VrTidChargedCode objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVrTidChargedCodeProviderBase.Find(ePrescription.Data.TransactionManager,ePrescription.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="parameters">A collection of <see cref="T:ePrescription.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of VrTidChargedCode objects.</returns>
         </member>
         <member name="T:ePrescription.Data.SqlClient.SqlVrUnitTableProvider">
             <summary>
@@ -550,6 +1001,16 @@
             <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
             <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
         </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlClinicalStatsProviderBase.UpdateLabDrReq(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String)">
+            <summary>
+            This method wraps the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+            </summary>	
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <remark>This method is generated from a stored procedure.</remark>
+        </member>
         <member name="M:ePrescription.Data.SqlClient.SqlClinicalStatsProviderBase.GetByTID(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String)">
             <summary>
             This method wraps the '_ClinicalStats_GetByTID' stored procedure. 
@@ -757,6 +1218,226 @@
             <exception cref="T:System.Exception">The command could not be executed.</exception>
             <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
             <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlDoctorRequestProvider">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:ePrescription.Entities.DoctorRequest"/> entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProvider.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlDoctorRequestProvider"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we use the stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="T:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase">
+            <summary>
+             This class is the SqlClient Data Access Logic Component implementation for the <see cref="T:ePrescription.Entities.DoctorRequest"/> entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.#ctor">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.#ctor(System.String,System.Boolean,System.String)">
+            <summary>
+            Creates a new <see cref="T:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase"/> instance.
+            Uses connection string to connect to datasource.
+            </summary>
+            <param name="connectionString">The connection string to the database.</param>
+            <param name="useStoredProcedure">A boolean value that indicates if we should use stored procedures or embedded queries.</param>
+            <param name="providerInvariantName">Name of the invariant provider use by the DbProviderFactory.</param>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.ConnectionString">
+            <summary>
+            Gets or sets the connection string.
+            </summary>
+            <value>The connection string.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.UseStoredProcedure">
+            <summary>
+            Gets or sets a value indicating whether to use stored procedures.
+            </summary>
+            <value><c>true</c> if we choose to use use stored procedures; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.ProviderInvariantName">
+            <summary>
+            Gets or sets the invariant provider name listed in the DbProviderFactories machine.config section.
+            </summary>
+            <value>The name of the provider invariant.</value>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.Delete(ePrescription.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="_id">. Primary Key.</param>	
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.Find(ePrescription.Data.TransactionManager,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Returns rows meeting the whereClause condition from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <remarks>Operators must be capitalized (OR, AND).</remarks>
+            <returns>Returns a typed collection of ePrescription.Entities.DoctorRequest objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.Find(ePrescription.Data.TransactionManager,ePrescription.Data.IFilterParameterCollection,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Returns rows from the DataSource that meet the parameter conditions.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="parameters">A collection of <see cref="T:ePrescription.Data.SqlFilterParameter"/> objects.</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <returns>Returns a typed collection of ePrescription.Entities.DoctorRequest objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.GetAll(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets All rows from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out. The number of rows that match this query.</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of ePrescription.Entities.DoctorRequest objects.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.GetPaged(ePrescription.Data.TransactionManager,System.String,System.String,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            Gets a page of rows from the DataSource.
+            </summary>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">Number of rows in the DataSource.</param>
+            <param name="whereClause">Specifies the condition for the rows returned by a query (Name='John Doe', Name='John Doe' AND Id='1', Name='John Doe' OR Id='1').</param>
+            <param name="orderBy">Specifies the sort criteria for the rows in the DataSource (Name ASC; BirthDay DESC, Name ASC);</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remarks></remarks>
+            <returns>Returns a typed collection of ePrescription.Entities.DoctorRequest objects.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.GetById(ePrescription.Data.TransactionManager,System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK_Id index.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out parameter to get total records for query.</param>
+            <returns>Returns an instance of the <see cref="T:ePrescription.Entities.DoctorRequest"/> class.</returns>
+            <remarks></remarks>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.BulkInsert(ePrescription.Data.TransactionManager,ePrescription.Entities.TList{ePrescription.Entities.DoctorRequest})">
+            <summary>
+            Lets you efficiently bulk insert many entities to the database.
+            </summary>
+            <param name="transactionManager">The transaction manager.</param>
+            <param name="entities">The entities.</param>
+            <remarks>
+            	After inserting into the datasource, the ePrescription.Entities.DoctorRequest object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>	
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.Insert(ePrescription.Data.TransactionManager,ePrescription.Entities.DoctorRequest)">
+            <summary>
+            	Inserts a ePrescription.Entities.DoctorRequest object into the datasource using a transaction.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="entity">ePrescription.Entities.DoctorRequest object to insert.</param>
+            <remarks>
+            	After inserting into the datasource, the ePrescription.Entities.DoctorRequest object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>	
+            <returns>Returns true if operation is successful.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.Update(ePrescription.Data.TransactionManager,ePrescription.Entities.DoctorRequest)">
+            <summary>
+            	Update an existing row in the datasource.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="entity">ePrescription.Entities.DoctorRequest object to update.</param>
+            <remarks>
+            	After updating the datasource, the ePrescription.Entities.DoctorRequest object will be updated
+            	to refelect any changes made by the datasource. (ie: identity or computed columns)
+            </remarks>
+            <returns>Returns true if operation is successful.</returns>
+            <exception cref="T:System.Exception">The command could not be executed.</exception>
+            <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
+            <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.UpdateStatus(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            This method wraps the '_DoctorRequest_UpdateStatus' stored procedure. 
+            </summary>	
+            <param name="reqStatus"> A <c>System.String</c> instance.</param>
+            <param name="reqId"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <remark>This method is generated from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.Insert(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wraps the '_DoctorRequest_Insert' stored procedure. 
+            </summary>	
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="reqId"> A <c>System.String</c> instance.</param>
+            <param name="code"> A <c>System.String</c> instance.</param>
+            <param name="description"> A <c>System.String</c> instance.</param>
+            <param name="reqDoctor"> A <c>System.String</c> instance.</param>
+            <param name="reqDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="reqStatus"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <remark>This method is generated from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.GetByTID(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String)">
+            <summary>
+            This method wraps the '_DoctorRequest_GetByTID' stored procedure. 
+            </summary>	
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <remark>This method is generated from a stored procedure.</remark>
+            <returns>A <see cref="T:System.Data.DataSet"/> instance.</returns>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlDoctorRequestProviderBase.UpdNurse(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            This method wraps the '_DoctorRequest_UpdNurse' stored procedure. 
+            </summary>	
+            <param name="code"> A <c>System.String</c> instance.</param>
+            <param name="billable"> A <c>System.Boolean?</c> instance.</param>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <remark>This method is generated from a stored procedure.</remark>
         </member>
         <member name="T:ePrescription.Data.SqlClient.SqlEPrescriptionProvider">
             <summary>
@@ -2490,6 +3171,47 @@
             <exception cref="T:System.Data.DataException">The <paramref name="transactionManager"/> is not open.</exception>
             <exception cref="T:System.Data.Common.DbException">The command could not be executed.</exception>
         </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVitalSignProviderBase.Update(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wraps the '_VitalSign_Update' stored procedure. 
+            </summary>	
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="temp"> A <c>System.String</c> instance.</param>
+            <param name="pulse"> A <c>System.String</c> instance.</param>
+            <param name="res"> A <c>System.String</c> instance.</param>
+            <param name="press"> A <c>System.String</c> instance.</param>
+            <param name="sato2"> A <c>System.String</c> instance.</param>
+            <param name="gcs"> A <c>System.String</c> instance.</param>
+            <param name="height"> A <c>System.String</c> instance.</param>
+            <param name="weight"> A <c>System.String</c> instance.</param>
+            <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="user"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <remark>This method is generated from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.SqlClient.SqlVitalSignProviderBase.Insert(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wraps the '_VitalSign_Insert' stored procedure. 
+            </summary>	
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="patientCode"> A <c>System.String</c> instance.</param>
+            <param name="temp"> A <c>System.String</c> instance.</param>
+            <param name="pulse"> A <c>System.String</c> instance.</param>
+            <param name="res"> A <c>System.String</c> instance.</param>
+            <param name="press"> A <c>System.String</c> instance.</param>
+            <param name="sato2"> A <c>System.String</c> instance.</param>
+            <param name="gcs"> A <c>System.String</c> instance.</param>
+            <param name="height"> A <c>System.String</c> instance.</param>
+            <param name="weight"> A <c>System.String</c> instance.</param>
+            <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="user"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <remark>This method is generated from a stored procedure.</remark>
+        </member>
         <member name="T:ePrescription.Data.SqlClient.SqlNetTiersProvider">
             <summary>
             This class is the Sql implementation of the NetTiersProvider.
@@ -2632,6 +3354,19 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.FavoritDetailProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:ePrescription.Entities.FavoritDetail"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlFavoritDetailProvider">
+            <summary>
+            Gets the current <see cref="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlFavoritDetailProvider"/>.
+            </summary>
+            <value></value>
+        </member>
         <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.DiaglistProvider">
             <summary>
              This class is the Data Access Logic Component for the <see cref="T:ePrescription.Entities.Diaglist"/> business entity.
@@ -2642,6 +3377,19 @@
         <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlDiaglistProvider">
             <summary>
             Gets the current <see cref="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlDiaglistProvider"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.DoctorRequestProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:ePrescription.Entities.DoctorRequest"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlDoctorRequestProvider">
+            <summary>
+            Gets the current <see cref="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlDoctorRequestProvider"/>.
             </summary>
             <value></value>
         </member>
@@ -2671,19 +3419,6 @@
             </summary>
             <value></value>
         </member>
-        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.FavoritDetailProvider">
-            <summary>
-             This class is the Data Access Logic Component for the <see cref="T:ePrescription.Entities.FavoritDetail"/> business entity.
-             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-            </summary>
-             <value></value>
-        </member>
-        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlFavoritDetailProvider">
-            <summary>
-            Gets the current <see cref="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlFavoritDetailProvider"/>.
-            </summary>
-            <value></value>
-        </member>
         <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.VitalSignProvider">
             <summary>
              This class is the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VitalSign"/> business entity.
@@ -2710,6 +3445,58 @@
             </summary>
             <value></value>
         </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.VrLabProcessingProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrLabProcessing"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrLabProcessingProvider">
+            <summary>
+            Gets the current <see cref="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrLabProcessingProvider"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.VrLabReqProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrLabReq"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrLabReqProvider">
+            <summary>
+            Gets the current <see cref="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrLabReqProvider"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.VrLabResultProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrLabResult"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrLabResultProvider">
+            <summary>
+            Gets the current <see cref="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrLabResultProvider"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.VrMedProProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrMedPro"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrMedProProvider">
+            <summary>
+            Gets the current <see cref="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrMedProProvider"/>.
+            </summary>
+            <value></value>
+        </member>
         <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.VrReceptionProvider">
             <summary>
              This class is the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrReception"/> business entity.
@@ -2733,6 +3520,19 @@
         <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrReceptionStartProvider">
             <summary>
             Gets the current <see cref="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrReceptionStartProvider"/>.
+            </summary>
+            <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.VrTidChargedCodeProvider">
+            <summary>
+             This class is the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrTidChargedCode"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+             <value></value>
+        </member>
+        <member name="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrTidChargedCodeProvider">
+            <summary>
+            Gets the current <see cref="P:ePrescription.Data.SqlClient.SqlNetTiersProvider.SqlVrTidChargedCodeProvider"/>.
             </summary>
             <value></value>
         </member>

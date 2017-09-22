@@ -159,6 +159,184 @@ namespace ePrescription.Data.Bases
 		#region Custom Methods
 		
 		
+		#region _VitalSign_Update 
+		
+		/// <summary>
+		///	This method wrap the '_VitalSign_Update' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="temp"> A <c>System.String</c> instance.</param>
+		/// <param name="pulse"> A <c>System.String</c> instance.</param>
+		/// <param name="res"> A <c>System.String</c> instance.</param>
+		/// <param name="press"> A <c>System.String</c> instance.</param>
+		/// <param name="sato2"> A <c>System.String</c> instance.</param>
+		/// <param name="gcs"> A <c>System.String</c> instance.</param>
+		/// <param name="height"> A <c>System.String</c> instance.</param>
+		/// <param name="weight"> A <c>System.String</c> instance.</param>
+		/// <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="user"> A <c>System.String</c> instance.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void Update(System.String tid, System.String temp, System.String pulse, System.String res, System.String press, System.String sato2, System.String gcs, System.String height, System.String weight, System.DateTime? createDate, System.String user)
+		{
+			 Update(null, 0, int.MaxValue , tid, temp, pulse, res, press, sato2, gcs, height, weight, createDate, user);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_VitalSign_Update' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="temp"> A <c>System.String</c> instance.</param>
+		/// <param name="pulse"> A <c>System.String</c> instance.</param>
+		/// <param name="res"> A <c>System.String</c> instance.</param>
+		/// <param name="press"> A <c>System.String</c> instance.</param>
+		/// <param name="sato2"> A <c>System.String</c> instance.</param>
+		/// <param name="gcs"> A <c>System.String</c> instance.</param>
+		/// <param name="height"> A <c>System.String</c> instance.</param>
+		/// <param name="weight"> A <c>System.String</c> instance.</param>
+		/// <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="user"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void Update(int start, int pageLength, System.String tid, System.String temp, System.String pulse, System.String res, System.String press, System.String sato2, System.String gcs, System.String height, System.String weight, System.DateTime? createDate, System.String user)
+		{
+			 Update(null, start, pageLength , tid, temp, pulse, res, press, sato2, gcs, height, weight, createDate, user);
+		}
+				
+		/// <summary>
+		///	This method wrap the '_VitalSign_Update' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="temp"> A <c>System.String</c> instance.</param>
+		/// <param name="pulse"> A <c>System.String</c> instance.</param>
+		/// <param name="res"> A <c>System.String</c> instance.</param>
+		/// <param name="press"> A <c>System.String</c> instance.</param>
+		/// <param name="sato2"> A <c>System.String</c> instance.</param>
+		/// <param name="gcs"> A <c>System.String</c> instance.</param>
+		/// <param name="height"> A <c>System.String</c> instance.</param>
+		/// <param name="weight"> A <c>System.String</c> instance.</param>
+		/// <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="user"> A <c>System.String</c> instance.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void Update(TransactionManager transactionManager, System.String tid, System.String temp, System.String pulse, System.String res, System.String press, System.String sato2, System.String gcs, System.String height, System.String weight, System.DateTime? createDate, System.String user)
+		{
+			 Update(transactionManager, 0, int.MaxValue , tid, temp, pulse, res, press, sato2, gcs, height, weight, createDate, user);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_VitalSign_Update' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="temp"> A <c>System.String</c> instance.</param>
+		/// <param name="pulse"> A <c>System.String</c> instance.</param>
+		/// <param name="res"> A <c>System.String</c> instance.</param>
+		/// <param name="press"> A <c>System.String</c> instance.</param>
+		/// <param name="sato2"> A <c>System.String</c> instance.</param>
+		/// <param name="gcs"> A <c>System.String</c> instance.</param>
+		/// <param name="height"> A <c>System.String</c> instance.</param>
+		/// <param name="weight"> A <c>System.String</c> instance.</param>
+		/// <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="user"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public abstract void Update(TransactionManager transactionManager, int start, int pageLength , System.String tid, System.String temp, System.String pulse, System.String res, System.String press, System.String sato2, System.String gcs, System.String height, System.String weight, System.DateTime? createDate, System.String user);
+		
+		#endregion
+		
+		#region _VitalSign_Insert 
+		
+		/// <summary>
+		///	This method wrap the '_VitalSign_Insert' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="patientCode"> A <c>System.String</c> instance.</param>
+		/// <param name="temp"> A <c>System.String</c> instance.</param>
+		/// <param name="pulse"> A <c>System.String</c> instance.</param>
+		/// <param name="res"> A <c>System.String</c> instance.</param>
+		/// <param name="press"> A <c>System.String</c> instance.</param>
+		/// <param name="sato2"> A <c>System.String</c> instance.</param>
+		/// <param name="gcs"> A <c>System.String</c> instance.</param>
+		/// <param name="height"> A <c>System.String</c> instance.</param>
+		/// <param name="weight"> A <c>System.String</c> instance.</param>
+		/// <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="user"> A <c>System.String</c> instance.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void Insert(System.String tid, System.String patientCode, System.String temp, System.String pulse, System.String res, System.String press, System.String sato2, System.String gcs, System.String height, System.String weight, System.DateTime? createDate, System.String user)
+		{
+			 Insert(null, 0, int.MaxValue , tid, patientCode, temp, pulse, res, press, sato2, gcs, height, weight, createDate, user);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_VitalSign_Insert' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="patientCode"> A <c>System.String</c> instance.</param>
+		/// <param name="temp"> A <c>System.String</c> instance.</param>
+		/// <param name="pulse"> A <c>System.String</c> instance.</param>
+		/// <param name="res"> A <c>System.String</c> instance.</param>
+		/// <param name="press"> A <c>System.String</c> instance.</param>
+		/// <param name="sato2"> A <c>System.String</c> instance.</param>
+		/// <param name="gcs"> A <c>System.String</c> instance.</param>
+		/// <param name="height"> A <c>System.String</c> instance.</param>
+		/// <param name="weight"> A <c>System.String</c> instance.</param>
+		/// <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="user"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void Insert(int start, int pageLength, System.String tid, System.String patientCode, System.String temp, System.String pulse, System.String res, System.String press, System.String sato2, System.String gcs, System.String height, System.String weight, System.DateTime? createDate, System.String user)
+		{
+			 Insert(null, start, pageLength , tid, patientCode, temp, pulse, res, press, sato2, gcs, height, weight, createDate, user);
+		}
+				
+		/// <summary>
+		///	This method wrap the '_VitalSign_Insert' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="patientCode"> A <c>System.String</c> instance.</param>
+		/// <param name="temp"> A <c>System.String</c> instance.</param>
+		/// <param name="pulse"> A <c>System.String</c> instance.</param>
+		/// <param name="res"> A <c>System.String</c> instance.</param>
+		/// <param name="press"> A <c>System.String</c> instance.</param>
+		/// <param name="sato2"> A <c>System.String</c> instance.</param>
+		/// <param name="gcs"> A <c>System.String</c> instance.</param>
+		/// <param name="height"> A <c>System.String</c> instance.</param>
+		/// <param name="weight"> A <c>System.String</c> instance.</param>
+		/// <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="user"> A <c>System.String</c> instance.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void Insert(TransactionManager transactionManager, System.String tid, System.String patientCode, System.String temp, System.String pulse, System.String res, System.String press, System.String sato2, System.String gcs, System.String height, System.String weight, System.DateTime? createDate, System.String user)
+		{
+			 Insert(transactionManager, 0, int.MaxValue , tid, patientCode, temp, pulse, res, press, sato2, gcs, height, weight, createDate, user);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_VitalSign_Insert' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="patientCode"> A <c>System.String</c> instance.</param>
+		/// <param name="temp"> A <c>System.String</c> instance.</param>
+		/// <param name="pulse"> A <c>System.String</c> instance.</param>
+		/// <param name="res"> A <c>System.String</c> instance.</param>
+		/// <param name="press"> A <c>System.String</c> instance.</param>
+		/// <param name="sato2"> A <c>System.String</c> instance.</param>
+		/// <param name="gcs"> A <c>System.String</c> instance.</param>
+		/// <param name="height"> A <c>System.String</c> instance.</param>
+		/// <param name="weight"> A <c>System.String</c> instance.</param>
+		/// <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="user"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public abstract void Insert(TransactionManager transactionManager, int start, int pageLength , System.String tid, System.String patientCode, System.String temp, System.String pulse, System.String res, System.String press, System.String sato2, System.String gcs, System.String height, System.String weight, System.DateTime? createDate, System.String user);
+		
+		#endregion
+		
 		#endregion
 
 		#region Helper Functions	

@@ -509,6 +509,1609 @@
             abbre : 
             </summary>
         </member>
+        <member name="T:ePrescription.Entities.VrLabProcessing">
+            <summary>
+             An object representation of the 'VR_LabProcessing' view. [No description found in the database]	
+            </summary>
+             <remarks>
+             This file is generated once and will never be overwritten.
+             </remarks>	
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessing.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrLabProcessing"/> instance.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrLabProcessingBase">
+            <summary>
+             An object representation of the 'VR_LabProcessing' view. [No description found in the database]	
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._statId">
+            <summary>
+            StatId : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._patientCode">
+            <summary>
+            PatientCode : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._tid">
+            <summary>
+            TID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._firstName">
+            <summary>
+            FirstName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._lastName">
+            <summary>
+            LastName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._dob">
+            <summary>
+            DOB : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._sex">
+            <summary>
+            Sex : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._nationality">
+            <summary>
+            Nationality : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._patientStart">
+            <summary>
+            PatientStart : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._lab">
+            <summary>
+            Lab : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._chargedCodes">
+            <summary>
+            ChargedCodes : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._createDate">
+            <summary>
+            CreateDate : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase._tag">
+            <summary>
+            Object that contains data to associate with this object
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingBase.suppressEntityEvents">
+            <summary>
+            Suppresses Entity Events from Firing, 
+            useful when loading the entities from the database.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrLabProcessingBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.#ctor(System.Int64,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Nullable{System.Boolean},System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrLabProcessingBase"/> instance.
+            </summary>
+            <param name="_statId"></param>
+            <param name="_patientCode"></param>
+            <param name="_tid"></param>
+            <param name="_firstName"></param>
+            <param name="_lastName"></param>
+            <param name="_dob"></param>
+            <param name="_sex"></param>
+            <param name="_nationality"></param>
+            <param name="_patientStart"></param>
+            <param name="_lab"></param>
+            <param name="_chargedCodes"></param>
+            <param name="_createDate"></param>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.CreateVrLabProcessing(System.Int64,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Nullable{System.Boolean},System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+             A simple factory method to create a new <see cref="T:ePrescription.Entities.VrLabProcessing"/> instance.
+            </summary>
+            <param name="_statId"></param>
+            <param name="_patientCode"></param>
+            <param name="_tid"></param>
+            <param name="_firstName"></param>
+            <param name="_lastName"></param>
+            <param name="_dob"></param>
+            <param name="_sex"></param>
+            <param name="_nationality"></param>
+            <param name="_patientStart"></param>
+            <param name="_lab"></param>
+            <param name="_chargedCodes"></param>
+            <param name="_createDate"></param>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.StatId">
+            <summary>
+            	Gets or Sets the StatId property. 
+            	
+            </summary>
+            <value>This type is bigint</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.PatientCode">
+            <summary>
+            	Gets or Sets the PatientCode property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.Tid">
+            <summary>
+            	Gets or Sets the TID property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.FirstName">
+            <summary>
+            	Gets or Sets the FirstName property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.LastName">
+            <summary>
+            	Gets or Sets the LastName property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.Dob">
+            <summary>
+            	Gets or Sets the DOB property. 
+            	
+            </summary>
+            <value>This type is datetime</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.Sex">
+            <summary>
+            	Gets or Sets the Sex property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.Nationality">
+            <summary>
+            	Gets or Sets the Nationality property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.PatientStart">
+            <summary>
+            	Gets or Sets the PatientStart property. 
+            	
+            </summary>
+            <value>This type is bit</value>
+            <remarks>
+            This property can be set to null. 
+            If this column is null, this property will return false. It is up to the developer
+            to check the value of IsPatientStartNull() and perform business logic appropriately.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.Lab">
+            <summary>
+            	Gets or Sets the Lab property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.ChargedCodes">
+            <summary>
+            	Gets or Sets the ChargedCodes property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.CreateDate">
+            <summary>
+            	Gets or Sets the CreateDate property. 
+            	
+            </summary>
+            <value>This type is datetime</value>
+            <remarks>
+            This property can be set to null. 
+            If this column is null, this property will return DateTime.MinValue. It is up to the developer
+            to check the value of IsCreateDateNull() and perform business logic appropriately.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.Tag">
+            <summary>
+                Gets or sets the object that contains supplemental data about this object.
+            </summary>
+            <value>Object</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.SuppressEntityEvents">
+            <summary>
+            Determines whether this entity is to suppress events while set to true.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.IsDeleted">
+            <summary>
+            Gets a value indicating if object has been <see cref="M:ePrescription.Entities.VrLabProcessingBase.MarkToDelete"/>. ReadOnly.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.IsDirty">
+             <summary>
+            	Gets a value indicating  if the object has been modified from its original state.
+             </summary>
+            <value>True if object has been modified from its original state; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.IsNew">
+             <summary>
+            	Gets a value indicating if the object is new.
+             </summary>
+            <value>True if objectis new; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabProcessingBase.ViewName">
+            <summary>
+            	The name of the underlying database table.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.AcceptChanges">
+            <summary>
+            Accepts the changes made to this object by setting each flags to false.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.CancelChanges">
+            <summary>
+              Revert all changes and restore original values.
+              Currently not supported.
+            </summary>
+             <exception cref="T:System.NotSupportedException">This method is not currently supported and always throws this exception.</exception>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.MarkToDelete">
+            <summary>
+               Marks entity to be deleted.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.Copy">
+            <summary>
+              Returns a Typed VrLabProcessingBase Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.Clone">
+            <summary>
+             ICloneable.Clone() Member, returns the Deep Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.MakeCopyOf(System.Object)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.Equals(ePrescription.Entities.VrLabProcessingBase)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="toObject">An object to compare to this instance.</param>
+            <returns>true if toObject is a <see cref="T:ePrescription.Entities.VrLabProcessingBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.Equals(ePrescription.Entities.VrLabProcessingBase,ePrescription.Entities.VrLabProcessingBase)">
+            <summary>
+             Determines whether the specified <see cref="T:ePrescription.Entities.VrLabProcessingBase"/> instances are considered equal.
+            </summary>
+            <param name="Object1">The first <see cref="T:ePrescription.Entities.VrLabProcessingBase"/> to compare.</param>
+            <param name="Object2">The second <see cref="T:ePrescription.Entities.VrLabProcessingBase"/> to compare. </param>
+            <returns>true if Object1 is the same instance as Object2 or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.CompareTo(System.Object)">
+            <summary>
+             Compares this instance to a specified object and returns an indication of their relative values.
+            <param name="obj">An object to compare to this instance, or a null reference (Nothing in Visual Basic).</param>
+            </summary>
+            <returns>A signed integer that indicates the relative order of this instance and obj.</returns>
+        </member>
+        <member name="E:ePrescription.Entities.VrLabProcessingBase.PropertyChanged">
+            <summary>
+            Event to indicate that a property has changed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.OnPropertyChanged(System.String)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="propertyName">The name of the property that has changed.</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="e">PropertyChangedEventArgs</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.GetPropertyValueByName(ePrescription.Entities.VrLabProcessing,System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.GetPropertyValueByName(System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabProcessingBase.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrLabProcessingColumn">
+            <summary>
+            Enumerate the VrLabProcessing columns.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.StatId">
+            <summary>
+            StatId : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.PatientCode">
+            <summary>
+            PatientCode : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.Tid">
+            <summary>
+            TID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.FirstName">
+            <summary>
+            FirstName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.LastName">
+            <summary>
+            LastName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.Dob">
+            <summary>
+            DOB : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.Sex">
+            <summary>
+            Sex : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.Nationality">
+            <summary>
+            Nationality : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.PatientStart">
+            <summary>
+            PatientStart : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.Lab">
+            <summary>
+            Lab : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.ChargedCodes">
+            <summary>
+            ChargedCodes : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabProcessingColumn.CreateDate">
+            <summary>
+            CreateDate : 
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrLabReq">
+            <summary>
+             An object representation of the 'Vr_LabReq' view. [No description found in the database]	
+            </summary>
+             <remarks>
+             This file is generated once and will never be overwritten.
+             </remarks>	
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReq.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrLabReq"/> instance.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrLabReqBase">
+            <summary>
+             An object representation of the 'Vr_LabReq' view. [No description found in the database]	
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._statId">
+            <summary>
+            StatId : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._patientCode">
+            <summary>
+            PatientCode : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._tid">
+            <summary>
+            TID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._firstName">
+            <summary>
+            FirstName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._lastName">
+            <summary>
+            LastName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._dob">
+            <summary>
+            DOB : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._sex">
+            <summary>
+            Sex : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._nationality">
+            <summary>
+            Nationality : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._patientStart">
+            <summary>
+            PatientStart : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._lab">
+            <summary>
+            Lab : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._chargedCodes">
+            <summary>
+            ChargedCodes : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._createDate">
+            <summary>
+            CreateDate : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase._tag">
+            <summary>
+            Object that contains data to associate with this object
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqBase.suppressEntityEvents">
+            <summary>
+            Suppresses Entity Events from Firing, 
+            useful when loading the entities from the database.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrLabReqBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.#ctor(System.Int64,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Nullable{System.Boolean},System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrLabReqBase"/> instance.
+            </summary>
+            <param name="_statId"></param>
+            <param name="_patientCode"></param>
+            <param name="_tid"></param>
+            <param name="_firstName"></param>
+            <param name="_lastName"></param>
+            <param name="_dob"></param>
+            <param name="_sex"></param>
+            <param name="_nationality"></param>
+            <param name="_patientStart"></param>
+            <param name="_lab"></param>
+            <param name="_chargedCodes"></param>
+            <param name="_createDate"></param>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.CreateVrLabReq(System.Int64,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Nullable{System.Boolean},System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+             A simple factory method to create a new <see cref="T:ePrescription.Entities.VrLabReq"/> instance.
+            </summary>
+            <param name="_statId"></param>
+            <param name="_patientCode"></param>
+            <param name="_tid"></param>
+            <param name="_firstName"></param>
+            <param name="_lastName"></param>
+            <param name="_dob"></param>
+            <param name="_sex"></param>
+            <param name="_nationality"></param>
+            <param name="_patientStart"></param>
+            <param name="_lab"></param>
+            <param name="_chargedCodes"></param>
+            <param name="_createDate"></param>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.StatId">
+            <summary>
+            	Gets or Sets the StatId property. 
+            	
+            </summary>
+            <value>This type is bigint</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.PatientCode">
+            <summary>
+            	Gets or Sets the PatientCode property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.Tid">
+            <summary>
+            	Gets or Sets the TID property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.FirstName">
+            <summary>
+            	Gets or Sets the FirstName property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.LastName">
+            <summary>
+            	Gets or Sets the LastName property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.Dob">
+            <summary>
+            	Gets or Sets the DOB property. 
+            	
+            </summary>
+            <value>This type is datetime</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.Sex">
+            <summary>
+            	Gets or Sets the Sex property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.Nationality">
+            <summary>
+            	Gets or Sets the Nationality property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.PatientStart">
+            <summary>
+            	Gets or Sets the PatientStart property. 
+            	
+            </summary>
+            <value>This type is bit</value>
+            <remarks>
+            This property can be set to null. 
+            If this column is null, this property will return false. It is up to the developer
+            to check the value of IsPatientStartNull() and perform business logic appropriately.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.Lab">
+            <summary>
+            	Gets or Sets the Lab property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.ChargedCodes">
+            <summary>
+            	Gets or Sets the ChargedCodes property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.CreateDate">
+            <summary>
+            	Gets or Sets the CreateDate property. 
+            	
+            </summary>
+            <value>This type is datetime</value>
+            <remarks>
+            This property can be set to null. 
+            If this column is null, this property will return DateTime.MinValue. It is up to the developer
+            to check the value of IsCreateDateNull() and perform business logic appropriately.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.Tag">
+            <summary>
+                Gets or sets the object that contains supplemental data about this object.
+            </summary>
+            <value>Object</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.SuppressEntityEvents">
+            <summary>
+            Determines whether this entity is to suppress events while set to true.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.IsDeleted">
+            <summary>
+            Gets a value indicating if object has been <see cref="M:ePrescription.Entities.VrLabReqBase.MarkToDelete"/>. ReadOnly.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.IsDirty">
+             <summary>
+            	Gets a value indicating  if the object has been modified from its original state.
+             </summary>
+            <value>True if object has been modified from its original state; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.IsNew">
+             <summary>
+            	Gets a value indicating if the object is new.
+             </summary>
+            <value>True if objectis new; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabReqBase.ViewName">
+            <summary>
+            	The name of the underlying database table.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.AcceptChanges">
+            <summary>
+            Accepts the changes made to this object by setting each flags to false.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.CancelChanges">
+            <summary>
+              Revert all changes and restore original values.
+              Currently not supported.
+            </summary>
+             <exception cref="T:System.NotSupportedException">This method is not currently supported and always throws this exception.</exception>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.MarkToDelete">
+            <summary>
+               Marks entity to be deleted.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.Copy">
+            <summary>
+              Returns a Typed VrLabReqBase Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.Clone">
+            <summary>
+             ICloneable.Clone() Member, returns the Deep Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.MakeCopyOf(System.Object)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.Equals(ePrescription.Entities.VrLabReqBase)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="toObject">An object to compare to this instance.</param>
+            <returns>true if toObject is a <see cref="T:ePrescription.Entities.VrLabReqBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.Equals(ePrescription.Entities.VrLabReqBase,ePrescription.Entities.VrLabReqBase)">
+            <summary>
+             Determines whether the specified <see cref="T:ePrescription.Entities.VrLabReqBase"/> instances are considered equal.
+            </summary>
+            <param name="Object1">The first <see cref="T:ePrescription.Entities.VrLabReqBase"/> to compare.</param>
+            <param name="Object2">The second <see cref="T:ePrescription.Entities.VrLabReqBase"/> to compare. </param>
+            <returns>true if Object1 is the same instance as Object2 or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.CompareTo(System.Object)">
+            <summary>
+             Compares this instance to a specified object and returns an indication of their relative values.
+            <param name="obj">An object to compare to this instance, or a null reference (Nothing in Visual Basic).</param>
+            </summary>
+            <returns>A signed integer that indicates the relative order of this instance and obj.</returns>
+        </member>
+        <member name="E:ePrescription.Entities.VrLabReqBase.PropertyChanged">
+            <summary>
+            Event to indicate that a property has changed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.OnPropertyChanged(System.String)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="propertyName">The name of the property that has changed.</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="e">PropertyChangedEventArgs</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.GetPropertyValueByName(ePrescription.Entities.VrLabReq,System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.GetPropertyValueByName(System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabReqBase.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrLabReqColumn">
+            <summary>
+            Enumerate the VrLabReq columns.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.StatId">
+            <summary>
+            StatId : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.PatientCode">
+            <summary>
+            PatientCode : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.Tid">
+            <summary>
+            TID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.FirstName">
+            <summary>
+            FirstName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.LastName">
+            <summary>
+            LastName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.Dob">
+            <summary>
+            DOB : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.Sex">
+            <summary>
+            Sex : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.Nationality">
+            <summary>
+            Nationality : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.PatientStart">
+            <summary>
+            PatientStart : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.Lab">
+            <summary>
+            Lab : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.ChargedCodes">
+            <summary>
+            ChargedCodes : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabReqColumn.CreateDate">
+            <summary>
+            CreateDate : 
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrLabResult">
+            <summary>
+             An object representation of the 'VR_LabResult' view. [No description found in the database]	
+            </summary>
+             <remarks>
+             This file is generated once and will never be overwritten.
+             </remarks>	
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResult.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrLabResult"/> instance.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrLabResultBase">
+            <summary>
+             An object representation of the 'VR_LabResult' view. [No description found in the database]	
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._statId">
+            <summary>
+            StatId : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._patientCode">
+            <summary>
+            PatientCode : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._tid">
+            <summary>
+            TID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._firstName">
+            <summary>
+            FirstName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._lastName">
+            <summary>
+            LastName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._dob">
+            <summary>
+            DOB : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._sex">
+            <summary>
+            Sex : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._nationality">
+            <summary>
+            Nationality : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._patientStart">
+            <summary>
+            PatientStart : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._lab">
+            <summary>
+            Lab : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._chargedCodes">
+            <summary>
+            ChargedCodes : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._createDate">
+            <summary>
+            CreateDate : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase._tag">
+            <summary>
+            Object that contains data to associate with this object
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultBase.suppressEntityEvents">
+            <summary>
+            Suppresses Entity Events from Firing, 
+            useful when loading the entities from the database.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrLabResultBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.#ctor(System.Int64,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Nullable{System.Boolean},System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrLabResultBase"/> instance.
+            </summary>
+            <param name="_statId"></param>
+            <param name="_patientCode"></param>
+            <param name="_tid"></param>
+            <param name="_firstName"></param>
+            <param name="_lastName"></param>
+            <param name="_dob"></param>
+            <param name="_sex"></param>
+            <param name="_nationality"></param>
+            <param name="_patientStart"></param>
+            <param name="_lab"></param>
+            <param name="_chargedCodes"></param>
+            <param name="_createDate"></param>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.CreateVrLabResult(System.Int64,System.String,System.String,System.String,System.String,System.DateTime,System.String,System.String,System.Nullable{System.Boolean},System.String,System.String,System.Nullable{System.DateTime})">
+            <summary>
+             A simple factory method to create a new <see cref="T:ePrescription.Entities.VrLabResult"/> instance.
+            </summary>
+            <param name="_statId"></param>
+            <param name="_patientCode"></param>
+            <param name="_tid"></param>
+            <param name="_firstName"></param>
+            <param name="_lastName"></param>
+            <param name="_dob"></param>
+            <param name="_sex"></param>
+            <param name="_nationality"></param>
+            <param name="_patientStart"></param>
+            <param name="_lab"></param>
+            <param name="_chargedCodes"></param>
+            <param name="_createDate"></param>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.StatId">
+            <summary>
+            	Gets or Sets the StatId property. 
+            	
+            </summary>
+            <value>This type is bigint</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.PatientCode">
+            <summary>
+            	Gets or Sets the PatientCode property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.Tid">
+            <summary>
+            	Gets or Sets the TID property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.FirstName">
+            <summary>
+            	Gets or Sets the FirstName property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.LastName">
+            <summary>
+            	Gets or Sets the LastName property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.Dob">
+            <summary>
+            	Gets or Sets the DOB property. 
+            	
+            </summary>
+            <value>This type is datetime</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.Sex">
+            <summary>
+            	Gets or Sets the Sex property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.Nationality">
+            <summary>
+            	Gets or Sets the Nationality property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.PatientStart">
+            <summary>
+            	Gets or Sets the PatientStart property. 
+            	
+            </summary>
+            <value>This type is bit</value>
+            <remarks>
+            This property can be set to null. 
+            If this column is null, this property will return false. It is up to the developer
+            to check the value of IsPatientStartNull() and perform business logic appropriately.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.Lab">
+            <summary>
+            	Gets or Sets the Lab property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.ChargedCodes">
+            <summary>
+            	Gets or Sets the ChargedCodes property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.CreateDate">
+            <summary>
+            	Gets or Sets the CreateDate property. 
+            	
+            </summary>
+            <value>This type is datetime</value>
+            <remarks>
+            This property can be set to null. 
+            If this column is null, this property will return DateTime.MinValue. It is up to the developer
+            to check the value of IsCreateDateNull() and perform business logic appropriately.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.Tag">
+            <summary>
+                Gets or sets the object that contains supplemental data about this object.
+            </summary>
+            <value>Object</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.SuppressEntityEvents">
+            <summary>
+            Determines whether this entity is to suppress events while set to true.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.IsDeleted">
+            <summary>
+            Gets a value indicating if object has been <see cref="M:ePrescription.Entities.VrLabResultBase.MarkToDelete"/>. ReadOnly.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.IsDirty">
+             <summary>
+            	Gets a value indicating  if the object has been modified from its original state.
+             </summary>
+            <value>True if object has been modified from its original state; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.IsNew">
+             <summary>
+            	Gets a value indicating if the object is new.
+             </summary>
+            <value>True if objectis new; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrLabResultBase.ViewName">
+            <summary>
+            	The name of the underlying database table.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.AcceptChanges">
+            <summary>
+            Accepts the changes made to this object by setting each flags to false.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.CancelChanges">
+            <summary>
+              Revert all changes and restore original values.
+              Currently not supported.
+            </summary>
+             <exception cref="T:System.NotSupportedException">This method is not currently supported and always throws this exception.</exception>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.MarkToDelete">
+            <summary>
+               Marks entity to be deleted.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.Copy">
+            <summary>
+              Returns a Typed VrLabResultBase Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.Clone">
+            <summary>
+             ICloneable.Clone() Member, returns the Deep Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.MakeCopyOf(System.Object)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.Equals(ePrescription.Entities.VrLabResultBase)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="toObject">An object to compare to this instance.</param>
+            <returns>true if toObject is a <see cref="T:ePrescription.Entities.VrLabResultBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.Equals(ePrescription.Entities.VrLabResultBase,ePrescription.Entities.VrLabResultBase)">
+            <summary>
+             Determines whether the specified <see cref="T:ePrescription.Entities.VrLabResultBase"/> instances are considered equal.
+            </summary>
+            <param name="Object1">The first <see cref="T:ePrescription.Entities.VrLabResultBase"/> to compare.</param>
+            <param name="Object2">The second <see cref="T:ePrescription.Entities.VrLabResultBase"/> to compare. </param>
+            <returns>true if Object1 is the same instance as Object2 or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.CompareTo(System.Object)">
+            <summary>
+             Compares this instance to a specified object and returns an indication of their relative values.
+            <param name="obj">An object to compare to this instance, or a null reference (Nothing in Visual Basic).</param>
+            </summary>
+            <returns>A signed integer that indicates the relative order of this instance and obj.</returns>
+        </member>
+        <member name="E:ePrescription.Entities.VrLabResultBase.PropertyChanged">
+            <summary>
+            Event to indicate that a property has changed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.OnPropertyChanged(System.String)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="propertyName">The name of the property that has changed.</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="e">PropertyChangedEventArgs</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.GetPropertyValueByName(ePrescription.Entities.VrLabResult,System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.GetPropertyValueByName(System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrLabResultBase.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrLabResultColumn">
+            <summary>
+            Enumerate the VrLabResult columns.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.StatId">
+            <summary>
+            StatId : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.PatientCode">
+            <summary>
+            PatientCode : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.Tid">
+            <summary>
+            TID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.FirstName">
+            <summary>
+            FirstName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.LastName">
+            <summary>
+            LastName : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.Dob">
+            <summary>
+            DOB : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.Sex">
+            <summary>
+            Sex : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.Nationality">
+            <summary>
+            Nationality : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.PatientStart">
+            <summary>
+            PatientStart : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.Lab">
+            <summary>
+            Lab : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.ChargedCodes">
+            <summary>
+            ChargedCodes : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrLabResultColumn.CreateDate">
+            <summary>
+            CreateDate : 
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrMedPro">
+            <summary>
+             An object representation of the 'Vr_MedPro' view. [No description found in the database]	
+            </summary>
+             <remarks>
+             This file is generated once and will never be overwritten.
+             </remarks>	
+        </member>
+        <member name="M:ePrescription.Entities.VrMedPro.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrMedPro"/> instance.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrMedProBase">
+            <summary>
+             An object representation of the 'Vr_MedPro' view. [No description found in the database]	
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrMedProBase._proCode">
+            <summary>
+            PRO_CODE : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrMedProBase._description">
+            <summary>
+            Description : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrMedProBase._mainArea">
+            <summary>
+            MAIN_AREA : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrMedProBase._pubPrice">
+            <summary>
+            PUB_PRICE : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrMedProBase._tag">
+            <summary>
+            Object that contains data to associate with this object
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrMedProBase.suppressEntityEvents">
+            <summary>
+            Suppresses Entity Events from Firing, 
+            useful when loading the entities from the database.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrMedProBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.#ctor(System.String,System.String,System.String,System.Decimal)">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrMedProBase"/> instance.
+            </summary>
+            <param name="_proCode"></param>
+            <param name="_description"></param>
+            <param name="_mainArea"></param>
+            <param name="_pubPrice"></param>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.CreateVrMedPro(System.String,System.String,System.String,System.Decimal)">
+            <summary>
+             A simple factory method to create a new <see cref="T:ePrescription.Entities.VrMedPro"/> instance.
+            </summary>
+            <param name="_proCode"></param>
+            <param name="_description"></param>
+            <param name="_mainArea"></param>
+            <param name="_pubPrice"></param>
+        </member>
+        <member name="P:ePrescription.Entities.VrMedProBase.ProCode">
+            <summary>
+            	Gets or Sets the PRO_CODE property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrMedProBase.Description">
+            <summary>
+            	Gets or Sets the Description property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrMedProBase.MainArea">
+            <summary>
+            	Gets or Sets the MAIN_AREA property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrMedProBase.PubPrice">
+            <summary>
+            	Gets or Sets the PUB_PRICE property. 
+            	
+            </summary>
+            <value>This type is decimal</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrMedProBase.Tag">
+            <summary>
+                Gets or sets the object that contains supplemental data about this object.
+            </summary>
+            <value>Object</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrMedProBase.SuppressEntityEvents">
+            <summary>
+            Determines whether this entity is to suppress events while set to true.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrMedProBase.IsDeleted">
+            <summary>
+            Gets a value indicating if object has been <see cref="M:ePrescription.Entities.VrMedProBase.MarkToDelete"/>. ReadOnly.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrMedProBase.IsDirty">
+             <summary>
+            	Gets a value indicating  if the object has been modified from its original state.
+             </summary>
+            <value>True if object has been modified from its original state; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrMedProBase.IsNew">
+             <summary>
+            	Gets a value indicating if the object is new.
+             </summary>
+            <value>True if objectis new; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrMedProBase.ViewName">
+            <summary>
+            	The name of the underlying database table.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.AcceptChanges">
+            <summary>
+            Accepts the changes made to this object by setting each flags to false.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.CancelChanges">
+            <summary>
+              Revert all changes and restore original values.
+              Currently not supported.
+            </summary>
+             <exception cref="T:System.NotSupportedException">This method is not currently supported and always throws this exception.</exception>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.MarkToDelete">
+            <summary>
+               Marks entity to be deleted.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.Copy">
+            <summary>
+              Returns a Typed VrMedProBase Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.Clone">
+            <summary>
+             ICloneable.Clone() Member, returns the Deep Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.MakeCopyOf(System.Object)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.Equals(ePrescription.Entities.VrMedProBase)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="toObject">An object to compare to this instance.</param>
+            <returns>true if toObject is a <see cref="T:ePrescription.Entities.VrMedProBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.Equals(ePrescription.Entities.VrMedProBase,ePrescription.Entities.VrMedProBase)">
+            <summary>
+             Determines whether the specified <see cref="T:ePrescription.Entities.VrMedProBase"/> instances are considered equal.
+            </summary>
+            <param name="Object1">The first <see cref="T:ePrescription.Entities.VrMedProBase"/> to compare.</param>
+            <param name="Object2">The second <see cref="T:ePrescription.Entities.VrMedProBase"/> to compare. </param>
+            <returns>true if Object1 is the same instance as Object2 or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.CompareTo(System.Object)">
+            <summary>
+             Compares this instance to a specified object and returns an indication of their relative values.
+            <param name="obj">An object to compare to this instance, or a null reference (Nothing in Visual Basic).</param>
+            </summary>
+            <returns>A signed integer that indicates the relative order of this instance and obj.</returns>
+        </member>
+        <member name="E:ePrescription.Entities.VrMedProBase.PropertyChanged">
+            <summary>
+            Event to indicate that a property has changed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.OnPropertyChanged(System.String)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="propertyName">The name of the property that has changed.</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="e">PropertyChangedEventArgs</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.GetPropertyValueByName(ePrescription.Entities.VrMedPro,System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.GetPropertyValueByName(System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrMedProBase.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrMedProColumn">
+            <summary>
+            Enumerate the VrMedPro columns.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrMedProColumn.ProCode">
+            <summary>
+            PRO_CODE : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrMedProColumn.Description">
+            <summary>
+            Description : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrMedProColumn.MainArea">
+            <summary>
+            MAIN_AREA : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrMedProColumn.PubPrice">
+            <summary>
+            PUB_PRICE : 
+            </summary>
+        </member>
         <member name="T:ePrescription.Entities.VrReception">
             <summary>
              An object representation of the 'VR_Reception' view. [No description found in the database]	
@@ -1286,6 +2889,224 @@
         <member name="F:ePrescription.Entities.VrReceptionStartColumn.ChargedCodes">
             <summary>
             ChargedCodes : 
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrTidChargedCode">
+            <summary>
+             An object representation of the 'VR_TIDChargedCode' view. [No description found in the database]	
+            </summary>
+             <remarks>
+             This file is generated once and will never be overwritten.
+             </remarks>	
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCode.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrTidChargedCode"/> instance.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrTidChargedCodeBase">
+            <summary>
+             An object representation of the 'VR_TIDChargedCode' view. [No description found in the database]	
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrTidChargedCodeBase._tid">
+            <summary>
+            TID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrTidChargedCodeBase._procedureCodes">
+            <summary>
+            ProcedureCodes : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrTidChargedCodeBase._tag">
+            <summary>
+            Object that contains data to associate with this object
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrTidChargedCodeBase.suppressEntityEvents">
+            <summary>
+            Suppresses Entity Events from Firing, 
+            useful when loading the entities from the database.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrTidChargedCodeBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.#ctor(System.String,System.String)">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.VrTidChargedCodeBase"/> instance.
+            </summary>
+            <param name="_tid"></param>
+            <param name="_procedureCodes"></param>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.CreateVrTidChargedCode(System.String,System.String)">
+            <summary>
+             A simple factory method to create a new <see cref="T:ePrescription.Entities.VrTidChargedCode"/> instance.
+            </summary>
+            <param name="_tid"></param>
+            <param name="_procedureCodes"></param>
+        </member>
+        <member name="P:ePrescription.Entities.VrTidChargedCodeBase.Tid">
+            <summary>
+            	Gets or Sets the TID property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">If you attempt to set to null.</exception>
+        </member>
+        <member name="P:ePrescription.Entities.VrTidChargedCodeBase.ProcedureCodes">
+            <summary>
+            	Gets or Sets the ProcedureCodes property. 
+            	
+            </summary>
+            <value>This type is nvarchar</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.VrTidChargedCodeBase.Tag">
+            <summary>
+                Gets or sets the object that contains supplemental data about this object.
+            </summary>
+            <value>Object</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrTidChargedCodeBase.SuppressEntityEvents">
+            <summary>
+            Determines whether this entity is to suppress events while set to true.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrTidChargedCodeBase.IsDeleted">
+            <summary>
+            Gets a value indicating if object has been <see cref="M:ePrescription.Entities.VrTidChargedCodeBase.MarkToDelete"/>. ReadOnly.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.VrTidChargedCodeBase.IsDirty">
+             <summary>
+            	Gets a value indicating  if the object has been modified from its original state.
+             </summary>
+            <value>True if object has been modified from its original state; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrTidChargedCodeBase.IsNew">
+             <summary>
+            	Gets a value indicating if the object is new.
+             </summary>
+            <value>True if objectis new; otherwise False;</value>
+        </member>
+        <member name="P:ePrescription.Entities.VrTidChargedCodeBase.ViewName">
+            <summary>
+            	The name of the underlying database table.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.AcceptChanges">
+            <summary>
+            Accepts the changes made to this object by setting each flags to false.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.CancelChanges">
+            <summary>
+              Revert all changes and restore original values.
+              Currently not supported.
+            </summary>
+             <exception cref="T:System.NotSupportedException">This method is not currently supported and always throws this exception.</exception>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.MarkToDelete">
+            <summary>
+               Marks entity to be deleted.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.Copy">
+            <summary>
+              Returns a Typed VrTidChargedCodeBase Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.Clone">
+            <summary>
+             ICloneable.Clone() Member, returns the Deep Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.MakeCopyOf(System.Object)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.Equals(ePrescription.Entities.VrTidChargedCodeBase)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object.
+            </summary>
+            <param name="toObject">An object to compare to this instance.</param>
+            <returns>true if toObject is a <see cref="T:ePrescription.Entities.VrTidChargedCodeBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.Equals(ePrescription.Entities.VrTidChargedCodeBase,ePrescription.Entities.VrTidChargedCodeBase)">
+            <summary>
+             Determines whether the specified <see cref="T:ePrescription.Entities.VrTidChargedCodeBase"/> instances are considered equal.
+            </summary>
+            <param name="Object1">The first <see cref="T:ePrescription.Entities.VrTidChargedCodeBase"/> to compare.</param>
+            <param name="Object2">The second <see cref="T:ePrescription.Entities.VrTidChargedCodeBase"/> to compare. </param>
+            <returns>true if Object1 is the same instance as Object2 or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.CompareTo(System.Object)">
+            <summary>
+             Compares this instance to a specified object and returns an indication of their relative values.
+            <param name="obj">An object to compare to this instance, or a null reference (Nothing in Visual Basic).</param>
+            </summary>
+            <returns>A signed integer that indicates the relative order of this instance and obj.</returns>
+        </member>
+        <member name="E:ePrescription.Entities.VrTidChargedCodeBase.PropertyChanged">
+            <summary>
+            Event to indicate that a property has changed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.OnPropertyChanged(System.String)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="propertyName">The name of the property that has changed.</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.OnPropertyChanged(System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Called when a property is changed
+            </summary>
+            <param name="e">PropertyChangedEventArgs</param>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.GetPropertyValueByName(ePrescription.Entities.VrTidChargedCode,System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="entity">The entity.</param>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.GetPropertyValueByName(System.String)">
+            <summary>
+            Gets the property value by name.
+            </summary>
+            <param name="propertyName">Name of the property.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.VrTidChargedCodeBase.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.VrTidChargedCodeColumn">
+            <summary>
+            Enumerate the VrTidChargedCode columns.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrTidChargedCodeColumn.Tid">
+            <summary>
+            TID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.VrTidChargedCodeColumn.ProcedureCodes">
+            <summary>
+            ProcedureCodes : 
             </summary>
         </member>
         <member name="T:ePrescription.Entities.VrUnitTable">
@@ -3175,6 +4996,767 @@
             </summary>
         </member>
         <member name="M:ePrescription.Entities.IDiaglist.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="T:ePrescription.Entities.DoctorRequest">
+            <summary>
+             An object representation of the 'DoctorRequest' table. [No description found the database]	
+            </summary>
+             <remarks>
+             This file is generated once and will never be overwritten.
+             </remarks>	
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequest.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.DoctorRequest"/> instance.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.DoctorRequestBase">
+            <summary>
+             An object representation of the 'DoctorRequest' table. [No description found the database]	
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.entityData">
+            <summary>
+             Hold the inner data of the entity.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase._originalData">
+            <summary>
+            	Hold the original data of the entity, as loaded from the repository.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.backupData">
+            <summary>
+            	Hold a backup of the inner data of the entity.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.entityTrackingKey">
+            <summary>
+            	Key used if Tracking is Enabled for the <see cref="T:ePrescription.Entities.EntityLocator" />.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.parentCollection">
+            <summary>
+            	Hold the parent TList&lt;entity&gt; in which this entity maybe contained.
+            </summary>
+            <remark>Mostly used for databinding</remark>
+        </member>
+        <member name="E:ePrescription.Entities.DoctorRequestBase.ColumnChanging">
+            <summary>
+            Occurs when a value is being changed for the specified column.
+            </summary>
+        </member>
+        <member name="E:ePrescription.Entities.DoctorRequestBase.ColumnChanged">
+            <summary>
+            Occurs after a value has been changed for the specified column.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.#ctor">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.DoctorRequestBase"/> instance.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.#ctor(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>
+             Creates a new <see cref="T:ePrescription.Entities.DoctorRequestBase"/> instance.
+            </summary>
+            <param name="_tid"></param>
+            <param name="_reqId"></param>
+            <param name="_code"></param>
+            <param name="_description"></param>
+            <param name="_reqDoctor"></param>
+            <param name="_reqDate"></param>
+            <param name="_reqStatus"></param>
+            <param name="_billable"></param>
+            <param name="_sample"></param>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.CreateDoctorRequest(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>
+             A simple factory method to create a new <see cref="T:ePrescription.Entities.DoctorRequest"/> instance.
+            </summary>
+            <param name="_tid"></param>
+            <param name="_reqId"></param>
+            <param name="_code"></param>
+            <param name="_description"></param>
+            <param name="_reqDoctor"></param>
+            <param name="_reqDate"></param>
+            <param name="_reqStatus"></param>
+            <param name="_billable"></param>
+            <param name="_sample"></param>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.Id">
+            <summary>
+            	Gets or sets the Id property. 
+            	
+            </summary>
+            <value>This type is bigint.</value>
+            <remarks>
+            This property can not be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.Tid">
+            <summary>
+            	Gets or sets the Tid property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.ReqId">
+            <summary>
+            	Gets or sets the ReqId property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.Code">
+            <summary>
+            	Gets or sets the Code property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.Description">
+            <summary>
+            	Gets or sets the Description property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.ReqDoctor">
+            <summary>
+            	Gets or sets the ReqDoctor property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.ReqDate">
+            <summary>
+            	Gets or sets the ReqDate property. 
+            	
+            </summary>
+            <value>This type is datetime.</value>
+            <remarks>
+            This property can be set to null. 
+            If this column is null it is up to the developer to check using the HasValue property
+            and perform business logic appropriately.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.ReqStatus">
+            <summary>
+            	Gets or sets the ReqStatus property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.Billable">
+            <summary>
+            	Gets or sets the Billable property. 
+            	
+            </summary>
+            <value>This type is bit.</value>
+            <remarks>
+            This property can be set to null. 
+            If this column is null it is up to the developer to check using the HasValue property
+            and perform business logic appropriately.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.Sample">
+            <summary>
+            	Gets or sets the Sample property. 
+            	
+            </summary>
+            <value>This type is nvarchar.</value>
+            <remarks>
+            This property can be set to null. 
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.AddValidationRules">
+            <summary>
+            Assigns validation rules to this object based on model definition.
+            </summary>
+            <remarks>This method overrides the base class to add schema related validation.</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.TableName">
+            <summary>
+            	The name of the underlying database table.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.TableColumns">
+            <summary>
+            	The name of the underlying database table's columns.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.DoctorRequestBase.CancelAddNewEventHandler">
+            <summary>
+            The delegate for the CancelAddNew event.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="E:ePrescription.Entities.DoctorRequestBase.CancelAddNew">
+            <summary>
+            The CancelAddNew event.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.OnCancelAddNew">
+            <summary>
+            Called when [cancel add new].
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.System#ComponentModel#IEditableObject#BeginEdit">
+            <summary>
+            Begins an edit on an object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.System#ComponentModel#IEditableObject#CancelEdit">
+            <summary>
+            Discards changes since the last <c>BeginEdit</c> call.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.System#ComponentModel#IEditableObject#EndEdit">
+            <summary>
+            Pushes changes since the last <c>BeginEdit</c> or <c>IBindingList.AddNew</c> call into the underlying object.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.ParentCollection">
+            <summary>
+            Gets or sets the parent collection of this current entity, if available.
+            </summary>
+            <value>The parent collection.</value>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.OnEntityChanged">
+            <summary>
+            Called when the entity is changed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.Copy(System.Collections.IDictionary)">
+            <summary>
+              Returns a Typed DoctorRequest Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.Copy">
+            <summary>
+              Returns a Typed DoctorRequest Entity 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.Clone">
+            <summary>
+             ICloneable.Clone() Member, returns the Shallow Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.Clone(System.Collections.IDictionary)">
+            <summary>
+             ICloneableEx.Clone() Member, returns the Shallow Copy of this entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.MakeCopyOf(System.Object)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.MakeCopyOf(System.Object,System.Collections.IDictionary)">
+            <summary>
+             Returns a deep copy of the child collection object passed in.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.DeepCopy">
+            <summary>
+              Returns a Typed DoctorRequest Entity which is a deep copy of the current entity.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.CancelChanges">
+            <summary>
+             Revert all changes and restore original values.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.AcceptChanges">
+            <summary>
+            Accepts the changes made to this object.
+            </summary>
+            <remarks>
+            After calling this method, properties: IsDirty, IsNew are false. IsDeleted flag remains unchanged as it is handled by the parent List.
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.IsPropertyChanged(ePrescription.Entities.DoctorRequestColumn)">
+            <summary>
+            Determines whether the property value has changed from the original data.
+            </summary>
+            <param name="column">The column.</param>
+            <returns>
+            	<c>true</c> if the property value has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.IsPropertyChanged(System.String)">
+            <summary>
+            Determines whether the property value has changed from the original data.
+            </summary>
+            <param name="columnName">The column name.</param>
+            <returns>
+            	<c>true</c> if the property value has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.HasDataChanged">
+            <summary>
+            Determines whether the data has changed from original.
+            </summary>
+            <returns>
+            	<c>true</c> if data has changed; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.GetOriginalEntity">
+            <summary>
+              Returns a DoctorRequest Entity with the original data.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.Equals(System.Object)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object using value semantics.
+            </summary>
+            <param name="Object1">An object to compare to this instance.</param>
+            <returns>true if Object1 is a <see cref="T:ePrescription.Entities.DoctorRequestBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.GetHashCode">
+            <summary>
+            Serves as a hash function for a particular type, suitable for use in hashing algorithms and data structures like a hash table.
+            Provides a hash function that is appropriate for <see cref="T:ePrescription.Entities.DoctorRequestBase"/> class 
+            and that ensures a better distribution in the hash table
+            </summary>
+            <returns>number (hash code) that corresponds to the value of an object</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.Equals(ePrescription.Entities.DoctorRequestBase)">
+            <summary>
+             Returns a value indicating whether this instance is equal to a specified object using value semantics.
+            </summary>
+            <param name="toObject">An object to compare to this instance.</param>
+            <returns>true if toObject is a <see cref="T:ePrescription.Entities.DoctorRequestBase"/> and has the same value as this instance; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.ValueEquals(ePrescription.Entities.DoctorRequestBase,ePrescription.Entities.DoctorRequestBase)">
+            <summary>
+             Determines whether the specified <see cref="T:ePrescription.Entities.DoctorRequestBase"/> instances are considered equal using value semantics.
+            </summary>
+            <param name="Object1">The first <see cref="T:ePrescription.Entities.DoctorRequestBase"/> to compare.</param>
+            <param name="Object2">The second <see cref="T:ePrescription.Entities.DoctorRequestBase"/> to compare. </param>
+            <returns>true if Object1 is the same instance as Object2 or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.CompareTo(System.Object)">
+            <summary>
+             Compares this instance to a specified object and returns an indication of their relative values.
+            <param name="obj">An object to compare to this instance, or a null reference (Nothing in Visual Basic).</param>
+            </summary>
+            <returns>A signed integer that indicates the relative order of this instance and obj.</returns>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.Site">
+            <summary>
+            Gets or Sets the site where this data is located.
+            </summary>
+        </member>
+        <member name="E:ePrescription.Entities.DoctorRequestBase.Disposed">
+            <summary>
+            Notify those that care when we dispose.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.Dispose">
+            <summary>
+            Clean up. Nothing here though.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.Dispose(System.Boolean)">
+            <summary>
+            Clean up.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.EntityId">
+            <summary>
+            Gets or sets the EntityId property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.EntityState">
+            <summary>
+            	Indicates state of object
+            </summary>
+            <remarks>0=Unchanged, 1=Added, 2=Changed</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.EntityTrackingKey">
+            <summary>
+             Provides the tracking key for the <see cref="T:ePrescription.Entities.EntityLocator"/>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData">
+            <summary>
+            	The data structure representation of the 'DoctorRequest' table.
+            </summary>
+            <remarks>
+            	This struct is generated by a tool and should never be modified.
+            </remarks>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.Id">
+            <summary>			
+            Id : 
+            </summary>
+            <remarks>Member of the primary key of the underlying table "DoctorRequest"</remarks>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.Tid">
+            <summary>
+            TID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.ReqId">
+            <summary>
+            ReqID : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.Code">
+            <summary>
+            Code : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.Description">
+            <summary>
+            Description : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.ReqDoctor">
+            <summary>
+            ReqDoctor : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.ReqDate">
+            <summary>
+            ReqDate : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.ReqStatus">
+            <summary>
+            ReqStatus : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.Billable">
+            <summary>
+            Billable : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.Sample">
+            <summary>
+            Sample : 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.Clone">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.Clone(System.Collections.IDictionary)">
+            <summary>
+            Creates a new object that is a copy of the current instance.
+            </summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestBase.DoctorRequestEntityData.EntityState">
+            <summary>
+            	Indicates state of object
+            </summary>
+            <remarks>0=Unchanged, 1=Added, 2=Changed</remarks>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.OnColumnChanging(ePrescription.Entities.DoctorRequestColumn)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.DoctorRequestBase.ColumnChanging" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.DoctorRequestColumn"/> which has raised the event.</param>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.OnColumnChanged(ePrescription.Entities.DoctorRequestColumn)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.DoctorRequestBase.ColumnChanged" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.DoctorRequestColumn"/> which has raised the event.</param>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.OnColumnChanging(ePrescription.Entities.DoctorRequestColumn,System.Object)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.DoctorRequestBase.ColumnChanging" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.DoctorRequestColumn"/> which has raised the event.</param>
+            <param name="value">The changed value.</param>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestBase.OnColumnChanged(ePrescription.Entities.DoctorRequestColumn,System.Object)">
+            <summary>
+            Raises the <see cref="E:ePrescription.Entities.DoctorRequestBase.ColumnChanged" /> event.
+            </summary>
+            <param name="column">The <see cref="T:ePrescription.Entities.DoctorRequestColumn"/> which has raised the event.</param>
+            <param name="value">The changed value.</param>
+        </member>
+        <member name="T:ePrescription.Entities.DoctorRequestEventArgs">
+            <summary>
+            Provides data for the ColumnChanging and ColumnChanged events.
+            </summary>
+            <remarks>
+            The ColumnChanging and ColumnChanged events occur when a change is made to the value 
+            of a property of a <see cref="T:ePrescription.Entities.DoctorRequest"/> object.
+            </remarks>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestEventArgs.#ctor(ePrescription.Entities.DoctorRequestColumn)">
+            <summary>
+             Initalizes a new Instance of the DoctorRequestEventArgs class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestEventArgs.#ctor(ePrescription.Entities.DoctorRequestColumn,System.Object)">
+            <summary>
+             Initalizes a new Instance of the DoctorRequestEventArgs class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestEventArgs.Column">
+            <summary>
+             The DoctorRequestColumn that was modified, which has raised the event.
+            </summary>
+            <value cref="T:ePrescription.Entities.DoctorRequestColumn" />
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestEventArgs.Value">
+            <summary>
+            Gets the current value of the column.
+            </summary>
+            <value>The current value of the column.</value>
+        </member>
+        <member name="T:ePrescription.Entities.DoctorRequestEventHandler">
+            <summary>
+             Define a delegate for all DoctorRequest related events.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.DoctorRequestComparer">
+            <summary>
+            Strongly Typed IComparer
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestComparer.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:DoctorRequestComparer"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestComparer.#ctor(ePrescription.Entities.DoctorRequestColumn)">
+            <summary>
+            Initializes a new instance of the <see cref="T:DoctorRequestComparer"/> class.
+            </summary>
+            <param name="column">The column to sort on.</param>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestComparer.Equals(ePrescription.Entities.DoctorRequest,ePrescription.Entities.DoctorRequest)">
+            <summary>
+            Determines whether the specified <see cref="T:ePrescription.Entities.DoctorRequest"/> instances are considered equal.
+            </summary>
+            <param name="a">The first <see cref="T:ePrescription.Entities.DoctorRequest"/> to compare.</param>
+            <param name="b">The second <c>DoctorRequest</c> to compare.</param>
+            <returns>true if objA is the same instance as objB or if both are null references or if objA.Equals(objB) returns true; otherwise, false.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestComparer.GetHashCode(ePrescription.Entities.DoctorRequest)">
+            <summary>
+            Gets the hash code of the specified entity.
+            </summary>
+            <param name="entity">The entity.</param>
+            <returns></returns>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestComparer.Compare(ePrescription.Entities.DoctorRequest,ePrescription.Entities.DoctorRequest)">
+            <summary>
+            Performs a case-insensitive comparison of two objects of the same type and returns a value indicating whether one is less than, equal to, or greater than the other.
+            </summary>
+            <param name="a">The first object to compare.</param>
+            <param name="b">The second object to compare.</param>
+            <returns></returns>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestComparer.WhichComparison">
+            <summary>
+            Gets or sets the column that will be used for comparison.
+            </summary>
+            <value>The comparison column.</value>
+        </member>
+        <member name="T:ePrescription.Entities.DoctorRequestKey">
+            <summary>
+            Wraps the unique identifier values for the <see cref="T:ePrescription.Entities.DoctorRequest"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestKey.#ctor">
+            <summary>
+            Initializes a new instance of the DoctorRequestKey class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestKey.#ctor(ePrescription.Entities.DoctorRequestBase)">
+            <summary>
+            Initializes a new instance of the DoctorRequestKey class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestKey.#ctor(System.Int64)">
+            <summary>
+            Initializes a new instance of the DoctorRequestKey class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestKey.Entity">
+            <summary>
+            Gets or sets the Entity property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.DoctorRequestKey.Id">
+            <summary>
+            Gets or sets the Id property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestKey.Load(System.Collections.IDictionary)">
+            <summary>
+            Reads values from the supplied <see cref="T:System.Collections.IDictionary"/> object into
+            properties of the current object.
+            </summary>
+            <param name="values">An <see cref="T:System.Collections.IDictionary"/> instance that contains
+            the key/value pairs to be used as property values.</param>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestKey.ToDictionary">
+            <summary>
+            Creates a new <see cref="T:System.Collections.IDictionary"/> object and populates it
+            with the property values of the current object.
+            </summary>
+            <returns>A collection of name/value pairs.</returns>
+        </member>
+        <member name="M:ePrescription.Entities.DoctorRequestKey.ToString">
+            <summary>
+             Returns a String that represents the current object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.DoctorRequestColumn">
+            <summary>
+            Enumerate the DoctorRequest columns.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestColumn.Id">
+            <summary>
+            Id : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestColumn.Tid">
+            <summary>
+            Tid : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestColumn.ReqId">
+            <summary>
+            ReqId : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestColumn.Code">
+            <summary>
+            Code : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestColumn.Description">
+            <summary>
+            Description : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestColumn.ReqDoctor">
+            <summary>
+            ReqDoctor : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestColumn.ReqDate">
+            <summary>
+            ReqDate : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestColumn.ReqStatus">
+            <summary>
+            ReqStatus : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestColumn.Billable">
+            <summary>
+            Billable : 
+            </summary>
+        </member>
+        <member name="F:ePrescription.Entities.DoctorRequestColumn.Sample">
+            <summary>
+            Sample : 
+            </summary>
+        </member>
+        <member name="T:ePrescription.Entities.IDoctorRequest">
+            <summary>
+            	The data structure representation of the 'DoctorRequest' table via interface.
+            </summary>
+            <remarks>
+            	This struct is generated by a tool and should never be modified.
+            </remarks>
+        </member>
+        <member name="P:ePrescription.Entities.IDoctorRequest.Id">
+            <summary>			
+            Id : 
+            </summary>
+            <remarks>Member of the primary key of the underlying table "DoctorRequest"</remarks>
+        </member>
+        <member name="P:ePrescription.Entities.IDoctorRequest.Tid">
+            <summary>
+            TID : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDoctorRequest.ReqId">
+            <summary>
+            ReqID : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDoctorRequest.Code">
+            <summary>
+            Code : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDoctorRequest.Description">
+            <summary>
+            Description : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDoctorRequest.ReqDoctor">
+            <summary>
+            ReqDoctor : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDoctorRequest.ReqDate">
+            <summary>
+            ReqDate : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDoctorRequest.ReqStatus">
+            <summary>
+            ReqStatus : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDoctorRequest.Billable">
+            <summary>
+            Billable : 
+            </summary>
+        </member>
+        <member name="P:ePrescription.Entities.IDoctorRequest.Sample">
+            <summary>
+            Sample : 
+            </summary>
+        </member>
+        <member name="M:ePrescription.Entities.IDoctorRequest.Clone">
             <summary>
             Creates a new object that is a copy of the current instance.
             </summary>

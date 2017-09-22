@@ -147,6 +147,34 @@
       <DependentUpon>SqlVrEPresDetailProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\SqlVrLabProcessingProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrLabProcessingProviderBase.generated.cs">
+      <DependentUpon>SqlVrLabProcessingProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrLabReqProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrLabReqProviderBase.generated.cs">
+      <DependentUpon>SqlVrLabReqProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrLabResultProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrLabResultProviderBase.generated.cs">
+      <DependentUpon>SqlVrLabResultProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrMedProProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrMedProProviderBase.generated.cs">
+      <DependentUpon>SqlVrMedProProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\SqlVrReceptionProvider.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -159,6 +187,13 @@
     </Compile>
     <Compile Include="Views\SqlVrReceptionStartProviderBase.generated.cs">
       <DependentUpon>SqlVrReceptionStartProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrTidChargedCodeProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrTidChargedCodeProviderBase.generated.cs">
+      <DependentUpon>SqlVrTidChargedCodeProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\SqlVrUnitTableProvider.cs">
@@ -180,6 +215,13 @@
     </Compile>
     <Compile Include="SqlDiaglistProviderBase.generated.cs">
       <DependentUpon>SqlDiaglistProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlDoctorRequestProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlDoctorRequestProviderBase.generated.cs">
+      <DependentUpon>SqlDoctorRequestProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SqlEPrescriptionProvider.cs">

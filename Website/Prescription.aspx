@@ -266,8 +266,8 @@
 
                             <ItemStyle HorizontalAlign="Center" Width="15px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Drug Name" DataField="Drugname" ItemStyle-Width="300px" ControlStyle-Width="300" ReadOnly="true">
-                            <ControlStyle Width="300px"></ControlStyle>
+                        <asp:BoundField HeaderText="Drug Name" DataField="Drugname" ItemStyle-Width="300px" ControlStyle-Width="300" ReadOnly="true" >
+                            <ControlStyle Width="300px" ></ControlStyle>
 
                             <ItemStyle Width="300px"></ItemStyle>
                         </asp:BoundField>
@@ -276,42 +276,42 @@
 
                             <ItemStyle HorizontalAlign="Center" Width="50px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Route" DataField="RouteType" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center">
+                        <asp:BoundField HeaderText="Route" DataField="RouteType" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" NullDisplayText=" " >
                             <ControlStyle Width="40px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Form" DataField="Unit" ItemStyle-Width="60px" ControlStyle-Width="60" ItemStyle-HorizontalAlign="Center" ReadOnly="true">
+                        <asp:BoundField HeaderText="Form" DataField="Unit" ItemStyle-Width="60px" ControlStyle-Width="60" ItemStyle-HorizontalAlign="Center" ReadOnly="true" >
                             <ControlStyle Width="60px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="60px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Dosage" DataField="Dosage" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center">
+                        <asp:BoundField HeaderText="Dosage" DataField="Dosage" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" NullDisplayText=" ">
                             <ControlStyle Width="40px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Dose.Unit" DataField="DosageUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" ReadOnly="true">
+                        <asp:BoundField HeaderText="Dose.Unit" DataField="DosageUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" ReadOnly="true" NullDisplayText=" ">
                             <ControlStyle Width="40px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Freq" DataField="Frequency" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center">
+                        <asp:BoundField HeaderText="Freq" DataField="Frequency" ItemStyle-Width="50px" ControlStyle-Width="50" ItemStyle-HorizontalAlign="Center" NullDisplayText=" " >
                             <ControlStyle Width="50px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="50px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Dur." DataField="Duration" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center">
+                        <asp:BoundField HeaderText="Dur." DataField="Duration" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" NullDisplayText=" ">
                             <ControlStyle Width="40px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="D_Unit" DataField="DurationUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center">
+                        <asp:BoundField HeaderText="D_Unit" DataField="DurationUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" NullDisplayText=" " >
                             <ControlStyle Width="40px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Total" DataField="TotalUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center">
+                        <asp:BoundField HeaderText="Total" DataField="TotalUnit" ItemStyle-Width="40px" ControlStyle-Width="40" ItemStyle-HorizontalAlign="Center" NullDisplayText=" " >
                             <ControlStyle Width="40px"></ControlStyle>
 
                             <ItemStyle HorizontalAlign="Center" Width="40px"></ItemStyle>
@@ -326,10 +326,10 @@
                             <ControlStyle Width="40px" />
                             <ItemStyle HorizontalAlign="Center" Width="40px" />
                         </asp:TemplateField>
-                        <asp:BoundField HeaderText="Remark" DataField="Remark" ItemStyle-Width="140px" ControlStyle-Width="140">
+                        <asp:BoundField HeaderText="Remark" DataField="Remark" ItemStyle-Width="140px" ControlStyle-Width="140" NullDisplayText=" " >
                             <ControlStyle Width="140px"></ControlStyle>
 
-                            <ItemStyle Width="140px"></ItemStyle>
+                            <ItemStyle Width="140px" ></ItemStyle>
                         </asp:BoundField>
                     </Columns>
                     <FooterStyle BackColor="#CCCC99" />

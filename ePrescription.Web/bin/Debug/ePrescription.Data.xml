@@ -92,6 +92,396 @@
             Initializes a new instance of the VrEPresDetailSqlSortBuilder class.
             </summary>
         </member>
+        <member name="T:ePrescription.Data.Bases.VrLabProcessingProviderBase">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.VrLabProcessingProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabProcessingProviderBaseCore">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.VrLabProcessingProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabProcessingProviderBaseCore.Fill(System.Data.IDataReader,ePrescription.Entities.VList{ePrescription.Entities.VrLabProcessing},System.Int32,System.Int32)">
+            <summary>
+             Fill an <see cref="T:ePrescription.Entities.VList`1"/> From a DataReader.
+            </summary>
+             <param name="reader">Datareader</param>
+             <param name="rows">The collection to fill</param>
+             <param name="start">Start row</param>
+             <param name="pageLength">number of row.</param>
+            <returns>a <see cref="T:ePrescription.Entities.VList`1"/></returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabProcessingProviderBaseCore.RefreshEntity(System.Data.IDataReader,ePrescription.Entities.VrLabProcessing)">
+            <summary>
+            Refreshes the <see cref="T:ePrescription.Entities.VrLabProcessing"/> object from the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Data.IDataReader"/> to read from.</param>
+            <param name="entity">The <see cref="T:ePrescription.Entities.VrLabProcessing"/> object to refresh.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabProcessingFilterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabProcessing"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabProcessingFilterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabProcessingFilterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabProcessingFilterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabProcessingFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabProcessingFilterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabProcessingFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabProcessingParameterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.ParameterizedSqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabProcessing"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabProcessingParameterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabProcessingParameterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabProcessingParameterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabProcessingParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabProcessingParameterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabProcessingParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabProcessingSortBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlSortBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabProcessing"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabProcessingSortBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabProcessingSqlSortBuilder class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabReqProviderBase">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.VrLabReqProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabReqProviderBaseCore">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.VrLabReqProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabReqProviderBaseCore.Fill(System.Data.IDataReader,ePrescription.Entities.VList{ePrescription.Entities.VrLabReq},System.Int32,System.Int32)">
+            <summary>
+             Fill an <see cref="T:ePrescription.Entities.VList`1"/> From a DataReader.
+            </summary>
+             <param name="reader">Datareader</param>
+             <param name="rows">The collection to fill</param>
+             <param name="start">Start row</param>
+             <param name="pageLength">number of row.</param>
+            <returns>a <see cref="T:ePrescription.Entities.VList`1"/></returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabReqProviderBaseCore.RefreshEntity(System.Data.IDataReader,ePrescription.Entities.VrLabReq)">
+            <summary>
+            Refreshes the <see cref="T:ePrescription.Entities.VrLabReq"/> object from the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Data.IDataReader"/> to read from.</param>
+            <param name="entity">The <see cref="T:ePrescription.Entities.VrLabReq"/> object to refresh.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabReqFilterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabReq"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabReqFilterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabReqFilterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabReqFilterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabReqFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabReqFilterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabReqFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabReqParameterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.ParameterizedSqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabReq"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabReqParameterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabReqParameterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabReqParameterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabReqParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabReqParameterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabReqParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabReqSortBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlSortBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabReq"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabReqSortBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabReqSqlSortBuilder class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabResultProviderBase">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.VrLabResultProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabResultProviderBaseCore">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.VrLabResultProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabResultProviderBaseCore.Fill(System.Data.IDataReader,ePrescription.Entities.VList{ePrescription.Entities.VrLabResult},System.Int32,System.Int32)">
+            <summary>
+             Fill an <see cref="T:ePrescription.Entities.VList`1"/> From a DataReader.
+            </summary>
+             <param name="reader">Datareader</param>
+             <param name="rows">The collection to fill</param>
+             <param name="start">Start row</param>
+             <param name="pageLength">number of row.</param>
+            <returns>a <see cref="T:ePrescription.Entities.VList`1"/></returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabResultProviderBaseCore.RefreshEntity(System.Data.IDataReader,ePrescription.Entities.VrLabResult)">
+            <summary>
+            Refreshes the <see cref="T:ePrescription.Entities.VrLabResult"/> object from the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Data.IDataReader"/> to read from.</param>
+            <param name="entity">The <see cref="T:ePrescription.Entities.VrLabResult"/> object to refresh.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabResultFilterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabResult"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabResultFilterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabResultFilterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabResultFilterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabResultFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabResultFilterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabResultFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabResultParameterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.ParameterizedSqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabResult"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabResultParameterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabResultParameterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabResultParameterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabResultParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabResultParameterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabResultParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrLabResultSortBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlSortBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabResult"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrLabResultSortBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabResultSqlSortBuilder class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrMedProProviderBase">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.VrMedProProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrMedProProviderBaseCore">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.VrMedProProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProProviderBaseCore.GetByDescription(System.String)">
+            <summary>
+            This method wrap the '_VR_MedPro_GetByDescription' stored procedure. 
+            </summary>
+            <param name="descriptiontion"> A <c>System.String</c> instance.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+            <returns>A <see cref="T:ePrescription.Entities.VList`1"/> instance.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProProviderBaseCore.GetByDescription(System.Int32,System.Int32,System.String)">
+            <summary>
+            This method wrap the '_VR_MedPro_GetByDescription' stored procedure. 
+            </summary>
+            <param name="descriptiontion"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+            <returns>A <see cref="T:ePrescription.Entities.VList`1"/> instance.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProProviderBaseCore.GetByDescription(ePrescription.Data.TransactionManager,System.String)">
+            <summary>
+            This method wrap the '_VR_MedPro_GetByDescription' stored procedure. 
+            </summary>
+            <param name="descriptiontion"> A <c>System.String</c> instance.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <returns>A <see cref="T:ePrescription.Entities.VList`1"/> instance.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProProviderBaseCore.GetByDescription(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String)">
+            <summary>
+            This method wrap the '_VR_MedPro_GetByDescription' stored procedure. 
+            </summary>
+            <param name="descriptiontion"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+            <returns>A <see cref="T:ePrescription.Entities.VList`1"/> instance.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProProviderBaseCore.Fill(System.Data.IDataReader,ePrescription.Entities.VList{ePrescription.Entities.VrMedPro},System.Int32,System.Int32)">
+            <summary>
+             Fill an <see cref="T:ePrescription.Entities.VList`1"/> From a DataReader.
+            </summary>
+             <param name="reader">Datareader</param>
+             <param name="rows">The collection to fill</param>
+             <param name="start">Start row</param>
+             <param name="pageLength">number of row.</param>
+            <returns>a <see cref="T:ePrescription.Entities.VList`1"/></returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProProviderBaseCore.RefreshEntity(System.Data.IDataReader,ePrescription.Entities.VrMedPro)">
+            <summary>
+            Refreshes the <see cref="T:ePrescription.Entities.VrMedPro"/> object from the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Data.IDataReader"/> to read from.</param>
+            <param name="entity">The <see cref="T:ePrescription.Entities.VrMedPro"/> object to refresh.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrMedProFilterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrMedPro"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProFilterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrMedProFilterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProFilterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrMedProFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProFilterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrMedProFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrMedProParameterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.ParameterizedSqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrMedPro"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProParameterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrMedProParameterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProParameterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrMedProParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProParameterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrMedProParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrMedProSortBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlSortBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrMedPro"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrMedProSortBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrMedProSqlSortBuilder class.
+            </summary>
+        </member>
         <member name="T:ePrescription.Data.Bases.VrReceptionProviderBase">
             <summary>
              This class is the base class for any <see cref="T:ePrescription.Data.Bases.VrReceptionProviderBase"/> implementation.
@@ -303,6 +693,94 @@
         <member name="M:ePrescription.Data.Bases.VrReceptionStartSortBuilder.#ctor">
             <summary>
             Initializes a new instance of the VrReceptionStartSqlSortBuilder class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrTidChargedCodeProviderBase">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.VrTidChargedCodeProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrTidChargedCodeProviderBaseCore">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.VrTidChargedCodeProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrTidChargedCodeProviderBaseCore.Fill(System.Data.IDataReader,ePrescription.Entities.VList{ePrescription.Entities.VrTidChargedCode},System.Int32,System.Int32)">
+            <summary>
+             Fill an <see cref="T:ePrescription.Entities.VList`1"/> From a DataReader.
+            </summary>
+             <param name="reader">Datareader</param>
+             <param name="rows">The collection to fill</param>
+             <param name="start">Start row</param>
+             <param name="pageLength">number of row.</param>
+            <returns>a <see cref="T:ePrescription.Entities.VList`1"/></returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrTidChargedCodeProviderBaseCore.RefreshEntity(System.Data.IDataReader,ePrescription.Entities.VrTidChargedCode)">
+            <summary>
+            Refreshes the <see cref="T:ePrescription.Entities.VrTidChargedCode"/> object from the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Data.IDataReader"/> to read from.</param>
+            <param name="entity">The <see cref="T:ePrescription.Entities.VrTidChargedCode"/> object to refresh.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrTidChargedCodeFilterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrTidChargedCode"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrTidChargedCodeFilterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeFilterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrTidChargedCodeFilterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrTidChargedCodeFilterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrTidChargedCodeParameterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.ParameterizedSqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrTidChargedCode"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrTidChargedCodeParameterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeParameterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrTidChargedCodeParameterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrTidChargedCodeParameterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.VrTidChargedCodeSortBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlSortBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrTidChargedCode"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VrTidChargedCodeSortBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeSqlSortBuilder class.
             </summary>
         </member>
         <member name="T:ePrescription.Data.Bases.VrUnitTableProviderBase">
@@ -543,6 +1021,40 @@
             <param name="pageLength">Number of rows to return.</param>
             <param name="count">The total number of records.</param>
             <returns>Returns an instance of the <see cref="T:ePrescription.Entities.ClinicalStats"/> class.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.ClinicalStatsProviderBaseCore.UpdateLabDrReq(System.String)">
+            <summary>
+            This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.ClinicalStatsProviderBaseCore.UpdateLabDrReq(System.Int32,System.Int32,System.String)">
+            <summary>
+            This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.ClinicalStatsProviderBaseCore.UpdateLabDrReq(ePrescription.Data.TransactionManager,System.String)">
+            <summary>
+            This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.ClinicalStatsProviderBaseCore.UpdateLabDrReq(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String)">
+            <summary>
+            This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
         </member>
         <member name="M:ePrescription.Data.Bases.ClinicalStatsProviderBaseCore.GetByTID(System.String)">
             <summary>
@@ -1016,6 +1528,405 @@
         <member name="M:ePrescription.Data.Bases.DiaglistSortBuilder.#ctor">
             <summary>
             Initializes a new instance of the DiaglistSqlSortBuilder class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.DoctorRequestProviderBase">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.DoctorRequestProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.DoctorRequestProviderBaseCore">
+            <summary>
+             This class is the base class for any <see cref="T:ePrescription.Data.Bases.DoctorRequestProviderBase"/> implementation.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.Delete(ePrescription.Data.TransactionManager,ePrescription.Entities.DoctorRequestKey)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="transactionManager">A <see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <param name="key">The unique identifier of the row to delete.</param>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.Delete(System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="_id">. Primary Key.</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.Delete(ePrescription.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Deletes a row from the DataSource.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="_id">. Primary Key.</param>
+            <remarks>Deletes based on primary key(s).</remarks>
+            <returns>Returns true if operation suceeded.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.Get(ePrescription.Data.TransactionManager,ePrescription.Entities.DoctorRequestKey,System.Int32,System.Int32)">
+            <summary>
+            	Gets a row from the DataSource based on its primary key.
+            </summary>
+            <param name="transactionManager">A <see cref="T:ePrescription.Data.TransactionManager"/> object.</param>
+            <param name="key">The unique identifier of the row to retrieve.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <returns>Returns an instance of the Entity class.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.GetById(System.Int64)">
+            <summary>
+            	Gets rows from the datasource based on the primary key PK_Id index.
+            </summary>
+            <param name="_id"></param>
+            <returns>Returns an instance of the <see cref="T:ePrescription.Entities.DoctorRequest"/> class.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.GetById(System.Int64,System.Int32,System.Int32)">
+            <summary>
+            	Gets rows from the datasource based on the PK_Id index.
+            </summary>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:ePrescription.Entities.DoctorRequest"/> class.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.GetById(ePrescription.Data.TransactionManager,System.Int64)">
+            <summary>
+            	Gets rows from the datasource based on the PK_Id index.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:ePrescription.Entities.DoctorRequest"/> class.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.GetById(ePrescription.Data.TransactionManager,System.Int64,System.Int32,System.Int32)">
+            <summary>
+            	Gets rows from the datasource based on the PK_Id index.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:ePrescription.Entities.DoctorRequest"/> class.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.GetById(System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK_Id index.
+            </summary>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">out parameter to get total records for query</param>
+            <remarks></remarks>
+            <returns>Returns an instance of the <see cref="T:ePrescription.Entities.DoctorRequest"/> class.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.GetById(ePrescription.Data.TransactionManager,System.Int64,System.Int32,System.Int32,System.Int32@)">
+            <summary>
+            	Gets rows from the datasource based on the PK_Id index.
+            </summary>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="_id"></param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="count">The total number of records.</param>
+            <returns>Returns an instance of the <see cref="T:ePrescription.Entities.DoctorRequest"/> class.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.UpdateStatus(System.String,System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_UpdateStatus' stored procedure. 
+            </summary>
+            <param name="reqStatus"> A <c>System.String</c> instance.</param>
+            <param name="reqId"> A <c>System.String</c> instance.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.UpdateStatus(System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_UpdateStatus' stored procedure. 
+            </summary>
+            <param name="reqStatus"> A <c>System.String</c> instance.</param>
+            <param name="reqId"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.UpdateStatus(ePrescription.Data.TransactionManager,System.String,System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_UpdateStatus' stored procedure. 
+            </summary>
+            <param name="reqStatus"> A <c>System.String</c> instance.</param>
+            <param name="reqId"> A <c>System.String</c> instance.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.UpdateStatus(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String,System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_UpdateStatus' stored procedure. 
+            </summary>
+            <param name="reqStatus"> A <c>System.String</c> instance.</param>
+            <param name="reqId"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.Insert(System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_Insert' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="reqId"> A <c>System.String</c> instance.</param>
+            <param name="code"> A <c>System.String</c> instance.</param>
+            <param name="description"> A <c>System.String</c> instance.</param>
+            <param name="reqDoctor"> A <c>System.String</c> instance.</param>
+            <param name="reqDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="reqStatus"> A <c>System.String</c> instance.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.Insert(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_Insert' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="reqId"> A <c>System.String</c> instance.</param>
+            <param name="code"> A <c>System.String</c> instance.</param>
+            <param name="description"> A <c>System.String</c> instance.</param>
+            <param name="reqDoctor"> A <c>System.String</c> instance.</param>
+            <param name="reqDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="reqStatus"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.Insert(ePrescription.Data.TransactionManager,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_Insert' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="reqId"> A <c>System.String</c> instance.</param>
+            <param name="code"> A <c>System.String</c> instance.</param>
+            <param name="description"> A <c>System.String</c> instance.</param>
+            <param name="reqDoctor"> A <c>System.String</c> instance.</param>
+            <param name="reqDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="reqStatus"> A <c>System.String</c> instance.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.Insert(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_Insert' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="reqId"> A <c>System.String</c> instance.</param>
+            <param name="code"> A <c>System.String</c> instance.</param>
+            <param name="description"> A <c>System.String</c> instance.</param>
+            <param name="reqDoctor"> A <c>System.String</c> instance.</param>
+            <param name="reqDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="reqStatus"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.GetByTID(System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_GetByTID' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+            <returns>A <see cref="T:System.Data.DataSet"/> instance.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.GetByTID(System.Int32,System.Int32,System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_GetByTID' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+            <returns>A <see cref="T:System.Data.DataSet"/> instance.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.GetByTID(ePrescription.Data.TransactionManager,System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_GetByTID' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+            <returns>A <see cref="T:System.Data.DataSet"/> instance.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.GetByTID(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_GetByTID' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+            <returns>A <see cref="T:System.Data.DataSet"/> instance.</returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.UpdNurse(System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_UpdNurse' stored procedure. 
+            </summary>
+            <param name="code"> A <c>System.String</c> instance.</param>
+            <param name="billable"> A <c>System.Boolean?</c> instance.</param>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.UpdNurse(System.Int32,System.Int32,System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_UpdNurse' stored procedure. 
+            </summary>
+            <param name="code"> A <c>System.String</c> instance.</param>
+            <param name="billable"> A <c>System.Boolean?</c> instance.</param>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.UpdNurse(ePrescription.Data.TransactionManager,System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_UpdNurse' stored procedure. 
+            </summary>
+            <param name="code"> A <c>System.String</c> instance.</param>
+            <param name="billable"> A <c>System.Boolean?</c> instance.</param>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.UpdNurse(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String,System.Nullable{System.Boolean},System.String)">
+            <summary>
+            This method wrap the '_DoctorRequest_UpdNurse' stored procedure. 
+            </summary>
+            <param name="code"> A <c>System.String</c> instance.</param>
+            <param name="billable"> A <c>System.Boolean?</c> instance.</param>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.Fill(System.Data.IDataReader,ePrescription.Entities.TList{ePrescription.Entities.DoctorRequest},System.Int32,System.Int32)">
+            <summary>
+            Fill a TList&lt;DoctorRequest&gt; From a DataReader.
+            </summary>
+            <param name="reader">Datareader</param>
+            <param name="rows">The collection to fill</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">number of rows.</param>
+            <returns>a <see cref="T:ePrescription.Entities.TList`1"/></returns>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.RefreshEntity(System.Data.IDataReader,ePrescription.Entities.DoctorRequest)">
+            <summary>
+            Refreshes the <see cref="T:ePrescription.Entities.DoctorRequest"/> object from the <see cref="T:System.Data.IDataReader"/>.
+            </summary>
+            <param name="reader">The <see cref="T:System.Data.IDataReader"/> to read from.</param>
+            <param name="entity">The <see cref="T:ePrescription.Entities.DoctorRequest"/> object to refresh.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.RefreshEntity(System.Data.DataSet,ePrescription.Entities.DoctorRequest)">
+            <summary>
+            Refreshes the <see cref="T:ePrescription.Entities.DoctorRequest"/> object from the <see cref="T:System.Data.DataSet"/>.
+            </summary>
+            <param name="dataSet">The <see cref="T:System.Data.DataSet"/> to read from.</param>
+            <param name="entity">The <see cref="T:ePrescription.Entities.DoctorRequest"/> object.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.DeepLoad(ePrescription.Data.TransactionManager,ePrescription.Entities.DoctorRequest,System.Boolean,ePrescription.Data.DeepLoadType,System.Type[],ePrescription.Data.Bases.DeepSession)">
+            <summary>
+            Deep Loads the <see cref="T:ePrescription.Entities.IEntity"/> object with criteria based of the child 
+            property collections only N Levels Deep based on the <see cref="T:ePrescription.Data.DeepLoadType"/>.
+            </summary>
+            <remarks>
+            Use this method with caution as it is possible to DeepLoad with Recursion and traverse an entire object graph.
+            </remarks>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <param name="entity">The <see cref="T:ePrescription.Entities.DoctorRequest"/> object to load.</param>
+            <param name="deep">Boolean. A flag that indicates whether to recursively save all Property Collection that are descendants of this instance. If True, saves the complete object graph below this object. If False, saves this object only. </param>
+            <param name="deepLoadType">DeepLoadType Enumeration to Include/Exclude object property collections from Load.</param>
+            <param name="childTypes">ePrescription.Entities.DoctorRequest Property Collection Type Array To Include or Exclude from Load</param>
+            <param name="innerList">A collection of child types for easy access.</param>
+            <exception cref="T:System.ArgumentNullException">entity or childTypes is null.</exception>
+            <exception cref="T:System.ArgumentException">deepLoadType has invalid value.</exception>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestProviderBaseCore.DeepSave(ePrescription.Data.TransactionManager,ePrescription.Entities.DoctorRequest,ePrescription.Data.DeepSaveType,System.Type[],ePrescription.Data.Bases.DeepSession)">
+            <summary>
+            Deep Save the entire object graph of the ePrescription.Entities.DoctorRequest object with criteria based of the child 
+            Type property array and DeepSaveType.
+            </summary>
+            <param name="transactionManager">The transaction manager.</param>
+            <param name="entity">ePrescription.Entities.DoctorRequest instance</param>
+            <param name="deepSaveType">DeepSaveType Enumeration to Include/Exclude object property collections from Save.</param>
+            <param name="childTypes">ePrescription.Entities.DoctorRequest Property Collection Type Array To Include or Exclude from Save</param>
+            <param name="innerList">A Hashtable of child types for easy access.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.DoctorRequestChildEntityTypes">
+            <summary>
+             Enumeration used to expose the different child entity types 
+             for child properties in <c>ePrescription.Entities.DoctorRequest</c>
+            </summary>
+        </member>
+        <member name="T:ePrescription.Data.Bases.DoctorRequestFilterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.DoctorRequest"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestFilterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the DoctorRequestFilterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestFilterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the DoctorRequestFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestFilterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the DoctorRequestFilterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.DoctorRequestParameterBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.ParameterizedSqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.DoctorRequest"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestParameterBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the DoctorRequestParameterBuilder class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestParameterBuilder.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the DoctorRequestParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestParameterBuilder.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the DoctorRequestParameterBuilder class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.Bases.DoctorRequestSortBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlSortBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.DoctorRequest"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.Bases.DoctorRequestSortBuilder.#ctor">
+            <summary>
+            Initializes a new instance of the DoctorRequestSqlSortBuilder class.
             </summary>
         </member>
         <member name="T:ePrescription.Data.Bases.EPrescriptionProviderBase">
@@ -3281,6 +4192,158 @@
             <param name="count">The total number of records.</param>
             <returns>Returns an instance of the <see cref="T:ePrescription.Entities.VitalSign"/> class.</returns>
         </member>
+        <member name="M:ePrescription.Data.Bases.VitalSignProviderBaseCore.Update(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_VitalSign_Update' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="temp"> A <c>System.String</c> instance.</param>
+            <param name="pulse"> A <c>System.String</c> instance.</param>
+            <param name="res"> A <c>System.String</c> instance.</param>
+            <param name="press"> A <c>System.String</c> instance.</param>
+            <param name="sato2"> A <c>System.String</c> instance.</param>
+            <param name="gcs"> A <c>System.String</c> instance.</param>
+            <param name="height"> A <c>System.String</c> instance.</param>
+            <param name="weight"> A <c>System.String</c> instance.</param>
+            <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="user"> A <c>System.String</c> instance.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VitalSignProviderBaseCore.Update(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_VitalSign_Update' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="temp"> A <c>System.String</c> instance.</param>
+            <param name="pulse"> A <c>System.String</c> instance.</param>
+            <param name="res"> A <c>System.String</c> instance.</param>
+            <param name="press"> A <c>System.String</c> instance.</param>
+            <param name="sato2"> A <c>System.String</c> instance.</param>
+            <param name="gcs"> A <c>System.String</c> instance.</param>
+            <param name="height"> A <c>System.String</c> instance.</param>
+            <param name="weight"> A <c>System.String</c> instance.</param>
+            <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="user"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VitalSignProviderBaseCore.Update(ePrescription.Data.TransactionManager,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_VitalSign_Update' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="temp"> A <c>System.String</c> instance.</param>
+            <param name="pulse"> A <c>System.String</c> instance.</param>
+            <param name="res"> A <c>System.String</c> instance.</param>
+            <param name="press"> A <c>System.String</c> instance.</param>
+            <param name="sato2"> A <c>System.String</c> instance.</param>
+            <param name="gcs"> A <c>System.String</c> instance.</param>
+            <param name="height"> A <c>System.String</c> instance.</param>
+            <param name="weight"> A <c>System.String</c> instance.</param>
+            <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="user"> A <c>System.String</c> instance.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VitalSignProviderBaseCore.Update(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_VitalSign_Update' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="temp"> A <c>System.String</c> instance.</param>
+            <param name="pulse"> A <c>System.String</c> instance.</param>
+            <param name="res"> A <c>System.String</c> instance.</param>
+            <param name="press"> A <c>System.String</c> instance.</param>
+            <param name="sato2"> A <c>System.String</c> instance.</param>
+            <param name="gcs"> A <c>System.String</c> instance.</param>
+            <param name="height"> A <c>System.String</c> instance.</param>
+            <param name="weight"> A <c>System.String</c> instance.</param>
+            <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="user"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VitalSignProviderBaseCore.Insert(System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_VitalSign_Insert' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="patientCode"> A <c>System.String</c> instance.</param>
+            <param name="temp"> A <c>System.String</c> instance.</param>
+            <param name="pulse"> A <c>System.String</c> instance.</param>
+            <param name="res"> A <c>System.String</c> instance.</param>
+            <param name="press"> A <c>System.String</c> instance.</param>
+            <param name="sato2"> A <c>System.String</c> instance.</param>
+            <param name="gcs"> A <c>System.String</c> instance.</param>
+            <param name="height"> A <c>System.String</c> instance.</param>
+            <param name="weight"> A <c>System.String</c> instance.</param>
+            <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="user"> A <c>System.String</c> instance.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VitalSignProviderBaseCore.Insert(System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_VitalSign_Insert' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="patientCode"> A <c>System.String</c> instance.</param>
+            <param name="temp"> A <c>System.String</c> instance.</param>
+            <param name="pulse"> A <c>System.String</c> instance.</param>
+            <param name="res"> A <c>System.String</c> instance.</param>
+            <param name="press"> A <c>System.String</c> instance.</param>
+            <param name="sato2"> A <c>System.String</c> instance.</param>
+            <param name="gcs"> A <c>System.String</c> instance.</param>
+            <param name="height"> A <c>System.String</c> instance.</param>
+            <param name="weight"> A <c>System.String</c> instance.</param>
+            <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="user"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VitalSignProviderBaseCore.Insert(ePrescription.Data.TransactionManager,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_VitalSign_Insert' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="patientCode"> A <c>System.String</c> instance.</param>
+            <param name="temp"> A <c>System.String</c> instance.</param>
+            <param name="pulse"> A <c>System.String</c> instance.</param>
+            <param name="res"> A <c>System.String</c> instance.</param>
+            <param name="press"> A <c>System.String</c> instance.</param>
+            <param name="sato2"> A <c>System.String</c> instance.</param>
+            <param name="gcs"> A <c>System.String</c> instance.</param>
+            <param name="height"> A <c>System.String</c> instance.</param>
+            <param name="weight"> A <c>System.String</c> instance.</param>
+            <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="user"> A <c>System.String</c> instance.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
+        <member name="M:ePrescription.Data.Bases.VitalSignProviderBaseCore.Insert(ePrescription.Data.TransactionManager,System.Int32,System.Int32,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.String,System.Nullable{System.DateTime},System.String)">
+            <summary>
+            This method wrap the '_VitalSign_Insert' stored procedure. 
+            </summary>
+            <param name="tid"> A <c>System.String</c> instance.</param>
+            <param name="patientCode"> A <c>System.String</c> instance.</param>
+            <param name="temp"> A <c>System.String</c> instance.</param>
+            <param name="pulse"> A <c>System.String</c> instance.</param>
+            <param name="res"> A <c>System.String</c> instance.</param>
+            <param name="press"> A <c>System.String</c> instance.</param>
+            <param name="sato2"> A <c>System.String</c> instance.</param>
+            <param name="gcs"> A <c>System.String</c> instance.</param>
+            <param name="height"> A <c>System.String</c> instance.</param>
+            <param name="weight"> A <c>System.String</c> instance.</param>
+            <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+            <param name="user"> A <c>System.String</c> instance.</param>
+            <param name="start">Row number at which to start reading, the first row is 0.</param>
+            <param name="pageLength">Number of rows to return.</param>
+            <param name="transactionManager"><see cref="T:ePrescription.Data.TransactionManager"/> object</param>
+            <remark>This method is generate from a stored procedure.</remark>
+        </member>
         <member name="M:ePrescription.Data.Bases.VitalSignProviderBaseCore.Fill(System.Data.IDataReader,ePrescription.Entities.TList{ePrescription.Entities.VitalSign},System.Int32,System.Int32)">
             <summary>
             Fill a TList&lt;VitalSign&gt; From a DataReader.
@@ -3704,9 +4767,19 @@
              Current FavoritMasterProviderBase instance.
             </summary>
         </member>
+        <member name="P:ePrescription.Data.Bases.NetTiersProvider.FavoritDetailProvider">
+            <summary>
+             Current FavoritDetailProviderBase instance.
+            </summary>
+        </member>
         <member name="P:ePrescription.Data.Bases.NetTiersProvider.DiaglistProvider">
             <summary>
              Current DiaglistProviderBase instance.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Data.Bases.NetTiersProvider.DoctorRequestProvider">
+            <summary>
+             Current DoctorRequestProviderBase instance.
             </summary>
         </member>
         <member name="P:ePrescription.Data.Bases.NetTiersProvider.EPrescriptionProvider">
@@ -3719,11 +4792,6 @@
              Current EPrescriptionDetailProviderBase instance.
             </summary>
         </member>
-        <member name="P:ePrescription.Data.Bases.NetTiersProvider.FavoritDetailProvider">
-            <summary>
-             Current FavoritDetailProviderBase instance.
-            </summary>
-        </member>
         <member name="P:ePrescription.Data.Bases.NetTiersProvider.VitalSignProvider">
             <summary>
              Current VitalSignProviderBase instance.
@@ -3734,6 +4802,26 @@
              Current VrEPresDetailProviderBase instance.
             </summary>
         </member>
+        <member name="P:ePrescription.Data.Bases.NetTiersProvider.VrLabProcessingProvider">
+            <summary>
+             Current VrLabProcessingProviderBase instance.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Data.Bases.NetTiersProvider.VrLabReqProvider">
+            <summary>
+             Current VrLabReqProviderBase instance.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Data.Bases.NetTiersProvider.VrLabResultProvider">
+            <summary>
+             Current VrLabResultProviderBase instance.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Data.Bases.NetTiersProvider.VrMedProProvider">
+            <summary>
+             Current VrMedProProviderBase instance.
+            </summary>
+        </member>
         <member name="P:ePrescription.Data.Bases.NetTiersProvider.VrReceptionProvider">
             <summary>
              Current VrReceptionProviderBase instance.
@@ -3742,6 +4830,11 @@
         <member name="P:ePrescription.Data.Bases.NetTiersProvider.VrReceptionStartProvider">
             <summary>
              Current VrReceptionStartProviderBase instance.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Data.Bases.NetTiersProvider.VrTidChargedCodeProvider">
+            <summary>
+             Current VrTidChargedCodeProviderBase instance.
             </summary>
         </member>
         <member name="P:ePrescription.Data.Bases.NetTiersProvider.VrUnitTableProvider">
@@ -5655,9 +6748,21 @@
              It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
         </member>
+        <member name="P:ePrescription.Data.DataRepository.FavoritDetailProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.FavoritDetail"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
         <member name="P:ePrescription.Data.DataRepository.DiaglistProvider">
             <summary>
              Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.Diaglist"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Data.DataRepository.DoctorRequestProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.DoctorRequest"/> business entity.
              It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
         </member>
@@ -5673,12 +6778,6 @@
              It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
         </member>
-        <member name="P:ePrescription.Data.DataRepository.FavoritDetailProvider">
-            <summary>
-             Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.FavoritDetail"/> business entity.
-             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-            </summary>
-        </member>
         <member name="P:ePrescription.Data.DataRepository.VitalSignProvider">
             <summary>
              Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VitalSign"/> business entity.
@@ -5691,6 +6790,30 @@
              It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
         </member>
+        <member name="P:ePrescription.Data.DataRepository.VrLabProcessingProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrLabProcessing"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Data.DataRepository.VrLabReqProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrLabReq"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Data.DataRepository.VrLabResultProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrLabResult"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Data.DataRepository.VrMedProProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrMedPro"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
         <member name="P:ePrescription.Data.DataRepository.VrReceptionProvider">
             <summary>
              Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrReception"/> business entity.
@@ -5700,6 +6823,12 @@
         <member name="P:ePrescription.Data.DataRepository.VrReceptionStartProvider">
             <summary>
              Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrReceptionStart"/> business entity.
+             It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Data.DataRepository.VrTidChargedCodeProvider">
+            <summary>
+             Gets the current instance of the Data Access Logic Component for the <see cref="T:ePrescription.Entities.VrTidChargedCode"/> business entity.
              It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
             </summary>
         </member>
@@ -6045,6 +7174,54 @@
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
         </member>
+        <member name="T:ePrescription.Data.FavoritDetailFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.FavoritDetail"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.FavoritDetailFilters.#ctor">
+            <summary>
+            Initializes a new instance of the FavoritDetailFilters class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.FavoritDetailFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the FavoritDetailFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.FavoritDetailFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the FavoritDetailFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.FavoritDetailQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.FavoritDetailParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.FavoritDetail"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.FavoritDetailQuery.#ctor">
+            <summary>
+            Initializes a new instance of the FavoritDetailQuery class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.FavoritDetailQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the FavoritDetailQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.FavoritDetailQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the FavoritDetailQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
         <member name="T:ePrescription.Data.DiaglistFilters">
             <summary>
             A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
@@ -6089,6 +7266,54 @@
         <member name="M:ePrescription.Data.DiaglistQuery.#ctor(System.Boolean,System.Boolean)">
             <summary>
             Initializes a new instance of the DiaglistQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.DoctorRequestFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.DoctorRequest"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.DoctorRequestFilters.#ctor">
+            <summary>
+            Initializes a new instance of the DoctorRequestFilters class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.DoctorRequestFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the DoctorRequestFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.DoctorRequestFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the DoctorRequestFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.DoctorRequestQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.DoctorRequestParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.DoctorRequest"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.DoctorRequestQuery.#ctor">
+            <summary>
+            Initializes a new instance of the DoctorRequestQuery class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.DoctorRequestQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the DoctorRequestQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.DoctorRequestQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the DoctorRequestQuery class.
             </summary>
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
@@ -6189,54 +7414,6 @@
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
         </member>
-        <member name="T:ePrescription.Data.FavoritDetailFilters">
-            <summary>
-            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
-            that is used exclusively with a <see cref="T:ePrescription.Entities.FavoritDetail"/> object.
-            </summary>
-        </member>
-        <member name="M:ePrescription.Data.FavoritDetailFilters.#ctor">
-            <summary>
-            Initializes a new instance of the FavoritDetailFilters class.
-            </summary>
-        </member>
-        <member name="M:ePrescription.Data.FavoritDetailFilters.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the FavoritDetailFilters class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-        </member>
-        <member name="M:ePrescription.Data.FavoritDetailFilters.#ctor(System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new instance of the FavoritDetailFilters class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-        </member>
-        <member name="T:ePrescription.Data.FavoritDetailQuery">
-            <summary>
-            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.FavoritDetailParameterBuilder"/> class
-            that is used exclusively with a <see cref="T:ePrescription.Entities.FavoritDetail"/> object.
-            </summary>
-        </member>
-        <member name="M:ePrescription.Data.FavoritDetailQuery.#ctor">
-            <summary>
-            Initializes a new instance of the FavoritDetailQuery class.
-            </summary>
-        </member>
-        <member name="M:ePrescription.Data.FavoritDetailQuery.#ctor(System.Boolean)">
-            <summary>
-            Initializes a new instance of the FavoritDetailQuery class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-        </member>
-        <member name="M:ePrescription.Data.FavoritDetailQuery.#ctor(System.Boolean,System.Boolean)">
-            <summary>
-            Initializes a new instance of the FavoritDetailQuery class.
-            </summary>
-            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
-            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
-        </member>
         <member name="T:ePrescription.Data.VitalSignFilters">
             <summary>
             A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
@@ -6333,6 +7510,198 @@
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
         </member>
+        <member name="T:ePrescription.Data.VrLabProcessingFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabProcessing"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabProcessingFilters.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabProcessingFilters class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabProcessingFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabProcessingFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.VrLabProcessingFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabProcessingFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.VrLabProcessingQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.VrLabProcessingParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabProcessing"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabProcessingQuery.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabProcessingQuery class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabProcessingQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabProcessingQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.VrLabProcessingQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabProcessingQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.VrLabReqFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabReq"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabReqFilters.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabReqFilters class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabReqFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabReqFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.VrLabReqFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabReqFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.VrLabReqQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.VrLabReqParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabReq"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabReqQuery.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabReqQuery class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabReqQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabReqQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.VrLabReqQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabReqQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.VrLabResultFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabResult"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabResultFilters.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabResultFilters class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabResultFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabResultFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.VrLabResultFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabResultFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.VrLabResultQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.VrLabResultParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabResult"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabResultQuery.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabResultQuery class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrLabResultQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabResultQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.VrLabResultQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrLabResultQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.VrMedProFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrMedPro"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrMedProFilters.#ctor">
+            <summary>
+            Initializes a new instance of the VrMedProFilters class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrMedProFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrMedProFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.VrMedProFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrMedProFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.VrMedProQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.VrMedProParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrMedPro"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrMedProQuery.#ctor">
+            <summary>
+            Initializes a new instance of the VrMedProQuery class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrMedProQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrMedProQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.VrMedProQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrMedProQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
         <member name="T:ePrescription.Data.VrReceptionFilters">
             <summary>
             A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
@@ -6425,6 +7794,54 @@
         <member name="M:ePrescription.Data.VrReceptionStartQuery.#ctor(System.Boolean,System.Boolean)">
             <summary>
             Initializes a new instance of the VrReceptionStartQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.VrTidChargedCodeFilters">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.SqlFilterBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrTidChargedCode"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrTidChargedCodeFilters.#ctor">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeFilters class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrTidChargedCodeFilters.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.VrTidChargedCodeFilters.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeFilters class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+            <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>
+        </member>
+        <member name="T:ePrescription.Data.VrTidChargedCodeQuery">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.VrTidChargedCodeParameterBuilder"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrTidChargedCode"/> object.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrTidChargedCodeQuery.#ctor">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeQuery class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Data.VrTidChargedCodeQuery.#ctor(System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeQuery class.
+            </summary>
+            <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
+        </member>
+        <member name="M:ePrescription.Data.VrTidChargedCodeQuery.#ctor(System.Boolean,System.Boolean)">
+            <summary>
+            Initializes a new instance of the VrTidChargedCodeQuery class.
             </summary>
             <param name="ignoreCase">Specifies whether to create case-insensitive statements.</param>
             <param name="useAnd">Specifies whether to combine statements using AND or OR.</param>

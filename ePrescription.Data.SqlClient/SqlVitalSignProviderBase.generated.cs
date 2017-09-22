@@ -910,6 +910,126 @@ namespace ePrescription.Data.SqlClient
 		
 		#region Custom Methods
 	
+
+		#region _VitalSign_Update
+					
+		/// <summary>
+		///	This method wraps the '_VitalSign_Update' stored procedure. 
+		/// </summary>	
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="temp"> A <c>System.String</c> instance.</param>
+		/// <param name="pulse"> A <c>System.String</c> instance.</param>
+		/// <param name="res"> A <c>System.String</c> instance.</param>
+		/// <param name="press"> A <c>System.String</c> instance.</param>
+		/// <param name="sato2"> A <c>System.String</c> instance.</param>
+		/// <param name="gcs"> A <c>System.String</c> instance.</param>
+		/// <param name="height"> A <c>System.String</c> instance.</param>
+		/// <param name="weight"> A <c>System.String</c> instance.</param>
+		/// <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="user"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object.</param>
+		/// <remark>This method is generated from a stored procedure.</remark>
+		public override void Update(TransactionManager transactionManager, int start, int pageLength , System.String tid, System.String temp, System.String pulse, System.String res, System.String press, System.String sato2, System.String gcs, System.String height, System.String weight, System.DateTime? createDate, System.String user)
+		{
+			SqlDatabase database = new SqlDatabase(this._connectionString);
+			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo._VitalSign_Update", true);
+			
+			database.AddInParameter(commandWrapper, "@TID", DbType.String,  tid );
+			database.AddInParameter(commandWrapper, "@temp", DbType.String,  temp );
+			database.AddInParameter(commandWrapper, "@pulse", DbType.String,  pulse );
+			database.AddInParameter(commandWrapper, "@res", DbType.String,  res );
+			database.AddInParameter(commandWrapper, "@press", DbType.String,  press );
+			database.AddInParameter(commandWrapper, "@satO2", DbType.String,  sato2 );
+			database.AddInParameter(commandWrapper, "@gcs", DbType.String,  gcs );
+			database.AddInParameter(commandWrapper, "@height", DbType.String,  height );
+			database.AddInParameter(commandWrapper, "@weight", DbType.String,  weight );
+			database.AddInParameter(commandWrapper, "@CreateDate", DbType.DateTime,  createDate );
+			database.AddInParameter(commandWrapper, "@user", DbType.String,  user );
+	
+			
+			//Provider Data Requesting Command Event
+			OnDataRequesting(new CommandEventArgs(commandWrapper, "Update", (IEntity)null));
+
+			if (transactionManager != null)
+			{	
+				Utility.ExecuteNonQuery(transactionManager, commandWrapper );
+			}
+			else
+			{
+				Utility.ExecuteNonQuery(database, commandWrapper);
+			}
+						
+			//Provider Data Requested Command Event
+			OnDataRequested(new CommandEventArgs(commandWrapper, "Update", (IEntity)null));
+
+
+				
+				return;
+		}
+		#endregion
+
+		#region _VitalSign_Insert
+					
+		/// <summary>
+		///	This method wraps the '_VitalSign_Insert' stored procedure. 
+		/// </summary>	
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="patientCode"> A <c>System.String</c> instance.</param>
+		/// <param name="temp"> A <c>System.String</c> instance.</param>
+		/// <param name="pulse"> A <c>System.String</c> instance.</param>
+		/// <param name="res"> A <c>System.String</c> instance.</param>
+		/// <param name="press"> A <c>System.String</c> instance.</param>
+		/// <param name="sato2"> A <c>System.String</c> instance.</param>
+		/// <param name="gcs"> A <c>System.String</c> instance.</param>
+		/// <param name="height"> A <c>System.String</c> instance.</param>
+		/// <param name="weight"> A <c>System.String</c> instance.</param>
+		/// <param name="createDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="user"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object.</param>
+		/// <remark>This method is generated from a stored procedure.</remark>
+		public override void Insert(TransactionManager transactionManager, int start, int pageLength , System.String tid, System.String patientCode, System.String temp, System.String pulse, System.String res, System.String press, System.String sato2, System.String gcs, System.String height, System.String weight, System.DateTime? createDate, System.String user)
+		{
+			SqlDatabase database = new SqlDatabase(this._connectionString);
+			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo._VitalSign_Insert", true);
+			
+			database.AddInParameter(commandWrapper, "@TID", DbType.String,  tid );
+			database.AddInParameter(commandWrapper, "@PatientCode", DbType.String,  patientCode );
+			database.AddInParameter(commandWrapper, "@temp", DbType.String,  temp );
+			database.AddInParameter(commandWrapper, "@pulse", DbType.String,  pulse );
+			database.AddInParameter(commandWrapper, "@res", DbType.String,  res );
+			database.AddInParameter(commandWrapper, "@press", DbType.String,  press );
+			database.AddInParameter(commandWrapper, "@satO2", DbType.String,  sato2 );
+			database.AddInParameter(commandWrapper, "@gcs", DbType.String,  gcs );
+			database.AddInParameter(commandWrapper, "@height", DbType.String,  height );
+			database.AddInParameter(commandWrapper, "@weight", DbType.String,  weight );
+			database.AddInParameter(commandWrapper, "@CreateDate", DbType.DateTime,  createDate );
+			database.AddInParameter(commandWrapper, "@user", DbType.String,  user );
+	
+			
+			//Provider Data Requesting Command Event
+			OnDataRequesting(new CommandEventArgs(commandWrapper, "Insert", (IEntity)null));
+
+			if (transactionManager != null)
+			{	
+				Utility.ExecuteNonQuery(transactionManager, commandWrapper );
+			}
+			else
+			{
+				Utility.ExecuteNonQuery(database, commandWrapper);
+			}
+						
+			//Provider Data Requested Command Event
+			OnDataRequested(new CommandEventArgs(commandWrapper, "Insert", (IEntity)null));
+
+
+				
+				return;
+		}
+		#endregion
 		#endregion
 	}//end class
 } // end namespace

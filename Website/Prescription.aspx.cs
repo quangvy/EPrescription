@@ -407,12 +407,13 @@ public partial class Prescription : System.Web.UI.Page
         {
             int count = 0;
             var unitList = DataRepository.VrUnitTableProvider.GetPaged("Unit = N'" + dtMed.Rows[i]["Form"].ToString().Trim() + "'", "", 0, 1, out count);
+            //var unitoutList = DataRepository.VrUnitTableProvider.GetPaged("Unit = 'No Value'", "", 0, 1, out count);
             VrUnitTable unitItem = new VrUnitTable();
-            if (count == 1)
+            if (count == 1 )
             {
                 unitItem = unitList[0];
             }
-
+            
             var freList = DataRepository.FrequencyProvider.GetPaged("abbre = N'" + dtMed.Rows[i]["Freq"].ToString().Trim() + "'", "", 0, 1, out count);
             Frequency frequencyItem = new Frequency();
             if (count == 1)
@@ -438,7 +439,7 @@ public partial class Prescription : System.Web.UI.Page
                     "DosageUnitVN,FrequencyVN,DurationUnitVN,Refill,TotalUnit)VALUES('"
                     + newPresID + "','"
                     + dtMed.Rows[i]["Sq"].ToString().Trim() + "','"
-                    + dtMed.Rows[i]["Drug ID"].ToString().Trim() + "','"
+                    + dtMed.Rows[i]["Drug ID"].ToString().Trim() + "',N'"
                     + dtMed.Rows[i]["Drug Name"].ToString().Trim() + "',N'"
                     + dtMed.Rows[i]["Form"].ToString().Trim() + "',N'"
                     + dtMed.Rows[i]["Remark"].ToString().Trim() + "',N'"

@@ -465,6 +465,45 @@ namespace ePrescription.Data.SqlClient
 		#endregion
 		
 		
+		#region "FavoritDetailProvider"
+			
+		private SqlFavoritDetailProvider innerSqlFavoritDetailProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="FavoritDetail"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override FavoritDetailProviderBase FavoritDetailProvider
+		{
+			get
+			{
+				if (innerSqlFavoritDetailProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlFavoritDetailProvider == null)
+						{
+							this.innerSqlFavoritDetailProvider = new SqlFavoritDetailProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlFavoritDetailProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlFavoritDetailProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlFavoritDetailProvider SqlFavoritDetailProvider
+		{
+			get {return FavoritDetailProvider as SqlFavoritDetailProvider;}
+		}
+		
+		#endregion
+		
+		
 		#region "DiaglistProvider"
 			
 		private SqlDiaglistProvider innerSqlDiaglistProvider;
@@ -499,6 +538,45 @@ namespace ePrescription.Data.SqlClient
 		public SqlDiaglistProvider SqlDiaglistProvider
 		{
 			get {return DiaglistProvider as SqlDiaglistProvider;}
+		}
+		
+		#endregion
+		
+		
+		#region "DoctorRequestProvider"
+			
+		private SqlDoctorRequestProvider innerSqlDoctorRequestProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="DoctorRequest"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override DoctorRequestProviderBase DoctorRequestProvider
+		{
+			get
+			{
+				if (innerSqlDoctorRequestProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlDoctorRequestProvider == null)
+						{
+							this.innerSqlDoctorRequestProvider = new SqlDoctorRequestProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlDoctorRequestProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlDoctorRequestProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlDoctorRequestProvider SqlDoctorRequestProvider
+		{
+			get {return DoctorRequestProvider as SqlDoctorRequestProvider;}
 		}
 		
 		#endregion
@@ -577,45 +655,6 @@ namespace ePrescription.Data.SqlClient
 		public SqlEPrescriptionDetailProvider SqlEPrescriptionDetailProvider
 		{
 			get {return EPrescriptionDetailProvider as SqlEPrescriptionDetailProvider;}
-		}
-		
-		#endregion
-		
-		
-		#region "FavoritDetailProvider"
-			
-		private SqlFavoritDetailProvider innerSqlFavoritDetailProvider;
-
-		///<summary>
-		/// This class is the Data Access Logic Component for the <see cref="FavoritDetail"/> business entity.
-		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
-		///</summary>
-		/// <value></value>
-		public override FavoritDetailProviderBase FavoritDetailProvider
-		{
-			get
-			{
-				if (innerSqlFavoritDetailProvider == null) 
-				{
-					lock (syncRoot) 
-					{
-						if (innerSqlFavoritDetailProvider == null)
-						{
-							this.innerSqlFavoritDetailProvider = new SqlFavoritDetailProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
-						}
-					}
-				}
-				return innerSqlFavoritDetailProvider;
-			}
-		}
-		
-		/// <summary>
-		/// Gets the current <see cref="SqlFavoritDetailProvider"/>.
-		/// </summary>
-		/// <value></value>
-		public SqlFavoritDetailProvider SqlFavoritDetailProvider
-		{
-			get {return FavoritDetailProvider as SqlFavoritDetailProvider;}
 		}
 		
 		#endregion
@@ -700,6 +739,162 @@ namespace ePrescription.Data.SqlClient
 		#endregion
 		
 		
+		#region "VrLabProcessingProvider"
+		
+		private SqlVrLabProcessingProvider innerSqlVrLabProcessingProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="VrLabProcessing"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override VrLabProcessingProviderBase VrLabProcessingProvider
+		{
+			get
+			{
+				if (innerSqlVrLabProcessingProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlVrLabProcessingProvider == null)
+						{
+							this.innerSqlVrLabProcessingProvider = new SqlVrLabProcessingProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlVrLabProcessingProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlVrLabProcessingProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlVrLabProcessingProvider SqlVrLabProcessingProvider
+		{
+			get {return VrLabProcessingProvider as SqlVrLabProcessingProvider;}
+		}
+		
+		#endregion
+		
+		
+		#region "VrLabReqProvider"
+		
+		private SqlVrLabReqProvider innerSqlVrLabReqProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="VrLabReq"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override VrLabReqProviderBase VrLabReqProvider
+		{
+			get
+			{
+				if (innerSqlVrLabReqProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlVrLabReqProvider == null)
+						{
+							this.innerSqlVrLabReqProvider = new SqlVrLabReqProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlVrLabReqProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlVrLabReqProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlVrLabReqProvider SqlVrLabReqProvider
+		{
+			get {return VrLabReqProvider as SqlVrLabReqProvider;}
+		}
+		
+		#endregion
+		
+		
+		#region "VrLabResultProvider"
+		
+		private SqlVrLabResultProvider innerSqlVrLabResultProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="VrLabResult"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override VrLabResultProviderBase VrLabResultProvider
+		{
+			get
+			{
+				if (innerSqlVrLabResultProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlVrLabResultProvider == null)
+						{
+							this.innerSqlVrLabResultProvider = new SqlVrLabResultProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlVrLabResultProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlVrLabResultProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlVrLabResultProvider SqlVrLabResultProvider
+		{
+			get {return VrLabResultProvider as SqlVrLabResultProvider;}
+		}
+		
+		#endregion
+		
+		
+		#region "VrMedProProvider"
+		
+		private SqlVrMedProProvider innerSqlVrMedProProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="VrMedPro"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override VrMedProProviderBase VrMedProProvider
+		{
+			get
+			{
+				if (innerSqlVrMedProProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlVrMedProProvider == null)
+						{
+							this.innerSqlVrMedProProvider = new SqlVrMedProProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlVrMedProProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlVrMedProProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlVrMedProProvider SqlVrMedProProvider
+		{
+			get {return VrMedProProvider as SqlVrMedProProvider;}
+		}
+		
+		#endregion
+		
+		
 		#region "VrReceptionProvider"
 		
 		private SqlVrReceptionProvider innerSqlVrReceptionProvider;
@@ -773,6 +968,45 @@ namespace ePrescription.Data.SqlClient
 		public SqlVrReceptionStartProvider SqlVrReceptionStartProvider
 		{
 			get {return VrReceptionStartProvider as SqlVrReceptionStartProvider;}
+		}
+		
+		#endregion
+		
+		
+		#region "VrTidChargedCodeProvider"
+		
+		private SqlVrTidChargedCodeProvider innerSqlVrTidChargedCodeProvider;
+
+		///<summary>
+		/// This class is the Data Access Logic Component for the <see cref="VrTidChargedCode"/> business entity.
+		/// It exposes CRUD methods as well as selecting on index, foreign keys and custom stored procedures.
+		///</summary>
+		/// <value></value>
+		public override VrTidChargedCodeProviderBase VrTidChargedCodeProvider
+		{
+			get
+			{
+				if (innerSqlVrTidChargedCodeProvider == null) 
+				{
+					lock (syncRoot) 
+					{
+						if (innerSqlVrTidChargedCodeProvider == null)
+						{
+							this.innerSqlVrTidChargedCodeProvider = new SqlVrTidChargedCodeProvider(_connectionString, _useStoredProcedure, _providerInvariantName);
+						}
+					}
+				}
+				return innerSqlVrTidChargedCodeProvider;
+			}
+		}
+		
+		/// <summary>
+		/// Gets the current <see cref="SqlVrTidChargedCodeProvider"/>.
+		/// </summary>
+		/// <value></value>
+		public SqlVrTidChargedCodeProvider SqlVrTidChargedCodeProvider
+		{
+			get {return VrTidChargedCodeProvider as SqlVrTidChargedCodeProvider;}
 		}
 		
 		#endregion

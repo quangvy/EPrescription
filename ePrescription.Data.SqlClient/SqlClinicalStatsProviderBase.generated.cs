@@ -971,6 +971,45 @@ namespace ePrescription.Data.SqlClient
 		#region Custom Methods
 	
 
+		#region _ClinicalStats_UpdateLabDrReq
+					
+		/// <summary>
+		///	This method wraps the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		/// </summary>	
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object.</param>
+		/// <remark>This method is generated from a stored procedure.</remark>
+		public override void UpdateLabDrReq(TransactionManager transactionManager, int start, int pageLength , System.String tid)
+		{
+			SqlDatabase database = new SqlDatabase(this._connectionString);
+			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo._ClinicalStats_UpdateLabDrReq", true);
+			
+			database.AddInParameter(commandWrapper, "@TID", DbType.String,  tid );
+	
+			
+			//Provider Data Requesting Command Event
+			OnDataRequesting(new CommandEventArgs(commandWrapper, "UpdateLabDrReq", (IEntity)null));
+
+			if (transactionManager != null)
+			{	
+				Utility.ExecuteNonQuery(transactionManager, commandWrapper );
+			}
+			else
+			{
+				Utility.ExecuteNonQuery(database, commandWrapper);
+			}
+						
+			//Provider Data Requested Command Event
+			OnDataRequested(new CommandEventArgs(commandWrapper, "UpdateLabDrReq", (IEntity)null));
+
+
+				
+				return;
+		}
+		#endregion
+
 		#region _ClinicalStats_GetByTID
 					
 		/// <summary>
