@@ -772,7 +772,7 @@ namespace ePrescription.Entities
 
 
 		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		[DataObjectField(false, false, true, 50)]
+		[DataObjectField(false, false, true, 255)]
 		public virtual System.String ChargedCodes
 		{
 			get
@@ -931,7 +931,7 @@ namespace ePrescription.Entities
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("MedReport", "Med Report", 50));
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
-				new CommonRules.MaxLengthRuleArgs("ChargedCodes", "Charged Codes", 50));
+				new CommonRules.MaxLengthRuleArgs("ChargedCodes", "Charged Codes", 255));
 		}
    		#endregion
 		
@@ -2504,7 +2504,7 @@ namespace ePrescription.Entities
 		/// ChargedCodes : 
 		/// </summary>
 		[EnumTextValue("Charged Codes")]
-		[ColumnEnum("ChargedCodes", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
+		[ColumnEnum("ChargedCodes", typeof(System.String), System.Data.DbType.String, false, false, true, 255)]
 		ChargedCodes = 16,
 		/// <summary>
 		/// IsCompleted : 

@@ -43,9 +43,16 @@ public partial class Lab : System.Web.UI.Page
     }
     protected void rcbSearchLab_SelectedIndexChanged(object o, Telerik.Web.UI.RadComboBoxSelectedIndexChangedEventArgs e)
     {
-        VList<VrMedPro> ds = DataRepository.VrMedProProvider.GetByDescription(rcbSearchLab.Text);
-        tbxProCode.Text = ds[0].ProCode;
-        decimal price = ds[0].PubPrice;
+        int count = 0;
+        var proCode = DataRepository.VrMedProProvider.GetPaged("Description = '" + rcbSearchLab.Text.Trim() + "'", "", 0, 1, out count);
+        VrMedPro code = new VrMedPro();
+        if (count == 1)
+        {
+            code = proCode[0];
+        }
+        //DataSet ds = DataRepository.VrMedProProvider.GetByDescription(rcbSearchLab.Text);
+        tbxProCode.Text = code.ProCode;
+        decimal price = code.PubPrice;
         var Prices = string.Format("{0:#,##0}", price);
         tbxPrice.Text = Prices.ToString();
     }
@@ -131,7 +138,10 @@ public partial class Lab : System.Web.UI.Page
             var reqDr = ((Label)row.FindControl("lblReqDoctor")).Text; 
             var reqStatus = ((Label)row.FindControl("lblStatus")).Text; 
             DateTime date = DateTime.Now;
-            DataRepository.DoctorRequestProvider.Insert(TID, newLabID, code, description, reqDr, date, reqStatus);
+            DateTime coldate = DateTime.Parse(tbxColDate.Text.Trim());
+            TimeSpan coltime = TimeSpan.Parse(tbxColTime.Text.Trim());
+            //TimeSpan coltime =  TimeSpan.ParseExact(tbxColTime.Text.Trim(), @"hh\:mm\:ss", CultureInfo.InvariantCulture);
+            DataRepository.Provider.ExecuteScalar("_DoctorRequest_Insert",TID, newLabID, code, description, reqDr, date, coldate,coltime, reqStatus);
         }
         string TIDadd = lblTid.Text.ToString();
         DataRepository.ClinicalStatsProvider.UpdateLabDrReq(TIDadd);

@@ -191,6 +191,8 @@ namespace ePrescription.Data.SqlClient
 		database.AddInParameter(commandWrapper, "@DurationUnit", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@DurationUnitVn", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@TotalUnit", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@Unit", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@UnitVn", DbType.String, DBNull.Value);
 	
 			// replace all instances of 'AND' and 'OR' because we already set searchUsingOR
 			whereClause = whereClause.Replace(" AND ", "|").Replace(" OR ", "|") ; 
@@ -293,6 +295,18 @@ namespace ePrescription.Data.SqlClient
 				{
 					database.SetParameterValue(commandWrapper, "@TotalUnit", 
 						clause.Trim().Remove(0,9).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("unit ") || clause.Trim().StartsWith("unit="))
+				{
+					database.SetParameterValue(commandWrapper, "@Unit", 
+						clause.Trim().Remove(0,4).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("unitvn ") || clause.Trim().StartsWith("unitvn="))
+				{
+					database.SetParameterValue(commandWrapper, "@UnitVn", 
+						clause.Trim().Remove(0,6).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
 					continue;
 				}
 	
@@ -774,6 +788,10 @@ namespace ePrescription.Data.SqlClient
 			col13.AllowDBNull = true;		
 			DataColumn col14 = dataTable.Columns.Add("TotalUnit", typeof(System.String));
 			col14.AllowDBNull = true;		
+			DataColumn col15 = dataTable.Columns.Add("Unit", typeof(System.String));
+			col15.AllowDBNull = true;		
+			DataColumn col16 = dataTable.Columns.Add("UnitVN", typeof(System.String));
+			col16.AllowDBNull = true;		
 			
 			bulkCopy.ColumnMappings.Add("ID", "ID");
 			bulkCopy.ColumnMappings.Add("FavouriteID", "FavouriteID");
@@ -790,6 +808,8 @@ namespace ePrescription.Data.SqlClient
 			bulkCopy.ColumnMappings.Add("DurationUnit", "DurationUnit");
 			bulkCopy.ColumnMappings.Add("DurationUnitVN", "DurationUnitVN");
 			bulkCopy.ColumnMappings.Add("TotalUnit", "TotalUnit");
+			bulkCopy.ColumnMappings.Add("Unit", "Unit");
+			bulkCopy.ColumnMappings.Add("UnitVN", "UnitVN");
 			
 			foreach(ePrescription.Entities.FavoritDetail entity in entities)
 			{
@@ -843,6 +863,12 @@ namespace ePrescription.Data.SqlClient
 					row["TotalUnit"] = entity.TotalUnit;
 							
 				
+					row["Unit"] = entity.Unit;
+							
+				
+					row["UnitVN"] = entity.UnitVn;
+							
+				
 				dataTable.Rows.Add(row);
 			}		
 			
@@ -892,6 +918,8 @@ namespace ePrescription.Data.SqlClient
             database.AddInParameter(commandWrapper, "@DurationUnit", DbType.String, entity.DurationUnit );
             database.AddInParameter(commandWrapper, "@DurationUnitVn", DbType.String, entity.DurationUnitVn );
             database.AddInParameter(commandWrapper, "@TotalUnit", DbType.String, entity.TotalUnit );
+            database.AddInParameter(commandWrapper, "@Unit", DbType.String, entity.Unit );
+            database.AddInParameter(commandWrapper, "@UnitVn", DbType.String, entity.UnitVn );
 			
 			int results = 0;
 			
@@ -955,6 +983,8 @@ namespace ePrescription.Data.SqlClient
             database.AddInParameter(commandWrapper, "@DurationUnit", DbType.String, entity.DurationUnit );
             database.AddInParameter(commandWrapper, "@DurationUnitVn", DbType.String, entity.DurationUnitVn );
             database.AddInParameter(commandWrapper, "@TotalUnit", DbType.String, entity.TotalUnit );
+            database.AddInParameter(commandWrapper, "@Unit", DbType.String, entity.Unit );
+            database.AddInParameter(commandWrapper, "@UnitVn", DbType.String, entity.UnitVn );
 			
 			int results = 0;
 			

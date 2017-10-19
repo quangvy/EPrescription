@@ -159,6 +159,53 @@ namespace ePrescription.Data.Bases
 		#region Custom Methods
 		
 		
+		#region _DoctorRequest_LabDone 
+		
+		/// <summary>
+		///	This method wrap the '_DoctorRequest_LabDone' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void LabDone(System.String tid)
+		{
+			 LabDone(null, 0, int.MaxValue , tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_DoctorRequest_LabDone' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void LabDone(int start, int pageLength, System.String tid)
+		{
+			 LabDone(null, start, pageLength , tid);
+		}
+				
+		/// <summary>
+		///	This method wrap the '_DoctorRequest_LabDone' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void LabDone(TransactionManager transactionManager, System.String tid)
+		{
+			 LabDone(transactionManager, 0, int.MaxValue , tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_DoctorRequest_LabDone' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public abstract void LabDone(TransactionManager transactionManager, int start, int pageLength , System.String tid);
+		
+		#endregion
+		
 		#region _DoctorRequest_UpdateStatus 
 		
 		/// <summary>
@@ -221,11 +268,13 @@ namespace ePrescription.Data.Bases
 		/// <param name="description"> A <c>System.String</c> instance.</param>
 		/// <param name="reqDoctor"> A <c>System.String</c> instance.</param>
 		/// <param name="reqDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="colDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="colTime"> A <c>System.TimeSpan?</c> instance.</param>
 		/// <param name="reqStatus"> A <c>System.String</c> instance.</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
-		public void Insert(System.String tid, System.String reqId, System.String code, System.String description, System.String reqDoctor, System.DateTime? reqDate, System.String reqStatus)
+		public void Insert(System.String tid, System.String reqId, System.String code, System.String description, System.String reqDoctor, System.DateTime? reqDate, System.DateTime? colDate, System.TimeSpan? colTime, System.String reqStatus)
 		{
-			 Insert(null, 0, int.MaxValue , tid, reqId, code, description, reqDoctor, reqDate, reqStatus);
+			 Insert(null, 0, int.MaxValue , tid, reqId, code, description, reqDoctor, reqDate, colDate, colTime, reqStatus);
 		}
 		
 		/// <summary>
@@ -237,13 +286,15 @@ namespace ePrescription.Data.Bases
 		/// <param name="description"> A <c>System.String</c> instance.</param>
 		/// <param name="reqDoctor"> A <c>System.String</c> instance.</param>
 		/// <param name="reqDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="colDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="colTime"> A <c>System.TimeSpan?</c> instance.</param>
 		/// <param name="reqStatus"> A <c>System.String</c> instance.</param>
 		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
-		public void Insert(int start, int pageLength, System.String tid, System.String reqId, System.String code, System.String description, System.String reqDoctor, System.DateTime? reqDate, System.String reqStatus)
+		public void Insert(int start, int pageLength, System.String tid, System.String reqId, System.String code, System.String description, System.String reqDoctor, System.DateTime? reqDate, System.DateTime? colDate, System.TimeSpan? colTime, System.String reqStatus)
 		{
-			 Insert(null, start, pageLength , tid, reqId, code, description, reqDoctor, reqDate, reqStatus);
+			 Insert(null, start, pageLength , tid, reqId, code, description, reqDoctor, reqDate, colDate, colTime, reqStatus);
 		}
 				
 		/// <summary>
@@ -255,12 +306,14 @@ namespace ePrescription.Data.Bases
 		/// <param name="description"> A <c>System.String</c> instance.</param>
 		/// <param name="reqDoctor"> A <c>System.String</c> instance.</param>
 		/// <param name="reqDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="colDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="colTime"> A <c>System.TimeSpan?</c> instance.</param>
 		/// <param name="reqStatus"> A <c>System.String</c> instance.</param>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
-		public void Insert(TransactionManager transactionManager, System.String tid, System.String reqId, System.String code, System.String description, System.String reqDoctor, System.DateTime? reqDate, System.String reqStatus)
+		public void Insert(TransactionManager transactionManager, System.String tid, System.String reqId, System.String code, System.String description, System.String reqDoctor, System.DateTime? reqDate, System.DateTime? colDate, System.TimeSpan? colTime, System.String reqStatus)
 		{
-			 Insert(transactionManager, 0, int.MaxValue , tid, reqId, code, description, reqDoctor, reqDate, reqStatus);
+			 Insert(transactionManager, 0, int.MaxValue , tid, reqId, code, description, reqDoctor, reqDate, colDate, colTime, reqStatus);
 		}
 		
 		/// <summary>
@@ -272,12 +325,14 @@ namespace ePrescription.Data.Bases
 		/// <param name="description"> A <c>System.String</c> instance.</param>
 		/// <param name="reqDoctor"> A <c>System.String</c> instance.</param>
 		/// <param name="reqDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="colDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="colTime"> A <c>System.TimeSpan?</c> instance.</param>
 		/// <param name="reqStatus"> A <c>System.String</c> instance.</param>
 		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
-		public abstract void Insert(TransactionManager transactionManager, int start, int pageLength , System.String tid, System.String reqId, System.String code, System.String description, System.String reqDoctor, System.DateTime? reqDate, System.String reqStatus);
+		public abstract void Insert(TransactionManager transactionManager, int start, int pageLength , System.String tid, System.String reqId, System.String code, System.String description, System.String reqDoctor, System.DateTime? reqDate, System.DateTime? colDate, System.TimeSpan? colTime, System.String reqStatus);
 		
 		#endregion
 		
@@ -387,6 +442,57 @@ namespace ePrescription.Data.Bases
 		
 		#endregion
 		
+		#region _DoctorRequest_LabProcess 
+		
+		/// <summary>
+		///	This method wrap the '_DoctorRequest_LabProcess' stored procedure. 
+		/// </summary>
+		/// <param name="sample"> A <c>System.String</c> instance.</param>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void LabProcess(System.String sample, System.String tid)
+		{
+			 LabProcess(null, 0, int.MaxValue , sample, tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_DoctorRequest_LabProcess' stored procedure. 
+		/// </summary>
+		/// <param name="sample"> A <c>System.String</c> instance.</param>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void LabProcess(int start, int pageLength, System.String sample, System.String tid)
+		{
+			 LabProcess(null, start, pageLength , sample, tid);
+		}
+				
+		/// <summary>
+		///	This method wrap the '_DoctorRequest_LabProcess' stored procedure. 
+		/// </summary>
+		/// <param name="sample"> A <c>System.String</c> instance.</param>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void LabProcess(TransactionManager transactionManager, System.String sample, System.String tid)
+		{
+			 LabProcess(transactionManager, 0, int.MaxValue , sample, tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_DoctorRequest_LabProcess' stored procedure. 
+		/// </summary>
+		/// <param name="sample"> A <c>System.String</c> instance.</param>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public abstract void LabProcess(TransactionManager transactionManager, int start, int pageLength , System.String sample, System.String tid);
+		
+		#endregion
+		
 		#endregion
 
 		#region Helper Functions	
@@ -457,6 +563,14 @@ namespace ePrescription.Data.Bases
 					c.ReqStatus = (reader.IsDBNull(((int)DoctorRequestColumn.ReqStatus - 1)))?null:(System.String)reader[((int)DoctorRequestColumn.ReqStatus - 1)];
 					c.Billable = (reader.IsDBNull(((int)DoctorRequestColumn.Billable - 1)))?null:(System.Boolean?)reader[((int)DoctorRequestColumn.Billable - 1)];
 					c.Sample = (reader.IsDBNull(((int)DoctorRequestColumn.Sample - 1)))?null:(System.String)reader[((int)DoctorRequestColumn.Sample - 1)];
+					c.ColDate = (reader.IsDBNull(((int)DoctorRequestColumn.ColDate - 1)))?null:(System.DateTime?)reader[((int)DoctorRequestColumn.ColDate - 1)];
+					c.ColTime = (reader.IsDBNull(((int)DoctorRequestColumn.ColTime - 1)))?null:(System.TimeSpan?)reader[((int)DoctorRequestColumn.ColTime - 1)];
+					c.NurseDate = (reader.IsDBNull(((int)DoctorRequestColumn.NurseDate - 1)))?null:(System.DateTime?)reader[((int)DoctorRequestColumn.NurseDate - 1)];
+					c.NurseTime = (reader.IsDBNull(((int)DoctorRequestColumn.NurseTime - 1)))?null:(System.TimeSpan?)reader[((int)DoctorRequestColumn.NurseTime - 1)];
+					c.LabDate = (reader.IsDBNull(((int)DoctorRequestColumn.LabDate - 1)))?null:(System.DateTime?)reader[((int)DoctorRequestColumn.LabDate - 1)];
+					c.LabTime = (reader.IsDBNull(((int)DoctorRequestColumn.LabTime - 1)))?null:(System.TimeSpan?)reader[((int)DoctorRequestColumn.LabTime - 1)];
+					c.FinishDate = (reader.IsDBNull(((int)DoctorRequestColumn.FinishDate - 1)))?null:(System.DateTime?)reader[((int)DoctorRequestColumn.FinishDate - 1)];
+					c.FinishTime = (reader.IsDBNull(((int)DoctorRequestColumn.FinishTime - 1)))?null:(System.TimeSpan?)reader[((int)DoctorRequestColumn.FinishTime - 1)];
 					c.EntityTrackingKey = key;
 					c.AcceptChanges();
 					c.SuppressEntityEvents = false;
@@ -484,6 +598,14 @@ namespace ePrescription.Data.Bases
 			entity.ReqStatus = (reader.IsDBNull(((int)DoctorRequestColumn.ReqStatus - 1)))?null:(System.String)reader[((int)DoctorRequestColumn.ReqStatus - 1)];
 			entity.Billable = (reader.IsDBNull(((int)DoctorRequestColumn.Billable - 1)))?null:(System.Boolean?)reader[((int)DoctorRequestColumn.Billable - 1)];
 			entity.Sample = (reader.IsDBNull(((int)DoctorRequestColumn.Sample - 1)))?null:(System.String)reader[((int)DoctorRequestColumn.Sample - 1)];
+			entity.ColDate = (reader.IsDBNull(((int)DoctorRequestColumn.ColDate - 1)))?null:(System.DateTime?)reader[((int)DoctorRequestColumn.ColDate - 1)];
+			entity.ColTime = (reader.IsDBNull(((int)DoctorRequestColumn.ColTime - 1)))?null:(System.TimeSpan?)reader[((int)DoctorRequestColumn.ColTime - 1)];
+			entity.NurseDate = (reader.IsDBNull(((int)DoctorRequestColumn.NurseDate - 1)))?null:(System.DateTime?)reader[((int)DoctorRequestColumn.NurseDate - 1)];
+			entity.NurseTime = (reader.IsDBNull(((int)DoctorRequestColumn.NurseTime - 1)))?null:(System.TimeSpan?)reader[((int)DoctorRequestColumn.NurseTime - 1)];
+			entity.LabDate = (reader.IsDBNull(((int)DoctorRequestColumn.LabDate - 1)))?null:(System.DateTime?)reader[((int)DoctorRequestColumn.LabDate - 1)];
+			entity.LabTime = (reader.IsDBNull(((int)DoctorRequestColumn.LabTime - 1)))?null:(System.TimeSpan?)reader[((int)DoctorRequestColumn.LabTime - 1)];
+			entity.FinishDate = (reader.IsDBNull(((int)DoctorRequestColumn.FinishDate - 1)))?null:(System.DateTime?)reader[((int)DoctorRequestColumn.FinishDate - 1)];
+			entity.FinishTime = (reader.IsDBNull(((int)DoctorRequestColumn.FinishTime - 1)))?null:(System.TimeSpan?)reader[((int)DoctorRequestColumn.FinishTime - 1)];
 			entity.AcceptChanges();
 		}
 		
@@ -506,6 +628,14 @@ namespace ePrescription.Data.Bases
 			entity.ReqStatus = Convert.IsDBNull(dataRow["ReqStatus"]) ? null : (System.String)dataRow["ReqStatus"];
 			entity.Billable = Convert.IsDBNull(dataRow["Billable"]) ? null : (System.Boolean?)dataRow["Billable"];
 			entity.Sample = Convert.IsDBNull(dataRow["Sample"]) ? null : (System.String)dataRow["Sample"];
+			entity.ColDate = Convert.IsDBNull(dataRow["ColDate"]) ? null : (System.DateTime?)dataRow["ColDate"];
+			entity.ColTime = Convert.IsDBNull(dataRow["ColTime"]) ? null : (System.TimeSpan?)dataRow["ColTime"];
+			entity.NurseDate = Convert.IsDBNull(dataRow["NurseDate"]) ? null : (System.DateTime?)dataRow["NurseDate"];
+			entity.NurseTime = Convert.IsDBNull(dataRow["NurseTime"]) ? null : (System.TimeSpan?)dataRow["NurseTime"];
+			entity.LabDate = Convert.IsDBNull(dataRow["LabDate"]) ? null : (System.DateTime?)dataRow["LabDate"];
+			entity.LabTime = Convert.IsDBNull(dataRow["LabTime"]) ? null : (System.TimeSpan?)dataRow["LabTime"];
+			entity.FinishDate = Convert.IsDBNull(dataRow["FinishDate"]) ? null : (System.DateTime?)dataRow["FinishDate"];
+			entity.FinishTime = Convert.IsDBNull(dataRow["FinishTime"]) ? null : (System.TimeSpan?)dataRow["FinishTime"];
 			entity.AcceptChanges();
 		}
 		#endregion 

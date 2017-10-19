@@ -95,11 +95,13 @@ namespace ePrescription.Entities
 		///<param name="_durationUnit"></param>
 		///<param name="_durationUnitVn"></param>
 		///<param name="_totalUnit"></param>
+		///<param name="_unit"></param>
+		///<param name="_unitVn"></param>
 		public FavoritDetailBase(System.String _favouriteId, System.String _drugId, System.String _drugName, 
 			System.String _routeType, System.String _routeTypeVn, System.String _dosage, System.String _dosageUnit, 
 			System.String _dosageUnitVn, System.String _frequency, System.String _frequencyVn, 
 			System.String _duration, System.String _durationUnit, System.String _durationUnitVn, 
-			System.String _totalUnit)
+			System.String _totalUnit, System.String _unit, System.String _unitVn)
 		{
 			this.entityData = new FavoritDetailEntityData();
 			this.backupData = null;
@@ -118,6 +120,8 @@ namespace ePrescription.Entities
 			this.DurationUnit = _durationUnit;
 			this.DurationUnitVn = _durationUnitVn;
 			this.TotalUnit = _totalUnit;
+			this.Unit = _unit;
+			this.UnitVn = _unitVn;
 		}
 		
 		///<summary>
@@ -137,11 +141,13 @@ namespace ePrescription.Entities
 		///<param name="_durationUnit"></param>
 		///<param name="_durationUnitVn"></param>
 		///<param name="_totalUnit"></param>
+		///<param name="_unit"></param>
+		///<param name="_unitVn"></param>
 		public static FavoritDetail CreateFavoritDetail(System.String _favouriteId, System.String _drugId, System.String _drugName, 
 			System.String _routeType, System.String _routeTypeVn, System.String _dosage, System.String _dosageUnit, 
 			System.String _dosageUnitVn, System.String _frequency, System.String _frequencyVn, 
 			System.String _duration, System.String _durationUnit, System.String _durationUnitVn, 
-			System.String _totalUnit)
+			System.String _totalUnit, System.String _unit, System.String _unitVn)
 		{
 			FavoritDetail newFavoritDetail = new FavoritDetail();
 			newFavoritDetail.FavouriteId = _favouriteId;
@@ -158,6 +164,8 @@ namespace ePrescription.Entities
 			newFavoritDetail.DurationUnit = _durationUnit;
 			newFavoritDetail.DurationUnitVn = _durationUnitVn;
 			newFavoritDetail.TotalUnit = _totalUnit;
+			newFavoritDetail.Unit = _unit;
+			newFavoritDetail.UnitVn = _unitVn;
 			return newFavoritDetail;
 		}
 				
@@ -738,6 +746,82 @@ namespace ePrescription.Entities
 			}
 		}
 		
+		/// <summary>
+		/// 	Gets or sets the Unit property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true, 50)]
+		public virtual System.String Unit
+		{
+			get
+			{
+				return this.entityData.Unit; 
+			}
+			
+			set
+			{
+				if (this.entityData.Unit == value)
+					return;
+				
+                OnPropertyChanging("Unit");                    
+				OnColumnChanging(FavoritDetailColumn.Unit, this.entityData.Unit);
+				this.entityData.Unit = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(FavoritDetailColumn.Unit, this.entityData.Unit);
+				OnPropertyChanged("Unit");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the UnitVn property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true, 50)]
+		public virtual System.String UnitVn
+		{
+			get
+			{
+				return this.entityData.UnitVn; 
+			}
+			
+			set
+			{
+				if (this.entityData.UnitVn == value)
+					return;
+				
+                OnPropertyChanging("UnitVn");                    
+				OnColumnChanging(FavoritDetailColumn.UnitVn, this.entityData.UnitVn);
+				this.entityData.UnitVn = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(FavoritDetailColumn.UnitVn, this.entityData.UnitVn);
+				OnPropertyChanged("UnitVn");
+			}
+		}
+		
 		#endregion Data Properties		
 
 		#region Source Foreign Key Property
@@ -798,6 +882,10 @@ namespace ePrescription.Entities
 				new CommonRules.MaxLengthRuleArgs("DurationUnitVn", "Duration Unit Vn", 50));
 			ValidationRules.AddRule( CommonRules.StringMaxLength, 
 				new CommonRules.MaxLengthRuleArgs("TotalUnit", "Total Unit", 50));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("Unit", "Unit", 50));
+			ValidationRules.AddRule( CommonRules.StringMaxLength, 
+				new CommonRules.MaxLengthRuleArgs("UnitVn", "Unit Vn", 50));
 		}
    		#endregion
 		
@@ -819,7 +907,7 @@ namespace ePrescription.Entities
 		{
 			get
 			{
-				return new string[] {"ID", "FavouriteID", "DrugID", "DrugName", "RouteType", "RouteTypeVN", "Dosage", "DosageUnit", "DosageUnitVN", "Frequency", "FrequencyVN", "Duration", "DurationUnit", "DurationUnitVN", "TotalUnit"};
+				return new string[] {"ID", "FavouriteID", "DrugID", "DrugName", "RouteType", "RouteTypeVN", "Dosage", "DosageUnit", "DosageUnitVN", "Frequency", "FrequencyVN", "Duration", "DurationUnit", "DurationUnitVN", "TotalUnit", "Unit", "UnitVN"};
 			}
 		}
 		#endregion 
@@ -982,6 +1070,8 @@ namespace ePrescription.Entities
 				copy.DurationUnit = this.DurationUnit;
 				copy.DurationUnitVn = this.DurationUnitVn;
 				copy.TotalUnit = this.TotalUnit;
+				copy.Unit = this.Unit;
+				copy.UnitVn = this.UnitVn;
 			
 			if (this.FavouriteIdSource != null && existingCopies.Contains(this.FavouriteIdSource))
 				copy.FavouriteIdSource = existingCopies[this.FavouriteIdSource] as FavoritMaster;
@@ -1148,6 +1238,10 @@ namespace ePrescription.Entities
 					return entityData.DurationUnitVn != _originalData.DurationUnitVn;
 					case FavoritDetailColumn.TotalUnit:
 					return entityData.TotalUnit != _originalData.TotalUnit;
+					case FavoritDetailColumn.Unit:
+					return entityData.Unit != _originalData.Unit;
+					case FavoritDetailColumn.UnitVn:
+					return entityData.UnitVn != _originalData.UnitVn;
 			
 				default:
 					return false;
@@ -1190,6 +1284,8 @@ namespace ePrescription.Entities
 			result = result || entityData.DurationUnit != _originalData.DurationUnit;
 			result = result || entityData.DurationUnitVn != _originalData.DurationUnitVn;
 			result = result || entityData.TotalUnit != _originalData.TotalUnit;
+			result = result || entityData.Unit != _originalData.Unit;
+			result = result || entityData.UnitVn != _originalData.UnitVn;
 			return result;
 		}	
 		
@@ -1213,7 +1309,9 @@ namespace ePrescription.Entities
 				_originalData.Duration,
 				_originalData.DurationUnit,
 				_originalData.DurationUnitVn,
-				_originalData.TotalUnit
+				_originalData.TotalUnit,
+				_originalData.Unit,
+				_originalData.UnitVn
 				);
 				
 			return (FavoritDetail)this.Clone();
@@ -1257,7 +1355,9 @@ namespace ePrescription.Entities
 					((this.Duration == null) ? string.Empty : this.Duration.ToString()).GetHashCode() ^ 
 					((this.DurationUnit == null) ? string.Empty : this.DurationUnit.ToString()).GetHashCode() ^ 
 					((this.DurationUnitVn == null) ? string.Empty : this.DurationUnitVn.ToString()).GetHashCode() ^ 
-					((this.TotalUnit == null) ? string.Empty : this.TotalUnit.ToString()).GetHashCode();
+					((this.TotalUnit == null) ? string.Empty : this.TotalUnit.ToString()).GetHashCode() ^ 
+					((this.Unit == null) ? string.Empty : this.Unit.ToString()).GetHashCode() ^ 
+					((this.UnitVn == null) ? string.Empty : this.UnitVn.ToString()).GetHashCode();
         }
 		
 		///<summary>
@@ -1411,6 +1511,24 @@ namespace ePrescription.Entities
 			{
 				equal = false;
 			}
+			if ( Object1.Unit != null && Object2.Unit != null )
+			{
+				if (Object1.Unit != Object2.Unit)
+					equal = false;
+			}
+			else if (Object1.Unit == null ^ Object2.Unit == null )
+			{
+				equal = false;
+			}
+			if ( Object1.UnitVn != null && Object2.UnitVn != null )
+			{
+				if (Object1.UnitVn != Object2.UnitVn)
+					equal = false;
+			}
+			else if (Object1.UnitVn == null ^ Object2.UnitVn == null )
+			{
+				equal = false;
+			}
 					
 			return equal;
 		}
@@ -1541,6 +1659,18 @@ namespace ePrescription.Entities
             	
             	case FavoritDetailColumn.TotalUnit:
             		return this.TotalUnit.CompareTo(rhs.TotalUnit);
+            		
+            		                 
+            	
+            	
+            	case FavoritDetailColumn.Unit:
+            		return this.Unit.CompareTo(rhs.Unit);
+            		
+            		                 
+            	
+            	
+            	case FavoritDetailColumn.UnitVn:
+            		return this.UnitVn.CompareTo(rhs.UnitVn);
             		
             		                 
             }
@@ -1677,7 +1807,7 @@ namespace ePrescription.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{16}{15}- Id: {0}{15}- FavouriteId: {1}{15}- DrugId: {2}{15}- DrugName: {3}{15}- RouteType: {4}{15}- RouteTypeVn: {5}{15}- Dosage: {6}{15}- DosageUnit: {7}{15}- DosageUnitVn: {8}{15}- Frequency: {9}{15}- FrequencyVn: {10}{15}- Duration: {11}{15}- DurationUnit: {12}{15}- DurationUnitVn: {13}{15}- TotalUnit: {14}{15}{17}", 
+				"{18}{17}- Id: {0}{17}- FavouriteId: {1}{17}- DrugId: {2}{17}- DrugName: {3}{17}- RouteType: {4}{17}- RouteTypeVn: {5}{17}- Dosage: {6}{17}- DosageUnit: {7}{17}- DosageUnitVn: {8}{17}- Frequency: {9}{17}- FrequencyVn: {10}{17}- Duration: {11}{17}- DurationUnit: {12}{17}- DurationUnitVn: {13}{17}- TotalUnit: {14}{17}- Unit: {15}{17}- UnitVn: {16}{17}{19}", 
 				this.Id,
 				this.FavouriteId,
 				(this.DrugId == null) ? string.Empty : this.DrugId.ToString(),
@@ -1693,6 +1823,8 @@ namespace ePrescription.Entities
 				(this.DurationUnit == null) ? string.Empty : this.DurationUnit.ToString(),
 				(this.DurationUnitVn == null) ? string.Empty : this.DurationUnitVn.ToString(),
 				(this.TotalUnit == null) ? string.Empty : this.TotalUnit.ToString(),
+				(this.Unit == null) ? string.Empty : this.Unit.ToString(),
+				(this.UnitVn == null) ? string.Empty : this.UnitVn.ToString(),
 				System.Environment.NewLine, 
 				this.GetType(),
 				this.Error.Length == 0 ? string.Empty : string.Format("- Error: {0}\n",this.Error));
@@ -1795,6 +1927,16 @@ namespace ePrescription.Entities
 		/// TotalUnit : 
 		/// </summary>
 		public System.String TotalUnit = null;
+		
+		/// <summary>
+		/// Unit : 
+		/// </summary>
+		public System.String Unit = null;
+		
+		/// <summary>
+		/// UnitVN : 
+		/// </summary>
+		public System.String UnitVn = null;
 		#endregion
 			
 		#region Source Foreign Key Property
@@ -1845,6 +1987,8 @@ namespace ePrescription.Entities
 			_tmp.DurationUnit = this.DurationUnit;
 			_tmp.DurationUnitVn = this.DurationUnitVn;
 			_tmp.TotalUnit = this.TotalUnit;
+			_tmp.Unit = this.Unit;
+			_tmp.UnitVn = this.UnitVn;
 			
 			#region Source Parent Composite Entities
 			if (this.FavouriteIdSource != null)
@@ -1887,6 +2031,8 @@ namespace ePrescription.Entities
 			_tmp.DurationUnit = this.DurationUnit;
 			_tmp.DurationUnitVn = this.DurationUnitVn;
 			_tmp.TotalUnit = this.TotalUnit;
+			_tmp.Unit = this.Unit;
+			_tmp.UnitVn = this.UnitVn;
 			
 			#region Source Parent Composite Entities
 			if (this.FavouriteIdSource != null && existingCopies.Contains(this.FavouriteIdSource))
@@ -2343,7 +2489,19 @@ namespace ePrescription.Entities
 		/// </summary>
 		[EnumTextValue("Total Unit")]
 		[ColumnEnum("TotalUnit", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
-		TotalUnit = 15
+		TotalUnit = 15,
+		/// <summary>
+		/// Unit : 
+		/// </summary>
+		[EnumTextValue("Unit")]
+		[ColumnEnum("Unit", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
+		Unit = 16,
+		/// <summary>
+		/// UnitVn : 
+		/// </summary>
+		[EnumTextValue("Unit Vn")]
+		[ColumnEnum("UnitVN", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
+		UnitVn = 17
 	}//End enum
 
 	#endregion FavoritDetailColumn Enum

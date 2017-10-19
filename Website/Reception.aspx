@@ -3,6 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <div>
+        Patient activated through CMS
     <data:EntityGridView ID="gridPatientActivation" runat="server"
         DataSourceID="VrReceptionDataSource"
         DataKeyNames="TransactionId" AllowExportToExcel="True"
@@ -82,68 +84,116 @@
             <b>No TID Yet!</b>
         </EmptyDataTemplate>
     </data:EntityGridView>
-    <data:VrReceptionDataSource ID="VrReceptionDataSource" runat="server"
-        SelectMethod="GetPaged"
-        EnablePaging="True"
-        EnableSorting="True">
-        <Parameters>
-            <data:CustomParameter Name="WhereClause" Value="" ConvertEmptyStringToNull="false" />
-            <data:CustomParameter Name="OrderByClause" Value="" ConvertEmptyStringToNull="false" />
-            <asp:ControlParameter Name="PageIndex" ControlID="gridPatientActivation" PropertyName="PageIndex" Type="Int32" />
-            <asp:ControlParameter Name="PageSize" ControlID="gridPatientActivation" PropertyName="PageSize" Type="Int32" />
-            <data:CustomParameter Name="RecordCount" Value="0" Type="Int32" />
-        </Parameters>
-    </data:VrReceptionDataSource>
+        <data:VrReceptionDataSource ID="VrReceptionDataSource" runat="server"
+            SelectMethod="GetPaged"
+            EnablePaging="True"
+            EnableSorting="True">
+            <Parameters>
+                <data:CustomParameter Name="WhereClause" Value="" ConvertEmptyStringToNull="false" />
+                <data:CustomParameter Name="OrderByClause" Value="" ConvertEmptyStringToNull="false" />
+                <asp:ControlParameter Name="PageIndex" ControlID="gridPatientActivation" PropertyName="PageIndex" Type="Int32" />
+                <asp:ControlParameter Name="PageSize" ControlID="gridPatientActivation" PropertyName="PageSize" Type="Int32" />
+                <data:CustomParameter Name="RecordCount" Value="0" Type="Int32" />
+            </Parameters>
+        </data:VrReceptionDataSource>
+    </div>
     <br />
+    <div>
+        Patient started in clinic
     <data:EntityGridView ID="gridReception" runat="server"
         AutoGenerateColumns="False"
-        
-        DataSourceID="ClinicalStatsDataSource"
-        DataKeyNames="StatId"
+        DataSourceID="VRReceptionStartDataSource"
+        DataKeyNames="TID"
         AllowMultiColumnSorting="False"
         DefaultSortColumnName="[TID]"
         DefaultSortDirection="Ascending"
-        AllowPaging ="True"
-        OnRowCommand="gridReception_Rowcommand" AllowExportToExcel="True" AllowSorting="True" ExportToExcelText="Excel" PageSelectorPageSizeInterval="10" RecordsCount="0" ShowGridOnEmptyData="False" 
-        >
+        AllowPaging="True"
+        OnRowCommand="gridReception_Rowcommand" AllowExportToExcel="True" AllowSorting="True" ExportToExcelText="Excel" PageSelectorPageSizeInterval="10" RecordsCount="0" ShowGridOnEmptyData="False">
         <Columns>
             <asp:TemplateField HeaderText="CMD">
                 <ItemTemplate>
                     <asp:LinkButton ID="lnkRevert" runat="server" CommandName="Revert" CommandArgument='<%#Bind("TID") %>'>Revert</asp:LinkButton>
                     &nbsp;                    
-                </ItemTemplate>
+                    <asp:LinkButton ID="lnkDone" runat="server" CommandName="Done" CommandArgument='<%#Bind("TID") %>'>Done</asp:LinkButton>
+                    &nbsp;                    
+               </ItemTemplate>
             </asp:TemplateField>
-            <asp:CommandField ShowEditButton="true" />
-           <asp:BoundField DataField="Tid" HeaderText="Tid" SortExpression="[Tid]" ReadOnly="true" />
-            <asp:BoundField DataField="PatientCode" HeaderText="Patient Code" SortExpression="[PatientCode]" ReadOnly="true"/>
-            <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="[FirstName]" ReadOnly="true"/>
+            <asp:BoundField DataField="Tid" HeaderText="Tid" SortExpression="[Tid]" ReadOnly="true" />
+            <asp:BoundField DataField="PatientCode" HeaderText="Patient Code" SortExpression="[PatientCode]" ReadOnly="true" />
+            <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="[FirstName]" ReadOnly="true" />
             <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="[LastName]" ReadOnly="true" />
-            <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="[Sex]" ReadOnly="true"/>
-            <asp:BoundField DataField="Nationality" HeaderText="Nationality" SortExpression="[Nationality]" ReadOnly="true"/>
-            <asp:BoundField DataField="Dob" DataFormatString="{0:dd-MMM-yyyy}" HtmlEncode="False" HeaderText="Dob" SortExpression="[DOB]" ReadOnly="true"/>
-            <asp:CheckBoxField DataField="PatientStart" HeaderText="Patient Start" SortExpression="[PatientStart]" ReadOnly="true"/>
+            <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="[Sex]" ReadOnly="true" />
+            <asp:BoundField DataField="Nationality" HeaderText="Nationality" SortExpression="[Nationality]" ReadOnly="true" />
+            <asp:BoundField DataField="Dob" DataFormatString="{0:dd-MMM-yyyy}" HtmlEncode="False" HeaderText="Dob" SortExpression="[DOB]" ReadOnly="true" />
+            <asp:CheckBoxField DataField="PatientStart" HeaderText="Patient Start" SortExpression="[PatientStart]" ReadOnly="true" />
             <asp:CheckBoxField DataField="IsCompleted" HeaderText="Complete" SortExpression="[IsCompleted]" />
-            <asp:BoundField DataField="ChargedCodes" HeaderText="ChargedCodes" SortExpression="[ChargedCodes]" ReadOnly="true"/>
-            <asp:BoundField DataField="CreateDate" DataFormatString="{0:dd-MMM-yyyy}" HtmlEncode="False" HeaderText="Create Date" SortExpression="[CreateDate]" ReadOnly="true"/>
+            <asp:BoundField DataField="ChargedCodes" HeaderText="ChargedCodes" SortExpression="[ChargedCodes]" ReadOnly="true" />
+            <asp:BoundField DataField="CreateDate" DataFormatString="{0:dd-MMM-yyyy}" HtmlEncode="False" HeaderText="Create Date" SortExpression="[CreateDate]" ReadOnly="true" />
         </Columns>
         <EmptyDataTemplate>
             <b>No Patient Starts Yet!</b>
         </EmptyDataTemplate>
     </data:EntityGridView>
+        <br />
+
+        <data:VrReceptionStartDataSource ID="VRReceptionStartDataSource" runat="server"
+            SelectMethod="GetPaged"
+            EnablePaging="True"
+            EnableSorting="True">
+            <Parameters>
+                <data:CustomParameter Name="WhereClause" Value="" ConvertEmptyStringToNull="false" />
+                <data:CustomParameter Name="OrderByClause" Value="" ConvertEmptyStringToNull="false" />
+                <asp:ControlParameter Name="PageIndex" ControlID="gridReception" PropertyName="PageIndex" Type="Int32" />
+                <asp:ControlParameter Name="PageSize" ControlID="gridReception" PropertyName="PageSize" Type="Int32" />
+                <data:CustomParameter Name="RecordCount" Value="0" Type="Int32" />
+            </Parameters>
+        </data:VrReceptionStartDataSource>
+    </div>
     <br />
+    <div >
+        Patient completed
+        <data:GridViewSearchPanel ID="GridViewSearchPanel1" runat="server" GridViewControlID="EntityGridView1" PersistenceMethod="Session" />
+        <br />
+    <data:EntityGridView ID="EntityGridView1" runat="server"
+        AutoGenerateColumns="False"
+        DataSourceID="VRReceptionDoneDataSource"
+        DataKeyNames="TID"
+        AllowMultiColumnSorting="False"
+        DefaultSortColumnName="[TID]"
+        DefaultSortDirection="Ascending"
+        AllowPaging="True"
+        AllowExportToExcel="True" AllowSorting="True" ExportToExcelText="Excel" PageSelectorPageSizeInterval="10" RecordsCount="0" ShowGridOnEmptyData="False">
+        <Columns>
+            <asp:BoundField DataField="Tid" HeaderText="Tid" SortExpression="[Tid]" ReadOnly="true" />
+            <asp:BoundField DataField="PatientCode" HeaderText="Patient Code" SortExpression="[PatientCode]" ReadOnly="true" />
+            <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="[FirstName]" ReadOnly="true" />
+            <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="[LastName]" ReadOnly="true" />
+            <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="[Sex]" ReadOnly="true" />
+            <asp:BoundField DataField="Nationality" HeaderText="Nationality" SortExpression="[Nationality]" ReadOnly="true" />
+            <asp:BoundField DataField="Dob" DataFormatString="{0:dd-MMM-yyyy}" HtmlEncode="False" HeaderText="Dob" SortExpression="[DOB]" ReadOnly="true" />
+            <asp:CheckBoxField DataField="PatientStart" HeaderText="Patient Start" SortExpression="[PatientStart]" ReadOnly="true" />
+            <asp:CheckBoxField DataField="IsCompleted" HeaderText="Complete" SortExpression="[IsCompleted]" />
+            <asp:BoundField DataField="ChargedCodes" HeaderText="ChargedCodes" SortExpression="[ChargedCodes]" ReadOnly="true" />
+            <asp:BoundField DataField="CreateDate" DataFormatString="{0:dd-MMM-yyyy}" HtmlEncode="False" HeaderText="Create Date" SortExpression="[CreateDate]" ReadOnly="true" />
+        </Columns>
+        <EmptyDataTemplate>
+            <b>No Patient Starts Yet!</b>
+        </EmptyDataTemplate>
+    </data:EntityGridView>
+        <br />
 
-    <data:ClinicalStatsDataSource ID="ClinicalStatsDataSource" runat="server"
-        SelectMethod="GetPaged"
-        EnablePaging="True"
-        EnableSorting="True">
-        <Parameters>
-            <data:CustomParameter Name="WhereClause" Value="" ConvertEmptyStringToNull="false" />
-            <data:CustomParameter Name="OrderByClause" Value="" ConvertEmptyStringToNull="false" />
-            <asp:ControlParameter Name="PageIndex" ControlID="gridReception" PropertyName="PageIndex" Type="Int32" />
-            <asp:ControlParameter Name="PageSize" ControlID="gridReception" PropertyName="PageSize" Type="Int32" />
-            <data:CustomParameter Name="RecordCount" Value="0" Type="Int32" />
-        </Parameters>
-    </data:ClinicalStatsDataSource>
-
+        <data:VrReceptionDoneDataSource ID="VRReceptionDoneDataSource" runat="server"
+            SelectMethod="GetPaged"
+            EnablePaging="True"
+            EnableSorting="True">
+            <Parameters>
+                <data:CustomParameter Name="WhereClause" Value="" ConvertEmptyStringToNull="false" />
+                <data:CustomParameter Name="OrderByClause" Value="" ConvertEmptyStringToNull="false" />
+                <asp:ControlParameter Name="PageIndex" ControlID="EntityGridView1" PropertyName="PageIndex" Type="Int32" />
+                <asp:ControlParameter Name="PageSize" ControlID="EntityGridView1" PropertyName="PageSize" Type="Int32" />
+                <data:CustomParameter Name="RecordCount" Value="0" Type="Int32" />
+            </Parameters>
+        </data:VrReceptionDoneDataSource>
+    </div>
 </asp:Content>
 

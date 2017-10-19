@@ -159,6 +159,53 @@ namespace ePrescription.Data.Bases
 		#region Custom Methods
 		
 		
+		#region _FavoritMaster_Del 
+		
+		/// <summary>
+		///	This method wrap the '_FavoritMaster_Del' stored procedure. 
+		/// </summary>
+		/// <param name="favId"> A <c>System.String</c> instance.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void Del(System.String favId)
+		{
+			 Del(null, 0, int.MaxValue , favId);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_FavoritMaster_Del' stored procedure. 
+		/// </summary>
+		/// <param name="favId"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void Del(int start, int pageLength, System.String favId)
+		{
+			 Del(null, start, pageLength , favId);
+		}
+				
+		/// <summary>
+		///	This method wrap the '_FavoritMaster_Del' stored procedure. 
+		/// </summary>
+		/// <param name="favId"> A <c>System.String</c> instance.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void Del(TransactionManager transactionManager, System.String favId)
+		{
+			 Del(transactionManager, 0, int.MaxValue , favId);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_FavoritMaster_Del' stored procedure. 
+		/// </summary>
+		/// <param name="favId"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public abstract void Del(TransactionManager transactionManager, int start, int pageLength , System.String favId);
+		
+		#endregion
+		
 		#endregion
 
 		#region Helper Functions	

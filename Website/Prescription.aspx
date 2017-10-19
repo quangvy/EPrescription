@@ -116,14 +116,15 @@
             <div class="title-info">
                 Diagnosis
             </div>
-            <div class="content-infoDiag" id="divDiag">
+            <div >
                 &nbsp; 
-            <telerik:RadComboBox RenderMode="Lightweight" ID="rcbDiag" AllowCustomText="true" runat="server" Width="100%" Height="400px"
+            <telerik:RadComboBox RenderMode="Lightweight" ID="rcbDiag" AllowCustomText="true" runat="server" Width="63%" Height="400px"
                 EnableLoadOnDemand="True" ShowMoreResultsBox="true"
                 EnableVirtualScrolling="true" OnItemsRequested="rcbDiag_ItemsRequested"
                 EmptyMessage="Search for diagnosis...">
             </telerik:RadComboBox>
-
+                <asp:Button ID="btnDCGen" runat="server" OnClick="btnDCGen_Click" Text="C" ForeColor="#FF6600" Font-Size="Smaller" />
+                <asp:Label ID="lblDiag" runat="server" ></asp:Label>
             </div>
             <div class="clear">
             </div>

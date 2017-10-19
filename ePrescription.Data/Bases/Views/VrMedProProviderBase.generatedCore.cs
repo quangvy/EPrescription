@@ -28,8 +28,8 @@ namespace ePrescription.Data.Bases
 		/// </summary>
 		/// <param name="descriptiontion"> A <c>System.String</c> instance.</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
-		/// <returns>A <see cref="VList&lt;VrMedPro&gt;"/> instance.</returns>
-		public VList<VrMedPro> GetByDescription(System.String descriptiontion)
+		/// <returns>A <see cref="DataSet"/> instance.</returns>
+		public DataSet GetByDescription(System.String descriptiontion)
 		{
 			return GetByDescription(null, 0, int.MaxValue , descriptiontion);
 		}
@@ -41,8 +41,8 @@ namespace ePrescription.Data.Bases
 		/// <param name="start">Row number at which to start reading.</param>
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
-		/// <returns>A <see cref="VList&lt;VrMedPro&gt;"/> instance.</returns>
-		public VList<VrMedPro> GetByDescription(int start, int pageLength, System.String descriptiontion)
+		/// <returns>A <see cref="DataSet"/> instance.</returns>
+		public DataSet GetByDescription(int start, int pageLength, System.String descriptiontion)
 		{
 			return GetByDescription(null, start, pageLength , descriptiontion);
 		}
@@ -53,8 +53,8 @@ namespace ePrescription.Data.Bases
 		/// <param name="descriptiontion"> A <c>System.String</c> instance.</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
-		/// <returns>A <see cref="VList&lt;VrMedPro&gt;"/> instance.</returns>
-		public VList<VrMedPro> GetByDescription(TransactionManager transactionManager, System.String descriptiontion)
+		/// <returns>A <see cref="DataSet"/> instance.</returns>
+		public DataSet GetByDescription(TransactionManager transactionManager, System.String descriptiontion)
 		{
 			return GetByDescription(transactionManager, 0, int.MaxValue , descriptiontion);
 		}
@@ -67,8 +67,8 @@ namespace ePrescription.Data.Bases
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
-		/// <returns>A <see cref="VList&lt;VrMedPro&gt;"/> instance.</returns>
-		public abstract VList<VrMedPro> GetByDescription(TransactionManager transactionManager, int start, int pageLength, System.String descriptiontion);
+		/// <returns>A <see cref="DataSet"/> instance.</returns>
+		public abstract DataSet GetByDescription(TransactionManager transactionManager, int start, int pageLength, System.String descriptiontion);
 		
 		#endregion
 
@@ -124,6 +124,8 @@ namespace ePrescription.Data.Bases
 					c.Description = (Convert.IsDBNull(row["Description"]))?string.Empty:(System.String)row["Description"];
 					c.MainArea = (Convert.IsDBNull(row["MAIN_AREA"]))?string.Empty:(System.String)row["MAIN_AREA"];
 					c.PubPrice = (Convert.IsDBNull(row["PUB_PRICE"]))?0.0m:(System.Decimal)row["PUB_PRICE"];
+					c.SampleType = (Convert.IsDBNull(row["SampleType"]))?string.Empty:(System.String)row["SampleType"];
+					c.ProviderType = (Convert.IsDBNull(row["ProviderType"]))?string.Empty:(System.String)row["ProviderType"];
 					c.AcceptChanges();
 					rows.Add(c);
 					pagelen -= 1;
@@ -169,6 +171,10 @@ namespace ePrescription.Data.Bases
 					//entity.MainArea = (Convert.IsDBNull(reader["MAIN_AREA"]))?string.Empty:(System.String)reader["MAIN_AREA"];
 					entity.PubPrice = (System.Decimal)reader[((int)VrMedProColumn.PubPrice)];
 					//entity.PubPrice = (Convert.IsDBNull(reader["PUB_PRICE"]))?0.0m:(System.Decimal)reader["PUB_PRICE"];
+					entity.SampleType = (reader.IsDBNull(((int)VrMedProColumn.SampleType)))?null:(System.String)reader[((int)VrMedProColumn.SampleType)];
+					//entity.SampleType = (Convert.IsDBNull(reader["SampleType"]))?string.Empty:(System.String)reader["SampleType"];
+					entity.ProviderType = (reader.IsDBNull(((int)VrMedProColumn.ProviderType)))?null:(System.String)reader[((int)VrMedProColumn.ProviderType)];
+					//entity.ProviderType = (Convert.IsDBNull(reader["ProviderType"]))?string.Empty:(System.String)reader["ProviderType"];
 					entity.AcceptChanges();
 					entity.SuppressEntityEvents = false;
 					
@@ -197,6 +203,10 @@ namespace ePrescription.Data.Bases
 			//entity.MainArea = (Convert.IsDBNull(reader["MAIN_AREA"]))?string.Empty:(System.String)reader["MAIN_AREA"];
 			entity.PubPrice = (System.Decimal)reader[((int)VrMedProColumn.PubPrice)];
 			//entity.PubPrice = (Convert.IsDBNull(reader["PUB_PRICE"]))?0.0m:(System.Decimal)reader["PUB_PRICE"];
+			entity.SampleType = (reader.IsDBNull(((int)VrMedProColumn.SampleType)))?null:(System.String)reader[((int)VrMedProColumn.SampleType)];
+			//entity.SampleType = (Convert.IsDBNull(reader["SampleType"]))?string.Empty:(System.String)reader["SampleType"];
+			entity.ProviderType = (reader.IsDBNull(((int)VrMedProColumn.ProviderType)))?null:(System.String)reader[((int)VrMedProColumn.ProviderType)];
+			//entity.ProviderType = (Convert.IsDBNull(reader["ProviderType"]))?string.Empty:(System.String)reader["ProviderType"];
 			reader.Close();
 	
 			entity.AcceptChanges();
@@ -216,6 +226,8 @@ namespace ePrescription.Data.Bases
 			entity.Description = (Convert.IsDBNull(dataRow["Description"]))?string.Empty:(System.String)dataRow["Description"];
 			entity.MainArea = (Convert.IsDBNull(dataRow["MAIN_AREA"]))?string.Empty:(System.String)dataRow["MAIN_AREA"];
 			entity.PubPrice = (Convert.IsDBNull(dataRow["PUB_PRICE"]))?0.0m:(System.Decimal)dataRow["PUB_PRICE"];
+			entity.SampleType = (Convert.IsDBNull(dataRow["SampleType"]))?string.Empty:(System.String)dataRow["SampleType"];
+			entity.ProviderType = (Convert.IsDBNull(dataRow["ProviderType"]))?string.Empty:(System.String)dataRow["ProviderType"];
 			entity.AcceptChanges();
 		}
 		*/

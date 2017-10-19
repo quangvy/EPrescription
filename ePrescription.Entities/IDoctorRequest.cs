@@ -63,6 +63,46 @@ namespace ePrescription.Entities
 		/// Sample : 
 		/// </summary>
 		System.String  Sample  { get; set; }
+		
+		/// <summary>
+		/// ColDate : 
+		/// </summary>
+		System.DateTime?  ColDate  { get; set; }
+		
+		/// <summary>
+		/// ColTime : 
+		/// </summary>
+		System.TimeSpan?  ColTime  { get; set; }
+		
+		/// <summary>
+		/// NurseDate : 
+		/// </summary>
+		System.DateTime?  NurseDate  { get; set; }
+		
+		/// <summary>
+		/// NurseTime : 
+		/// </summary>
+		System.TimeSpan?  NurseTime  { get; set; }
+		
+		/// <summary>
+		/// LabDate : 
+		/// </summary>
+		System.DateTime?  LabDate  { get; set; }
+		
+		/// <summary>
+		/// LabTime : 
+		/// </summary>
+		System.TimeSpan?  LabTime  { get; set; }
+		
+		/// <summary>
+		/// FinishDate : 
+		/// </summary>
+		System.DateTime?  FinishDate  { get; set; }
+		
+		/// <summary>
+		/// FinishTime : 
+		/// </summary>
+		System.TimeSpan?  FinishTime  { get; set; }
 			
 		/// <summary>
 		/// Creates a new object that is a copy of the current instance.

@@ -4,6 +4,8 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link href="css/ePressLab.css" rel="stylesheet" />
+   
+    
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <telerik:RadScriptManager runat="server" ID="RadScriptManager1" />
@@ -55,7 +57,19 @@
             <div class="clear"></div>
         </div>
         <div class="Favourite">
-            
+            <table>
+                <tr>
+                    <td>Collection date: </td>
+                    <td>&nbsp;<asp:TextBox ID="tbxColDate" runat="server" font-size="Smaller"> </asp:TextBox> 
+                        <asp:Label ID="lblcoldate" runat="server" Text="(F) yyyy-MM-dd" font-size="XX-Small" ForeColor="Red"></asp:Label></td>
+                </tr>
+                <tr>
+                    <td>Collection time: </td>
+                    <td>&nbsp;<asp:TextBox ID="tbxColTime" runat="server" font-size="Smaller"> </asp:TextBox>
+                        <asp:Label ID="Label1" runat="server" Text="(F) hh:mm" font-size="XX-Small" ForeColor="Red"></asp:Label>
+                    </td>
+                </tr>
+            </table>
             
         </div>
     </div>
@@ -172,6 +186,11 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        $(function () {
+            $("#tbxColDate").datepicker( );
+        });
+    </script>
     <asp:SqlDataSource ID="SqlDataLab" runat="server" ConnectionString="<%$ ConnectionStrings:ePrescription %>"
         SelectCommand="SELECT description FROM Vr_MedPro where main_area ='Laboratory' ORDER BY description"></asp:SqlDataSource>
 </asp:Content>

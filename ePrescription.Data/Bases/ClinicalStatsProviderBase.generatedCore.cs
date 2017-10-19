@@ -159,50 +159,97 @@ namespace ePrescription.Data.Bases
 		#region Custom Methods
 		
 		
-		#region _ClinicalStats_UpdateLabDrReq 
+		#region _ClinicalStats_UpdVitalSign 
 		
 		/// <summary>
-		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		///	This method wrap the '_ClinicalStats_UpdVitalSign' stored procedure. 
 		/// </summary>
 		/// <param name="tid"> A <c>System.String</c> instance.</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
-		public void UpdateLabDrReq(System.String tid)
+		public void UpdVitalSign(System.String tid)
 		{
-			 UpdateLabDrReq(null, 0, int.MaxValue , tid);
+			 UpdVitalSign(null, 0, int.MaxValue , tid);
 		}
 		
 		/// <summary>
-		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		///	This method wrap the '_ClinicalStats_UpdVitalSign' stored procedure. 
 		/// </summary>
 		/// <param name="tid"> A <c>System.String</c> instance.</param>
 		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
-		public void UpdateLabDrReq(int start, int pageLength, System.String tid)
+		public void UpdVitalSign(int start, int pageLength, System.String tid)
 		{
-			 UpdateLabDrReq(null, start, pageLength , tid);
+			 UpdVitalSign(null, start, pageLength , tid);
 		}
 				
 		/// <summary>
-		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		///	This method wrap the '_ClinicalStats_UpdVitalSign' stored procedure. 
 		/// </summary>
 		/// <param name="tid"> A <c>System.String</c> instance.</param>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
-		public void UpdateLabDrReq(TransactionManager transactionManager, System.String tid)
+		public void UpdVitalSign(TransactionManager transactionManager, System.String tid)
 		{
-			 UpdateLabDrReq(transactionManager, 0, int.MaxValue , tid);
+			 UpdVitalSign(transactionManager, 0, int.MaxValue , tid);
 		}
 		
 		/// <summary>
-		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		///	This method wrap the '_ClinicalStats_UpdVitalSign' stored procedure. 
 		/// </summary>
 		/// <param name="tid"> A <c>System.String</c> instance.</param>
 		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
 		/// <remark>This method is generate from a stored procedure.</remark>
-		public abstract void UpdateLabDrReq(TransactionManager transactionManager, int start, int pageLength , System.String tid);
+		public abstract void UpdVitalSign(TransactionManager transactionManager, int start, int pageLength , System.String tid);
+		
+		#endregion
+		
+		#region _ClinicalStats_ReceptComplete 
+		
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_ReceptComplete' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void ReceptComplete(System.String tid)
+		{
+			 ReceptComplete(null, 0, int.MaxValue , tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_ReceptComplete' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void ReceptComplete(int start, int pageLength, System.String tid)
+		{
+			 ReceptComplete(null, start, pageLength , tid);
+		}
+				
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_ReceptComplete' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void ReceptComplete(TransactionManager transactionManager, System.String tid)
+		{
+			 ReceptComplete(transactionManager, 0, int.MaxValue , tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_ReceptComplete' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public abstract void ReceptComplete(TransactionManager transactionManager, int start, int pageLength , System.String tid);
 		
 		#endregion
 		
@@ -254,6 +301,53 @@ namespace ePrescription.Data.Bases
 		/// <remark>This method is generate from a stored procedure.</remark>
 		/// <returns>A <see cref="DataSet"/> instance.</returns>
 		public abstract DataSet GetByTID(TransactionManager transactionManager, int start, int pageLength , System.String tid);
+		
+		#endregion
+		
+		#region _ClinicalStats_UpdateLabDrReq 
+		
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void UpdateLabDrReq(System.String tid)
+		{
+			 UpdateLabDrReq(null, 0, int.MaxValue , tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void UpdateLabDrReq(int start, int pageLength, System.String tid)
+		{
+			 UpdateLabDrReq(null, start, pageLength , tid);
+		}
+				
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public void UpdateLabDrReq(TransactionManager transactionManager, System.String tid)
+		{
+			 UpdateLabDrReq(transactionManager, 0, int.MaxValue , tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_ClinicalStats_UpdateLabDrReq' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		public abstract void UpdateLabDrReq(TransactionManager transactionManager, int start, int pageLength , System.String tid);
 		
 		#endregion
 		

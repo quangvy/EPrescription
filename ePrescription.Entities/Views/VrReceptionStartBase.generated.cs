@@ -79,6 +79,11 @@ namespace ePrescription.Entities
 		private System.String		  _chargedCodes = null;
 		
 		/// <summary>
+		/// CreateDate : 
+		/// </summary>
+		private System.DateTime?		  _createDate = null;
+		
+		/// <summary>
 		/// Object that contains data to associate with this object
 		/// </summary>
 		private object _tag;
@@ -114,7 +119,8 @@ namespace ePrescription.Entities
 		///<param name="_patientStart"></param>
 		///<param name="_isCompleted"></param>
 		///<param name="_chargedCodes"></param>
-		public VrReceptionStartBase(System.Int64 _statId, System.String _patientCode, System.String _tid, System.String _firstName, System.String _lastName, System.DateTime _dob, System.String _sex, System.String _nationality, System.Boolean? _patientStart, System.Boolean? _isCompleted, System.String _chargedCodes)
+		///<param name="_createDate"></param>
+		public VrReceptionStartBase(System.Int64 _statId, System.String _patientCode, System.String _tid, System.String _firstName, System.String _lastName, System.DateTime _dob, System.String _sex, System.String _nationality, System.Boolean? _patientStart, System.Boolean? _isCompleted, System.String _chargedCodes, System.DateTime? _createDate)
 		{
 			this._statId = _statId;
 			this._patientCode = _patientCode;
@@ -127,6 +133,7 @@ namespace ePrescription.Entities
 			this._patientStart = _patientStart;
 			this._isCompleted = _isCompleted;
 			this._chargedCodes = _chargedCodes;
+			this._createDate = _createDate;
 		}
 		
 		///<summary>
@@ -143,7 +150,8 @@ namespace ePrescription.Entities
 		///<param name="_patientStart"></param>
 		///<param name="_isCompleted"></param>
 		///<param name="_chargedCodes"></param>
-		public static VrReceptionStart CreateVrReceptionStart(System.Int64 _statId, System.String _patientCode, System.String _tid, System.String _firstName, System.String _lastName, System.DateTime _dob, System.String _sex, System.String _nationality, System.Boolean? _patientStart, System.Boolean? _isCompleted, System.String _chargedCodes)
+		///<param name="_createDate"></param>
+		public static VrReceptionStart CreateVrReceptionStart(System.Int64 _statId, System.String _patientCode, System.String _tid, System.String _firstName, System.String _lastName, System.DateTime _dob, System.String _sex, System.String _nationality, System.Boolean? _patientStart, System.Boolean? _isCompleted, System.String _chargedCodes, System.DateTime? _createDate)
 		{
 			VrReceptionStart newVrReceptionStart = new VrReceptionStart();
 			newVrReceptionStart.StatId = _statId;
@@ -157,6 +165,7 @@ namespace ePrescription.Entities
 			newVrReceptionStart.PatientStart = _patientStart;
 			newVrReceptionStart.IsCompleted = _isCompleted;
 			newVrReceptionStart.ChargedCodes = _chargedCodes;
+			newVrReceptionStart.CreateDate = _createDate;
 			return newVrReceptionStart;
 		}
 				
@@ -482,6 +491,35 @@ namespace ePrescription.Entities
 			}
 		}
 		
+		/// <summary>
+		/// 	Gets or Sets the CreateDate property. 
+		///		
+		/// </summary>
+		/// <value>This type is datetime</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null, this property will return DateTime.MinValue. It is up to the developer
+		/// to check the value of IsCreateDateNull() and perform business logic appropriately.
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.DateTime? CreateDate
+		{
+			get
+			{
+				return this._createDate; 
+			}
+			set
+			{
+				if (_createDate == value && CreateDate != null )
+					return;
+					
+				this._createDate = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("CreateDate");
+			}
+		}
+		
 		
 		/// <summary>
 		///     Gets or sets the object that contains supplemental data about this object.
@@ -620,6 +658,7 @@ namespace ePrescription.Entities
 				copy.PatientStart = this.PatientStart;
 				copy.IsCompleted = this.IsCompleted;
 				copy.ChargedCodes = this.ChargedCodes;
+				copy.CreateDate = this.CreateDate;
 			copy.AcceptChanges();
 			return (VrReceptionStart)copy;
 		}
@@ -720,6 +759,15 @@ namespace ePrescription.Entities
 			{
 				equal = false;
 			}
+			if (Object1.CreateDate != null && Object2.CreateDate != null )
+			{
+				if (Object1.CreateDate != Object2.CreateDate)
+					equal = false;
+			}
+			else if (Object1.CreateDate == null ^ Object1.CreateDate == null )
+			{
+				equal = false;
+			}
 			return equal;
 		}
 		
@@ -804,6 +852,8 @@ namespace ePrescription.Entities
 					return entity.IsCompleted;
 				case "ChargedCodes":
 					return entity.ChargedCodes;
+				case "CreateDate":
+					return entity.CreateDate;
 			}
 			return null;
 		}
@@ -824,7 +874,7 @@ namespace ePrescription.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{12}{11}- StatId: {0}{11}- PatientCode: {1}{11}- Tid: {2}{11}- FirstName: {3}{11}- LastName: {4}{11}- Dob: {5}{11}- Sex: {6}{11}- Nationality: {7}{11}- PatientStart: {8}{11}- IsCompleted: {9}{11}- ChargedCodes: {10}{11}", 
+				"{13}{12}- StatId: {0}{12}- PatientCode: {1}{12}- Tid: {2}{12}- FirstName: {3}{12}- LastName: {4}{12}- Dob: {5}{12}- Sex: {6}{12}- Nationality: {7}{12}- PatientStart: {8}{12}- IsCompleted: {9}{12}- ChargedCodes: {10}{12}- CreateDate: {11}{12}", 
 				this.StatId,
 				this.PatientCode,
 				this.Tid,
@@ -838,6 +888,8 @@ namespace ePrescription.Entities
 				(this.IsCompleted == null) ? string.Empty : this.IsCompleted.ToString(),
 			     
 				(this.ChargedCodes == null) ? string.Empty : this.ChargedCodes.ToString(),
+			     
+				(this.CreateDate == null) ? string.Empty : this.CreateDate.ToString(),
 			     
 				System.Environment.NewLine, 
 				this.GetType());
@@ -916,8 +968,14 @@ namespace ePrescription.Entities
 		/// ChargedCodes : 
 		/// </summary>
 		[EnumTextValue("ChargedCodes")]
-		[ColumnEnum("ChargedCodes", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
-		ChargedCodes
+		[ColumnEnum("ChargedCodes", typeof(System.String), System.Data.DbType.String, false, false, true, 255)]
+		ChargedCodes,
+		/// <summary>
+		/// CreateDate : 
+		/// </summary>
+		[EnumTextValue("CreateDate")]
+		[ColumnEnum("CreateDate", typeof(System.DateTime), System.Data.DbType.DateTime, false, false, true)]
+		CreateDate
 	}//End enum
 
 } // end namespace

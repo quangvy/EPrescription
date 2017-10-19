@@ -159,6 +159,57 @@ namespace ePrescription.Data.Bases
 		#region Custom Methods
 		
 		
+		#region _VitalSign_GetByTid 
+		
+		/// <summary>
+		///	This method wrap the '_VitalSign_GetByTid' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		/// <returns>A <see cref="TList&lt;VitalSign&gt;"/> instance.</returns>
+		public TList<VitalSign> GetByTid(System.String tid)
+		{
+			return GetByTid(null, 0, int.MaxValue , tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_VitalSign_GetByTid' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		/// <returns>A <see cref="TList&lt;VitalSign&gt;"/> instance.</returns>
+		public TList<VitalSign> GetByTid(int start, int pageLength, System.String tid)
+		{
+			return GetByTid(null, start, pageLength , tid);
+		}
+				
+		/// <summary>
+		///	This method wrap the '_VitalSign_GetByTid' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		/// <returns>A <see cref="TList&lt;VitalSign&gt;"/> instance.</returns>
+		public TList<VitalSign> GetByTid(TransactionManager transactionManager, System.String tid)
+		{
+			return GetByTid(transactionManager, 0, int.MaxValue , tid);
+		}
+		
+		/// <summary>
+		///	This method wrap the '_VitalSign_GetByTid' stored procedure. 
+		/// </summary>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading, the first row is 0.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
+		/// <remark>This method is generate from a stored procedure.</remark>
+		/// <returns>A <see cref="TList&lt;VitalSign&gt;"/> instance.</returns>
+		public abstract TList<VitalSign> GetByTid(TransactionManager transactionManager, int start, int pageLength , System.String tid);
+		
+		#endregion
+		
 		#region _VitalSign_Update 
 		
 		/// <summary>

@@ -32,6 +32,8 @@ public partial class Prescription : System.Web.UI.Page
             rcbRoute.Filter = (RadComboBoxFilter)Convert.ToInt32("1");
             rptFavorite.DataSource = DataRepository.FavoritMasterProvider.GetAll();
             rptFavorite.DataBind();
+
+
         }
     }
 
@@ -162,21 +164,20 @@ public partial class Prescription : System.Web.UI.Page
         adapter.Fill(data);
 
         return data;
+
     }
     protected void rcbDiag_ItemsRequested(object sender, RadComboBoxItemsRequestedEventArgs e)
     {
         DataTable data = GetData(e.Text);
-
         int itemOffset = e.NumberOfItems;
         int endOffset = Math.Min(itemOffset + ItemsPerRequest, data.Rows.Count);
         e.EndOfItems = endOffset == data.Rows.Count;
-
         for (int i = itemOffset; i < endOffset; i++)
         {
             rcbDiag.Items.Add(new RadComboBoxItem(data.Rows[i]["diag_name"].ToString(), data.Rows[i]["diag_name"].ToString()));
         }
-
         e.Message = GetStatusMessage(endOffset, data.Rows.Count);
+
     }
     protected void ResetGrid()
     {
@@ -200,6 +201,7 @@ public partial class Prescription : System.Web.UI.Page
         }
         GridView1.DataSource = dt;
         GridView1.DataBind();
+
     }
     protected void Add(object sender, EventArgs e)
     {
@@ -308,6 +310,7 @@ public partial class Prescription : System.Web.UI.Page
         lblAddress.Text = null;
         rcbDiag.Text = null;
         tbxRemark.Text = null;
+        lblDiag.Text = null;
         Clear();
         DataTable dt = (DataTable)GridView1.DataSource;
         ViewState["Medications"] = dt;
@@ -452,7 +455,7 @@ public partial class Prescription : System.Web.UI.Page
                     + routeVNItem.RouteVn + "',N'"
                     + dtMed.Rows[i]["D_Unit"].ToString().Trim() + "',N'"
                     + unitItem.UnitVn + "',N'"
-                    + unitItem.DosageUnit + "',N'"
+                     + dtMed.Rows[i]["Dose.Unit"].ToString().Trim() + "',N'"
                     + unitItem.DosageUnitVn + "',N'"
                     + frequencyItem.VnMeaning + "','"
                     + hardCode + "','"
@@ -508,16 +511,37 @@ public partial class Prescription : System.Web.UI.Page
     {
         if (e.CommandName == "AddToFavorite")
         {
-            string favoriteId = (string) e.CommandArgument;
+            string favoriteId = (string)e.CommandArgument;
             var byFavouriteId = DataRepository.FavoritDetailProvider.GetByFavouriteId(favoriteId);
             DataTable dt = (DataTable)ViewState["Medications"];
             foreach (FavoritDetail detail in byFavouriteId)
             {
-                dt.Rows.Add(1, detail.DrugName, detail.DrugId,"Hard code unit", detail.RouteType, detail.Dosage, detail.DosageUnit,detail.Frequency,
+                dt.Rows.Add(1, detail.DrugName, detail.DrugId, "Hard code unit", detail.RouteType, detail.Dosage, detail.DosageUnit, detail.Frequency,
                 detail.Duration, detail.DurationUnit, detail.DurationUnitVn, false,
                     "");
             }
             BindGrid();
+        }
+    }
+
+    protected void btnDCGen_Click(object sender, EventArgs e)
+    {
+        if (rcbDiag.Text == string.Empty)
+        {
+            ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alertMessage", "alert('Please choose diagnosis first')", true);
+            //Response.Write("<script>alert('Please choose patient first')</script>");
+        }
+        else
+        {
+
+            int count1 = 0;
+            var diagList = DataRepository.DiaglistProvider.GetPaged("DIAG_NAME = '" + rcbDiag.Text.Trim() + "'", "", 0, 1, out count1);
+            Diaglist diagVN = new Diaglist();
+            if (count1 == 1)
+            {
+                diagVN = diagList[0];
+            }
+            lblDiag.Text = diagVN.DiagCode.ToString();
         }
     }
 }

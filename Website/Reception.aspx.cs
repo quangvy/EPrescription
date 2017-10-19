@@ -61,5 +61,12 @@ public partial class Reception : System.Web.UI.Page
             DataRepository.ClinicalStatsProvider.UpdateRecept(transID);
             Response.Redirect("Reception.aspx");
         }
+        if (e.CommandName == "Done")
+        {
+            GridViewRow row = ((GridViewRow)((LinkButton)e.CommandSource).NamingContainer);
+            var transID = e.CommandArgument.ToString();
+            DataRepository.ClinicalStatsProvider.ReceptComplete(transID);
+            Response.Redirect("Reception.aspx");
+        }
     }
 }

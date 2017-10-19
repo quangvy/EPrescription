@@ -88,6 +88,16 @@ namespace ePrescription.Entities
 		/// TotalUnit : 
 		/// </summary>
 		System.String  TotalUnit  { get; set; }
+		
+		/// <summary>
+		/// Unit : 
+		/// </summary>
+		System.String  Unit  { get; set; }
+		
+		/// <summary>
+		/// UnitVN : 
+		/// </summary>
+		System.String  UnitVn  { get; set; }
 			
 		/// <summary>
 		/// Creates a new object that is a copy of the current instance.

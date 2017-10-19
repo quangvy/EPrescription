@@ -418,6 +418,15 @@ namespace ePrescription.Web.UI
 		{
 			get { return _entity.ChargedCodes; }
 		}
+        /// <summary>
+        /// Gets the CreateDate
+        /// </summary>
+        /// <value>The CreateDate.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.DateTime? CreateDate
+		{
+			get { return _entity.CreateDate; }
+		}
 
 	}
 }

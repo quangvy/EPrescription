@@ -421,6 +421,78 @@ namespace ePrescription.Web.UI
 		{
 			get { return _entity.Sample; }
 		}
+        /// <summary>
+        /// Gets the ColDate
+        /// </summary>
+        /// <value>The ColDate.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.DateTime? ColDate
+		{
+			get { return _entity.ColDate; }
+		}
+        /// <summary>
+        /// Gets the ColTime
+        /// </summary>
+        /// <value>The ColTime.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.TimeSpan? ColTime
+		{
+			get { return _entity.ColTime; }
+		}
+        /// <summary>
+        /// Gets the NurseDate
+        /// </summary>
+        /// <value>The NurseDate.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.DateTime? NurseDate
+		{
+			get { return _entity.NurseDate; }
+		}
+        /// <summary>
+        /// Gets the NurseTime
+        /// </summary>
+        /// <value>The NurseTime.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.TimeSpan? NurseTime
+		{
+			get { return _entity.NurseTime; }
+		}
+        /// <summary>
+        /// Gets the LabDate
+        /// </summary>
+        /// <value>The LabDate.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.DateTime? LabDate
+		{
+			get { return _entity.LabDate; }
+		}
+        /// <summary>
+        /// Gets the LabTime
+        /// </summary>
+        /// <value>The LabTime.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.TimeSpan? LabTime
+		{
+			get { return _entity.LabTime; }
+		}
+        /// <summary>
+        /// Gets the FinishDate
+        /// </summary>
+        /// <value>The FinishDate.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.DateTime? FinishDate
+		{
+			get { return _entity.FinishDate; }
+		}
+        /// <summary>
+        /// Gets the FinishTime
+        /// </summary>
+        /// <value>The FinishTime.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.TimeSpan? FinishTime
+		{
+			get { return _entity.FinishTime; }
+		}
 
         /// <summary>
         /// Gets a <see cref="T:ePrescription.Entities.DoctorRequest"></see> object

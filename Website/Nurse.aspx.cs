@@ -27,9 +27,8 @@ public partial class Nurse : System.Web.UI.Page
         else
         {
             string TID = lblTranID.Text.ToString().Trim();
-            //int count = 0;
-            DataSet TIDList = DataRepository.Provider.ExecuteDataSet("_VitalSign_GetByTid",TID );
-            string dbTID = TIDList.Tables[0].Rows[1].ToString();
+            int count1 = 0;
+            var TIDList = DataRepository.VitalSignProvider.GetPaged("TID = '" + TID + "'", "", 0, 1, out count1);
             string pcode = lblpatcode.Text.ToString();
             string temp = tbxTemp.Text.ToString();
             string pulse = tbxPulse.Text.ToString();
@@ -42,30 +41,30 @@ public partial class Nurse : System.Web.UI.Page
             DateTime date = DateTime.Now;
             var loggedInDoctor = HttpContext.Current.User.Identity.Name;
             var updateUser = HttpContext.Current.User.Identity.Name;
-            lbltest.Text = TIDList.ToString();
-            //if (dbTID != TID)
-            //{
-
-            //    DataRepository.VitalSignProvider.Insert(TID,pcode , temp, pulse, res, bpress, satO2, gcs, height, weight, date, loggedInDoctor);
-            //}
-            //else
-            //{
-            //    lbltest.Text = dbTID.ToString() + "dbTID = TID tren form";
-            //    DataRepository.VitalSignProvider.Update(TID, temp, pulse, res, bpress, satO2, gcs, height, weight, date, updateUser);
-            //}
+            if (count1 == 0)
+            {
+                //string dbTID = TIDList[0].Tid;
+                DataRepository.VitalSignProvider.Insert(TID, pcode, temp, pulse, res, bpress, satO2, gcs, height, weight, date, loggedInDoctor);
+            }
+            else
+            {
+                DataRepository.VitalSignProvider.Update(TID, temp, pulse, res, bpress, satO2, gcs, height, weight, date, updateUser);
+            }
+            DataRepository.ClinicalStatsProvider.UpdVitalSign(TID);
             foreach (GridViewRow row in gridUpdate.Rows)
             {
                 for (int i = 0; i < row.Cells.Count; i++)
                 {
                     string proCode = ((Label)row.Cells[1].Controls[1]).Text;
-                    //string bill = ((Label)row.Cells[4].Controls[1]).Text;
-                    //Boolean billable;
-                    //Boolean.TryParse(bill, out billable);
-                    //lbltest.Text = proCode.ToString()+ "-"+billable.ToString();
-                    //DataRepository.DoctorRequestProvider.UpdNurse(proCode,billable,TID);
+                    CheckBox bill = (row.Cells[0].FindControl("cb_Billable") as CheckBox) ;
+                    string b = bill.Checked.ToString();
+                    Boolean billable;
+                    Boolean.TryParse(b, out billable);
+                    DataRepository.DoctorRequestProvider.UpdNurse(proCode, billable, TID);
                 }
             }
         }
+        Response.Redirect("nurse.aspx");
     }
     protected void gridWaitingPat_process(object sender, GridViewCommandEventArgs e)
     {

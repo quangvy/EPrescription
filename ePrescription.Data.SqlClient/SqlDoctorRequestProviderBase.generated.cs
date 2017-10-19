@@ -186,6 +186,14 @@ namespace ePrescription.Data.SqlClient
 		database.AddInParameter(commandWrapper, "@ReqStatus", DbType.String, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Billable", DbType.Boolean, DBNull.Value);
 		database.AddInParameter(commandWrapper, "@Sample", DbType.String, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@ColDate", DbType.DateTime, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@ColTime", DbType.Time, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@NurseDate", DbType.DateTime, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@NurseTime", DbType.Time, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@LabDate", DbType.DateTime, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@LabTime", DbType.Time, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@FinishDate", DbType.DateTime, DBNull.Value);
+		database.AddInParameter(commandWrapper, "@FinishTime", DbType.Time, DBNull.Value);
 	
 			// replace all instances of 'AND' and 'OR' because we already set searchUsingOR
 			whereClause = whereClause.Replace(" AND ", "|").Replace(" OR ", "|") ; 
@@ -258,6 +266,54 @@ namespace ePrescription.Data.SqlClient
 				{
 					database.SetParameterValue(commandWrapper, "@Sample", 
 						clause.Trim().Remove(0,6).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("coldate ") || clause.Trim().StartsWith("coldate="))
+				{
+					database.SetParameterValue(commandWrapper, "@ColDate", 
+						clause.Trim().Remove(0,7).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("coltime ") || clause.Trim().StartsWith("coltime="))
+				{
+					database.SetParameterValue(commandWrapper, "@ColTime", 
+						clause.Trim().Remove(0,7).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("nursedate ") || clause.Trim().StartsWith("nursedate="))
+				{
+					database.SetParameterValue(commandWrapper, "@NurseDate", 
+						clause.Trim().Remove(0,9).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("nursetime ") || clause.Trim().StartsWith("nursetime="))
+				{
+					database.SetParameterValue(commandWrapper, "@NurseTime", 
+						clause.Trim().Remove(0,9).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("labdate ") || clause.Trim().StartsWith("labdate="))
+				{
+					database.SetParameterValue(commandWrapper, "@LabDate", 
+						clause.Trim().Remove(0,7).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("labtime ") || clause.Trim().StartsWith("labtime="))
+				{
+					database.SetParameterValue(commandWrapper, "@LabTime", 
+						clause.Trim().Remove(0,7).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("finishdate ") || clause.Trim().StartsWith("finishdate="))
+				{
+					database.SetParameterValue(commandWrapper, "@FinishDate", 
+						clause.Trim().Remove(0,10).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
+					continue;
+				}
+				if (clause.Trim().StartsWith("finishtime ") || clause.Trim().StartsWith("finishtime="))
+				{
+					database.SetParameterValue(commandWrapper, "@FinishTime", 
+						clause.Trim().Remove(0,10).Trim().TrimStart(equalSign).Trim().Trim(singleQuote));
 					continue;
 				}
 	
@@ -665,6 +721,22 @@ namespace ePrescription.Data.SqlClient
 			col8.AllowDBNull = true;		
 			DataColumn col9 = dataTable.Columns.Add("Sample", typeof(System.String));
 			col9.AllowDBNull = true;		
+			DataColumn col10 = dataTable.Columns.Add("ColDate", typeof(System.DateTime));
+			col10.AllowDBNull = true;		
+			DataColumn col11 = dataTable.Columns.Add("ColTime", typeof(System.TimeSpan));
+			col11.AllowDBNull = true;		
+			DataColumn col12 = dataTable.Columns.Add("NurseDate", typeof(System.DateTime));
+			col12.AllowDBNull = true;		
+			DataColumn col13 = dataTable.Columns.Add("NurseTime", typeof(System.TimeSpan));
+			col13.AllowDBNull = true;		
+			DataColumn col14 = dataTable.Columns.Add("LabDate", typeof(System.DateTime));
+			col14.AllowDBNull = true;		
+			DataColumn col15 = dataTable.Columns.Add("LabTime", typeof(System.TimeSpan));
+			col15.AllowDBNull = true;		
+			DataColumn col16 = dataTable.Columns.Add("FinishDate", typeof(System.DateTime));
+			col16.AllowDBNull = true;		
+			DataColumn col17 = dataTable.Columns.Add("FinishTime", typeof(System.TimeSpan));
+			col17.AllowDBNull = true;		
 			
 			bulkCopy.ColumnMappings.Add("Id", "Id");
 			bulkCopy.ColumnMappings.Add("TID", "TID");
@@ -676,6 +748,14 @@ namespace ePrescription.Data.SqlClient
 			bulkCopy.ColumnMappings.Add("ReqStatus", "ReqStatus");
 			bulkCopy.ColumnMappings.Add("Billable", "Billable");
 			bulkCopy.ColumnMappings.Add("Sample", "Sample");
+			bulkCopy.ColumnMappings.Add("ColDate", "ColDate");
+			bulkCopy.ColumnMappings.Add("ColTime", "ColTime");
+			bulkCopy.ColumnMappings.Add("NurseDate", "NurseDate");
+			bulkCopy.ColumnMappings.Add("NurseTime", "NurseTime");
+			bulkCopy.ColumnMappings.Add("LabDate", "LabDate");
+			bulkCopy.ColumnMappings.Add("LabTime", "LabTime");
+			bulkCopy.ColumnMappings.Add("FinishDate", "FinishDate");
+			bulkCopy.ColumnMappings.Add("FinishTime", "FinishTime");
 			
 			foreach(ePrescription.Entities.DoctorRequest entity in entities)
 			{
@@ -712,6 +792,30 @@ namespace ePrescription.Data.SqlClient
 							
 				
 					row["Sample"] = entity.Sample;
+							
+				
+					row["ColDate"] = entity.ColDate.HasValue ? (object) entity.ColDate  : System.DBNull.Value;
+							
+				
+					row["ColTime"] = entity.ColTime.HasValue ? (object) entity.ColTime  : System.DBNull.Value;
+							
+				
+					row["NurseDate"] = entity.NurseDate.HasValue ? (object) entity.NurseDate  : System.DBNull.Value;
+							
+				
+					row["NurseTime"] = entity.NurseTime.HasValue ? (object) entity.NurseTime  : System.DBNull.Value;
+							
+				
+					row["LabDate"] = entity.LabDate.HasValue ? (object) entity.LabDate  : System.DBNull.Value;
+							
+				
+					row["LabTime"] = entity.LabTime.HasValue ? (object) entity.LabTime  : System.DBNull.Value;
+							
+				
+					row["FinishDate"] = entity.FinishDate.HasValue ? (object) entity.FinishDate  : System.DBNull.Value;
+							
+				
+					row["FinishTime"] = entity.FinishTime.HasValue ? (object) entity.FinishTime  : System.DBNull.Value;
 							
 				
 				dataTable.Rows.Add(row);
@@ -758,6 +862,14 @@ namespace ePrescription.Data.SqlClient
             database.AddInParameter(commandWrapper, "@ReqStatus", DbType.String, entity.ReqStatus );
 			database.AddInParameter(commandWrapper, "@Billable", DbType.Boolean, (entity.Billable.HasValue ? (object) entity.Billable  : System.DBNull.Value));
             database.AddInParameter(commandWrapper, "@Sample", DbType.String, entity.Sample );
+			database.AddInParameter(commandWrapper, "@ColDate", DbType.DateTime, (entity.ColDate.HasValue ? (object) entity.ColDate  : System.DBNull.Value));
+            database.AddInParameter(commandWrapper, "@ColTime", SqlDbType.Time, (entity.ColTime.HasValue ? (object) entity.ColTime  : System.DBNull.Value));
+			database.AddInParameter(commandWrapper, "@NurseDate", DbType.DateTime, (entity.NurseDate.HasValue ? (object) entity.NurseDate  : System.DBNull.Value));
+            database.AddInParameter(commandWrapper, "@NurseTime", SqlDbType.Time, (entity.NurseTime.HasValue ? (object) entity.NurseTime  : System.DBNull.Value));
+			database.AddInParameter(commandWrapper, "@LabDate", DbType.DateTime, (entity.LabDate.HasValue ? (object) entity.LabDate  : System.DBNull.Value));
+            database.AddInParameter(commandWrapper, "@LabTime", SqlDbType.Time, (entity.LabTime.HasValue ? (object) entity.LabTime  : System.DBNull.Value));
+			database.AddInParameter(commandWrapper, "@FinishDate", DbType.DateTime, (entity.FinishDate.HasValue ? (object) entity.FinishDate  : System.DBNull.Value));
+            database.AddInParameter(commandWrapper, "@FinishTime", SqlDbType.Time, (entity.FinishTime.HasValue ? (object) entity.FinishTime  : System.DBNull.Value));
 			
 			int results = 0;
 			
@@ -816,6 +928,14 @@ namespace ePrescription.Data.SqlClient
             database.AddInParameter(commandWrapper, "@ReqStatus", DbType.String, entity.ReqStatus );
 			database.AddInParameter(commandWrapper, "@Billable", DbType.Boolean, (entity.Billable.HasValue ? (object) entity.Billable : System.DBNull.Value) );
             database.AddInParameter(commandWrapper, "@Sample", DbType.String, entity.Sample );
+			database.AddInParameter(commandWrapper, "@ColDate", DbType.DateTime, (entity.ColDate.HasValue ? (object) entity.ColDate : System.DBNull.Value) );
+            database.AddInParameter(commandWrapper, "@ColTime", SqlDbType.Time, (entity.ColTime.HasValue ? (object) entity.ColTime : System.DBNull.Value) );
+			database.AddInParameter(commandWrapper, "@NurseDate", DbType.DateTime, (entity.NurseDate.HasValue ? (object) entity.NurseDate : System.DBNull.Value) );
+            database.AddInParameter(commandWrapper, "@NurseTime", SqlDbType.Time, (entity.NurseTime.HasValue ? (object) entity.NurseTime : System.DBNull.Value) );
+			database.AddInParameter(commandWrapper, "@LabDate", DbType.DateTime, (entity.LabDate.HasValue ? (object) entity.LabDate : System.DBNull.Value) );
+            database.AddInParameter(commandWrapper, "@LabTime", SqlDbType.Time, (entity.LabTime.HasValue ? (object) entity.LabTime : System.DBNull.Value) );
+			database.AddInParameter(commandWrapper, "@FinishDate", DbType.DateTime, (entity.FinishDate.HasValue ? (object) entity.FinishDate : System.DBNull.Value) );
+            database.AddInParameter(commandWrapper, "@FinishTime", SqlDbType.Time, (entity.FinishTime.HasValue ? (object) entity.FinishTime : System.DBNull.Value) );
 			
 			int results = 0;
 			
@@ -850,6 +970,45 @@ namespace ePrescription.Data.SqlClient
 		
 		#region Custom Methods
 	
+
+		#region _DoctorRequest_LabDone
+					
+		/// <summary>
+		///	This method wraps the '_DoctorRequest_LabDone' stored procedure. 
+		/// </summary>	
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object.</param>
+		/// <remark>This method is generated from a stored procedure.</remark>
+		public override void LabDone(TransactionManager transactionManager, int start, int pageLength , System.String tid)
+		{
+			SqlDatabase database = new SqlDatabase(this._connectionString);
+			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo._DoctorRequest_LabDone", true);
+			
+			database.AddInParameter(commandWrapper, "@TID", DbType.String,  tid );
+	
+			
+			//Provider Data Requesting Command Event
+			OnDataRequesting(new CommandEventArgs(commandWrapper, "LabDone", (IEntity)null));
+
+			if (transactionManager != null)
+			{	
+				Utility.ExecuteNonQuery(transactionManager, commandWrapper );
+			}
+			else
+			{
+				Utility.ExecuteNonQuery(database, commandWrapper);
+			}
+						
+			//Provider Data Requested Command Event
+			OnDataRequested(new CommandEventArgs(commandWrapper, "LabDone", (IEntity)null));
+
+
+				
+				return;
+		}
+		#endregion
 
 		#region _DoctorRequest_UpdateStatus
 					
@@ -903,12 +1062,14 @@ namespace ePrescription.Data.SqlClient
 		/// <param name="description"> A <c>System.String</c> instance.</param>
 		/// <param name="reqDoctor"> A <c>System.String</c> instance.</param>
 		/// <param name="reqDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="colDate"> A <c>System.DateTime?</c> instance.</param>
+		/// <param name="colTime"> A <c>System.TimeSpan?</c> instance.</param>
 		/// <param name="reqStatus"> A <c>System.String</c> instance.</param>
 		/// <param name="start">Row number at which to start reading.</param>
 		/// <param name="pageLength">Number of rows to return.</param>
 		/// <param name="transactionManager"><see cref="TransactionManager"/> object.</param>
 		/// <remark>This method is generated from a stored procedure.</remark>
-		public override void Insert(TransactionManager transactionManager, int start, int pageLength , System.String tid, System.String reqId, System.String code, System.String description, System.String reqDoctor, System.DateTime? reqDate, System.String reqStatus)
+		public override void Insert(TransactionManager transactionManager, int start, int pageLength , System.String tid, System.String reqId, System.String code, System.String description, System.String reqDoctor, System.DateTime? reqDate, System.DateTime? colDate, System.TimeSpan? colTime, System.String reqStatus)
 		{
 			SqlDatabase database = new SqlDatabase(this._connectionString);
 			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo._DoctorRequest_Insert", true);
@@ -919,6 +1080,8 @@ namespace ePrescription.Data.SqlClient
 			database.AddInParameter(commandWrapper, "@Description", DbType.String,  description );
 			database.AddInParameter(commandWrapper, "@ReqDoctor", DbType.String,  reqDoctor );
 			database.AddInParameter(commandWrapper, "@ReqDate", DbType.DateTime,  reqDate );
+			database.AddInParameter(commandWrapper, "@ColDate", DbType.DateTime,  colDate );
+			database.AddInParameter(commandWrapper, "@colTime", DbType.Time,  colTime );
 			database.AddInParameter(commandWrapper, "@ReqStatus", DbType.String,  reqStatus );
 	
 			
@@ -1022,6 +1185,47 @@ namespace ePrescription.Data.SqlClient
 						
 			//Provider Data Requested Command Event
 			OnDataRequested(new CommandEventArgs(commandWrapper, "UpdNurse", (IEntity)null));
+
+
+				
+				return;
+		}
+		#endregion
+
+		#region _DoctorRequest_LabProcess
+					
+		/// <summary>
+		///	This method wraps the '_DoctorRequest_LabProcess' stored procedure. 
+		/// </summary>	
+		/// <param name="sample"> A <c>System.String</c> instance.</param>
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object.</param>
+		/// <remark>This method is generated from a stored procedure.</remark>
+		public override void LabProcess(TransactionManager transactionManager, int start, int pageLength , System.String sample, System.String tid)
+		{
+			SqlDatabase database = new SqlDatabase(this._connectionString);
+			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo._DoctorRequest_LabProcess", true);
+			
+			database.AddInParameter(commandWrapper, "@sample", DbType.String,  sample );
+			database.AddInParameter(commandWrapper, "@TID", DbType.String,  tid );
+	
+			
+			//Provider Data Requesting Command Event
+			OnDataRequesting(new CommandEventArgs(commandWrapper, "LabProcess", (IEntity)null));
+
+			if (transactionManager != null)
+			{	
+				Utility.ExecuteNonQuery(transactionManager, commandWrapper );
+			}
+			else
+			{
+				Utility.ExecuteNonQuery(database, commandWrapper);
+			}
+						
+			//Provider Data Requested Command Event
+			OnDataRequested(new CommandEventArgs(commandWrapper, "LabProcess", (IEntity)null));
 
 
 				

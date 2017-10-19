@@ -287,8 +287,8 @@ public abstract partial class SqlVrMedProProviderBase : VrMedProProviderBase
 	/// <param name="pageLength">Number of rows to return.</param>
 	/// <param name="transactionManager"><see cref="TransactionManager"/> object</param>
 	/// <remark>This method is generated from a stored procedure.</remark>
-	/// <returns>A <see cref="VList&lt;VrMedPro&gt;"/> instance.</returns>
-	public override VList<VrMedPro> GetByDescription(TransactionManager transactionManager, int start, int pageLength, System.String descriptiontion)
+	/// <returns>A <see cref="DataSet"/> instance.</returns>
+	public override DataSet GetByDescription(TransactionManager transactionManager, int start, int pageLength, System.String descriptiontion)
 	{
 		SqlDatabase database = new SqlDatabase(this._connectionString);
 		DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo._VR_MedPro_GetByDescription", true);
@@ -299,32 +299,20 @@ public abstract partial class SqlVrMedProProviderBase : VrMedProProviderBase
 		try
 		{
 			
-			IDataReader reader = null;
-
+			DataSet ds = null;
+			
 			if (transactionManager != null)
 			{	
-				reader = Utility.ExecuteReader(transactionManager, commandWrapper);
+				ds = Utility.ExecuteDataSet(transactionManager, commandWrapper);
 			}
 			else
 			{
-				reader = Utility.ExecuteReader(database, commandWrapper);
-			}			
+				ds = Utility.ExecuteDataSet(database, commandWrapper);
+			}
 			
-			// Create Collection
-				VList<VrMedPro> rows = new VList<VrMedPro>();
-				try
-				{  
-					Fill(reader, rows, 0, int.MaxValue);
-				}
-				finally
-				{
-					if (reader != null) 
-						reader.Close();
-				}
-				
-				
-				
-				return rows;
+			
+			
+			return ds;	
 		}
 		catch(SqlException ex)
 		{

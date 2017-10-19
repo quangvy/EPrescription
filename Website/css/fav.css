@@ -1,0 +1,97 @@
+﻿rom#PageE {
+    margin: 0 0 10px 0;
+    padding: 0;
+    height: 170px;
+    clear: both;
+    overflow: hidden;
+    background: transparent;
+}
+
+
+#PageSpace {
+    clear: both;
+    min-height: 10px;
+}
+
+#Med {
+    clear: both;
+    overflow: hidden;
+    background: transparent;
+    font-size: smaller;
+    padding: 10px 10px 10px 10px;
+}
+
+    #Med div.AddMed {
+        float: left;
+        width: 71.7%;
+        box-shadow: 5px 5px 5px #888;
+        border: 1px solid #aaa;
+        min-height: 100%;
+    }
+
+.Add {
+    padding: 10px 10px 10px 10px;
+    background-color: ivory;
+    margin: 2px;
+}
+
+.GridMed {
+    padding: 10px 10px 10px 10px;
+    margin: 2px;
+}
+
+div.SavePres {
+    padding: 10px 10px 10px 10px;
+    margin: 2px;
+}
+
+#Med div.LoadPres {
+    float: right;
+    width: 27%;
+    box-shadow: 5px 5px 5px #888;
+    border: 1px solid #aaa;
+  
+}
+
+
+.toggle-box {
+    display: none;
+}
+
+    .toggle-box + label {
+        cursor: pointer;
+        display: block;
+        font-weight: bold;
+        line-height: 21px;
+        margin-bottom: 5px;
+    }
+
+        .toggle-box + label + div {
+            display: none;
+            margin-bottom: 10px;
+        }
+
+    .toggle-box:checked + label + div {
+        display: block;
+    }
+
+    .toggle-box + label:before {
+        background-color: #4F5150;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        color: #FFFFFF;
+        content: "+";
+        display: block;
+        float: left;
+        font-weight: bold;
+        height: 20px;
+        line-height: 20px;
+        margin-right: 5px;
+        text-align: center;
+        width: 20px;
+    }
+
+    .toggle-box:checked + label:before {
+        content: "\2212";
+    }

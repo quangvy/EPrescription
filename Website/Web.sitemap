@@ -4,16 +4,28 @@
     <siteMapNode url="" title="Doctor center" roles="Doctor">
       <siteMapNode url="Prescription.aspx" title="New Prescription"  description="" />
       <siteMapNode url="EPrescription.aspx" title="Prescription home"  description="" />
+      <siteMapNode url="DoctorDashBoard.aspx" title="Doctor center"  description="" />
+      <siteMapNode url="Favorite.aspx" title="Favourite maintenance"  description="Favourite" />
     </siteMapNode>
     <siteMapNode url="" title="Master list" roles="Doctor, Admin">
       <siteMapNode url="Unit.aspx" title="Manage Unit"  description="" roles="Doctor, Admin" />
       <siteMapNode url="Route.aspx" title="Manage Route "  description="" roles="Doctor, Admin" />
       <siteMapNode url="Frequency.aspx" title="Manage frequency "  description="" roles="Doctor, Admin" />
     </siteMapNode>
-    <siteMapNode url="" title="Reference" roles="Nurse">
+    <siteMapNode url="" title="Nurse area" roles="Nurse, Admin">
       <siteMapNode url="ViewPrescription.aspx" title="View Prescriptions"  description="" roles="Nurse" />
+      <siteMapNode url="nurse.aspx" title="VS - Request confirm"  description="" roles="Nurse" />
       
     </siteMapNode>
+    <siteMapNode url="" title="Reception" roles="Reception, Admin">
+      <siteMapNode url="Reception.aspx" title="Reception board"  description="" roles="Reception" />
+     
+    </siteMapNode>
+  
+  <siteMapNode url="" title="Lab" roles="Lab, Admin">
+    <siteMapNode url="LabCenter.aspx" title="Lab Center"  description="" roles="Lab" />
+
+  </siteMapNode>
     <siteMapNode url="" title="Settings" roles="Admin">
       <siteMapNode url="Users.aspx" title="User"  description="" roles="Admin" />
       <siteMapNode url="UserRoles.aspx" title="Users Role"  description="" roles="Admin" />

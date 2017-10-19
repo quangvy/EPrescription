@@ -6185,6 +6185,381 @@
             that is used exclusively with a <see cref="T:ePrescription.Entities.MedReport"/> object.
             </summary>
         </member>
+        <member name="T:ePrescription.Web.Data.PackageDataSource">
+            <summary>
+            Represents the DataRepository.PackageProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the PackageDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDataSource.PackageView">
+            <summary>
+            Gets a reference to the PackageDataSourceView used by the PackageDataSource.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDataSource.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the PackageDataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the PackageDataSourceView class that is to be
+            used by the PackageDataSource.
+            </summary>
+            <returns>An instance of the PackageDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageDataSourceView">
+            <summary>
+            Supports the PackageDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDataSourceView.#ctor(ePrescription.Web.Data.PackageDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the PackageDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the PackageDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDataSourceView.PackageOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDataSourceView.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the DataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDataSourceView.PackageProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDataSourceView.GetSelectData(System.Collections.IDictionary,System.Int32@)">
+            <summary>
+            Gets a collection of Entity objects based on the value of the SelectMethod property.
+            </summary>
+            <param name="count">The total number of rows in the DataSource.</param>
+            <param name="values"></param>
+            <returns>A collection of Entity objects.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDataSourceView.GetSelectParameters(System.Collections.IDictionary)">
+            <summary>
+            Gets the values of any supplied parameters for internal caching.
+            </summary>
+            <param name="values">An IDictionary object of name/value pairs.</param>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDataSourceView.DeepLoad">
+            <summary>
+            Performs a DeepLoad operation for the current entity if it has
+            not already been performed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDataSourceView.DeepLoad(ePrescription.Entities.TList{ePrescription.Entities.Package},ePrescription.Web.Data.ProviderDataSourceDeepLoadList)">
+            <summary>
+            Performs a DeepLoad operation on the specified entity collection.
+            </summary>
+            <param name="entityList"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the PackageDataSource class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDataSourceDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the PackageDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDataSourceDesigner.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDataSourceDesigner.ActionLists">
+            <summary>Gets the designer action list collection for this designer.</summary>
+            <returns>The <see cref="T:System.ComponentModel.Design.DesignerActionListCollection"/>
+            associated with this designer.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageDataSourceActionList">
+            <summary>
+            Supports the PackageDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDataSourceActionList.#ctor(ePrescription.Web.Data.PackageDataSourceDesigner)">
+            <summary>
+            Initializes a new instance of the PackageDataSourceActionList class.
+            </summary>
+            <param name="designer"></param>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDataSourceActionList.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDataSourceActionList.GetSortedActionItems">
+            <summary>
+            Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            objects contained in the list.
+            </summary>
+            <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            array that contains the items in this list.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageSelectMethod">
+            <summary>
+            Enumeration of method names available for the PackageDataSource.SelectMethod property.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.PackageSelectMethod.Get">
+            <summary>
+            Represents the Get method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.PackageSelectMethod.GetAll">
+            <summary>
+            Represents the GetAll method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.PackageSelectMethod.GetPaged">
+            <summary>
+            Represents the GetPaged method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.PackageSelectMethod.Find">
+            <summary>
+            Represents the Find method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.PackageSelectMethod.GetByPackageId">
+            <summary>
+            Represents the GetByPackageId method.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Package"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Package"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageProperty">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.ChildEntityProperty`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.Package"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageDetailDataSource">
+            <summary>
+            Represents the DataRepository.PackageDetailProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDetailDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the PackageDetailDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDetailDataSource.PackageDetailView">
+            <summary>
+            Gets a reference to the PackageDetailDataSourceView used by the PackageDetailDataSource.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDetailDataSource.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the PackageDetailDataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDetailDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the PackageDetailDataSourceView class that is to be
+            used by the PackageDetailDataSource.
+            </summary>
+            <returns>An instance of the PackageDetailDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDetailDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageDetailDataSourceView">
+            <summary>
+            Supports the PackageDetailDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDetailDataSourceView.#ctor(ePrescription.Web.Data.PackageDetailDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the PackageDetailDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the PackageDetailDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDetailDataSourceView.PackageDetailOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDetailDataSourceView.SelectMethod">
+            <summary>
+            Gets or sets the name of the method or function that
+            the DataSource control invokes to retrieve data.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDetailDataSourceView.PackageDetailProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDetailDataSourceView.GetSelectData(System.Collections.IDictionary,System.Int32@)">
+            <summary>
+            Gets a collection of Entity objects based on the value of the SelectMethod property.
+            </summary>
+            <param name="count">The total number of rows in the DataSource.</param>
+            <param name="values"></param>
+            <returns>A collection of Entity objects.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDetailDataSourceView.GetSelectParameters(System.Collections.IDictionary)">
+            <summary>
+            Gets the values of any supplied parameters for internal caching.
+            </summary>
+            <param name="values">An IDictionary object of name/value pairs.</param>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDetailDataSourceView.DeepLoad">
+            <summary>
+            Performs a DeepLoad operation for the current entity if it has
+            not already been performed.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDetailDataSourceView.DeepLoad(ePrescription.Entities.TList{ePrescription.Entities.PackageDetail},ePrescription.Web.Data.ProviderDataSourceDeepLoadList)">
+            <summary>
+            Performs a DeepLoad operation on the specified entity collection.
+            </summary>
+            <param name="entityList"></param>
+            <param name="properties"></param>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageDetailDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the PackageDetailDataSource class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDetailDataSourceDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the PackageDetailDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDetailDataSourceDesigner.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDetailDataSourceDesigner.ActionLists">
+            <summary>Gets the designer action list collection for this designer.</summary>
+            <returns>The <see cref="T:System.ComponentModel.Design.DesignerActionListCollection"/>
+            associated with this designer.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageDetailDataSourceActionList">
+            <summary>
+            Supports the PackageDetailDataSourceDesigner class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDetailDataSourceActionList.#ctor(ePrescription.Web.Data.PackageDetailDataSourceDesigner)">
+            <summary>
+            Initializes a new instance of the PackageDetailDataSourceActionList class.
+            </summary>
+            <param name="designer"></param>
+        </member>
+        <member name="P:ePrescription.Web.Data.PackageDetailDataSourceActionList.SelectMethod">
+            <summary>
+            Gets or sets the SelectMethod property.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.PackageDetailDataSourceActionList.GetSortedActionItems">
+            <summary>
+            Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            objects contained in the list.
+            </summary>
+            <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
+            array that contains the items in this list.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageDetailSelectMethod">
+            <summary>
+            Enumeration of method names available for the PackageDetailDataSource.SelectMethod property.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.PackageDetailSelectMethod.Get">
+            <summary>
+            Represents the Get method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.PackageDetailSelectMethod.GetAll">
+            <summary>
+            Represents the GetAll method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.PackageDetailSelectMethod.GetPaged">
+            <summary>
+            Represents the GetPaged method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.PackageDetailSelectMethod.Find">
+            <summary>
+            Represents the Find method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.PackageDetailSelectMethod.GetByPackageDetailId">
+            <summary>
+            Represents the GetByPackageDetailId method.
+            </summary>
+        </member>
+        <member name="F:ePrescription.Web.Data.PackageDetailSelectMethod.GetByPackageId">
+            <summary>
+            Represents the GetByPackageId method.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageDetailFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.PackageDetail"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageDetailExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.PackageDetail"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.PackageDetailProperty">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.ChildEntityProperty`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.PackageDetail"/> object.
+            </summary>
+        </member>
         <member name="T:ePrescription.Web.Data.RouteDataSource">
             <summary>
             Represents the DataRepository.RouteProvider object that provides
@@ -6907,6 +7282,11 @@
             Represents the GetByVid method.
             </summary>
         </member>
+        <member name="F:ePrescription.Web.Data.VitalSignSelectMethod.GetByTid">
+            <summary>
+            Represents the GetByTid method.
+            </summary>
+        </member>
         <member name="T:ePrescription.Web.Data.VitalSignFilter">
             <summary>
             A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
@@ -6923,6 +7303,148 @@
             <summary>
             A strongly-typed instance of the <see cref="T:ePrescription.Data.Bases.ChildEntityProperty`1"/> class
             that is used exclusively with a <see cref="T:ePrescription.Entities.VitalSign"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrDoctorDoneDataSource">
+            <summary>
+            Represents the DataRepository.VrDoctorDoneProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrDoctorDoneDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the VrDoctorDoneDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrDoctorDoneDataSource.VrDoctorDoneView">
+            <summary>
+            Gets a reference to the VrDoctorDoneDataSourceView used by the VrDoctorDoneDataSource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrDoctorDoneDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the VrDoctorDoneDataSourceView class that is to be
+            used by the VrDoctorDoneDataSource.
+            </summary>
+            <returns>An instance of the VrDoctorDoneDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrDoctorDoneDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrDoctorDoneDataSourceView">
+            <summary>
+            Supports the VrDoctorDoneDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrDoctorDoneDataSourceView.#ctor(ePrescription.Web.Data.VrDoctorDoneDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the VrDoctorDoneDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the VrDoctorDoneDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrDoctorDoneDataSourceView.VrDoctorDoneOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrDoctorDoneDataSourceView.VrDoctorDoneProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrDoctorDoneDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the VrDoctorDoneDataSource class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrDoctorDoneFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrDoctorDone"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrDoctorDoneExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrDoctorDone"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrDoctorwipDataSource">
+            <summary>
+            Represents the DataRepository.VrDoctorwipProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrDoctorwipDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the VrDoctorwipDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrDoctorwipDataSource.VrDoctorwipView">
+            <summary>
+            Gets a reference to the VrDoctorwipDataSourceView used by the VrDoctorwipDataSource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrDoctorwipDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the VrDoctorwipDataSourceView class that is to be
+            used by the VrDoctorwipDataSource.
+            </summary>
+            <returns>An instance of the VrDoctorwipDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrDoctorwipDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrDoctorwipDataSourceView">
+            <summary>
+            Supports the VrDoctorwipDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrDoctorwipDataSourceView.#ctor(ePrescription.Web.Data.VrDoctorwipDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the VrDoctorwipDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the VrDoctorwipDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrDoctorwipDataSourceView.VrDoctorwipOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrDoctorwipDataSourceView.VrDoctorwipProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrDoctorwipDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the VrDoctorwipDataSource class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrDoctorwipFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrDoctorwip"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrDoctorwipExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrDoctorwip"/> object.
             </summary>
         </member>
         <member name="T:ePrescription.Web.Data.VrEPresDetailDataSource">
@@ -7067,6 +7589,77 @@
             that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabProcessing"/> object.
             </summary>
         </member>
+        <member name="T:ePrescription.Web.Data.VrLabReceiveDataSource">
+            <summary>
+            Represents the DataRepository.VrLabReceiveProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrLabReceiveDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabReceiveDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrLabReceiveDataSource.VrLabReceiveView">
+            <summary>
+            Gets a reference to the VrLabReceiveDataSourceView used by the VrLabReceiveDataSource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrLabReceiveDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the VrLabReceiveDataSourceView class that is to be
+            used by the VrLabReceiveDataSource.
+            </summary>
+            <returns>An instance of the VrLabReceiveDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrLabReceiveDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrLabReceiveDataSourceView">
+            <summary>
+            Supports the VrLabReceiveDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrLabReceiveDataSourceView.#ctor(ePrescription.Web.Data.VrLabReceiveDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the VrLabReceiveDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the VrLabReceiveDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrLabReceiveDataSourceView.VrLabReceiveOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrLabReceiveDataSourceView.VrLabReceiveProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrLabReceiveDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the VrLabReceiveDataSource class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrLabReceiveFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabReceive"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrLabReceiveExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabReceive"/> object.
+            </summary>
+        </member>
         <member name="T:ePrescription.Web.Data.VrLabReqDataSource">
             <summary>
             Represents the DataRepository.VrLabReqProvider object that provides
@@ -7209,6 +7802,77 @@
             that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabResult"/> object.
             </summary>
         </member>
+        <member name="T:ePrescription.Web.Data.VrLabwipDataSource">
+            <summary>
+            Represents the DataRepository.VrLabwipProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrLabwipDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the VrLabwipDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrLabwipDataSource.VrLabwipView">
+            <summary>
+            Gets a reference to the VrLabwipDataSourceView used by the VrLabwipDataSource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrLabwipDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the VrLabwipDataSourceView class that is to be
+            used by the VrLabwipDataSource.
+            </summary>
+            <returns>An instance of the VrLabwipDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrLabwipDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrLabwipDataSourceView">
+            <summary>
+            Supports the VrLabwipDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrLabwipDataSourceView.#ctor(ePrescription.Web.Data.VrLabwipDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the VrLabwipDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the VrLabwipDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrLabwipDataSourceView.VrLabwipOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrLabwipDataSourceView.VrLabwipProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrLabwipDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the VrLabwipDataSource class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrLabwipFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabwip"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrLabwipExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrLabwip"/> object.
+            </summary>
+        </member>
         <member name="T:ePrescription.Web.Data.VrMedProDataSource">
             <summary>
             Represents the DataRepository.VrMedProProvider object that provides
@@ -7223,12 +7887,6 @@
         <member name="P:ePrescription.Web.Data.VrMedProDataSource.VrMedProView">
             <summary>
             Gets a reference to the VrMedProDataSourceView used by the VrMedProDataSource.
-            </summary>
-        </member>
-        <member name="P:ePrescription.Web.Data.VrMedProDataSource.SelectMethod">
-            <summary>
-            Gets or sets the name of the method or function that
-            the VrMedProDataSource control invokes to retrieve data.
             </summary>
         </member>
         <member name="M:ePrescription.Web.Data.VrMedProDataSource.GetNewDataSourceView">
@@ -7264,98 +7922,15 @@
             Gets a strongly-typed reference to the Owner property.
             </summary>
         </member>
-        <member name="P:ePrescription.Web.Data.VrMedProDataSourceView.SelectMethod">
-            <summary>
-            Gets or sets the name of the method or function that
-            the DataSource control invokes to retrieve data.
-            </summary>
-        </member>
         <member name="P:ePrescription.Web.Data.VrMedProDataSourceView.VrMedProProvider">
             <summary>
             Gets a strongly typed reference to the Provider property.
-            </summary>
-        </member>
-        <member name="M:ePrescription.Web.Data.VrMedProDataSourceView.GetSelectData(System.Collections.IDictionary,System.Int32@)">
-            <summary>
-            Gets a collection of Entity objects based on the value of the SelectMethod property.
-            </summary>
-            <param name="values"></param>
-            <param name="count">The total number of rows in the DataSource.</param>
-            <returns>A collection of Entity objects.</returns>
-        </member>
-        <member name="T:ePrescription.Web.Data.VrMedProSelectMethod">
-            <summary>
-            Enumeration of method names available for the VrMedProDataSource.SelectMethod property.
-            </summary>
-        </member>
-        <member name="F:ePrescription.Web.Data.VrMedProSelectMethod.Get">
-            <summary>
-            Represents the Get method.
-            </summary>
-        </member>
-        <member name="F:ePrescription.Web.Data.VrMedProSelectMethod.GetPaged">
-            <summary>
-            Represents the GetPaged method.
-            </summary>
-        </member>
-        <member name="F:ePrescription.Web.Data.VrMedProSelectMethod.GetAll">
-            <summary>
-            Represents the GetAll method.
-            </summary>
-        </member>
-        <member name="F:ePrescription.Web.Data.VrMedProSelectMethod.Find">
-            <summary>
-            Represents the Find method.
-            </summary>
-        </member>
-        <member name="F:ePrescription.Web.Data.VrMedProSelectMethod.GetByDescription">
-            <summary>
-            Represents the GetByDescription method.
             </summary>
         </member>
         <member name="T:ePrescription.Web.Data.VrMedProDataSourceDesigner">
             <summary>
             Provides design-time support in a design host for the VrMedProDataSource class.
             </summary>
-        </member>
-        <member name="M:ePrescription.Web.Data.VrMedProDataSourceDesigner.#ctor">
-            <summary>
-            Initializes a new instance of the VrMedProDataSourceDesigner class.
-            </summary>
-        </member>
-        <member name="P:ePrescription.Web.Data.VrMedProDataSourceDesigner.SelectMethod">
-            <summary>
-            Gets or sets the SelectMethod property.
-            </summary>
-        </member>
-        <member name="P:ePrescription.Web.Data.VrMedProDataSourceDesigner.ActionLists">
-            <summary>Gets the designer action list collection for this designer.</summary>
-            <returns>The <see cref="T:System.ComponentModel.Design.DesignerActionListCollection"/>
-            associated with this designer.</returns>
-        </member>
-        <member name="T:ePrescription.Web.Data.VrMedProDataSourceActionList">
-            <summary>
-            Supports the VrMedProDataSourceDesigner class.
-            </summary>
-        </member>
-        <member name="M:ePrescription.Web.Data.VrMedProDataSourceActionList.#ctor(ePrescription.Web.Data.VrMedProDataSourceDesigner)">
-            <summary>
-            Initializes a new instance of the VrMedProDataSourceActionList class.
-            </summary>
-            <param name="designer"></param>
-        </member>
-        <member name="P:ePrescription.Web.Data.VrMedProDataSourceActionList.SelectMethod">
-            <summary>
-            Gets or sets the SelectMethod property.
-            </summary>
-        </member>
-        <member name="M:ePrescription.Web.Data.VrMedProDataSourceActionList.GetSortedActionItems">
-            <summary>
-            Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
-            objects contained in the list.
-            </summary>
-            <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
-            array that contains the items in this list.</returns>
         </member>
         <member name="T:ePrescription.Web.Data.VrMedProFilter">
             <summary>
@@ -7367,6 +7942,77 @@
             <summary>
             A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
             that is used exclusively with a <see cref="T:ePrescription.Entities.VrMedPro"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrNurseProcessedPatientsDataSource">
+            <summary>
+            Represents the DataRepository.VrNurseProcessedPatientsProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrNurseProcessedPatientsDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the VrNurseProcessedPatientsDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrNurseProcessedPatientsDataSource.VrNurseProcessedPatientsView">
+            <summary>
+            Gets a reference to the VrNurseProcessedPatientsDataSourceView used by the VrNurseProcessedPatientsDataSource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrNurseProcessedPatientsDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the VrNurseProcessedPatientsDataSourceView class that is to be
+            used by the VrNurseProcessedPatientsDataSource.
+            </summary>
+            <returns>An instance of the VrNurseProcessedPatientsDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrNurseProcessedPatientsDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrNurseProcessedPatientsDataSourceView">
+            <summary>
+            Supports the VrNurseProcessedPatientsDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrNurseProcessedPatientsDataSourceView.#ctor(ePrescription.Web.Data.VrNurseProcessedPatientsDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the VrNurseProcessedPatientsDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the VrNurseProcessedPatientsDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrNurseProcessedPatientsDataSourceView.VrNurseProcessedPatientsOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrNurseProcessedPatientsDataSourceView.VrNurseProcessedPatientsProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrNurseProcessedPatientsDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the VrNurseProcessedPatientsDataSource class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrNurseProcessedPatientsFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrNurseProcessedPatients"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrNurseProcessedPatientsExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrNurseProcessedPatients"/> object.
             </summary>
         </member>
         <member name="T:ePrescription.Web.Data.VrReceptionDataSource">
@@ -7438,6 +8084,77 @@
             <summary>
             A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
             that is used exclusively with a <see cref="T:ePrescription.Entities.VrReception"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrReceptionDoneDataSource">
+            <summary>
+            Represents the DataRepository.VrReceptionDoneProvider object that provides
+            data to data-bound controls in multi-tier Web application architectures.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrReceptionDoneDataSource.#ctor">
+            <summary>
+            Initializes a new instance of the VrReceptionDoneDataSource class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrReceptionDoneDataSource.VrReceptionDoneView">
+            <summary>
+            Gets a reference to the VrReceptionDoneDataSourceView used by the VrReceptionDoneDataSource.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrReceptionDoneDataSource.GetNewDataSourceView">
+            <summary>
+            Creates a new instance of the VrReceptionDoneDataSourceView class that is to be
+            used by the VrReceptionDoneDataSource.
+            </summary>
+            <returns>An instance of the VrReceptionDoneDataSourceView class.</returns>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrReceptionDoneDataSource.CacheHashKey(System.Int32,System.Int32)">
+            <summary>
+            Creates a cache hashing key based on the startIndex, pageSize and the SelectMethod being used.
+            </summary>
+            <param name="startIndex">The current start row index.</param>
+            <param name="pageSize">The current page size.</param>
+            <returns>A string that can be used as a key for caching purposes.</returns>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrReceptionDoneDataSourceView">
+            <summary>
+            Supports the VrReceptionDoneDataSource control and provides an interface for
+            data-bound controls to perform data operations with business and data objects.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.Data.VrReceptionDoneDataSourceView.#ctor(ePrescription.Web.Data.VrReceptionDoneDataSource,System.String)">
+            <summary>
+            Initializes a new instance of the VrReceptionDoneDataSourceView class.
+            </summary>
+            <param name="owner">A reference to the VrReceptionDoneDataSource which created this instance.</param>
+            <param name="viewName">The name of the view.</param>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrReceptionDoneDataSourceView.VrReceptionDoneOwner">
+            <summary>
+            Gets a strongly-typed reference to the Owner property.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.Data.VrReceptionDoneDataSourceView.VrReceptionDoneProvider">
+            <summary>
+            Gets a strongly typed reference to the Provider property.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrReceptionDoneDataSourceDesigner">
+            <summary>
+            Provides design-time support in a design host for the VrReceptionDoneDataSource class.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrReceptionDoneFilter">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlFilter`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrReceptionDone"/> object.
+            </summary>
+        </member>
+        <member name="T:ePrescription.Web.Data.VrReceptionDoneExpressionBuilder">
+            <summary>
+            A strongly-typed instance of the <see cref="T:ePrescription.Web.Data.SqlExpressionBuilder`1"/> class
+            that is used exclusively with a <see cref="T:ePrescription.Entities.VrReceptionDone"/> object.
             </summary>
         </member>
         <member name="T:ePrescription.Web.Data.VrReceptionStartDataSource">
@@ -8199,6 +8916,54 @@
             </summary>
             <value>The Sample.</value>
         </member>
+        <member name="P:ePrescription.Web.UI.DoctorRequestItem.ColDate">
+            <summary>
+            Gets the ColDate
+            </summary>
+            <value>The ColDate.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DoctorRequestItem.ColTime">
+            <summary>
+            Gets the ColTime
+            </summary>
+            <value>The ColTime.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DoctorRequestItem.NurseDate">
+            <summary>
+            Gets the NurseDate
+            </summary>
+            <value>The NurseDate.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DoctorRequestItem.NurseTime">
+            <summary>
+            Gets the NurseTime
+            </summary>
+            <value>The NurseTime.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DoctorRequestItem.LabDate">
+            <summary>
+            Gets the LabDate
+            </summary>
+            <value>The LabDate.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DoctorRequestItem.LabTime">
+            <summary>
+            Gets the LabTime
+            </summary>
+            <value>The LabTime.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DoctorRequestItem.FinishDate">
+            <summary>
+            Gets the FinishDate
+            </summary>
+            <value>The FinishDate.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.DoctorRequestItem.FinishTime">
+            <summary>
+            Gets the FinishTime
+            </summary>
+            <value>The FinishTime.</value>
+        </member>
         <member name="P:ePrescription.Web.UI.DoctorRequestItem.Entity">
             <summary>
             Gets a <see cref="T:ePrescription.Entities.DoctorRequest"></see> object
@@ -8871,6 +9636,18 @@
             </summary>
             <value>The TotalUnit.</value>
         </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.Unit">
+            <summary>
+            Gets the Unit
+            </summary>
+            <value>The Unit.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.FavoritDetailItem.UnitVn">
+            <summary>
+            Gets the UnitVn
+            </summary>
+            <value>The UnitVn.</value>
+        </member>
         <member name="P:ePrescription.Web.UI.FavoritDetailItem.Entity">
             <summary>
             Gets a <see cref="T:ePrescription.Entities.FavoritDetail"></see> object
@@ -9444,6 +10221,314 @@
         <member name="P:ePrescription.Web.UI.MedReportItem.Entity">
             <summary>
             Gets a <see cref="T:ePrescription.Entities.MedReport"></see> object
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:ePrescription.Web.UI.PackageRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>PackageRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PackageRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.PackageRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.PackageRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PackageRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.PackageItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PackageItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageItem.#ctor(ePrescription.Entities.Package)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PackageItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageItem.PackageId">
+            <summary>
+            Gets the PackageId
+            </summary>
+            <value>The PackageId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageItem.Name">
+            <summary>
+            Gets the Name
+            </summary>
+            <value>The Name.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageItem.Description">
+            <summary>
+            Gets the Description
+            </summary>
+            <value>The Description.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageItem.SellPrice">
+            <summary>
+            Gets the SellPrice
+            </summary>
+            <value>The SellPrice.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageItem.CostPrice">
+            <summary>
+            Gets the CostPrice
+            </summary>
+            <value>The CostPrice.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageItem.CreatedBy">
+            <summary>
+            Gets the CreatedBy
+            </summary>
+            <value>The CreatedBy.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageItem.CreatedDate">
+            <summary>
+            Gets the CreatedDate
+            </summary>
+            <value>The CreatedDate.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageItem.Entity">
+            <summary>
+            Gets a <see cref="T:ePrescription.Entities.Package"></see> object
+            </summary>
+            <value></value>
+        </member>
+        <member name="T:ePrescription.Web.UI.PackageDetailRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>PackageDetailRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageDetailRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PackageDetailRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageDetailRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageDetailRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.PackageDetailRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.PackageDetailRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageDetailRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PackageDetailRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageDetailRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageDetailRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageDetailRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageDetailRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageDetailRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.PackageDetailItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageDetailItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:PackageDetailItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.PackageDetailItem.#ctor(ePrescription.Entities.PackageDetail)">
+            <summary>
+            Initializes a new instance of the <see cref="T:PackageDetailItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailItem.PackageDetailId">
+            <summary>
+            Gets the PackageDetailId
+            </summary>
+            <value>The PackageDetailId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailItem.PackageId">
+            <summary>
+            Gets the PackageId
+            </summary>
+            <value>The PackageId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailItem.Code">
+            <summary>
+            Gets the Code
+            </summary>
+            <value>The Code.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailItem.Description">
+            <summary>
+            Gets the Description
+            </summary>
+            <value>The Description.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailItem.ClinicPrice">
+            <summary>
+            Gets the ClinicPrice
+            </summary>
+            <value>The ClinicPrice.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.PackageDetailItem.Entity">
+            <summary>
+            Gets a <see cref="T:ePrescription.Entities.PackageDetail"></see> object
             </summary>
             <value></value>
         </member>
@@ -10111,6 +11196,446 @@
             </summary>
             <value></value>
         </member>
+        <member name="T:ePrescription.Web.UI.VrDoctorDoneRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>VrDoctorDoneRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorDoneRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrDoctorDoneRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorDoneRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorDoneRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrDoctorDoneRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.VrDoctorDoneRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorDoneRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrDoctorDoneRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorDoneRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorDoneRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorDoneRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorDoneRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorDoneRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrDoctorDoneItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorDoneItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrDoctorDoneItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorDoneItem.#ctor(ePrescription.Entities.VrDoctorDone)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrDoctorDoneItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.StatId">
+            <summary>
+            Gets the StatId
+            </summary>
+            <value>The StatId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.PatientCode">
+            <summary>
+            Gets the PatientCode
+            </summary>
+            <value>The PatientCode.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.Tid">
+            <summary>
+            Gets the Tid
+            </summary>
+            <value>The Tid.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.FirstName">
+            <summary>
+            Gets the FirstName
+            </summary>
+            <value>The FirstName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.LastName">
+            <summary>
+            Gets the LastName
+            </summary>
+            <value>The LastName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.Dob">
+            <summary>
+            Gets the Dob
+            </summary>
+            <value>The Dob.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.Sex">
+            <summary>
+            Gets the Sex
+            </summary>
+            <value>The Sex.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.Nationality">
+            <summary>
+            Gets the Nationality
+            </summary>
+            <value>The Nationality.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.PatientStart">
+            <summary>
+            Gets the PatientStart
+            </summary>
+            <value>The PatientStart.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.VitalSign">
+            <summary>
+            Gets the VitalSign
+            </summary>
+            <value>The VitalSign.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.Lab">
+            <summary>
+            Gets the Lab
+            </summary>
+            <value>The Lab.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.Xray">
+            <summary>
+            Gets the Xray
+            </summary>
+            <value>The Xray.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.UltraSound">
+            <summary>
+            Gets the UltraSound
+            </summary>
+            <value>The UltraSound.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.Cardiology">
+            <summary>
+            Gets the Cardiology
+            </summary>
+            <value>The Cardiology.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.MedReport">
+            <summary>
+            Gets the MedReport
+            </summary>
+            <value>The MedReport.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.ChargedCodes">
+            <summary>
+            Gets the ChargedCodes
+            </summary>
+            <value>The ChargedCodes.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.IsCompleted">
+            <summary>
+            Gets the IsCompleted
+            </summary>
+            <value>The IsCompleted.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorDoneItem.CreateDate">
+            <summary>
+            Gets the CreateDate
+            </summary>
+            <value>The CreateDate.</value>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrDoctorwipRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>VrDoctorwipRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorwipRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrDoctorwipRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorwipRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorwipRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrDoctorwipRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.VrDoctorwipRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorwipRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrDoctorwipRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorwipRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorwipRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorwipRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorwipRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorwipRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrDoctorwipItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorwipItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrDoctorwipItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrDoctorwipItem.#ctor(ePrescription.Entities.VrDoctorwip)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrDoctorwipItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.StatId">
+            <summary>
+            Gets the StatId
+            </summary>
+            <value>The StatId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.PatientCode">
+            <summary>
+            Gets the PatientCode
+            </summary>
+            <value>The PatientCode.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.Tid">
+            <summary>
+            Gets the Tid
+            </summary>
+            <value>The Tid.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.FirstName">
+            <summary>
+            Gets the FirstName
+            </summary>
+            <value>The FirstName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.LastName">
+            <summary>
+            Gets the LastName
+            </summary>
+            <value>The LastName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.Dob">
+            <summary>
+            Gets the Dob
+            </summary>
+            <value>The Dob.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.Sex">
+            <summary>
+            Gets the Sex
+            </summary>
+            <value>The Sex.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.Nationality">
+            <summary>
+            Gets the Nationality
+            </summary>
+            <value>The Nationality.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.PatientStart">
+            <summary>
+            Gets the PatientStart
+            </summary>
+            <value>The PatientStart.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.VitalSign">
+            <summary>
+            Gets the VitalSign
+            </summary>
+            <value>The VitalSign.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.Lab">
+            <summary>
+            Gets the Lab
+            </summary>
+            <value>The Lab.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.Xray">
+            <summary>
+            Gets the Xray
+            </summary>
+            <value>The Xray.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.UltraSound">
+            <summary>
+            Gets the UltraSound
+            </summary>
+            <value>The UltraSound.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.Cardiology">
+            <summary>
+            Gets the Cardiology
+            </summary>
+            <value>The Cardiology.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.MedReport">
+            <summary>
+            Gets the MedReport
+            </summary>
+            <value>The MedReport.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.ChargedCodes">
+            <summary>
+            Gets the ChargedCodes
+            </summary>
+            <value>The ChargedCodes.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.IsCompleted">
+            <summary>
+            Gets the IsCompleted
+            </summary>
+            <value>The IsCompleted.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrDoctorwipItem.CreateDate">
+            <summary>
+            Gets the CreateDate
+            </summary>
+            <value>The CreateDate.</value>
+        </member>
         <member name="T:ePrescription.Web.UI.VrEPresDetailRepeaterDesigner">
             <summary>
             A designer class for a strongly typed repeater <c>VrEPresDetailRepeater</c>
@@ -10497,6 +12022,244 @@
             </summary>
             <value>The CreateDate.</value>
         </member>
+        <member name="T:ePrescription.Web.UI.VrLabReceiveRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>VrLabReceiveRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabReceiveRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrLabReceiveRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabReceiveRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabReceiveRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrLabReceiveRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.VrLabReceiveRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabReceiveRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrLabReceiveRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabReceiveRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabReceiveRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabReceiveRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabReceiveRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabReceiveRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrLabReceiveItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabReceiveItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrLabReceiveItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabReceiveItem.#ctor(ePrescription.Entities.VrLabReceive)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrLabReceiveItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.Id">
+            <summary>
+            Gets the Id
+            </summary>
+            <value>The Id.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.Tid">
+            <summary>
+            Gets the Tid
+            </summary>
+            <value>The Tid.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.ReqId">
+            <summary>
+            Gets the ReqId
+            </summary>
+            <value>The ReqId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.Code">
+            <summary>
+            Gets the Code
+            </summary>
+            <value>The Code.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.Description">
+            <summary>
+            Gets the Description
+            </summary>
+            <value>The Description.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.ReqDoctor">
+            <summary>
+            Gets the ReqDoctor
+            </summary>
+            <value>The ReqDoctor.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.Billable">
+            <summary>
+            Gets the Billable
+            </summary>
+            <value>The Billable.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.Sample">
+            <summary>
+            Gets the Sample
+            </summary>
+            <value>The Sample.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.ColDate">
+            <summary>
+            Gets the ColDate
+            </summary>
+            <value>The ColDate.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.ColTime">
+            <summary>
+            Gets the ColTime
+            </summary>
+            <value>The ColTime.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.ReqDate">
+            <summary>
+            Gets the ReqDate
+            </summary>
+            <value>The ReqDate.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.SampleType">
+            <summary>
+            Gets the SampleType
+            </summary>
+            <value>The SampleType.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.ProviderType">
+            <summary>
+            Gets the ProviderType
+            </summary>
+            <value>The ProviderType.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.StatId">
+            <summary>
+            Gets the StatId
+            </summary>
+            <value>The StatId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.PatientCode">
+            <summary>
+            Gets the PatientCode
+            </summary>
+            <value>The PatientCode.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.FirstName">
+            <summary>
+            Gets the FirstName
+            </summary>
+            <value>The FirstName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.LastName">
+            <summary>
+            Gets the LastName
+            </summary>
+            <value>The LastName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.Dob">
+            <summary>
+            Gets the Dob
+            </summary>
+            <value>The Dob.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.Sex">
+            <summary>
+            Gets the Sex
+            </summary>
+            <value>The Sex.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.Nationality">
+            <summary>
+            Gets the Nationality
+            </summary>
+            <value>The Nationality.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabReceiveItem.ReqStatus">
+            <summary>
+            Gets the ReqStatus
+            </summary>
+            <value>The ReqStatus.</value>
+        </member>
         <member name="T:ePrescription.Web.UI.VrLabReqRepeaterDesigner">
             <summary>
             A designer class for a strongly typed repeater <c>VrLabReqRepeater</c>
@@ -10793,6 +12556,84 @@
             Initializes a new instance of the <see cref="T:VrLabResultItem"/> class.
             </summary>
         </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.Id">
+            <summary>
+            Gets the Id
+            </summary>
+            <value>The Id.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.Tid">
+            <summary>
+            Gets the Tid
+            </summary>
+            <value>The Tid.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.ReqId">
+            <summary>
+            Gets the ReqId
+            </summary>
+            <value>The ReqId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.Code">
+            <summary>
+            Gets the Code
+            </summary>
+            <value>The Code.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.Description">
+            <summary>
+            Gets the Description
+            </summary>
+            <value>The Description.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.ReqDoctor">
+            <summary>
+            Gets the ReqDoctor
+            </summary>
+            <value>The ReqDoctor.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.Billable">
+            <summary>
+            Gets the Billable
+            </summary>
+            <value>The Billable.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.Sample">
+            <summary>
+            Gets the Sample
+            </summary>
+            <value>The Sample.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.ColDate">
+            <summary>
+            Gets the ColDate
+            </summary>
+            <value>The ColDate.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.ColTime">
+            <summary>
+            Gets the ColTime
+            </summary>
+            <value>The ColTime.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.ReqDate">
+            <summary>
+            Gets the ReqDate
+            </summary>
+            <value>The ReqDate.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.SampleType">
+            <summary>
+            Gets the SampleType
+            </summary>
+            <value>The SampleType.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.ProviderType">
+            <summary>
+            Gets the ProviderType
+            </summary>
+            <value>The ProviderType.</value>
+        </member>
         <member name="P:ePrescription.Web.UI.VrLabResultItem.StatId">
             <summary>
             Gets the StatId
@@ -10804,12 +12645,6 @@
             Gets the PatientCode
             </summary>
             <value>The PatientCode.</value>
-        </member>
-        <member name="P:ePrescription.Web.UI.VrLabResultItem.Tid">
-            <summary>
-            Gets the Tid
-            </summary>
-            <value>The Tid.</value>
         </member>
         <member name="P:ePrescription.Web.UI.VrLabResultItem.FirstName">
             <summary>
@@ -10841,29 +12676,249 @@
             </summary>
             <value>The Nationality.</value>
         </member>
-        <member name="P:ePrescription.Web.UI.VrLabResultItem.PatientStart">
+        <member name="P:ePrescription.Web.UI.VrLabResultItem.ReqStatus">
             <summary>
-            Gets the PatientStart
+            Gets the ReqStatus
             </summary>
-            <value>The PatientStart.</value>
+            <value>The ReqStatus.</value>
         </member>
-        <member name="P:ePrescription.Web.UI.VrLabResultItem.Lab">
+        <member name="T:ePrescription.Web.UI.VrLabwipRepeaterDesigner">
             <summary>
-            Gets the Lab
+            A designer class for a strongly typed repeater <c>VrLabwipRepeater</c>
             </summary>
-            <value>The Lab.</value>
         </member>
-        <member name="P:ePrescription.Web.UI.VrLabResultItem.ChargedCodes">
+        <member name="M:ePrescription.Web.UI.VrLabwipRepeaterDesigner.#ctor">
             <summary>
-            Gets the ChargedCodes
+            Initializes a new instance of the <see cref="T:VrLabwipRepeaterDesigner"/> class.
             </summary>
-            <value>The ChargedCodes.</value>
         </member>
-        <member name="P:ePrescription.Web.UI.VrLabResultItem.CreateDate">
+        <member name="M:ePrescription.Web.UI.VrLabwipRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
             <summary>
-            Gets the CreateDate
+            Initializes the control designer and loads the specified component.
             </summary>
-            <value>The CreateDate.</value>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabwipRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrLabwipRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.VrLabwipRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabwipRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrLabwipRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabwipRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabwipRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabwipRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabwipRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabwipRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrLabwipItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabwipItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrLabwipItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrLabwipItem.#ctor(ePrescription.Entities.VrLabwip)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrLabwipItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.Id">
+            <summary>
+            Gets the Id
+            </summary>
+            <value>The Id.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.Tid">
+            <summary>
+            Gets the Tid
+            </summary>
+            <value>The Tid.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.ReqId">
+            <summary>
+            Gets the ReqId
+            </summary>
+            <value>The ReqId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.Code">
+            <summary>
+            Gets the Code
+            </summary>
+            <value>The Code.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.Description">
+            <summary>
+            Gets the Description
+            </summary>
+            <value>The Description.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.ReqDoctor">
+            <summary>
+            Gets the ReqDoctor
+            </summary>
+            <value>The ReqDoctor.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.Billable">
+            <summary>
+            Gets the Billable
+            </summary>
+            <value>The Billable.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.Sample">
+            <summary>
+            Gets the Sample
+            </summary>
+            <value>The Sample.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.ColDate">
+            <summary>
+            Gets the ColDate
+            </summary>
+            <value>The ColDate.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.ColTime">
+            <summary>
+            Gets the ColTime
+            </summary>
+            <value>The ColTime.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.ReqDate">
+            <summary>
+            Gets the ReqDate
+            </summary>
+            <value>The ReqDate.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.SampleType">
+            <summary>
+            Gets the SampleType
+            </summary>
+            <value>The SampleType.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.ProviderType">
+            <summary>
+            Gets the ProviderType
+            </summary>
+            <value>The ProviderType.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.StatId">
+            <summary>
+            Gets the StatId
+            </summary>
+            <value>The StatId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.PatientCode">
+            <summary>
+            Gets the PatientCode
+            </summary>
+            <value>The PatientCode.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.FirstName">
+            <summary>
+            Gets the FirstName
+            </summary>
+            <value>The FirstName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.LastName">
+            <summary>
+            Gets the LastName
+            </summary>
+            <value>The LastName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.Dob">
+            <summary>
+            Gets the Dob
+            </summary>
+            <value>The Dob.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.Sex">
+            <summary>
+            Gets the Sex
+            </summary>
+            <value>The Sex.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.Nationality">
+            <summary>
+            Gets the Nationality
+            </summary>
+            <value>The Nationality.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrLabwipItem.ReqStatus">
+            <summary>
+            Gets the ReqStatus
+            </summary>
+            <value>The ReqStatus.</value>
         </member>
         <member name="T:ePrescription.Web.UI.VrMedProRepeaterDesigner">
             <summary>
@@ -11000,6 +13055,202 @@
             Gets the PubPrice
             </summary>
             <value>The PubPrice.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrMedProItem.SampleType">
+            <summary>
+            Gets the SampleType
+            </summary>
+            <value>The SampleType.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrMedProItem.ProviderType">
+            <summary>
+            Gets the ProviderType
+            </summary>
+            <value>The ProviderType.</value>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrNurseProcessedPatientsRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>VrNurseProcessedPatientsRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrNurseProcessedPatientsRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrNurseProcessedPatientsRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrNurseProcessedPatientsRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrNurseProcessedPatientsRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrNurseProcessedPatientsRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrNurseProcessedPatientsRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrNurseProcessedPatientsItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrNurseProcessedPatientsItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrNurseProcessedPatientsItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrNurseProcessedPatientsItem.#ctor(ePrescription.Entities.VrNurseProcessedPatients)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrNurseProcessedPatientsItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.StatId">
+            <summary>
+            Gets the StatId
+            </summary>
+            <value>The StatId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.PatientCode">
+            <summary>
+            Gets the PatientCode
+            </summary>
+            <value>The PatientCode.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.Tid">
+            <summary>
+            Gets the Tid
+            </summary>
+            <value>The Tid.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.FirstName">
+            <summary>
+            Gets the FirstName
+            </summary>
+            <value>The FirstName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.LastName">
+            <summary>
+            Gets the LastName
+            </summary>
+            <value>The LastName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.Dob">
+            <summary>
+            Gets the Dob
+            </summary>
+            <value>The Dob.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.Sex">
+            <summary>
+            Gets the Sex
+            </summary>
+            <value>The Sex.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.Nationality">
+            <summary>
+            Gets the Nationality
+            </summary>
+            <value>The Nationality.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.PatientStart">
+            <summary>
+            Gets the PatientStart
+            </summary>
+            <value>The PatientStart.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.Lab">
+            <summary>
+            Gets the Lab
+            </summary>
+            <value>The Lab.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.ChargedCodes">
+            <summary>
+            Gets the ChargedCodes
+            </summary>
+            <value>The ChargedCodes.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrNurseProcessedPatientsItem.CreateDate">
+            <summary>
+            Gets the CreateDate
+            </summary>
+            <value>The CreateDate.</value>
         </member>
         <member name="T:ePrescription.Web.UI.VrReceptionRepeaterDesigner">
             <summary>
@@ -11160,6 +13411,190 @@
             Gets the Nationality
             </summary>
             <value>The Nationality.</value>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrReceptionDoneRepeaterDesigner">
+            <summary>
+            A designer class for a strongly typed repeater <c>VrReceptionDoneRepeater</c>
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrReceptionDoneRepeaterDesigner.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrReceptionDoneRepeaterDesigner"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrReceptionDoneRepeaterDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Initializes the control designer and loads the specified component.
+            </summary>
+            <param name="component">The control being designed.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrReceptionDoneRepeaterDesigner.GetDesignTimeHtml">
+            <summary>
+            Generate HTML for the designer
+            </summary>
+            <returns>a string of design time HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrReceptionDoneRepeater">
+            <summary>
+            A strongly typed repeater control for the <see cref="T:ePrescription.Web.UI.VrReceptionDoneRepeater"/> Type.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrReceptionDoneRepeater.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrReceptionDoneRepeater"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneRepeater.Controls">
+            <summary>
+            Gets a <see cref="T:System.Web.UI.ControlCollection"></see> object that represents the child controls for a specified server control in the UI hierarchy.
+            </summary>
+            <value></value>
+            <returns>The collection of child controls for the specified server control.</returns>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneRepeater.HeaderTemplate">
+            <summary>
+            Gets or sets the header template.
+            </summary>
+            <value>The header template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneRepeater.ItemTemplate">
+            <summary>
+            Gets or sets the item template.
+            </summary>
+            <value>The item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneRepeater.SeperatorTemplate">
+            <summary>
+            Gets or sets the Seperator Template
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneRepeater.AlternatingItemTemplate">
+            <summary>
+            Gets or sets the alternating item template.
+            </summary>
+            <value>The alternating item template.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneRepeater.FooterTemplate">
+            <summary>
+            Gets or sets the footer template.
+            </summary>
+            <value>The footer template.</value>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrReceptionDoneRepeater.RenderBeginTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrReceptionDoneRepeater.RenderEndTag(System.Web.UI.HtmlTextWriter)">
+            <summary>
+            Overridden and Empty so that span tags are not written
+            </summary>
+            <param name="writer"></param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrReceptionDoneRepeater.CreateChildControls(System.Collections.IEnumerable,System.Boolean)">
+            <summary>
+            Called by the ASP.NET page framework to notify server controls that use composition-based implementation to create any child controls they contain in preparation for posting back or rendering.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrReceptionDoneRepeater.OnPreRender(System.EventArgs)">
+            <summary>
+            Raises the <see cref="E:System.Web.UI.Control.PreRender"></see> event.
+            </summary>
+            <param name="e">An <see cref="T:System.EventArgs"></see> object that contains the event data.</param>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrReceptionDoneRepeater.RenderAtDesignTime">
+            <summary>
+            Renders at design time.
+            </summary>
+            <returns>a  string of the Designed HTML</returns>
+        </member>
+        <member name="T:ePrescription.Web.UI.VrReceptionDoneItem">
+            <summary>
+            A wrapper type for the entity
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrReceptionDoneItem.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrReceptionDoneItem"/> class.
+            </summary>
+        </member>
+        <member name="M:ePrescription.Web.UI.VrReceptionDoneItem.#ctor(ePrescription.Entities.VrReceptionDone)">
+            <summary>
+            Initializes a new instance of the <see cref="T:VrReceptionDoneItem"/> class.
+            </summary>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.StatId">
+            <summary>
+            Gets the StatId
+            </summary>
+            <value>The StatId.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.PatientCode">
+            <summary>
+            Gets the PatientCode
+            </summary>
+            <value>The PatientCode.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.Tid">
+            <summary>
+            Gets the Tid
+            </summary>
+            <value>The Tid.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.FirstName">
+            <summary>
+            Gets the FirstName
+            </summary>
+            <value>The FirstName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.LastName">
+            <summary>
+            Gets the LastName
+            </summary>
+            <value>The LastName.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.Dob">
+            <summary>
+            Gets the Dob
+            </summary>
+            <value>The Dob.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.Sex">
+            <summary>
+            Gets the Sex
+            </summary>
+            <value>The Sex.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.Nationality">
+            <summary>
+            Gets the Nationality
+            </summary>
+            <value>The Nationality.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.PatientStart">
+            <summary>
+            Gets the PatientStart
+            </summary>
+            <value>The PatientStart.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.IsCompleted">
+            <summary>
+            Gets the IsCompleted
+            </summary>
+            <value>The IsCompleted.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.ChargedCodes">
+            <summary>
+            Gets the ChargedCodes
+            </summary>
+            <value>The ChargedCodes.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionDoneItem.CreateDate">
+            <summary>
+            Gets the CreateDate
+            </summary>
+            <value>The CreateDate.</value>
         </member>
         <member name="T:ePrescription.Web.UI.VrReceptionStartRepeaterDesigner">
             <summary>
@@ -11338,6 +13773,12 @@
             Gets the ChargedCodes
             </summary>
             <value>The ChargedCodes.</value>
+        </member>
+        <member name="P:ePrescription.Web.UI.VrReceptionStartItem.CreateDate">
+            <summary>
+            Gets the CreateDate
+            </summary>
+            <value>The CreateDate.</value>
         </member>
         <member name="T:ePrescription.Web.UI.VrTidChargedCodeRepeaterDesigner">
             <summary>

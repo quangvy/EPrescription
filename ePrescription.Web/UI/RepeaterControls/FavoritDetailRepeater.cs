@@ -466,6 +466,24 @@ namespace ePrescription.Web.UI
 		{
 			get { return _entity.TotalUnit; }
 		}
+        /// <summary>
+        /// Gets the Unit
+        /// </summary>
+        /// <value>The Unit.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String Unit
+		{
+			get { return _entity.Unit; }
+		}
+        /// <summary>
+        /// Gets the UnitVn
+        /// </summary>
+        /// <value>The UnitVn.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String UnitVn
+		{
+			get { return _entity.UnitVn; }
+		}
 
         /// <summary>
         /// Gets a <see cref="T:ePrescription.Entities.FavoritDetail"></see> object

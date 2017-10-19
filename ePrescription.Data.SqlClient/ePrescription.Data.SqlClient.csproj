@@ -140,6 +140,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\SqlVrDoctorDoneProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrDoctorDoneProviderBase.generated.cs">
+      <DependentUpon>SqlVrDoctorDoneProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrDoctorwipProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrDoctorwipProviderBase.generated.cs">
+      <DependentUpon>SqlVrDoctorwipProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\SqlVrEPresDetailProvider.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -152,6 +166,13 @@
     </Compile>
     <Compile Include="Views\SqlVrLabProcessingProviderBase.generated.cs">
       <DependentUpon>SqlVrLabProcessingProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrLabReceiveProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrLabReceiveProviderBase.generated.cs">
+      <DependentUpon>SqlVrLabReceiveProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\SqlVrLabReqProvider.cs">
@@ -168,6 +189,13 @@
       <DependentUpon>SqlVrLabResultProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\SqlVrLabwipProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrLabwipProviderBase.generated.cs">
+      <DependentUpon>SqlVrLabwipProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\SqlVrMedProProvider.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -175,11 +203,25 @@
       <DependentUpon>SqlVrMedProProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\SqlVrNurseProcessedPatientsProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrNurseProcessedPatientsProviderBase.generated.cs">
+      <DependentUpon>SqlVrNurseProcessedPatientsProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\SqlVrReceptionProvider.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\SqlVrReceptionProviderBase.generated.cs">
       <DependentUpon>SqlVrReceptionProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrReceptionDoneProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\SqlVrReceptionDoneProviderBase.generated.cs">
+      <DependentUpon>SqlVrReceptionDoneProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\SqlVrReceptionStartProvider.cs">
@@ -264,6 +306,20 @@
     </Compile>
     <Compile Include="SqlMedReportProviderBase.generated.cs">
       <DependentUpon>SqlMedReportProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlPackageProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlPackageProviderBase.generated.cs">
+      <DependentUpon>SqlPackageProvider.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlPackageDetailProvider.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="SqlPackageDetailProviderBase.generated.cs">
+      <DependentUpon>SqlPackageDetailProvider.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="SqlRouteProvider.cs">

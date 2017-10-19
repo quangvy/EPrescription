@@ -134,6 +134,20 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Views\VrDoctorDone.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrDoctorDoneBase.generated.cs">
+      <DependentUpon>VrDoctorDone.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrDoctorwip.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrDoctorwipBase.generated.cs">
+      <DependentUpon>VrDoctorwip.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\VrEPresDetail.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -146,6 +160,13 @@
     </Compile>
     <Compile Include="Views\VrLabProcessingBase.generated.cs">
       <DependentUpon>VrLabProcessing.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrLabReceive.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrLabReceiveBase.generated.cs">
+      <DependentUpon>VrLabReceive.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\VrLabReq.cs">
@@ -162,6 +183,13 @@
       <DependentUpon>VrLabResult.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\VrLabwip.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrLabwipBase.generated.cs">
+      <DependentUpon>VrLabwip.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\VrMedPro.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -169,11 +197,25 @@
       <DependentUpon>VrMedPro.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Views\VrNurseProcessedPatients.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrNurseProcessedPatientsBase.generated.cs">
+      <DependentUpon>VrNurseProcessedPatients.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Views\VrReception.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\VrReceptionBase.generated.cs">
       <DependentUpon>VrReception.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrReceptionDone.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Views\VrReceptionDoneBase.generated.cs">
+      <DependentUpon>VrReceptionDone.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Views\VrReceptionStart.cs">
@@ -294,6 +336,28 @@
     </Compile>
     <Compile Include="IMedReport.cs">
       <DependentUpon>MedReport.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Package.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PackageBase.generated.cs">
+      <DependentUpon>Package.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPackage.cs">
+      <DependentUpon>Package.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PackageDetail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PackageDetailBase.generated.cs">
+      <DependentUpon>PackageDetail.cs</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="IPackageDetail.cs">
+      <DependentUpon>PackageDetail.cs</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Route.cs">

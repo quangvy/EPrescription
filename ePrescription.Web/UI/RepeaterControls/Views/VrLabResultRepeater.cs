@@ -320,6 +320,123 @@ namespace ePrescription.Web.UI
 		}
 		
         /// <summary>
+        /// Gets the Id
+        /// </summary>
+        /// <value>The Id.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.Int64 Id
+		{
+			get { return _entity.Id; }
+		}
+        /// <summary>
+        /// Gets the Tid
+        /// </summary>
+        /// <value>The Tid.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String Tid
+		{
+			get { return _entity.Tid; }
+		}
+        /// <summary>
+        /// Gets the ReqId
+        /// </summary>
+        /// <value>The ReqId.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String ReqId
+		{
+			get { return _entity.ReqId; }
+		}
+        /// <summary>
+        /// Gets the Code
+        /// </summary>
+        /// <value>The Code.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String Code
+		{
+			get { return _entity.Code; }
+		}
+        /// <summary>
+        /// Gets the Description
+        /// </summary>
+        /// <value>The Description.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String Description
+		{
+			get { return _entity.Description; }
+		}
+        /// <summary>
+        /// Gets the ReqDoctor
+        /// </summary>
+        /// <value>The ReqDoctor.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String ReqDoctor
+		{
+			get { return _entity.ReqDoctor; }
+		}
+        /// <summary>
+        /// Gets the Billable
+        /// </summary>
+        /// <value>The Billable.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.Boolean? Billable
+		{
+			get { return _entity.Billable; }
+		}
+        /// <summary>
+        /// Gets the Sample
+        /// </summary>
+        /// <value>The Sample.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String Sample
+		{
+			get { return _entity.Sample; }
+		}
+        /// <summary>
+        /// Gets the ColDate
+        /// </summary>
+        /// <value>The ColDate.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.DateTime? ColDate
+		{
+			get { return _entity.ColDate; }
+		}
+        /// <summary>
+        /// Gets the ColTime
+        /// </summary>
+        /// <value>The ColTime.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.TimeSpan? ColTime
+		{
+			get { return _entity.ColTime; }
+		}
+        /// <summary>
+        /// Gets the ReqDate
+        /// </summary>
+        /// <value>The ReqDate.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.DateTime? ReqDate
+		{
+			get { return _entity.ReqDate; }
+		}
+        /// <summary>
+        /// Gets the SampleType
+        /// </summary>
+        /// <value>The SampleType.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String SampleType
+		{
+			get { return _entity.SampleType; }
+		}
+        /// <summary>
+        /// Gets the ProviderType
+        /// </summary>
+        /// <value>The ProviderType.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String ProviderType
+		{
+			get { return _entity.ProviderType; }
+		}
+        /// <summary>
         /// Gets the StatId
         /// </summary>
         /// <value>The StatId.</value>
@@ -336,15 +453,6 @@ namespace ePrescription.Web.UI
 		public System.String PatientCode
 		{
 			get { return _entity.PatientCode; }
-		}
-        /// <summary>
-        /// Gets the Tid
-        /// </summary>
-        /// <value>The Tid.</value>
-		[System.ComponentModel.Bindable(true)]
-		public System.String Tid
-		{
-			get { return _entity.Tid; }
 		}
         /// <summary>
         /// Gets the FirstName
@@ -392,40 +500,13 @@ namespace ePrescription.Web.UI
 			get { return _entity.Nationality; }
 		}
         /// <summary>
-        /// Gets the PatientStart
+        /// Gets the ReqStatus
         /// </summary>
-        /// <value>The PatientStart.</value>
+        /// <value>The ReqStatus.</value>
 		[System.ComponentModel.Bindable(true)]
-		public System.Boolean? PatientStart
+		public System.String ReqStatus
 		{
-			get { return _entity.PatientStart; }
-		}
-        /// <summary>
-        /// Gets the Lab
-        /// </summary>
-        /// <value>The Lab.</value>
-		[System.ComponentModel.Bindable(true)]
-		public System.String Lab
-		{
-			get { return _entity.Lab; }
-		}
-        /// <summary>
-        /// Gets the ChargedCodes
-        /// </summary>
-        /// <value>The ChargedCodes.</value>
-		[System.ComponentModel.Bindable(true)]
-		public System.String ChargedCodes
-		{
-			get { return _entity.ChargedCodes; }
-		}
-        /// <summary>
-        /// Gets the CreateDate
-        /// </summary>
-        /// <value>The CreateDate.</value>
-		[System.ComponentModel.Bindable(true)]
-		public System.DateTime? CreateDate
-		{
-			get { return _entity.CreateDate; }
+			get { return _entity.ReqStatus; }
 		}
 
 	}

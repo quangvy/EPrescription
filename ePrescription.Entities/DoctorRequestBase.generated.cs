@@ -90,9 +90,19 @@ namespace ePrescription.Entities
 		///<param name="_reqStatus"></param>
 		///<param name="_billable"></param>
 		///<param name="_sample"></param>
+		///<param name="_colDate"></param>
+		///<param name="_colTime"></param>
+		///<param name="_nurseDate"></param>
+		///<param name="_nurseTime"></param>
+		///<param name="_labDate"></param>
+		///<param name="_labTime"></param>
+		///<param name="_finishDate"></param>
+		///<param name="_finishTime"></param>
 		public DoctorRequestBase(System.String _tid, System.String _reqId, System.String _code, 
 			System.String _description, System.String _reqDoctor, System.DateTime? _reqDate, System.String _reqStatus, 
-			System.Boolean? _billable, System.String _sample)
+			System.Boolean? _billable, System.String _sample, System.DateTime? _colDate, System.TimeSpan? _colTime, 
+			System.DateTime? _nurseDate, System.TimeSpan? _nurseTime, System.DateTime? _labDate, 
+			System.TimeSpan? _labTime, System.DateTime? _finishDate, System.TimeSpan? _finishTime)
 		{
 			this.entityData = new DoctorRequestEntityData();
 			this.backupData = null;
@@ -106,6 +116,14 @@ namespace ePrescription.Entities
 			this.ReqStatus = _reqStatus;
 			this.Billable = _billable;
 			this.Sample = _sample;
+			this.ColDate = _colDate;
+			this.ColTime = _colTime;
+			this.NurseDate = _nurseDate;
+			this.NurseTime = _nurseTime;
+			this.LabDate = _labDate;
+			this.LabTime = _labTime;
+			this.FinishDate = _finishDate;
+			this.FinishTime = _finishTime;
 		}
 		
 		///<summary>
@@ -120,9 +138,19 @@ namespace ePrescription.Entities
 		///<param name="_reqStatus"></param>
 		///<param name="_billable"></param>
 		///<param name="_sample"></param>
+		///<param name="_colDate"></param>
+		///<param name="_colTime"></param>
+		///<param name="_nurseDate"></param>
+		///<param name="_nurseTime"></param>
+		///<param name="_labDate"></param>
+		///<param name="_labTime"></param>
+		///<param name="_finishDate"></param>
+		///<param name="_finishTime"></param>
 		public static DoctorRequest CreateDoctorRequest(System.String _tid, System.String _reqId, System.String _code, 
 			System.String _description, System.String _reqDoctor, System.DateTime? _reqDate, System.String _reqStatus, 
-			System.Boolean? _billable, System.String _sample)
+			System.Boolean? _billable, System.String _sample, System.DateTime? _colDate, System.TimeSpan? _colTime, 
+			System.DateTime? _nurseDate, System.TimeSpan? _nurseTime, System.DateTime? _labDate, 
+			System.TimeSpan? _labTime, System.DateTime? _finishDate, System.TimeSpan? _finishTime)
 		{
 			DoctorRequest newDoctorRequest = new DoctorRequest();
 			newDoctorRequest.Tid = _tid;
@@ -134,6 +162,14 @@ namespace ePrescription.Entities
 			newDoctorRequest.ReqStatus = _reqStatus;
 			newDoctorRequest.Billable = _billable;
 			newDoctorRequest.Sample = _sample;
+			newDoctorRequest.ColDate = _colDate;
+			newDoctorRequest.ColTime = _colTime;
+			newDoctorRequest.NurseDate = _nurseDate;
+			newDoctorRequest.NurseTime = _nurseTime;
+			newDoctorRequest.LabDate = _labDate;
+			newDoctorRequest.LabTime = _labTime;
+			newDoctorRequest.FinishDate = _finishDate;
+			newDoctorRequest.FinishTime = _finishTime;
 			return newDoctorRequest;
 		}
 				
@@ -527,6 +563,326 @@ namespace ePrescription.Entities
 			}
 		}
 		
+		/// <summary>
+		/// 	Gets or sets the ColDate property. 
+		///		
+		/// </summary>
+		/// <value>This type is datetime.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null it is up to the developer to check using the HasValue property
+		/// and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.DateTime? ColDate
+		{
+			get
+			{
+				return this.entityData.ColDate; 
+			}
+			
+			set
+			{
+				if (this.entityData.ColDate == value)
+					return;
+				
+                OnPropertyChanging("ColDate");                    
+				OnColumnChanging(DoctorRequestColumn.ColDate, this.entityData.ColDate);
+				this.entityData.ColDate = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(DoctorRequestColumn.ColDate, this.entityData.ColDate);
+				OnPropertyChanged("ColDate");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the ColTime property. 
+		///		
+		/// </summary>
+		/// <value>This type is time.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null it is up to the developer to check using the HasValue property
+		/// and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.TimeSpan? ColTime
+		{
+			get
+			{
+				return this.entityData.ColTime; 
+			}
+			
+			set
+			{
+				if (this.entityData.ColTime == value)
+					return;
+				
+                OnPropertyChanging("ColTime");                    
+				OnColumnChanging(DoctorRequestColumn.ColTime, this.entityData.ColTime);
+				this.entityData.ColTime = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(DoctorRequestColumn.ColTime, this.entityData.ColTime);
+				OnPropertyChanged("ColTime");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the NurseDate property. 
+		///		
+		/// </summary>
+		/// <value>This type is datetime.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null it is up to the developer to check using the HasValue property
+		/// and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.DateTime? NurseDate
+		{
+			get
+			{
+				return this.entityData.NurseDate; 
+			}
+			
+			set
+			{
+				if (this.entityData.NurseDate == value)
+					return;
+				
+                OnPropertyChanging("NurseDate");                    
+				OnColumnChanging(DoctorRequestColumn.NurseDate, this.entityData.NurseDate);
+				this.entityData.NurseDate = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(DoctorRequestColumn.NurseDate, this.entityData.NurseDate);
+				OnPropertyChanged("NurseDate");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the NurseTime property. 
+		///		
+		/// </summary>
+		/// <value>This type is time.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null it is up to the developer to check using the HasValue property
+		/// and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.TimeSpan? NurseTime
+		{
+			get
+			{
+				return this.entityData.NurseTime; 
+			}
+			
+			set
+			{
+				if (this.entityData.NurseTime == value)
+					return;
+				
+                OnPropertyChanging("NurseTime");                    
+				OnColumnChanging(DoctorRequestColumn.NurseTime, this.entityData.NurseTime);
+				this.entityData.NurseTime = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(DoctorRequestColumn.NurseTime, this.entityData.NurseTime);
+				OnPropertyChanged("NurseTime");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the LabDate property. 
+		///		
+		/// </summary>
+		/// <value>This type is datetime.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null it is up to the developer to check using the HasValue property
+		/// and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.DateTime? LabDate
+		{
+			get
+			{
+				return this.entityData.LabDate; 
+			}
+			
+			set
+			{
+				if (this.entityData.LabDate == value)
+					return;
+				
+                OnPropertyChanging("LabDate");                    
+				OnColumnChanging(DoctorRequestColumn.LabDate, this.entityData.LabDate);
+				this.entityData.LabDate = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(DoctorRequestColumn.LabDate, this.entityData.LabDate);
+				OnPropertyChanged("LabDate");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the LabTime property. 
+		///		
+		/// </summary>
+		/// <value>This type is time.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null it is up to the developer to check using the HasValue property
+		/// and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.TimeSpan? LabTime
+		{
+			get
+			{
+				return this.entityData.LabTime; 
+			}
+			
+			set
+			{
+				if (this.entityData.LabTime == value)
+					return;
+				
+                OnPropertyChanging("LabTime");                    
+				OnColumnChanging(DoctorRequestColumn.LabTime, this.entityData.LabTime);
+				this.entityData.LabTime = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(DoctorRequestColumn.LabTime, this.entityData.LabTime);
+				OnPropertyChanged("LabTime");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the FinishDate property. 
+		///		
+		/// </summary>
+		/// <value>This type is datetime.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null it is up to the developer to check using the HasValue property
+		/// and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.DateTime? FinishDate
+		{
+			get
+			{
+				return this.entityData.FinishDate; 
+			}
+			
+			set
+			{
+				if (this.entityData.FinishDate == value)
+					return;
+				
+                OnPropertyChanging("FinishDate");                    
+				OnColumnChanging(DoctorRequestColumn.FinishDate, this.entityData.FinishDate);
+				this.entityData.FinishDate = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(DoctorRequestColumn.FinishDate, this.entityData.FinishDate);
+				OnPropertyChanged("FinishDate");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or sets the FinishTime property. 
+		///		
+		/// </summary>
+		/// <value>This type is time.</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null it is up to the developer to check using the HasValue property
+		/// and perform business logic appropriately.
+		/// </remarks>
+		
+		
+
+
+
+
+		[DescriptionAttribute(@""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		[DataObjectField(false, false, true)]
+		public virtual System.TimeSpan? FinishTime
+		{
+			get
+			{
+				return this.entityData.FinishTime; 
+			}
+			
+			set
+			{
+				if (this.entityData.FinishTime == value)
+					return;
+				
+                OnPropertyChanging("FinishTime");                    
+				OnColumnChanging(DoctorRequestColumn.FinishTime, this.entityData.FinishTime);
+				this.entityData.FinishTime = value;
+				if (this.EntityState == EntityState.Unchanged)
+					this.EntityState = EntityState.Changed;
+				OnColumnChanged(DoctorRequestColumn.FinishTime, this.entityData.FinishTime);
+				OnPropertyChanged("FinishTime");
+			}
+		}
+		
 		#endregion Data Properties		
 
 		#region Source Foreign Key Property
@@ -581,7 +937,7 @@ namespace ePrescription.Entities
 		{
 			get
 			{
-				return new string[] {"Id", "TID", "ReqID", "Code", "Description", "ReqDoctor", "ReqDate", "ReqStatus", "Billable", "Sample"};
+				return new string[] {"Id", "TID", "ReqID", "Code", "Description", "ReqDoctor", "ReqDate", "ReqStatus", "Billable", "Sample", "ColDate", "ColTime", "NurseDate", "NurseTime", "LabDate", "LabTime", "FinishDate", "FinishTime"};
 			}
 		}
 		#endregion 
@@ -739,6 +1095,14 @@ namespace ePrescription.Entities
 				copy.ReqStatus = this.ReqStatus;
 				copy.Billable = this.Billable;
 				copy.Sample = this.Sample;
+				copy.ColDate = this.ColDate;
+				copy.ColTime = this.ColTime;
+				copy.NurseDate = this.NurseDate;
+				copy.NurseTime = this.NurseTime;
+				copy.LabDate = this.LabDate;
+				copy.LabTime = this.LabTime;
+				copy.FinishDate = this.FinishDate;
+				copy.FinishTime = this.FinishTime;
 			
 		
 			copy.EntityState = this.EntityState;
@@ -891,6 +1255,22 @@ namespace ePrescription.Entities
 					return entityData.Billable != _originalData.Billable;
 					case DoctorRequestColumn.Sample:
 					return entityData.Sample != _originalData.Sample;
+					case DoctorRequestColumn.ColDate:
+					return entityData.ColDate != _originalData.ColDate;
+					case DoctorRequestColumn.ColTime:
+					return entityData.ColTime != _originalData.ColTime;
+					case DoctorRequestColumn.NurseDate:
+					return entityData.NurseDate != _originalData.NurseDate;
+					case DoctorRequestColumn.NurseTime:
+					return entityData.NurseTime != _originalData.NurseTime;
+					case DoctorRequestColumn.LabDate:
+					return entityData.LabDate != _originalData.LabDate;
+					case DoctorRequestColumn.LabTime:
+					return entityData.LabTime != _originalData.LabTime;
+					case DoctorRequestColumn.FinishDate:
+					return entityData.FinishDate != _originalData.FinishDate;
+					case DoctorRequestColumn.FinishTime:
+					return entityData.FinishTime != _originalData.FinishTime;
 			
 				default:
 					return false;
@@ -928,6 +1308,14 @@ namespace ePrescription.Entities
 			result = result || entityData.ReqStatus != _originalData.ReqStatus;
 			result = result || entityData.Billable != _originalData.Billable;
 			result = result || entityData.Sample != _originalData.Sample;
+			result = result || entityData.ColDate != _originalData.ColDate;
+			result = result || entityData.ColTime != _originalData.ColTime;
+			result = result || entityData.NurseDate != _originalData.NurseDate;
+			result = result || entityData.NurseTime != _originalData.NurseTime;
+			result = result || entityData.LabDate != _originalData.LabDate;
+			result = result || entityData.LabTime != _originalData.LabTime;
+			result = result || entityData.FinishDate != _originalData.FinishDate;
+			result = result || entityData.FinishTime != _originalData.FinishTime;
 			return result;
 		}	
 		
@@ -946,7 +1334,15 @@ namespace ePrescription.Entities
 				_originalData.ReqDate,
 				_originalData.ReqStatus,
 				_originalData.Billable,
-				_originalData.Sample
+				_originalData.Sample,
+				_originalData.ColDate,
+				_originalData.ColTime,
+				_originalData.NurseDate,
+				_originalData.NurseTime,
+				_originalData.LabDate,
+				_originalData.LabTime,
+				_originalData.FinishDate,
+				_originalData.FinishTime
 				);
 				
 			return (DoctorRequest)this.Clone();
@@ -985,7 +1381,15 @@ namespace ePrescription.Entities
 					((this.ReqDate == null) ? string.Empty : this.ReqDate.ToString()).GetHashCode() ^ 
 					((this.ReqStatus == null) ? string.Empty : this.ReqStatus.ToString()).GetHashCode() ^ 
 					((this.Billable == null) ? string.Empty : this.Billable.ToString()).GetHashCode() ^ 
-					((this.Sample == null) ? string.Empty : this.Sample.ToString()).GetHashCode();
+					((this.Sample == null) ? string.Empty : this.Sample.ToString()).GetHashCode() ^ 
+					((this.ColDate == null) ? string.Empty : this.ColDate.ToString()).GetHashCode() ^ 
+					((this.ColTime == null) ? string.Empty : this.ColTime.ToString()).GetHashCode() ^ 
+					((this.NurseDate == null) ? string.Empty : this.NurseDate.ToString()).GetHashCode() ^ 
+					((this.NurseTime == null) ? string.Empty : this.NurseTime.ToString()).GetHashCode() ^ 
+					((this.LabDate == null) ? string.Empty : this.LabDate.ToString()).GetHashCode() ^ 
+					((this.LabTime == null) ? string.Empty : this.LabTime.ToString()).GetHashCode() ^ 
+					((this.FinishDate == null) ? string.Empty : this.FinishDate.ToString()).GetHashCode() ^ 
+					((this.FinishTime == null) ? string.Empty : this.FinishTime.ToString()).GetHashCode();
         }
 		
 		///<summary>
@@ -1101,6 +1505,78 @@ namespace ePrescription.Entities
 			{
 				equal = false;
 			}
+			if ( Object1.ColDate != null && Object2.ColDate != null )
+			{
+				if (Object1.ColDate != Object2.ColDate)
+					equal = false;
+			}
+			else if (Object1.ColDate == null ^ Object2.ColDate == null )
+			{
+				equal = false;
+			}
+			if ( Object1.ColTime != null && Object2.ColTime != null )
+			{
+				if (Object1.ColTime != Object2.ColTime)
+					equal = false;
+			}
+			else if (Object1.ColTime == null ^ Object2.ColTime == null )
+			{
+				equal = false;
+			}
+			if ( Object1.NurseDate != null && Object2.NurseDate != null )
+			{
+				if (Object1.NurseDate != Object2.NurseDate)
+					equal = false;
+			}
+			else if (Object1.NurseDate == null ^ Object2.NurseDate == null )
+			{
+				equal = false;
+			}
+			if ( Object1.NurseTime != null && Object2.NurseTime != null )
+			{
+				if (Object1.NurseTime != Object2.NurseTime)
+					equal = false;
+			}
+			else if (Object1.NurseTime == null ^ Object2.NurseTime == null )
+			{
+				equal = false;
+			}
+			if ( Object1.LabDate != null && Object2.LabDate != null )
+			{
+				if (Object1.LabDate != Object2.LabDate)
+					equal = false;
+			}
+			else if (Object1.LabDate == null ^ Object2.LabDate == null )
+			{
+				equal = false;
+			}
+			if ( Object1.LabTime != null && Object2.LabTime != null )
+			{
+				if (Object1.LabTime != Object2.LabTime)
+					equal = false;
+			}
+			else if (Object1.LabTime == null ^ Object2.LabTime == null )
+			{
+				equal = false;
+			}
+			if ( Object1.FinishDate != null && Object2.FinishDate != null )
+			{
+				if (Object1.FinishDate != Object2.FinishDate)
+					equal = false;
+			}
+			else if (Object1.FinishDate == null ^ Object2.FinishDate == null )
+			{
+				equal = false;
+			}
+			if ( Object1.FinishTime != null && Object2.FinishTime != null )
+			{
+				if (Object1.FinishTime != Object2.FinishTime)
+					equal = false;
+			}
+			else if (Object1.FinishTime == null ^ Object2.FinishTime == null )
+			{
+				equal = false;
+			}
 					
 			return equal;
 		}
@@ -1201,6 +1677,54 @@ namespace ePrescription.Entities
             	
             	case DoctorRequestColumn.Sample:
             		return this.Sample.CompareTo(rhs.Sample);
+            		
+            		                 
+            	
+            	
+            	case DoctorRequestColumn.ColDate:
+            		return this.ColDate.Value.CompareTo(rhs.ColDate.Value);
+            		
+            		                 
+            	
+            	
+            	case DoctorRequestColumn.ColTime:
+            		return this.ColTime.Value.CompareTo(rhs.ColTime.Value);
+            		
+            		                 
+            	
+            	
+            	case DoctorRequestColumn.NurseDate:
+            		return this.NurseDate.Value.CompareTo(rhs.NurseDate.Value);
+            		
+            		                 
+            	
+            	
+            	case DoctorRequestColumn.NurseTime:
+            		return this.NurseTime.Value.CompareTo(rhs.NurseTime.Value);
+            		
+            		                 
+            	
+            	
+            	case DoctorRequestColumn.LabDate:
+            		return this.LabDate.Value.CompareTo(rhs.LabDate.Value);
+            		
+            		                 
+            	
+            	
+            	case DoctorRequestColumn.LabTime:
+            		return this.LabTime.Value.CompareTo(rhs.LabTime.Value);
+            		
+            		                 
+            	
+            	
+            	case DoctorRequestColumn.FinishDate:
+            		return this.FinishDate.Value.CompareTo(rhs.FinishDate.Value);
+            		
+            		                 
+            	
+            	
+            	case DoctorRequestColumn.FinishTime:
+            		return this.FinishTime.Value.CompareTo(rhs.FinishTime.Value);
             		
             		                 
             }
@@ -1337,7 +1861,7 @@ namespace ePrescription.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{11}{10}- Id: {0}{10}- Tid: {1}{10}- ReqId: {2}{10}- Code: {3}{10}- Description: {4}{10}- ReqDoctor: {5}{10}- ReqDate: {6}{10}- ReqStatus: {7}{10}- Billable: {8}{10}- Sample: {9}{10}{12}", 
+				"{19}{18}- Id: {0}{18}- Tid: {1}{18}- ReqId: {2}{18}- Code: {3}{18}- Description: {4}{18}- ReqDoctor: {5}{18}- ReqDate: {6}{18}- ReqStatus: {7}{18}- Billable: {8}{18}- Sample: {9}{18}- ColDate: {10}{18}- ColTime: {11}{18}- NurseDate: {12}{18}- NurseTime: {13}{18}- LabDate: {14}{18}- LabTime: {15}{18}- FinishDate: {16}{18}- FinishTime: {17}{18}{20}", 
 				this.Id,
 				(this.Tid == null) ? string.Empty : this.Tid.ToString(),
 				(this.ReqId == null) ? string.Empty : this.ReqId.ToString(),
@@ -1348,6 +1872,14 @@ namespace ePrescription.Entities
 				(this.ReqStatus == null) ? string.Empty : this.ReqStatus.ToString(),
 				(this.Billable == null) ? string.Empty : this.Billable.ToString(),
 				(this.Sample == null) ? string.Empty : this.Sample.ToString(),
+				(this.ColDate == null) ? string.Empty : this.ColDate.ToString(),
+				(this.ColTime == null) ? string.Empty : this.ColTime.ToString(),
+				(this.NurseDate == null) ? string.Empty : this.NurseDate.ToString(),
+				(this.NurseTime == null) ? string.Empty : this.NurseTime.ToString(),
+				(this.LabDate == null) ? string.Empty : this.LabDate.ToString(),
+				(this.LabTime == null) ? string.Empty : this.LabTime.ToString(),
+				(this.FinishDate == null) ? string.Empty : this.FinishDate.ToString(),
+				(this.FinishTime == null) ? string.Empty : this.FinishTime.ToString(),
 				System.Environment.NewLine, 
 				this.GetType(),
 				this.Error.Length == 0 ? string.Empty : string.Format("- Error: {0}\n",this.Error));
@@ -1425,6 +1957,46 @@ namespace ePrescription.Entities
 		/// Sample : 
 		/// </summary>
 		public System.String Sample = null;
+		
+		/// <summary>
+		/// ColDate : 
+		/// </summary>
+		public System.DateTime? ColDate = null;
+		
+		/// <summary>
+		/// ColTime : 
+		/// </summary>
+		public System.TimeSpan? ColTime = null;
+		
+		/// <summary>
+		/// NurseDate : 
+		/// </summary>
+		public System.DateTime? NurseDate = null;
+		
+		/// <summary>
+		/// NurseTime : 
+		/// </summary>
+		public System.TimeSpan? NurseTime = null;
+		
+		/// <summary>
+		/// LabDate : 
+		/// </summary>
+		public System.DateTime? LabDate = null;
+		
+		/// <summary>
+		/// LabTime : 
+		/// </summary>
+		public System.TimeSpan? LabTime = null;
+		
+		/// <summary>
+		/// FinishDate : 
+		/// </summary>
+		public System.DateTime? FinishDate = null;
+		
+		/// <summary>
+		/// FinishTime : 
+		/// </summary>
+		public System.TimeSpan? FinishTime = null;
 		#endregion
 			
 		#region Source Foreign Key Property
@@ -1457,6 +2029,14 @@ namespace ePrescription.Entities
 			_tmp.ReqStatus = this.ReqStatus;
 			_tmp.Billable = this.Billable;
 			_tmp.Sample = this.Sample;
+			_tmp.ColDate = this.ColDate;
+			_tmp.ColTime = this.ColTime;
+			_tmp.NurseDate = this.NurseDate;
+			_tmp.NurseTime = this.NurseTime;
+			_tmp.LabDate = this.LabDate;
+			_tmp.LabTime = this.LabTime;
+			_tmp.FinishDate = this.FinishDate;
+			_tmp.FinishTime = this.FinishTime;
 			
 			#region Source Parent Composite Entities
 			#endregion
@@ -1492,6 +2072,14 @@ namespace ePrescription.Entities
 			_tmp.ReqStatus = this.ReqStatus;
 			_tmp.Billable = this.Billable;
 			_tmp.Sample = this.Sample;
+			_tmp.ColDate = this.ColDate;
+			_tmp.ColTime = this.ColTime;
+			_tmp.NurseDate = this.NurseDate;
+			_tmp.NurseTime = this.NurseTime;
+			_tmp.LabDate = this.LabDate;
+			_tmp.LabTime = this.LabTime;
+			_tmp.FinishDate = this.FinishDate;
+			_tmp.FinishTime = this.FinishTime;
 			
 			#region Source Parent Composite Entities
 			#endregion
@@ -1914,7 +2502,55 @@ namespace ePrescription.Entities
 		/// </summary>
 		[EnumTextValue("Sample")]
 		[ColumnEnum("Sample", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
-		Sample = 10
+		Sample = 10,
+		/// <summary>
+		/// ColDate : 
+		/// </summary>
+		[EnumTextValue("Col Date")]
+		[ColumnEnum("ColDate", typeof(System.DateTime), System.Data.DbType.DateTime, false, false, true)]
+		ColDate = 11,
+		/// <summary>
+		/// ColTime : 
+		/// </summary>
+		[EnumTextValue("Col Time")]
+		[ColumnEnum("ColTime", typeof(System.TimeSpan), System.Data.DbType.Time, false, false, true)]
+		ColTime = 12,
+		/// <summary>
+		/// NurseDate : 
+		/// </summary>
+		[EnumTextValue("Nurse Date")]
+		[ColumnEnum("NurseDate", typeof(System.DateTime), System.Data.DbType.DateTime, false, false, true)]
+		NurseDate = 13,
+		/// <summary>
+		/// NurseTime : 
+		/// </summary>
+		[EnumTextValue("Nurse Time")]
+		[ColumnEnum("NurseTime", typeof(System.TimeSpan), System.Data.DbType.Time, false, false, true)]
+		NurseTime = 14,
+		/// <summary>
+		/// LabDate : 
+		/// </summary>
+		[EnumTextValue("Lab Date")]
+		[ColumnEnum("LabDate", typeof(System.DateTime), System.Data.DbType.DateTime, false, false, true)]
+		LabDate = 15,
+		/// <summary>
+		/// LabTime : 
+		/// </summary>
+		[EnumTextValue("Lab Time")]
+		[ColumnEnum("LabTime", typeof(System.TimeSpan), System.Data.DbType.Time, false, false, true)]
+		LabTime = 16,
+		/// <summary>
+		/// FinishDate : 
+		/// </summary>
+		[EnumTextValue("Finish Date")]
+		[ColumnEnum("FinishDate", typeof(System.DateTime), System.Data.DbType.DateTime, false, false, true)]
+		FinishDate = 17,
+		/// <summary>
+		/// FinishTime : 
+		/// </summary>
+		[EnumTextValue("Finish Time")]
+		[ColumnEnum("FinishTime", typeof(System.TimeSpan), System.Data.DbType.Time, false, false, true)]
+		FinishTime = 18
 	}//End enum
 
 	#endregion DoctorRequestColumn Enum

@@ -68,18 +68,27 @@ namespace ePrescription.Data.Bases
 					DataRow row = (DataRow)dataRows.Current;
 				
 					VrLabResult c = new VrLabResult();
+					c.Id = (Convert.IsDBNull(row["Id"]))?(long)0:(System.Int64)row["Id"];
+					c.Tid = (Convert.IsDBNull(row["TID"]))?string.Empty:(System.String)row["TID"];
+					c.ReqId = (Convert.IsDBNull(row["ReqID"]))?string.Empty:(System.String)row["ReqID"];
+					c.Code = (Convert.IsDBNull(row["Code"]))?string.Empty:(System.String)row["Code"];
+					c.Description = (Convert.IsDBNull(row["Description"]))?string.Empty:(System.String)row["Description"];
+					c.ReqDoctor = (Convert.IsDBNull(row["ReqDoctor"]))?string.Empty:(System.String)row["ReqDoctor"];
+					c.Billable = (Convert.IsDBNull(row["Billable"]))?false:(System.Boolean?)row["Billable"];
+					c.Sample = (Convert.IsDBNull(row["Sample"]))?string.Empty:(System.String)row["Sample"];
+					c.ColDate = (Convert.IsDBNull(row["ColDate"]))?DateTime.MinValue:(System.DateTime?)row["ColDate"];
+					c.ColTime = (Convert.IsDBNull(row["ColTime"]))?new TimeSpan(1,0,0,0,0):(System.TimeSpan?)row["ColTime"];
+					c.ReqDate = (Convert.IsDBNull(row["ReqDate"]))?DateTime.MinValue:(System.DateTime?)row["ReqDate"];
+					c.SampleType = (Convert.IsDBNull(row["SampleType"]))?string.Empty:(System.String)row["SampleType"];
+					c.ProviderType = (Convert.IsDBNull(row["ProviderType"]))?string.Empty:(System.String)row["ProviderType"];
 					c.StatId = (Convert.IsDBNull(row["StatId"]))?(long)0:(System.Int64)row["StatId"];
 					c.PatientCode = (Convert.IsDBNull(row["PatientCode"]))?string.Empty:(System.String)row["PatientCode"];
-					c.Tid = (Convert.IsDBNull(row["TID"]))?string.Empty:(System.String)row["TID"];
 					c.FirstName = (Convert.IsDBNull(row["FirstName"]))?string.Empty:(System.String)row["FirstName"];
 					c.LastName = (Convert.IsDBNull(row["LastName"]))?string.Empty:(System.String)row["LastName"];
 					c.Dob = (Convert.IsDBNull(row["DOB"]))?DateTime.MinValue:(System.DateTime)row["DOB"];
 					c.Sex = (Convert.IsDBNull(row["Sex"]))?string.Empty:(System.String)row["Sex"];
 					c.Nationality = (Convert.IsDBNull(row["Nationality"]))?string.Empty:(System.String)row["Nationality"];
-					c.PatientStart = (Convert.IsDBNull(row["PatientStart"]))?false:(System.Boolean?)row["PatientStart"];
-					c.Lab = (Convert.IsDBNull(row["Lab"]))?string.Empty:(System.String)row["Lab"];
-					c.ChargedCodes = (Convert.IsDBNull(row["ChargedCodes"]))?string.Empty:(System.String)row["ChargedCodes"];
-					c.CreateDate = (Convert.IsDBNull(row["CreateDate"]))?DateTime.MinValue:(System.DateTime?)row["CreateDate"];
+					c.ReqStatus = (Convert.IsDBNull(row["ReqStatus"]))?string.Empty:(System.String)row["ReqStatus"];
 					c.AcceptChanges();
 					rows.Add(c);
 					pagelen -= 1;
@@ -117,12 +126,36 @@ namespace ePrescription.Data.Bases
 					
 					entity.SuppressEntityEvents = true;
 
+					entity.Id = (System.Int64)reader[((int)VrLabResultColumn.Id)];
+					//entity.Id = (Convert.IsDBNull(reader["Id"]))?(long)0:(System.Int64)reader["Id"];
+					entity.Tid = (reader.IsDBNull(((int)VrLabResultColumn.Tid)))?null:(System.String)reader[((int)VrLabResultColumn.Tid)];
+					//entity.Tid = (Convert.IsDBNull(reader["TID"]))?string.Empty:(System.String)reader["TID"];
+					entity.ReqId = (reader.IsDBNull(((int)VrLabResultColumn.ReqId)))?null:(System.String)reader[((int)VrLabResultColumn.ReqId)];
+					//entity.ReqId = (Convert.IsDBNull(reader["ReqID"]))?string.Empty:(System.String)reader["ReqID"];
+					entity.Code = (reader.IsDBNull(((int)VrLabResultColumn.Code)))?null:(System.String)reader[((int)VrLabResultColumn.Code)];
+					//entity.Code = (Convert.IsDBNull(reader["Code"]))?string.Empty:(System.String)reader["Code"];
+					entity.Description = (reader.IsDBNull(((int)VrLabResultColumn.Description)))?null:(System.String)reader[((int)VrLabResultColumn.Description)];
+					//entity.Description = (Convert.IsDBNull(reader["Description"]))?string.Empty:(System.String)reader["Description"];
+					entity.ReqDoctor = (reader.IsDBNull(((int)VrLabResultColumn.ReqDoctor)))?null:(System.String)reader[((int)VrLabResultColumn.ReqDoctor)];
+					//entity.ReqDoctor = (Convert.IsDBNull(reader["ReqDoctor"]))?string.Empty:(System.String)reader["ReqDoctor"];
+					entity.Billable = (reader.IsDBNull(((int)VrLabResultColumn.Billable)))?null:(System.Boolean?)reader[((int)VrLabResultColumn.Billable)];
+					//entity.Billable = (Convert.IsDBNull(reader["Billable"]))?false:(System.Boolean?)reader["Billable"];
+					entity.Sample = (reader.IsDBNull(((int)VrLabResultColumn.Sample)))?null:(System.String)reader[((int)VrLabResultColumn.Sample)];
+					//entity.Sample = (Convert.IsDBNull(reader["Sample"]))?string.Empty:(System.String)reader["Sample"];
+					entity.ColDate = (reader.IsDBNull(((int)VrLabResultColumn.ColDate)))?null:(System.DateTime?)reader[((int)VrLabResultColumn.ColDate)];
+					//entity.ColDate = (Convert.IsDBNull(reader["ColDate"]))?DateTime.MinValue:(System.DateTime?)reader["ColDate"];
+					entity.ColTime = (reader.IsDBNull(((int)VrLabResultColumn.ColTime)))?null:(System.TimeSpan?)reader[((int)VrLabResultColumn.ColTime)];
+					//entity.ColTime = (Convert.IsDBNull(reader["ColTime"]))?new TimeSpan(1,0,0,0,0):(System.TimeSpan?)reader["ColTime"];
+					entity.ReqDate = (reader.IsDBNull(((int)VrLabResultColumn.ReqDate)))?null:(System.DateTime?)reader[((int)VrLabResultColumn.ReqDate)];
+					//entity.ReqDate = (Convert.IsDBNull(reader["ReqDate"]))?DateTime.MinValue:(System.DateTime?)reader["ReqDate"];
+					entity.SampleType = (reader.IsDBNull(((int)VrLabResultColumn.SampleType)))?null:(System.String)reader[((int)VrLabResultColumn.SampleType)];
+					//entity.SampleType = (Convert.IsDBNull(reader["SampleType"]))?string.Empty:(System.String)reader["SampleType"];
+					entity.ProviderType = (reader.IsDBNull(((int)VrLabResultColumn.ProviderType)))?null:(System.String)reader[((int)VrLabResultColumn.ProviderType)];
+					//entity.ProviderType = (Convert.IsDBNull(reader["ProviderType"]))?string.Empty:(System.String)reader["ProviderType"];
 					entity.StatId = (System.Int64)reader[((int)VrLabResultColumn.StatId)];
 					//entity.StatId = (Convert.IsDBNull(reader["StatId"]))?(long)0:(System.Int64)reader["StatId"];
 					entity.PatientCode = (System.String)reader[((int)VrLabResultColumn.PatientCode)];
 					//entity.PatientCode = (Convert.IsDBNull(reader["PatientCode"]))?string.Empty:(System.String)reader["PatientCode"];
-					entity.Tid = (System.String)reader[((int)VrLabResultColumn.Tid)];
-					//entity.Tid = (Convert.IsDBNull(reader["TID"]))?string.Empty:(System.String)reader["TID"];
 					entity.FirstName = (System.String)reader[((int)VrLabResultColumn.FirstName)];
 					//entity.FirstName = (Convert.IsDBNull(reader["FirstName"]))?string.Empty:(System.String)reader["FirstName"];
 					entity.LastName = (System.String)reader[((int)VrLabResultColumn.LastName)];
@@ -133,14 +166,8 @@ namespace ePrescription.Data.Bases
 					//entity.Sex = (Convert.IsDBNull(reader["Sex"]))?string.Empty:(System.String)reader["Sex"];
 					entity.Nationality = (System.String)reader[((int)VrLabResultColumn.Nationality)];
 					//entity.Nationality = (Convert.IsDBNull(reader["Nationality"]))?string.Empty:(System.String)reader["Nationality"];
-					entity.PatientStart = (reader.IsDBNull(((int)VrLabResultColumn.PatientStart)))?null:(System.Boolean?)reader[((int)VrLabResultColumn.PatientStart)];
-					//entity.PatientStart = (Convert.IsDBNull(reader["PatientStart"]))?false:(System.Boolean?)reader["PatientStart"];
-					entity.Lab = (reader.IsDBNull(((int)VrLabResultColumn.Lab)))?null:(System.String)reader[((int)VrLabResultColumn.Lab)];
-					//entity.Lab = (Convert.IsDBNull(reader["Lab"]))?string.Empty:(System.String)reader["Lab"];
-					entity.ChargedCodes = (reader.IsDBNull(((int)VrLabResultColumn.ChargedCodes)))?null:(System.String)reader[((int)VrLabResultColumn.ChargedCodes)];
-					//entity.ChargedCodes = (Convert.IsDBNull(reader["ChargedCodes"]))?string.Empty:(System.String)reader["ChargedCodes"];
-					entity.CreateDate = (reader.IsDBNull(((int)VrLabResultColumn.CreateDate)))?null:(System.DateTime?)reader[((int)VrLabResultColumn.CreateDate)];
-					//entity.CreateDate = (Convert.IsDBNull(reader["CreateDate"]))?DateTime.MinValue:(System.DateTime?)reader["CreateDate"];
+					entity.ReqStatus = (reader.IsDBNull(((int)VrLabResultColumn.ReqStatus)))?null:(System.String)reader[((int)VrLabResultColumn.ReqStatus)];
+					//entity.ReqStatus = (Convert.IsDBNull(reader["ReqStatus"]))?string.Empty:(System.String)reader["ReqStatus"];
 					entity.AcceptChanges();
 					entity.SuppressEntityEvents = false;
 					
@@ -161,12 +188,36 @@ namespace ePrescription.Data.Bases
 		protected void RefreshEntity(IDataReader reader, VrLabResult entity)
 		{
 			reader.Read();
+			entity.Id = (System.Int64)reader[((int)VrLabResultColumn.Id)];
+			//entity.Id = (Convert.IsDBNull(reader["Id"]))?(long)0:(System.Int64)reader["Id"];
+			entity.Tid = (reader.IsDBNull(((int)VrLabResultColumn.Tid)))?null:(System.String)reader[((int)VrLabResultColumn.Tid)];
+			//entity.Tid = (Convert.IsDBNull(reader["TID"]))?string.Empty:(System.String)reader["TID"];
+			entity.ReqId = (reader.IsDBNull(((int)VrLabResultColumn.ReqId)))?null:(System.String)reader[((int)VrLabResultColumn.ReqId)];
+			//entity.ReqId = (Convert.IsDBNull(reader["ReqID"]))?string.Empty:(System.String)reader["ReqID"];
+			entity.Code = (reader.IsDBNull(((int)VrLabResultColumn.Code)))?null:(System.String)reader[((int)VrLabResultColumn.Code)];
+			//entity.Code = (Convert.IsDBNull(reader["Code"]))?string.Empty:(System.String)reader["Code"];
+			entity.Description = (reader.IsDBNull(((int)VrLabResultColumn.Description)))?null:(System.String)reader[((int)VrLabResultColumn.Description)];
+			//entity.Description = (Convert.IsDBNull(reader["Description"]))?string.Empty:(System.String)reader["Description"];
+			entity.ReqDoctor = (reader.IsDBNull(((int)VrLabResultColumn.ReqDoctor)))?null:(System.String)reader[((int)VrLabResultColumn.ReqDoctor)];
+			//entity.ReqDoctor = (Convert.IsDBNull(reader["ReqDoctor"]))?string.Empty:(System.String)reader["ReqDoctor"];
+			entity.Billable = (reader.IsDBNull(((int)VrLabResultColumn.Billable)))?null:(System.Boolean?)reader[((int)VrLabResultColumn.Billable)];
+			//entity.Billable = (Convert.IsDBNull(reader["Billable"]))?false:(System.Boolean?)reader["Billable"];
+			entity.Sample = (reader.IsDBNull(((int)VrLabResultColumn.Sample)))?null:(System.String)reader[((int)VrLabResultColumn.Sample)];
+			//entity.Sample = (Convert.IsDBNull(reader["Sample"]))?string.Empty:(System.String)reader["Sample"];
+			entity.ColDate = (reader.IsDBNull(((int)VrLabResultColumn.ColDate)))?null:(System.DateTime?)reader[((int)VrLabResultColumn.ColDate)];
+			//entity.ColDate = (Convert.IsDBNull(reader["ColDate"]))?DateTime.MinValue:(System.DateTime?)reader["ColDate"];
+			entity.ColTime = (reader.IsDBNull(((int)VrLabResultColumn.ColTime)))?null:(System.TimeSpan?)reader[((int)VrLabResultColumn.ColTime)];
+			//entity.ColTime = (Convert.IsDBNull(reader["ColTime"]))?new TimeSpan(1,0,0,0,0):(System.TimeSpan?)reader["ColTime"];
+			entity.ReqDate = (reader.IsDBNull(((int)VrLabResultColumn.ReqDate)))?null:(System.DateTime?)reader[((int)VrLabResultColumn.ReqDate)];
+			//entity.ReqDate = (Convert.IsDBNull(reader["ReqDate"]))?DateTime.MinValue:(System.DateTime?)reader["ReqDate"];
+			entity.SampleType = (reader.IsDBNull(((int)VrLabResultColumn.SampleType)))?null:(System.String)reader[((int)VrLabResultColumn.SampleType)];
+			//entity.SampleType = (Convert.IsDBNull(reader["SampleType"]))?string.Empty:(System.String)reader["SampleType"];
+			entity.ProviderType = (reader.IsDBNull(((int)VrLabResultColumn.ProviderType)))?null:(System.String)reader[((int)VrLabResultColumn.ProviderType)];
+			//entity.ProviderType = (Convert.IsDBNull(reader["ProviderType"]))?string.Empty:(System.String)reader["ProviderType"];
 			entity.StatId = (System.Int64)reader[((int)VrLabResultColumn.StatId)];
 			//entity.StatId = (Convert.IsDBNull(reader["StatId"]))?(long)0:(System.Int64)reader["StatId"];
 			entity.PatientCode = (System.String)reader[((int)VrLabResultColumn.PatientCode)];
 			//entity.PatientCode = (Convert.IsDBNull(reader["PatientCode"]))?string.Empty:(System.String)reader["PatientCode"];
-			entity.Tid = (System.String)reader[((int)VrLabResultColumn.Tid)];
-			//entity.Tid = (Convert.IsDBNull(reader["TID"]))?string.Empty:(System.String)reader["TID"];
 			entity.FirstName = (System.String)reader[((int)VrLabResultColumn.FirstName)];
 			//entity.FirstName = (Convert.IsDBNull(reader["FirstName"]))?string.Empty:(System.String)reader["FirstName"];
 			entity.LastName = (System.String)reader[((int)VrLabResultColumn.LastName)];
@@ -177,14 +228,8 @@ namespace ePrescription.Data.Bases
 			//entity.Sex = (Convert.IsDBNull(reader["Sex"]))?string.Empty:(System.String)reader["Sex"];
 			entity.Nationality = (System.String)reader[((int)VrLabResultColumn.Nationality)];
 			//entity.Nationality = (Convert.IsDBNull(reader["Nationality"]))?string.Empty:(System.String)reader["Nationality"];
-			entity.PatientStart = (reader.IsDBNull(((int)VrLabResultColumn.PatientStart)))?null:(System.Boolean?)reader[((int)VrLabResultColumn.PatientStart)];
-			//entity.PatientStart = (Convert.IsDBNull(reader["PatientStart"]))?false:(System.Boolean?)reader["PatientStart"];
-			entity.Lab = (reader.IsDBNull(((int)VrLabResultColumn.Lab)))?null:(System.String)reader[((int)VrLabResultColumn.Lab)];
-			//entity.Lab = (Convert.IsDBNull(reader["Lab"]))?string.Empty:(System.String)reader["Lab"];
-			entity.ChargedCodes = (reader.IsDBNull(((int)VrLabResultColumn.ChargedCodes)))?null:(System.String)reader[((int)VrLabResultColumn.ChargedCodes)];
-			//entity.ChargedCodes = (Convert.IsDBNull(reader["ChargedCodes"]))?string.Empty:(System.String)reader["ChargedCodes"];
-			entity.CreateDate = (reader.IsDBNull(((int)VrLabResultColumn.CreateDate)))?null:(System.DateTime?)reader[((int)VrLabResultColumn.CreateDate)];
-			//entity.CreateDate = (Convert.IsDBNull(reader["CreateDate"]))?DateTime.MinValue:(System.DateTime?)reader["CreateDate"];
+			entity.ReqStatus = (reader.IsDBNull(((int)VrLabResultColumn.ReqStatus)))?null:(System.String)reader[((int)VrLabResultColumn.ReqStatus)];
+			//entity.ReqStatus = (Convert.IsDBNull(reader["ReqStatus"]))?string.Empty:(System.String)reader["ReqStatus"];
 			reader.Close();
 	
 			entity.AcceptChanges();
@@ -200,18 +245,27 @@ namespace ePrescription.Data.Bases
 		{
 			DataRow dataRow = dataSet.Tables[0].Rows[0];
 			
+			entity.Id = (Convert.IsDBNull(dataRow["Id"]))?(long)0:(System.Int64)dataRow["Id"];
+			entity.Tid = (Convert.IsDBNull(dataRow["TID"]))?string.Empty:(System.String)dataRow["TID"];
+			entity.ReqId = (Convert.IsDBNull(dataRow["ReqID"]))?string.Empty:(System.String)dataRow["ReqID"];
+			entity.Code = (Convert.IsDBNull(dataRow["Code"]))?string.Empty:(System.String)dataRow["Code"];
+			entity.Description = (Convert.IsDBNull(dataRow["Description"]))?string.Empty:(System.String)dataRow["Description"];
+			entity.ReqDoctor = (Convert.IsDBNull(dataRow["ReqDoctor"]))?string.Empty:(System.String)dataRow["ReqDoctor"];
+			entity.Billable = (Convert.IsDBNull(dataRow["Billable"]))?false:(System.Boolean?)dataRow["Billable"];
+			entity.Sample = (Convert.IsDBNull(dataRow["Sample"]))?string.Empty:(System.String)dataRow["Sample"];
+			entity.ColDate = (Convert.IsDBNull(dataRow["ColDate"]))?DateTime.MinValue:(System.DateTime?)dataRow["ColDate"];
+			entity.ColTime = (Convert.IsDBNull(dataRow["ColTime"]))?new TimeSpan(1,0,0,0,0):(System.TimeSpan?)dataRow["ColTime"];
+			entity.ReqDate = (Convert.IsDBNull(dataRow["ReqDate"]))?DateTime.MinValue:(System.DateTime?)dataRow["ReqDate"];
+			entity.SampleType = (Convert.IsDBNull(dataRow["SampleType"]))?string.Empty:(System.String)dataRow["SampleType"];
+			entity.ProviderType = (Convert.IsDBNull(dataRow["ProviderType"]))?string.Empty:(System.String)dataRow["ProviderType"];
 			entity.StatId = (Convert.IsDBNull(dataRow["StatId"]))?(long)0:(System.Int64)dataRow["StatId"];
 			entity.PatientCode = (Convert.IsDBNull(dataRow["PatientCode"]))?string.Empty:(System.String)dataRow["PatientCode"];
-			entity.Tid = (Convert.IsDBNull(dataRow["TID"]))?string.Empty:(System.String)dataRow["TID"];
 			entity.FirstName = (Convert.IsDBNull(dataRow["FirstName"]))?string.Empty:(System.String)dataRow["FirstName"];
 			entity.LastName = (Convert.IsDBNull(dataRow["LastName"]))?string.Empty:(System.String)dataRow["LastName"];
 			entity.Dob = (Convert.IsDBNull(dataRow["DOB"]))?DateTime.MinValue:(System.DateTime)dataRow["DOB"];
 			entity.Sex = (Convert.IsDBNull(dataRow["Sex"]))?string.Empty:(System.String)dataRow["Sex"];
 			entity.Nationality = (Convert.IsDBNull(dataRow["Nationality"]))?string.Empty:(System.String)dataRow["Nationality"];
-			entity.PatientStart = (Convert.IsDBNull(dataRow["PatientStart"]))?false:(System.Boolean?)dataRow["PatientStart"];
-			entity.Lab = (Convert.IsDBNull(dataRow["Lab"]))?string.Empty:(System.String)dataRow["Lab"];
-			entity.ChargedCodes = (Convert.IsDBNull(dataRow["ChargedCodes"]))?string.Empty:(System.String)dataRow["ChargedCodes"];
-			entity.CreateDate = (Convert.IsDBNull(dataRow["CreateDate"]))?DateTime.MinValue:(System.DateTime?)dataRow["CreateDate"];
+			entity.ReqStatus = (Convert.IsDBNull(dataRow["ReqStatus"]))?string.Empty:(System.String)dataRow["ReqStatus"];
 			entity.AcceptChanges();
 		}
 		*/

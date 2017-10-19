@@ -162,6 +162,7 @@ namespace ePrescription.Web.Data
 			count = 0;
 			
 			System.Int64 _vid;
+			System.String sp13_Tid;
 
 			switch ( SelectMethod )
 			{
@@ -197,6 +198,10 @@ namespace ePrescription.Web.Data
 				// FK
 				// M:M
 				// Custom
+				case VitalSignSelectMethod.GetByTid:
+					sp13_Tid = (System.String) EntityUtil.ChangeType(values["Tid"], typeof(System.String));
+					results = VitalSignProvider.GetByTid(GetTransactionManager(), StartIndex, PageSize, sp13_Tid);
+					break;
 				default:
 					break;
 			}
@@ -374,7 +379,11 @@ namespace ePrescription.Web.Data
 		/// <summary>
 		/// Represents the GetByVid method.
 		/// </summary>
-		GetByVid
+		GetByVid,
+		/// <summary>
+		/// Represents the GetByTid method.
+		/// </summary>
+		GetByTid
 	}
 	
 	#endregion VitalSignSelectMethod

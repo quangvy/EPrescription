@@ -44,6 +44,16 @@ namespace ePrescription.Entities
 		private System.Decimal		  _pubPrice = 0.0m;
 		
 		/// <summary>
+		/// SampleType : 
+		/// </summary>
+		private System.String		  _sampleType = null;
+		
+		/// <summary>
+		/// ProviderType : 
+		/// </summary>
+		private System.String		  _providerType = null;
+		
+		/// <summary>
 		/// Object that contains data to associate with this object
 		/// </summary>
 		private object _tag;
@@ -72,12 +82,16 @@ namespace ePrescription.Entities
 		///<param name="_description"></param>
 		///<param name="_mainArea"></param>
 		///<param name="_pubPrice"></param>
-		public VrMedProBase(System.String _proCode, System.String _description, System.String _mainArea, System.Decimal _pubPrice)
+		///<param name="_sampleType"></param>
+		///<param name="_providerType"></param>
+		public VrMedProBase(System.String _proCode, System.String _description, System.String _mainArea, System.Decimal _pubPrice, System.String _sampleType, System.String _providerType)
 		{
 			this._proCode = _proCode;
 			this._description = _description;
 			this._mainArea = _mainArea;
 			this._pubPrice = _pubPrice;
+			this._sampleType = _sampleType;
+			this._providerType = _providerType;
 		}
 		
 		///<summary>
@@ -87,13 +101,17 @@ namespace ePrescription.Entities
 		///<param name="_description"></param>
 		///<param name="_mainArea"></param>
 		///<param name="_pubPrice"></param>
-		public static VrMedPro CreateVrMedPro(System.String _proCode, System.String _description, System.String _mainArea, System.Decimal _pubPrice)
+		///<param name="_sampleType"></param>
+		///<param name="_providerType"></param>
+		public static VrMedPro CreateVrMedPro(System.String _proCode, System.String _description, System.String _mainArea, System.Decimal _pubPrice, System.String _sampleType, System.String _providerType)
 		{
 			VrMedPro newVrMedPro = new VrMedPro();
 			newVrMedPro.ProCode = _proCode;
 			newVrMedPro.Description = _description;
 			newVrMedPro.MainArea = _mainArea;
 			newVrMedPro.PubPrice = _pubPrice;
+			newVrMedPro.SampleType = _sampleType;
+			newVrMedPro.ProviderType = _providerType;
 			return newVrMedPro;
 		}
 				
@@ -208,6 +226,60 @@ namespace ePrescription.Entities
 				this._isDirty = true;
 				
 				OnPropertyChanged("PubPrice");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the SampleType property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.String SampleType
+		{
+			get
+			{
+				return this._sampleType; 
+			}
+			set
+			{
+				if (_sampleType == value)
+					return;
+					
+				this._sampleType = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("SampleType");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the ProviderType property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.String ProviderType
+		{
+			get
+			{
+				return this._providerType; 
+			}
+			set
+			{
+				if (_providerType == value)
+					return;
+					
+				this._providerType = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("ProviderType");
 			}
 		}
 		
@@ -342,6 +414,8 @@ namespace ePrescription.Entities
 				copy.Description = this.Description;
 				copy.MainArea = this.MainArea;
 				copy.PubPrice = this.PubPrice;
+				copy.SampleType = this.SampleType;
+				copy.ProviderType = this.ProviderType;
 			copy.AcceptChanges();
 			return (VrMedPro)copy;
 		}
@@ -421,6 +495,24 @@ namespace ePrescription.Entities
 			}
 			if (Object1.PubPrice != Object2.PubPrice)
 				equal = false;
+			if (Object1.SampleType != null && Object2.SampleType != null )
+			{
+				if (Object1.SampleType != Object2.SampleType)
+					equal = false;
+			}
+			else if (Object1.SampleType == null ^ Object1.SampleType == null )
+			{
+				equal = false;
+			}
+			if (Object1.ProviderType != null && Object2.ProviderType != null )
+			{
+				if (Object1.ProviderType != Object2.ProviderType)
+					equal = false;
+			}
+			else if (Object1.ProviderType == null ^ Object1.ProviderType == null )
+			{
+				equal = false;
+			}
 			return equal;
 		}
 		
@@ -491,6 +583,10 @@ namespace ePrescription.Entities
 					return entity.MainArea;
 				case "PubPrice":
 					return entity.PubPrice;
+				case "SampleType":
+					return entity.SampleType;
+				case "ProviderType":
+					return entity.ProviderType;
 			}
 			return null;
 		}
@@ -511,13 +607,17 @@ namespace ePrescription.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{5}{4}- ProCode: {0}{4}- Description: {1}{4}- MainArea: {2}{4}- PubPrice: {3}{4}", 
+				"{7}{6}- ProCode: {0}{6}- Description: {1}{6}- MainArea: {2}{6}- PubPrice: {3}{6}- SampleType: {4}{6}- ProviderType: {5}{6}", 
 				this.ProCode,
 				(this.Description == null) ? string.Empty : this.Description.ToString(),
 			     
 				(this.MainArea == null) ? string.Empty : this.MainArea.ToString(),
 			     
 				this.PubPrice,
+				(this.SampleType == null) ? string.Empty : this.SampleType.ToString(),
+			     
+				(this.ProviderType == null) ? string.Empty : this.ProviderType.ToString(),
+			     
 				System.Environment.NewLine, 
 				this.GetType());
 		}
@@ -554,7 +654,19 @@ namespace ePrescription.Entities
 		/// </summary>
 		[EnumTextValue("PUB_PRICE")]
 		[ColumnEnum("PUB_PRICE", typeof(System.Decimal), System.Data.DbType.Decimal, false, false, false)]
-		PubPrice
+		PubPrice,
+		/// <summary>
+		/// SampleType : 
+		/// </summary>
+		[EnumTextValue("SampleType")]
+		[ColumnEnum("SampleType", typeof(System.String), System.Data.DbType.String, false, false, true, 255)]
+		SampleType,
+		/// <summary>
+		/// ProviderType : 
+		/// </summary>
+		[EnumTextValue("ProviderType")]
+		[ColumnEnum("ProviderType", typeof(System.String), System.Data.DbType.String, false, false, true, 255)]
+		ProviderType
 	}//End enum
 
 } // end namespace

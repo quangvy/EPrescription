@@ -319,6 +319,8 @@ namespace ePrescription.Data.Bases
 					c.DurationUnit = (reader.IsDBNull(((int)FavoritDetailColumn.DurationUnit - 1)))?null:(System.String)reader[((int)FavoritDetailColumn.DurationUnit - 1)];
 					c.DurationUnitVn = (reader.IsDBNull(((int)FavoritDetailColumn.DurationUnitVn - 1)))?null:(System.String)reader[((int)FavoritDetailColumn.DurationUnitVn - 1)];
 					c.TotalUnit = (reader.IsDBNull(((int)FavoritDetailColumn.TotalUnit - 1)))?null:(System.String)reader[((int)FavoritDetailColumn.TotalUnit - 1)];
+					c.Unit = (reader.IsDBNull(((int)FavoritDetailColumn.Unit - 1)))?null:(System.String)reader[((int)FavoritDetailColumn.Unit - 1)];
+					c.UnitVn = (reader.IsDBNull(((int)FavoritDetailColumn.UnitVn - 1)))?null:(System.String)reader[((int)FavoritDetailColumn.UnitVn - 1)];
 					c.EntityTrackingKey = key;
 					c.AcceptChanges();
 					c.SuppressEntityEvents = false;
@@ -351,6 +353,8 @@ namespace ePrescription.Data.Bases
 			entity.DurationUnit = (reader.IsDBNull(((int)FavoritDetailColumn.DurationUnit - 1)))?null:(System.String)reader[((int)FavoritDetailColumn.DurationUnit - 1)];
 			entity.DurationUnitVn = (reader.IsDBNull(((int)FavoritDetailColumn.DurationUnitVn - 1)))?null:(System.String)reader[((int)FavoritDetailColumn.DurationUnitVn - 1)];
 			entity.TotalUnit = (reader.IsDBNull(((int)FavoritDetailColumn.TotalUnit - 1)))?null:(System.String)reader[((int)FavoritDetailColumn.TotalUnit - 1)];
+			entity.Unit = (reader.IsDBNull(((int)FavoritDetailColumn.Unit - 1)))?null:(System.String)reader[((int)FavoritDetailColumn.Unit - 1)];
+			entity.UnitVn = (reader.IsDBNull(((int)FavoritDetailColumn.UnitVn - 1)))?null:(System.String)reader[((int)FavoritDetailColumn.UnitVn - 1)];
 			entity.AcceptChanges();
 		}
 		
@@ -378,6 +382,8 @@ namespace ePrescription.Data.Bases
 			entity.DurationUnit = Convert.IsDBNull(dataRow["DurationUnit"]) ? null : (System.String)dataRow["DurationUnit"];
 			entity.DurationUnitVn = Convert.IsDBNull(dataRow["DurationUnitVN"]) ? null : (System.String)dataRow["DurationUnitVN"];
 			entity.TotalUnit = Convert.IsDBNull(dataRow["TotalUnit"]) ? null : (System.String)dataRow["TotalUnit"];
+			entity.Unit = Convert.IsDBNull(dataRow["Unit"]) ? null : (System.String)dataRow["Unit"];
+			entity.UnitVn = Convert.IsDBNull(dataRow["UnitVN"]) ? null : (System.String)dataRow["UnitVN"];
 			entity.AcceptChanges();
 		}
 		#endregion 

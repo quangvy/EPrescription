@@ -79,6 +79,7 @@ namespace ePrescription.Data.Bases
 					c.PatientStart = (Convert.IsDBNull(row["PatientStart"]))?false:(System.Boolean?)row["PatientStart"];
 					c.IsCompleted = (Convert.IsDBNull(row["IsCompleted"]))?false:(System.Boolean?)row["IsCompleted"];
 					c.ChargedCodes = (Convert.IsDBNull(row["ChargedCodes"]))?string.Empty:(System.String)row["ChargedCodes"];
+					c.CreateDate = (Convert.IsDBNull(row["CreateDate"]))?DateTime.MinValue:(System.DateTime?)row["CreateDate"];
 					c.AcceptChanges();
 					rows.Add(c);
 					pagelen -= 1;
@@ -138,6 +139,8 @@ namespace ePrescription.Data.Bases
 					//entity.IsCompleted = (Convert.IsDBNull(reader["IsCompleted"]))?false:(System.Boolean?)reader["IsCompleted"];
 					entity.ChargedCodes = (reader.IsDBNull(((int)VrReceptionStartColumn.ChargedCodes)))?null:(System.String)reader[((int)VrReceptionStartColumn.ChargedCodes)];
 					//entity.ChargedCodes = (Convert.IsDBNull(reader["ChargedCodes"]))?string.Empty:(System.String)reader["ChargedCodes"];
+					entity.CreateDate = (reader.IsDBNull(((int)VrReceptionStartColumn.CreateDate)))?null:(System.DateTime?)reader[((int)VrReceptionStartColumn.CreateDate)];
+					//entity.CreateDate = (Convert.IsDBNull(reader["CreateDate"]))?DateTime.MinValue:(System.DateTime?)reader["CreateDate"];
 					entity.AcceptChanges();
 					entity.SuppressEntityEvents = false;
 					
@@ -180,6 +183,8 @@ namespace ePrescription.Data.Bases
 			//entity.IsCompleted = (Convert.IsDBNull(reader["IsCompleted"]))?false:(System.Boolean?)reader["IsCompleted"];
 			entity.ChargedCodes = (reader.IsDBNull(((int)VrReceptionStartColumn.ChargedCodes)))?null:(System.String)reader[((int)VrReceptionStartColumn.ChargedCodes)];
 			//entity.ChargedCodes = (Convert.IsDBNull(reader["ChargedCodes"]))?string.Empty:(System.String)reader["ChargedCodes"];
+			entity.CreateDate = (reader.IsDBNull(((int)VrReceptionStartColumn.CreateDate)))?null:(System.DateTime?)reader[((int)VrReceptionStartColumn.CreateDate)];
+			//entity.CreateDate = (Convert.IsDBNull(reader["CreateDate"]))?DateTime.MinValue:(System.DateTime?)reader["CreateDate"];
 			reader.Close();
 	
 			entity.AcceptChanges();
@@ -206,6 +211,7 @@ namespace ePrescription.Data.Bases
 			entity.PatientStart = (Convert.IsDBNull(dataRow["PatientStart"]))?false:(System.Boolean?)dataRow["PatientStart"];
 			entity.IsCompleted = (Convert.IsDBNull(dataRow["IsCompleted"]))?false:(System.Boolean?)dataRow["IsCompleted"];
 			entity.ChargedCodes = (Convert.IsDBNull(dataRow["ChargedCodes"]))?string.Empty:(System.String)dataRow["ChargedCodes"];
+			entity.CreateDate = (Convert.IsDBNull(dataRow["CreateDate"]))?DateTime.MinValue:(System.DateTime?)dataRow["CreateDate"];
 			entity.AcceptChanges();
 		}
 		*/

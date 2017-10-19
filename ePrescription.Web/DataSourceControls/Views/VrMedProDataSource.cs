@@ -41,25 +41,6 @@ namespace ePrescription.Web.Data
 			get { return ( View as VrMedProDataSourceView ); }
 		}
 		
-		/// <summary>
-		/// Gets or sets the name of the method or function that
-		/// the VrMedProDataSource control invokes to retrieve data.
-		/// </summary>
-		public new VrMedProSelectMethod SelectMethod
-		{
-			get
-			{
-				VrMedProSelectMethod selectMethod = VrMedProSelectMethod.GetAll;
-				Object method = ViewState["SelectMethod"];
-				if ( method != null )
-				{
-					selectMethod = (VrMedProSelectMethod) method;
-				}
-				return selectMethod;
-			}
-			set { ViewState["SelectMethod"] = value; }
-		}
-		
 		#endregion Properties
 		
 		#region Methods
@@ -123,16 +104,6 @@ namespace ePrescription.Web.Data
 		}
 
 		/// <summary>
-		/// Gets or sets the name of the method or function that
-		/// the DataSource control invokes to retrieve data.
-		/// </summary>
-		internal new VrMedProSelectMethod SelectMethod
-		{
-			get { return VrMedProOwner.SelectMethod; }
-			set { VrMedProOwner.SelectMethod = value; }
-		}
-
-		/// <summary>
 		/// Gets a strongly typed reference to the Provider property.
 		/// </summary>
 		internal VrMedProProviderBase VrMedProProvider
@@ -144,98 +115,9 @@ namespace ePrescription.Web.Data
 		
 		#region Methods
 		
-		/// <summary>
-		/// Gets a collection of Entity objects based on the value of the SelectMethod property.
-		/// </summary>
-	    /// <param name="values"></param>
-		/// <param name="count">The total number of rows in the DataSource.</param>
-		/// <returns>A collection of Entity objects.</returns>
-		protected override IList<VrMedPro> GetSelectData(IDictionary values, out int count)
-		{	
-            if (values == null || values.Count == 0) values = CollectionsUtil.CreateCaseInsensitiveHashtable(GetParameterValues());
-            
-			Hashtable customOutput = CollectionsUtil.CreateCaseInsensitiveHashtable();
-			
-			IList<VrMedPro> results = null;
-			// VrMedPro item;
-			count = 0;
-			
-			System.String sp10_Descriptiontion;
-
-			switch ( SelectMethod )
-			{
-				case VrMedProSelectMethod.Get:
-					results = VrMedProProvider.Get(GetTransactionManager(), WhereClause, OrderBy, PageIndex, PageSize, out count);
-                    break;
-				case VrMedProSelectMethod.GetPaged:
-					results = VrMedProProvider.GetPaged(GetTransactionManager(), WhereClause, OrderBy, PageIndex, PageSize, out count);
-					break;
-				case VrMedProSelectMethod.GetAll:
-					results = VrMedProProvider.GetAll(GetTransactionManager(), StartIndex, PageSize, out count);
-                    break;
-				case VrMedProSelectMethod.Find:
-					results = VrMedProProvider.Find(GetTransactionManager(), FilterParameters, OrderBy, StartIndex, PageSize, out count);
-                    break;
-				// Custom
-				case VrMedProSelectMethod.GetByDescription:
-					sp10_Descriptiontion = (System.String) EntityUtil.ChangeType(values["Descriptiontion"], typeof(System.String));
-					results = VrMedProProvider.GetByDescription(GetTransactionManager(), StartIndex, PageSize, sp10_Descriptiontion);
-					break;
-				default:
-					break;
-			}
-
-			if ( results != null && count < 1 )
-			{
-				count = results.Count;
-				if ( !String.IsNullOrEmpty(CustomMethodRecordCountParamName) )
-				{
-					object objCustomCount = EntityUtil.ChangeType(customOutput[CustomMethodRecordCountParamName], typeof(Int32));
-					
-					if ( objCustomCount != null )
-					{
-						count = (int) objCustomCount;
-					}
-				}				
-			}
-			
-			return results;
-		}
-		
 		#endregion Methods
 	}
 
-	#region VrMedProSelectMethod
-	
-	/// <summary>
-	/// Enumeration of method names available for the VrMedProDataSource.SelectMethod property.
-	/// </summary>
-	public enum VrMedProSelectMethod
-	{
-		/// <summary>
-		/// Represents the Get method.
-		/// </summary>
-		Get,
-		/// <summary>
-		/// Represents the GetPaged method.
-		/// </summary>
-		GetPaged,
-		/// <summary>
-		/// Represents the GetAll method.
-		/// </summary>
-		GetAll,
-		/// <summary>
-		/// Represents the Find method.
-		/// </summary>
-		Find,
-		/// <summary>
-		/// Represents the GetByDescription method.
-		/// </summary>
-		GetByDescription
-	}
-	
-	#endregion VrMedProSelectMethod
-	
 	#region VrMedProDataSourceDesigner
 
 	/// <summary>
@@ -243,79 +125,7 @@ namespace ePrescription.Web.Data
 	/// </summary>
 	public class VrMedProDataSourceDesigner : ReadOnlyDataSourceDesigner<VrMedPro>
 	{
-		/// <summary>
-		/// Initializes a new instance of the VrMedProDataSourceDesigner class.
-		/// </summary>
-		public VrMedProDataSourceDesigner()
-		{
-		}
-
-		/// <summary>
-		/// Gets or sets the SelectMethod property.
-		/// </summary>
-		public new VrMedProSelectMethod SelectMethod
-		{
-			get { return ((VrMedProDataSource) DataSource).SelectMethod; }
-			set { SetPropertyValue("SelectMethod", value); }
-		}
-
-		/// <summary>Gets the designer action list collection for this designer.</summary>
-		/// <returns>The <see cref="T:System.ComponentModel.Design.DesignerActionListCollection"/>
-		/// associated with this designer.</returns>
-		public override DesignerActionListCollection ActionLists
-		{
-			get
-			{
-				DesignerActionListCollection actions = new DesignerActionListCollection();
-				actions.Add(new VrMedProDataSourceActionList(this));
-				actions.AddRange(base.ActionLists);
-				return actions;
-			}
-		}
 	}
-
-	#region VrMedProDataSourceActionList
-
-	/// <summary>
-	/// Supports the VrMedProDataSourceDesigner class.
-	/// </summary>
-	internal class VrMedProDataSourceActionList : DesignerActionList
-	{
-		private VrMedProDataSourceDesigner _designer;
-
-		/// <summary>
-		/// Initializes a new instance of the VrMedProDataSourceActionList class.
-		/// </summary>
-		/// <param name="designer"></param>
-		public VrMedProDataSourceActionList(VrMedProDataSourceDesigner designer) : base(designer.Component)
-		{
-			_designer = designer;
-		}
-
-		/// <summary>
-		/// Gets or sets the SelectMethod property.
-		/// </summary>
-		public VrMedProSelectMethod SelectMethod
-		{
-			get { return _designer.SelectMethod; }
-			set { _designer.SelectMethod = value; }
-		}
-
-		/// <summary>
-		/// Returns the collection of <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
-		/// objects contained in the list.
-		/// </summary>
-		/// <returns>A <see cref="T:System.ComponentModel.Design.DesignerActionItem"/>
-		/// array that contains the items in this list.</returns>
-		public override DesignerActionItemCollection GetSortedActionItems()
-		{
-			DesignerActionItemCollection items = new DesignerActionItemCollection();
-			items.Add(new DesignerActionPropertyItem("SelectMethod", "Select Method", "Methods"));
-			return items;
-		}
-	}
-
-	#endregion VrMedProDataSourceActionList
 
 	#endregion VrMedProDataSourceDesigner
 

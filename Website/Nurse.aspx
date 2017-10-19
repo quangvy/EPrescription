@@ -100,6 +100,55 @@
     </div>
     <div id="done">
         Processed patients
+        <data:GridViewSearchPanel ID="GridViewSearchPanel1" runat="server" GridViewControlID="gridProcPatients" PersistenceMethod="Session" />
+    <br />
+    <data:EntityGridView ID="gridProcPatients" runat="server"
+        AutoGenerateColumns="False"
+        
+        DataSourceID="VrNurseProcessedPatientsDataSource"
+        DataKeyNames="TID"
+        AllowMultiColumnSorting="False"
+        DefaultSortColumnName="[TID]"
+        DefaultSortDirection="Ascending"
+        ExcelExportFileName="processedPatients.xls"
+        AllowPaging="True" AllowExportToExcel="True" AllowSorting="True" ExportToExcelText="Excel"
+        PageSelectorPageSizeInterval="10" RecordsCount="0" ShowGridOnEmptyData="False"
+        >
+        <Columns>
+           
+            <asp:BoundField DataField="PatientCode" HeaderText="Code" SortExpression="[PatientCode]"/>
+            <asp:BoundField DataField="TID" HeaderText="TID" SortExpression="[TID]" />
+            <asp:BoundField DataField="LastName" HeaderText="Last Name" SortExpression="[LastName]" />
+            <asp:BoundField DataField="FirstName" HeaderText="First Name" SortExpression="[FirstName]" />
+            <asp:BoundField DataField="Sex" HeaderText="Sex" SortExpression="[Sex]"/>
+            <asp:TemplateField HeaderText="DOB" SortExpression="[DOB]">
+                    <EditItemTemplate>
+                        <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("DOB") %>'></asp:TextBox>
+                    </EditItemTemplate>
+                    <ItemTemplate>
+                        <asp:Label ID="lblDOB" runat="server" Text='<%# Bind("DOB","{0:dd-MMM-yyyy}") %>'></asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            <asp:BoundField DataField="ChargedCodes" HeaderText="ChargedCodes" SortExpression="[ChargedCodes]" />
+        </Columns>
+        <EmptyDataTemplate>
+            <b>No Patients Found!</b>
+        </EmptyDataTemplate>
+    </data:EntityGridView>
+    <br />
+    <data:VrNurseProcessedPatientsDataSource ID="VrNurseProcessedPatientsDataSource" runat="server"
+        SelectMethod="GetPaged"
+        EnablePaging="True"
+        EnableSorting="True">
+        <Parameters>
+            <data:CustomParameter Name="WhereClause" Value="" ConvertEmptyStringToNull="false" />
+            <data:CustomParameter Name="OrderByClause" Value="" ConvertEmptyStringToNull="false" />
+            <asp:ControlParameter Name="PageIndex" ControlID="gridProcPatients" PropertyName="PageIndex" Type="Int32" />
+            <asp:ControlParameter Name="PageSize" ControlID="gridProcPatients" PropertyName="PageSize" Type="Int32" />
+            <data:CustomParameter Name="RecordCount" Value="0" Type="Int32" />
+        </Parameters>
+    </data:VrNurseProcessedPatientsDataSource>
+
         <asp:Label id="lbltest" runat="server"></asp:Label>
     </div>
     <div id="PageSpace"></div>
@@ -180,6 +229,9 @@
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>
+
+                <asp:BoundField DataField="SampleType" HeaderText="Sample Type" />
+                <asp:BoundField DataField="ProviderType" HeaderText="Provider" />
 
             </Columns>
             <FooterStyle BackColor="White" ForeColor="#333333" />

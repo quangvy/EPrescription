@@ -22,7 +22,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="css/circles.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/style_grid.css" rel="stylesheet" type="text/css" media="all" />
     <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-
+    <link rel="stylesheet" href="css/jquery-ui.css" />
+            <script type="text/javascript" src="js/jquery-1.12.4.js"></script>
+            <script type="text/javascript" src="js/jquery-ui.js"></script>
     <!-- font-awesome-icons -->
     <link href="css/font-awesome.css" rel="stylesheet"/>
     <!-- //font-awesome-icons -->
@@ -30,11 +32,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-
+    <script type="text/javascript">
+        $(function () {
+            $("#tbxColDate").datepicker();
+        });
+    </script>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
+            <input id="tbxColDate" type="text"  />
             <!-- banner -->
             <div class="wthree_agile_admin_info">
                 <!-- /w3_agileits_top_nav-->
@@ -132,8 +139,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <%--</div>--%>
             <!--copy rights end here-->
             <!-- js -->
-
-            <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+            <%--<script type="text/javascript" src="js/jquery-ui.js"></script>
+            <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>--%>
 
             <script src="js/classie.js"></script>
             <script src="js/gnmenu.js"></script>
@@ -228,7 +235,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div id="ascrail2000-hr" class="nicescroll-rails" style="height: 6px; z-index: 1000; background: rgb(255, 255, 255); position: fixed; left: 0px; width: 100%; bottom: 0px; cursor: default; display: none; opacity: 0;">
                 <div style="position: relative; top: 0px; height: 6px; width: 0px; background-color: rgb(74, 156, 253); border: 0px; background-clip: padding-box; border-radius: 10px; left: 0px;"></div>
             </div>
-
+   
             <script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
         </div>
     </form>

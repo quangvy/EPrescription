@@ -791,6 +791,45 @@ namespace ePrescription.Data.SqlClient
 		
 		#region Custom Methods
 	
+
+		#region _FavoritMaster_Del
+					
+		/// <summary>
+		///	This method wraps the '_FavoritMaster_Del' stored procedure. 
+		/// </summary>	
+		/// <param name="favId"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object.</param>
+		/// <remark>This method is generated from a stored procedure.</remark>
+		public override void Del(TransactionManager transactionManager, int start, int pageLength , System.String favId)
+		{
+			SqlDatabase database = new SqlDatabase(this._connectionString);
+			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo._FavoritMaster_Del", true);
+			
+			database.AddInParameter(commandWrapper, "@FavID", DbType.String,  favId );
+	
+			
+			//Provider Data Requesting Command Event
+			OnDataRequesting(new CommandEventArgs(commandWrapper, "Del", (IEntity)null));
+
+			if (transactionManager != null)
+			{	
+				Utility.ExecuteNonQuery(transactionManager, commandWrapper );
+			}
+			else
+			{
+				Utility.ExecuteNonQuery(database, commandWrapper);
+			}
+						
+			//Provider Data Requested Command Event
+			OnDataRequested(new CommandEventArgs(commandWrapper, "Del", (IEntity)null));
+
+
+				
+				return;
+		}
+		#endregion
 		#endregion
 	}//end class
 } // end namespace

@@ -355,6 +355,24 @@ namespace ePrescription.Web.UI
 		{
 			get { return _entity.PubPrice; }
 		}
+        /// <summary>
+        /// Gets the SampleType
+        /// </summary>
+        /// <value>The SampleType.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String SampleType
+		{
+			get { return _entity.SampleType; }
+		}
+        /// <summary>
+        /// Gets the ProviderType
+        /// </summary>
+        /// <value>The ProviderType.</value>
+		[System.ComponentModel.Bindable(true)]
+		public System.String ProviderType
+		{
+			get { return _entity.ProviderType; }
+		}
 
 	}
 }

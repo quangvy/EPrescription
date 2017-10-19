@@ -24,6 +24,71 @@ namespace ePrescription.Entities
 		#region Variable Declarations
 		
 		/// <summary>
+		/// Id : 
+		/// </summary>
+		private System.Int64		  _id = (long)0;
+		
+		/// <summary>
+		/// TID : 
+		/// </summary>
+		private System.String		  _tid = null;
+		
+		/// <summary>
+		/// ReqID : 
+		/// </summary>
+		private System.String		  _reqId = null;
+		
+		/// <summary>
+		/// Code : 
+		/// </summary>
+		private System.String		  _code = null;
+		
+		/// <summary>
+		/// Description : 
+		/// </summary>
+		private System.String		  _description = null;
+		
+		/// <summary>
+		/// ReqDoctor : 
+		/// </summary>
+		private System.String		  _reqDoctor = null;
+		
+		/// <summary>
+		/// Billable : 
+		/// </summary>
+		private System.Boolean?		  _billable = null;
+		
+		/// <summary>
+		/// Sample : 
+		/// </summary>
+		private System.String		  _sample = null;
+		
+		/// <summary>
+		/// ColDate : 
+		/// </summary>
+		private System.DateTime?		  _colDate = null;
+		
+		/// <summary>
+		/// ColTime : 
+		/// </summary>
+		private System.TimeSpan?		  _colTime = null;
+		
+		/// <summary>
+		/// ReqDate : 
+		/// </summary>
+		private System.DateTime?		  _reqDate = null;
+		
+		/// <summary>
+		/// SampleType : 
+		/// </summary>
+		private System.String		  _sampleType = null;
+		
+		/// <summary>
+		/// ProviderType : 
+		/// </summary>
+		private System.String		  _providerType = null;
+		
+		/// <summary>
 		/// StatId : 
 		/// </summary>
 		private System.Int64		  _statId = (long)0;
@@ -32,11 +97,6 @@ namespace ePrescription.Entities
 		/// PatientCode : 
 		/// </summary>
 		private System.String		  _patientCode = string.Empty;
-		
-		/// <summary>
-		/// TID : 
-		/// </summary>
-		private System.String		  _tid = string.Empty;
 		
 		/// <summary>
 		/// FirstName : 
@@ -64,24 +124,9 @@ namespace ePrescription.Entities
 		private System.String		  _nationality = string.Empty;
 		
 		/// <summary>
-		/// PatientStart : 
+		/// ReqStatus : 
 		/// </summary>
-		private System.Boolean?		  _patientStart = null;
-		
-		/// <summary>
-		/// Lab : 
-		/// </summary>
-		private System.String		  _lab = null;
-		
-		/// <summary>
-		/// ChargedCodes : 
-		/// </summary>
-		private System.String		  _chargedCodes = null;
-		
-		/// <summary>
-		/// CreateDate : 
-		/// </summary>
-		private System.DateTime?		  _createDate = null;
+		private System.String		  _reqStatus = null;
 		
 		/// <summary>
 		/// Object that contains data to associate with this object
@@ -108,70 +153,465 @@ namespace ePrescription.Entities
 		///<summary>
 		/// Creates a new <see cref="VrLabResultBase"/> instance.
 		///</summary>
+		///<param name="_id"></param>
+		///<param name="_tid"></param>
+		///<param name="_reqId"></param>
+		///<param name="_code"></param>
+		///<param name="_description"></param>
+		///<param name="_reqDoctor"></param>
+		///<param name="_billable"></param>
+		///<param name="_sample"></param>
+		///<param name="_colDate"></param>
+		///<param name="_colTime"></param>
+		///<param name="_reqDate"></param>
+		///<param name="_sampleType"></param>
+		///<param name="_providerType"></param>
 		///<param name="_statId"></param>
 		///<param name="_patientCode"></param>
-		///<param name="_tid"></param>
 		///<param name="_firstName"></param>
 		///<param name="_lastName"></param>
 		///<param name="_dob"></param>
 		///<param name="_sex"></param>
 		///<param name="_nationality"></param>
-		///<param name="_patientStart"></param>
-		///<param name="_lab"></param>
-		///<param name="_chargedCodes"></param>
-		///<param name="_createDate"></param>
-		public VrLabResultBase(System.Int64 _statId, System.String _patientCode, System.String _tid, System.String _firstName, System.String _lastName, System.DateTime _dob, System.String _sex, System.String _nationality, System.Boolean? _patientStart, System.String _lab, System.String _chargedCodes, System.DateTime? _createDate)
+		///<param name="_reqStatus"></param>
+		public VrLabResultBase(System.Int64 _id, System.String _tid, System.String _reqId, System.String _code, System.String _description, System.String _reqDoctor, System.Boolean? _billable, System.String _sample, System.DateTime? _colDate, System.TimeSpan? _colTime, System.DateTime? _reqDate, System.String _sampleType, System.String _providerType, System.Int64 _statId, System.String _patientCode, System.String _firstName, System.String _lastName, System.DateTime _dob, System.String _sex, System.String _nationality, System.String _reqStatus)
 		{
+			this._id = _id;
+			this._tid = _tid;
+			this._reqId = _reqId;
+			this._code = _code;
+			this._description = _description;
+			this._reqDoctor = _reqDoctor;
+			this._billable = _billable;
+			this._sample = _sample;
+			this._colDate = _colDate;
+			this._colTime = _colTime;
+			this._reqDate = _reqDate;
+			this._sampleType = _sampleType;
+			this._providerType = _providerType;
 			this._statId = _statId;
 			this._patientCode = _patientCode;
-			this._tid = _tid;
 			this._firstName = _firstName;
 			this._lastName = _lastName;
 			this._dob = _dob;
 			this._sex = _sex;
 			this._nationality = _nationality;
-			this._patientStart = _patientStart;
-			this._lab = _lab;
-			this._chargedCodes = _chargedCodes;
-			this._createDate = _createDate;
+			this._reqStatus = _reqStatus;
 		}
 		
 		///<summary>
 		/// A simple factory method to create a new <see cref="VrLabResult"/> instance.
 		///</summary>
+		///<param name="_id"></param>
+		///<param name="_tid"></param>
+		///<param name="_reqId"></param>
+		///<param name="_code"></param>
+		///<param name="_description"></param>
+		///<param name="_reqDoctor"></param>
+		///<param name="_billable"></param>
+		///<param name="_sample"></param>
+		///<param name="_colDate"></param>
+		///<param name="_colTime"></param>
+		///<param name="_reqDate"></param>
+		///<param name="_sampleType"></param>
+		///<param name="_providerType"></param>
 		///<param name="_statId"></param>
 		///<param name="_patientCode"></param>
-		///<param name="_tid"></param>
 		///<param name="_firstName"></param>
 		///<param name="_lastName"></param>
 		///<param name="_dob"></param>
 		///<param name="_sex"></param>
 		///<param name="_nationality"></param>
-		///<param name="_patientStart"></param>
-		///<param name="_lab"></param>
-		///<param name="_chargedCodes"></param>
-		///<param name="_createDate"></param>
-		public static VrLabResult CreateVrLabResult(System.Int64 _statId, System.String _patientCode, System.String _tid, System.String _firstName, System.String _lastName, System.DateTime _dob, System.String _sex, System.String _nationality, System.Boolean? _patientStart, System.String _lab, System.String _chargedCodes, System.DateTime? _createDate)
+		///<param name="_reqStatus"></param>
+		public static VrLabResult CreateVrLabResult(System.Int64 _id, System.String _tid, System.String _reqId, System.String _code, System.String _description, System.String _reqDoctor, System.Boolean? _billable, System.String _sample, System.DateTime? _colDate, System.TimeSpan? _colTime, System.DateTime? _reqDate, System.String _sampleType, System.String _providerType, System.Int64 _statId, System.String _patientCode, System.String _firstName, System.String _lastName, System.DateTime _dob, System.String _sex, System.String _nationality, System.String _reqStatus)
 		{
 			VrLabResult newVrLabResult = new VrLabResult();
+			newVrLabResult.Id = _id;
+			newVrLabResult.Tid = _tid;
+			newVrLabResult.ReqId = _reqId;
+			newVrLabResult.Code = _code;
+			newVrLabResult.Description = _description;
+			newVrLabResult.ReqDoctor = _reqDoctor;
+			newVrLabResult.Billable = _billable;
+			newVrLabResult.Sample = _sample;
+			newVrLabResult.ColDate = _colDate;
+			newVrLabResult.ColTime = _colTime;
+			newVrLabResult.ReqDate = _reqDate;
+			newVrLabResult.SampleType = _sampleType;
+			newVrLabResult.ProviderType = _providerType;
 			newVrLabResult.StatId = _statId;
 			newVrLabResult.PatientCode = _patientCode;
-			newVrLabResult.Tid = _tid;
 			newVrLabResult.FirstName = _firstName;
 			newVrLabResult.LastName = _lastName;
 			newVrLabResult.Dob = _dob;
 			newVrLabResult.Sex = _sex;
 			newVrLabResult.Nationality = _nationality;
-			newVrLabResult.PatientStart = _patientStart;
-			newVrLabResult.Lab = _lab;
-			newVrLabResult.ChargedCodes = _chargedCodes;
-			newVrLabResult.CreateDate = _createDate;
+			newVrLabResult.ReqStatus = _reqStatus;
 			return newVrLabResult;
 		}
 				
 		#endregion Constructors
 		
 		#region Properties	
+		/// <summary>
+		/// 	Gets or Sets the Id property. 
+		///		
+		/// </summary>
+		/// <value>This type is bigint</value>
+		/// <remarks>
+		/// This property can not be set to null. 
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.Int64 Id
+		{
+			get
+			{
+				return this._id; 
+			}
+			set
+			{
+				if (_id == value)
+					return;
+					
+				this._id = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("Id");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the TID property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.String Tid
+		{
+			get
+			{
+				return this._tid; 
+			}
+			set
+			{
+				if (_tid == value)
+					return;
+					
+				this._tid = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("Tid");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the ReqID property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.String ReqId
+		{
+			get
+			{
+				return this._reqId; 
+			}
+			set
+			{
+				if (_reqId == value)
+					return;
+					
+				this._reqId = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("ReqId");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the Code property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.String Code
+		{
+			get
+			{
+				return this._code; 
+			}
+			set
+			{
+				if (_code == value)
+					return;
+					
+				this._code = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("Code");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the Description property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.String Description
+		{
+			get
+			{
+				return this._description; 
+			}
+			set
+			{
+				if (_description == value)
+					return;
+					
+				this._description = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("Description");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the ReqDoctor property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.String ReqDoctor
+		{
+			get
+			{
+				return this._reqDoctor; 
+			}
+			set
+			{
+				if (_reqDoctor == value)
+					return;
+					
+				this._reqDoctor = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("ReqDoctor");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the Billable property. 
+		///		
+		/// </summary>
+		/// <value>This type is bit</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null, this property will return false. It is up to the developer
+		/// to check the value of IsBillableNull() and perform business logic appropriately.
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.Boolean? Billable
+		{
+			get
+			{
+				return this._billable; 
+			}
+			set
+			{
+				if (_billable == value && Billable != null )
+					return;
+					
+				this._billable = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("Billable");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the Sample property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.String Sample
+		{
+			get
+			{
+				return this._sample; 
+			}
+			set
+			{
+				if (_sample == value)
+					return;
+					
+				this._sample = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("Sample");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the ColDate property. 
+		///		
+		/// </summary>
+		/// <value>This type is datetime</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null, this property will return DateTime.MinValue. It is up to the developer
+		/// to check the value of IsColDateNull() and perform business logic appropriately.
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.DateTime? ColDate
+		{
+			get
+			{
+				return this._colDate; 
+			}
+			set
+			{
+				if (_colDate == value && ColDate != null )
+					return;
+					
+				this._colDate = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("ColDate");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the ColTime property. 
+		///		
+		/// </summary>
+		/// <value>This type is time</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null, this property will return new TimeSpan(1,0,0,0,0). It is up to the developer
+		/// to check the value of IsColTimeNull() and perform business logic appropriately.
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.TimeSpan? ColTime
+		{
+			get
+			{
+				return this._colTime; 
+			}
+			set
+			{
+				if (_colTime == value && ColTime != null )
+					return;
+					
+				this._colTime = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("ColTime");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the ReqDate property. 
+		///		
+		/// </summary>
+		/// <value>This type is datetime</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// If this column is null, this property will return DateTime.MinValue. It is up to the developer
+		/// to check the value of IsReqDateNull() and perform business logic appropriately.
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.DateTime? ReqDate
+		{
+			get
+			{
+				return this._reqDate; 
+			}
+			set
+			{
+				if (_reqDate == value && ReqDate != null )
+					return;
+					
+				this._reqDate = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("ReqDate");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the SampleType property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.String SampleType
+		{
+			get
+			{
+				return this._sampleType; 
+			}
+			set
+			{
+				if (_sampleType == value)
+					return;
+					
+				this._sampleType = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("SampleType");
+			}
+		}
+		
+		/// <summary>
+		/// 	Gets or Sets the ProviderType property. 
+		///		
+		/// </summary>
+		/// <value>This type is nvarchar</value>
+		/// <remarks>
+		/// This property can be set to null. 
+		/// </remarks>
+		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
+		public virtual System.String ProviderType
+		{
+			get
+			{
+				return this._providerType; 
+			}
+			set
+			{
+				if (_providerType == value)
+					return;
+					
+				this._providerType = value;
+				this._isDirty = true;
+				
+				OnPropertyChanged("ProviderType");
+			}
+		}
+		
 		/// <summary>
 		/// 	Gets or Sets the StatId property. 
 		///		
@@ -226,36 +666,6 @@ namespace ePrescription.Entities
 				this._isDirty = true;
 				
 				OnPropertyChanged("PatientCode");
-			}
-		}
-		
-		/// <summary>
-		/// 	Gets or Sets the TID property. 
-		///		
-		/// </summary>
-		/// <value>This type is nvarchar</value>
-		/// <remarks>
-		/// This property can not be set to null. 
-		/// </remarks>
-		/// <exception cref="ArgumentNullException">If you attempt to set to null.</exception>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		public virtual System.String Tid
-		{
-			get
-			{
-				return this._tid; 
-			}
-			set
-			{
-				if ( value == null )
-					throw new ArgumentNullException("value", "Tid does not allow null values.");
-				if (_tid == value)
-					return;
-					
-				this._tid = value;
-				this._isDirty = true;
-				
-				OnPropertyChanged("Tid");
 			}
 		}
 		
@@ -407,36 +817,7 @@ namespace ePrescription.Entities
 		}
 		
 		/// <summary>
-		/// 	Gets or Sets the PatientStart property. 
-		///		
-		/// </summary>
-		/// <value>This type is bit</value>
-		/// <remarks>
-		/// This property can be set to null. 
-		/// If this column is null, this property will return false. It is up to the developer
-		/// to check the value of IsPatientStartNull() and perform business logic appropriately.
-		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		public virtual System.Boolean? PatientStart
-		{
-			get
-			{
-				return this._patientStart; 
-			}
-			set
-			{
-				if (_patientStart == value && PatientStart != null )
-					return;
-					
-				this._patientStart = value;
-				this._isDirty = true;
-				
-				OnPropertyChanged("PatientStart");
-			}
-		}
-		
-		/// <summary>
-		/// 	Gets or Sets the Lab property. 
+		/// 	Gets or Sets the ReqStatus property. 
 		///		
 		/// </summary>
 		/// <value>This type is nvarchar</value>
@@ -444,77 +825,21 @@ namespace ePrescription.Entities
 		/// This property can be set to null. 
 		/// </remarks>
 		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		public virtual System.String Lab
+		public virtual System.String ReqStatus
 		{
 			get
 			{
-				return this._lab; 
+				return this._reqStatus; 
 			}
 			set
 			{
-				if (_lab == value)
+				if (_reqStatus == value)
 					return;
 					
-				this._lab = value;
+				this._reqStatus = value;
 				this._isDirty = true;
 				
-				OnPropertyChanged("Lab");
-			}
-		}
-		
-		/// <summary>
-		/// 	Gets or Sets the ChargedCodes property. 
-		///		
-		/// </summary>
-		/// <value>This type is nvarchar</value>
-		/// <remarks>
-		/// This property can be set to null. 
-		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		public virtual System.String ChargedCodes
-		{
-			get
-			{
-				return this._chargedCodes; 
-			}
-			set
-			{
-				if (_chargedCodes == value)
-					return;
-					
-				this._chargedCodes = value;
-				this._isDirty = true;
-				
-				OnPropertyChanged("ChargedCodes");
-			}
-		}
-		
-		/// <summary>
-		/// 	Gets or Sets the CreateDate property. 
-		///		
-		/// </summary>
-		/// <value>This type is datetime</value>
-		/// <remarks>
-		/// This property can be set to null. 
-		/// If this column is null, this property will return DateTime.MinValue. It is up to the developer
-		/// to check the value of IsCreateDateNull() and perform business logic appropriately.
-		/// </remarks>
-		[DescriptionAttribute(""), System.ComponentModel.Bindable( System.ComponentModel.BindableSupport.Yes)]
-		public virtual System.DateTime? CreateDate
-		{
-			get
-			{
-				return this._createDate; 
-			}
-			set
-			{
-				if (_createDate == value && CreateDate != null )
-					return;
-					
-				this._createDate = value;
-				this._isDirty = true;
-				
-				OnPropertyChanged("CreateDate");
+				OnPropertyChanged("ReqStatus");
 			}
 		}
 		
@@ -645,18 +970,27 @@ namespace ePrescription.Entities
 		{
 			//shallow copy entity
 			VrLabResult copy = new VrLabResult();
+				copy.Id = this.Id;
+				copy.Tid = this.Tid;
+				copy.ReqId = this.ReqId;
+				copy.Code = this.Code;
+				copy.Description = this.Description;
+				copy.ReqDoctor = this.ReqDoctor;
+				copy.Billable = this.Billable;
+				copy.Sample = this.Sample;
+				copy.ColDate = this.ColDate;
+				copy.ColTime = this.ColTime;
+				copy.ReqDate = this.ReqDate;
+				copy.SampleType = this.SampleType;
+				copy.ProviderType = this.ProviderType;
 				copy.StatId = this.StatId;
 				copy.PatientCode = this.PatientCode;
-				copy.Tid = this.Tid;
 				copy.FirstName = this.FirstName;
 				copy.LastName = this.LastName;
 				copy.Dob = this.Dob;
 				copy.Sex = this.Sex;
 				copy.Nationality = this.Nationality;
-				copy.PatientStart = this.PatientStart;
-				copy.Lab = this.Lab;
-				copy.ChargedCodes = this.ChargedCodes;
-				copy.CreateDate = this.CreateDate;
+				copy.ReqStatus = this.ReqStatus;
 			copy.AcceptChanges();
 			return (VrLabResult)copy;
 		}
@@ -714,11 +1048,119 @@ namespace ePrescription.Entities
 				return false;
 
 			bool equal = true;
+			if (Object1.Id != Object2.Id)
+				equal = false;
+			if (Object1.Tid != null && Object2.Tid != null )
+			{
+				if (Object1.Tid != Object2.Tid)
+					equal = false;
+			}
+			else if (Object1.Tid == null ^ Object1.Tid == null )
+			{
+				equal = false;
+			}
+			if (Object1.ReqId != null && Object2.ReqId != null )
+			{
+				if (Object1.ReqId != Object2.ReqId)
+					equal = false;
+			}
+			else if (Object1.ReqId == null ^ Object1.ReqId == null )
+			{
+				equal = false;
+			}
+			if (Object1.Code != null && Object2.Code != null )
+			{
+				if (Object1.Code != Object2.Code)
+					equal = false;
+			}
+			else if (Object1.Code == null ^ Object1.Code == null )
+			{
+				equal = false;
+			}
+			if (Object1.Description != null && Object2.Description != null )
+			{
+				if (Object1.Description != Object2.Description)
+					equal = false;
+			}
+			else if (Object1.Description == null ^ Object1.Description == null )
+			{
+				equal = false;
+			}
+			if (Object1.ReqDoctor != null && Object2.ReqDoctor != null )
+			{
+				if (Object1.ReqDoctor != Object2.ReqDoctor)
+					equal = false;
+			}
+			else if (Object1.ReqDoctor == null ^ Object1.ReqDoctor == null )
+			{
+				equal = false;
+			}
+			if (Object1.Billable != null && Object2.Billable != null )
+			{
+				if (Object1.Billable != Object2.Billable)
+					equal = false;
+			}
+			else if (Object1.Billable == null ^ Object1.Billable == null )
+			{
+				equal = false;
+			}
+			if (Object1.Sample != null && Object2.Sample != null )
+			{
+				if (Object1.Sample != Object2.Sample)
+					equal = false;
+			}
+			else if (Object1.Sample == null ^ Object1.Sample == null )
+			{
+				equal = false;
+			}
+			if (Object1.ColDate != null && Object2.ColDate != null )
+			{
+				if (Object1.ColDate != Object2.ColDate)
+					equal = false;
+			}
+			else if (Object1.ColDate == null ^ Object1.ColDate == null )
+			{
+				equal = false;
+			}
+			if (Object1.ColTime != null && Object2.ColTime != null )
+			{
+				if (Object1.ColTime != Object2.ColTime)
+					equal = false;
+			}
+			else if (Object1.ColTime == null ^ Object1.ColTime == null )
+			{
+				equal = false;
+			}
+			if (Object1.ReqDate != null && Object2.ReqDate != null )
+			{
+				if (Object1.ReqDate != Object2.ReqDate)
+					equal = false;
+			}
+			else if (Object1.ReqDate == null ^ Object1.ReqDate == null )
+			{
+				equal = false;
+			}
+			if (Object1.SampleType != null && Object2.SampleType != null )
+			{
+				if (Object1.SampleType != Object2.SampleType)
+					equal = false;
+			}
+			else if (Object1.SampleType == null ^ Object1.SampleType == null )
+			{
+				equal = false;
+			}
+			if (Object1.ProviderType != null && Object2.ProviderType != null )
+			{
+				if (Object1.ProviderType != Object2.ProviderType)
+					equal = false;
+			}
+			else if (Object1.ProviderType == null ^ Object1.ProviderType == null )
+			{
+				equal = false;
+			}
 			if (Object1.StatId != Object2.StatId)
 				equal = false;
 			if (Object1.PatientCode != Object2.PatientCode)
-				equal = false;
-			if (Object1.Tid != Object2.Tid)
 				equal = false;
 			if (Object1.FirstName != Object2.FirstName)
 				equal = false;
@@ -730,39 +1172,12 @@ namespace ePrescription.Entities
 				equal = false;
 			if (Object1.Nationality != Object2.Nationality)
 				equal = false;
-			if (Object1.PatientStart != null && Object2.PatientStart != null )
+			if (Object1.ReqStatus != null && Object2.ReqStatus != null )
 			{
-				if (Object1.PatientStart != Object2.PatientStart)
+				if (Object1.ReqStatus != Object2.ReqStatus)
 					equal = false;
 			}
-			else if (Object1.PatientStart == null ^ Object1.PatientStart == null )
-			{
-				equal = false;
-			}
-			if (Object1.Lab != null && Object2.Lab != null )
-			{
-				if (Object1.Lab != Object2.Lab)
-					equal = false;
-			}
-			else if (Object1.Lab == null ^ Object1.Lab == null )
-			{
-				equal = false;
-			}
-			if (Object1.ChargedCodes != null && Object2.ChargedCodes != null )
-			{
-				if (Object1.ChargedCodes != Object2.ChargedCodes)
-					equal = false;
-			}
-			else if (Object1.ChargedCodes == null ^ Object1.ChargedCodes == null )
-			{
-				equal = false;
-			}
-			if (Object1.CreateDate != null && Object2.CreateDate != null )
-			{
-				if (Object1.CreateDate != Object2.CreateDate)
-					equal = false;
-			}
-			else if (Object1.CreateDate == null ^ Object1.CreateDate == null )
+			else if (Object1.ReqStatus == null ^ Object1.ReqStatus == null )
 			{
 				equal = false;
 			}
@@ -828,12 +1243,36 @@ namespace ePrescription.Entities
 		{
 			switch (propertyName)
 			{
+				case "Id":
+					return entity.Id;
+				case "Tid":
+					return entity.Tid;
+				case "ReqId":
+					return entity.ReqId;
+				case "Code":
+					return entity.Code;
+				case "Description":
+					return entity.Description;
+				case "ReqDoctor":
+					return entity.ReqDoctor;
+				case "Billable":
+					return entity.Billable;
+				case "Sample":
+					return entity.Sample;
+				case "ColDate":
+					return entity.ColDate;
+				case "ColTime":
+					return entity.ColTime;
+				case "ReqDate":
+					return entity.ReqDate;
+				case "SampleType":
+					return entity.SampleType;
+				case "ProviderType":
+					return entity.ProviderType;
 				case "StatId":
 					return entity.StatId;
 				case "PatientCode":
 					return entity.PatientCode;
-				case "Tid":
-					return entity.Tid;
 				case "FirstName":
 					return entity.FirstName;
 				case "LastName":
@@ -844,14 +1283,8 @@ namespace ePrescription.Entities
 					return entity.Sex;
 				case "Nationality":
 					return entity.Nationality;
-				case "PatientStart":
-					return entity.PatientStart;
-				case "Lab":
-					return entity.Lab;
-				case "ChargedCodes":
-					return entity.ChargedCodes;
-				case "CreateDate":
-					return entity.CreateDate;
+				case "ReqStatus":
+					return entity.ReqStatus;
 			}
 			return null;
 		}
@@ -872,22 +1305,40 @@ namespace ePrescription.Entities
 		public override string ToString()
 		{
 			return string.Format(System.Globalization.CultureInfo.InvariantCulture,
-				"{13}{12}- StatId: {0}{12}- PatientCode: {1}{12}- Tid: {2}{12}- FirstName: {3}{12}- LastName: {4}{12}- Dob: {5}{12}- Sex: {6}{12}- Nationality: {7}{12}- PatientStart: {8}{12}- Lab: {9}{12}- ChargedCodes: {10}{12}- CreateDate: {11}{12}", 
+				"{22}{21}- Id: {0}{21}- Tid: {1}{21}- ReqId: {2}{21}- Code: {3}{21}- Description: {4}{21}- ReqDoctor: {5}{21}- Billable: {6}{21}- Sample: {7}{21}- ColDate: {8}{21}- ColTime: {9}{21}- ReqDate: {10}{21}- SampleType: {11}{21}- ProviderType: {12}{21}- StatId: {13}{21}- PatientCode: {14}{21}- FirstName: {15}{21}- LastName: {16}{21}- Dob: {17}{21}- Sex: {18}{21}- Nationality: {19}{21}- ReqStatus: {20}{21}", 
+				this.Id,
+				(this.Tid == null) ? string.Empty : this.Tid.ToString(),
+			     
+				(this.ReqId == null) ? string.Empty : this.ReqId.ToString(),
+			     
+				(this.Code == null) ? string.Empty : this.Code.ToString(),
+			     
+				(this.Description == null) ? string.Empty : this.Description.ToString(),
+			     
+				(this.ReqDoctor == null) ? string.Empty : this.ReqDoctor.ToString(),
+			     
+				(this.Billable == null) ? string.Empty : this.Billable.ToString(),
+			     
+				(this.Sample == null) ? string.Empty : this.Sample.ToString(),
+			     
+				(this.ColDate == null) ? string.Empty : this.ColDate.ToString(),
+			     
+				(this.ColTime == null) ? string.Empty : this.ColTime.ToString(),
+			     
+				(this.ReqDate == null) ? string.Empty : this.ReqDate.ToString(),
+			     
+				(this.SampleType == null) ? string.Empty : this.SampleType.ToString(),
+			     
+				(this.ProviderType == null) ? string.Empty : this.ProviderType.ToString(),
+			     
 				this.StatId,
 				this.PatientCode,
-				this.Tid,
 				this.FirstName,
 				this.LastName,
 				this.Dob,
 				this.Sex,
 				this.Nationality,
-				(this.PatientStart == null) ? string.Empty : this.PatientStart.ToString(),
-			     
-				(this.Lab == null) ? string.Empty : this.Lab.ToString(),
-			     
-				(this.ChargedCodes == null) ? string.Empty : this.ChargedCodes.ToString(),
-			     
-				(this.CreateDate == null) ? string.Empty : this.CreateDate.ToString(),
+				(this.ReqStatus == null) ? string.Empty : this.ReqStatus.ToString(),
 			     
 				System.Environment.NewLine, 
 				this.GetType());
@@ -903,6 +1354,84 @@ namespace ePrescription.Entities
 	public enum VrLabResultColumn
 	{
 		/// <summary>
+		/// Id : 
+		/// </summary>
+		[EnumTextValue("Id")]
+		[ColumnEnum("Id", typeof(System.Int64), System.Data.DbType.Int64, false, false, false)]
+		Id,
+		/// <summary>
+		/// TID : 
+		/// </summary>
+		[EnumTextValue("TID")]
+		[ColumnEnum("TID", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
+		Tid,
+		/// <summary>
+		/// ReqID : 
+		/// </summary>
+		[EnumTextValue("ReqID")]
+		[ColumnEnum("ReqID", typeof(System.String), System.Data.DbType.String, false, false, true, 10)]
+		ReqId,
+		/// <summary>
+		/// Code : 
+		/// </summary>
+		[EnumTextValue("Code")]
+		[ColumnEnum("Code", typeof(System.String), System.Data.DbType.String, false, false, true, 10)]
+		Code,
+		/// <summary>
+		/// Description : 
+		/// </summary>
+		[EnumTextValue("Description")]
+		[ColumnEnum("Description", typeof(System.String), System.Data.DbType.String, false, false, true, 250)]
+		Description,
+		/// <summary>
+		/// ReqDoctor : 
+		/// </summary>
+		[EnumTextValue("ReqDoctor")]
+		[ColumnEnum("ReqDoctor", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
+		ReqDoctor,
+		/// <summary>
+		/// Billable : 
+		/// </summary>
+		[EnumTextValue("Billable")]
+		[ColumnEnum("Billable", typeof(System.Boolean), System.Data.DbType.Boolean, false, false, true)]
+		Billable,
+		/// <summary>
+		/// Sample : 
+		/// </summary>
+		[EnumTextValue("Sample")]
+		[ColumnEnum("Sample", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
+		Sample,
+		/// <summary>
+		/// ColDate : 
+		/// </summary>
+		[EnumTextValue("ColDate")]
+		[ColumnEnum("ColDate", typeof(System.DateTime), System.Data.DbType.DateTime, false, false, true)]
+		ColDate,
+		/// <summary>
+		/// ColTime : 
+		/// </summary>
+		[EnumTextValue("ColTime")]
+		[ColumnEnum("ColTime", typeof(System.TimeSpan), System.Data.DbType.Time, false, false, true)]
+		ColTime,
+		/// <summary>
+		/// ReqDate : 
+		/// </summary>
+		[EnumTextValue("ReqDate")]
+		[ColumnEnum("ReqDate", typeof(System.DateTime), System.Data.DbType.DateTime, false, false, true)]
+		ReqDate,
+		/// <summary>
+		/// SampleType : 
+		/// </summary>
+		[EnumTextValue("SampleType")]
+		[ColumnEnum("SampleType", typeof(System.String), System.Data.DbType.String, false, false, true, 255)]
+		SampleType,
+		/// <summary>
+		/// ProviderType : 
+		/// </summary>
+		[EnumTextValue("ProviderType")]
+		[ColumnEnum("ProviderType", typeof(System.String), System.Data.DbType.String, false, false, true, 255)]
+		ProviderType,
+		/// <summary>
 		/// StatId : 
 		/// </summary>
 		[EnumTextValue("StatId")]
@@ -914,12 +1443,6 @@ namespace ePrescription.Entities
 		[EnumTextValue("PatientCode")]
 		[ColumnEnum("PatientCode", typeof(System.String), System.Data.DbType.String, false, false, false, 50)]
 		PatientCode,
-		/// <summary>
-		/// TID : 
-		/// </summary>
-		[EnumTextValue("TID")]
-		[ColumnEnum("TID", typeof(System.String), System.Data.DbType.String, false, false, false, 50)]
-		Tid,
 		/// <summary>
 		/// FirstName : 
 		/// </summary>
@@ -951,29 +1474,11 @@ namespace ePrescription.Entities
 		[ColumnEnum("Nationality", typeof(System.String), System.Data.DbType.String, false, false, false, 50)]
 		Nationality,
 		/// <summary>
-		/// PatientStart : 
+		/// ReqStatus : 
 		/// </summary>
-		[EnumTextValue("PatientStart")]
-		[ColumnEnum("PatientStart", typeof(System.Boolean), System.Data.DbType.Boolean, false, false, true)]
-		PatientStart,
-		/// <summary>
-		/// Lab : 
-		/// </summary>
-		[EnumTextValue("Lab")]
-		[ColumnEnum("Lab", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
-		Lab,
-		/// <summary>
-		/// ChargedCodes : 
-		/// </summary>
-		[EnumTextValue("ChargedCodes")]
-		[ColumnEnum("ChargedCodes", typeof(System.String), System.Data.DbType.String, false, false, true, 50)]
-		ChargedCodes,
-		/// <summary>
-		/// CreateDate : 
-		/// </summary>
-		[EnumTextValue("CreateDate")]
-		[ColumnEnum("CreateDate", typeof(System.DateTime), System.Data.DbType.DateTime, false, false, true)]
-		CreateDate
+		[EnumTextValue("ReqStatus")]
+		[ColumnEnum("ReqStatus", typeof(System.String), System.Data.DbType.String, false, false, true, 20)]
+		ReqStatus
 	}//End enum
 
 } // end namespace

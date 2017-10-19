@@ -911,6 +911,59 @@ namespace ePrescription.Data.SqlClient
 		#region Custom Methods
 	
 
+		#region _VitalSign_GetByTid
+					
+		/// <summary>
+		///	This method wraps the '_VitalSign_GetByTid' stored procedure. 
+		/// </summary>	
+		/// <param name="tid"> A <c>System.String</c> instance.</param>
+		/// <param name="start">Row number at which to start reading.</param>
+		/// <param name="pageLength">Number of rows to return.</param>
+		/// <param name="transactionManager"><see cref="TransactionManager"/> object.</param>
+		/// <remark>This method is generated from a stored procedure.</remark>
+		/// <returns>A <see cref="TList&lt;VitalSign&gt;"/> instance.</returns>
+		public override TList<VitalSign> GetByTid(TransactionManager transactionManager, int start, int pageLength , System.String tid)
+		{
+			SqlDatabase database = new SqlDatabase(this._connectionString);
+			DbCommand commandWrapper = StoredProcedureProvider.GetCommandWrapper(database, "dbo._VitalSign_GetByTid", true);
+			
+			database.AddInParameter(commandWrapper, "@TID", DbType.String,  tid );
+	
+			
+			IDataReader reader = null;
+			
+			//Create Collection
+				TList<VitalSign> rows = new TList<VitalSign>();
+				//Provider Data Requesting Command Event
+				OnDataRequesting(new CommandEventArgs(commandWrapper, "GetByTid", rows));
+	
+				if (transactionManager != null)
+				{	
+					reader = Utility.ExecuteReader(transactionManager, commandWrapper);
+				}
+				else
+				{
+					reader = Utility.ExecuteReader(database, commandWrapper);
+				}	
+				
+				try
+				{    
+					Fill(reader, rows, start, pageLength);
+				}
+				finally
+				{
+					if (reader != null) 
+						reader.Close();
+				}
+				
+				//Provider Data Requested Command Event
+				OnDataRequested(new CommandEventArgs(commandWrapper, "GetByTid", rows));
+
+
+				return rows;
+		}
+		#endregion
+
 		#region _VitalSign_Update
 					
 		/// <summary>
